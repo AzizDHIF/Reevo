@@ -4,14 +4,22 @@ import os
 from pathlib import Path
 import subprocess
 from utils.utils import init_client, print_hyperlink
-
-
+import sys
+import yaml 
 ROOT_DIR = os.getcwd()
 logging.basicConfig(level=logging.INFO)
 
 @hydra.main(version_base=None, config_path="cfg", config_name="config")
 def main(cfg):
     workspace_dir = Path.cwd()
+    ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
+
+    #Initialisation de la clé api 
+    api_key_path=os.path.join(ROOT_DIR, "api_key.yaml")
+    os.environ["GROQ_API_KEY"] = yaml.safe_load(open(api_key_path, "r"))[f"api_0"]
+    
+    
+    logging.info(f"Current working directory: {os.getcwd()}")
     # Set logging level
     logging.info(f"Workspace: {print_hyperlink(workspace_dir)}")
     logging.info(f"Project Root: {print_hyperlink(ROOT_DIR)}")
@@ -53,7 +61,7 @@ def main(cfg):
     test_script_stdout = "best_code_overall_val_stdout.txt"
     logging.info(f"Running validation script...: {print_hyperlink(test_script)}")
     with open(test_script_stdout, 'w', encoding="utf-8") as stdout:
-        subprocess.run(["python", test_script, "-1", ROOT_DIR, "val"], stdout=stdout)
+        subprocess.run([sys.executable, test_script, "-1", ROOT_DIR, "val"], stdout=stdout)
     logging.info(f"Validation script finished. Results are saved in {print_hyperlink(test_script_stdout)}.")
     
     # Print the results

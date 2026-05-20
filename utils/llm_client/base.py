@@ -4,8 +4,8 @@ import time
 import logging
 import concurrent
 from random import random
-
-
+import os
+import yaml 
 logger = logging.getLogger(__name__)
 
 class BaseClient(object):
@@ -16,22 +16,38 @@ class BaseClient(object):
     ) -> None:
         self.model = model
         self.temperature = temperature
+        self.current_api_key_index = 0  
+        ROOT_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+        self.api_key_path = os.path.join(ROOT_DIR, "api_key.yaml")  
+   
+        
     
     def _chat_completion_api(self, messages: list[dict], temperature: float, n: int = 1):
         raise NotImplemented
     
+
     def chat_completion(self, n: int, messages: list[dict], temperature: Optional[float] = None) -> list[dict]:
         """
         Generate n responses using OpenAI Chat Completions API
         """
         temperature = temperature or self.temperature
         time.sleep(random())
+        
         for attempt in range(1000):
             try:
                 response_cur = self._chat_completion_api(messages, temperature, n)
             except Exception as e:
                 logger.exception(e)
                 logger.info(f"Attempt {attempt+1} failed with error: {e}")
+                if "tokens per minute (tpm)" in str(e).lower() and "rate limit reached" in str(e).lower():
+                    logging.info(" Minute Rate limit  detected. Waiting 60 seconds before retrying...")
+                    time.sleep(65)
+                if "on tokens per day (tpd)" in str(e).lower() and "rate limit reached" in str(e).lower():
+                    logging.info(" Daily rate limit  detected. Changing API key")
+
+                    self._switch_api_key() 
+    
+
                 time.sleep(1)
             else:
                 break

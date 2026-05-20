@@ -4,7 +4,7 @@ import subprocess
 import numpy as np
 import os
 from omegaconf import DictConfig
-
+import sys
 from utils.utils import *
 from utils.llm_client.base import BaseClient
 
@@ -239,8 +239,8 @@ class ReEvo:
         # Execute the python file with flags
         with open(individual["stdout_filepath"], 'w',encoding="utf-8") as f:
             eval_file_path = f'{self.root_dir}/problems/{self.problem}/eval.py' if self.problem_type != "black_box" else f'{self.root_dir}/problems/{self.problem}/eval_black_box.py' 
-            process = subprocess.Popen(['python', '-u', eval_file_path, f'{self.problem_size}', self.root_dir, "train"],
-                                        stdout=f, stderr=f)
+            process = subprocess.Popen([sys.executable, '-u', eval_file_path, f'{self.problem_size}', self.root_dir, "train"],
+                            stdout=f, stderr=f)
 
         block_until_running(individual["stdout_filepath"], log_status=True, iter_num=self.iteration, response_id=response_id)
         return process
@@ -458,7 +458,7 @@ class ReEvo:
         return population
 
 
-    def evolve(self):
+    def evolve(self): #la boucle de l'algo evolutionnaire(select,crossover,mutation,...)
         while self.function_evals < self.cfg.max_fe:
             # If all individuals are invalid, stop
             if all([not individual["exec_success"] for individual in self.population]):

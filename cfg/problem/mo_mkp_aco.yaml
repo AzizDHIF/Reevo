@@ -1,0 +1,6 @@
+problem_name: mmkp_aco
+problem_type: aco
+obj_type: max
+problem_size: 100 # problem size for training
+func_name: heuristics
+description: Solving Multi-Objective Multiple Knapsack Problems (MO-MKP) through stochastic solution sampling based on "heuristics". MO-MKP involves selecting a subset of items to simultaneously optimize multiple conflicting objectives (e.g., maximizing total prize and minimizing total weight), subject to multi-dimensional capacity constraints across multiple knapsacks.

@@ -1,0 +1,6 @@
+_target_: utils.llm_client.llama_api.LlamaAPIClient # réutilise le même client !
+
+model: llama-3.3-70b-versatile
+temperature: 1.0
+api_key: ${oc.env:GROQ_API_KEY,null}
+base_url: https://api.groq.com/openai/v1

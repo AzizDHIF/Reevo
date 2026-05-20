@@ -8,7 +8,7 @@ class ACO():
 
     def __init__(self,  # constraints are set to 1 after normalize weight 
                  prize,  # shape [n,]
-                 weight, # shape [m, n]
+                 weight, # shape [n,m]
                  heuristic,
                  n_ants=30, 
                  decay=0.9,
@@ -97,8 +97,8 @@ class ACO():
         return torch.stack(solutions)
     
     def pick_item(self, mask, dummy_mask):
-        phe = self.pheromone.unsqueeze(0).repeat(self.n_ants, 1)
-        heu = self.heuristic.unsqueeze(0).repeat(self.n_ants, 1)
+        phe = self.pheromone.unsqueeze(0).repeat(self.n_ants, 1) #shape: (n_ants,n+1)
+        heu = self.heuristic.unsqueeze(0).repeat(self.n_ants, 1) #shape: (n_ants,n+1)
         dist = ((phe ** self.alpha) * (heu ** self.beta) * mask * dummy_mask) # (n_ants, n+1)
         dist = Categorical(dist)
         item = dist.sample()
@@ -109,7 +109,7 @@ class ACO():
         return (mask[:, :-1] == 0).all()
     
     def update_dummy_state(self, mask, dummy_mask):
-        finished = (mask[: ,:-1] == 0).all(dim=1)
+        finished = (mask[: ,:-1] == 0).all(dim=1) #une liste [False, False, True, ...] de taille n_ants True si une fourmis n'as plus de choix    
         dummy_mask[finished] = 1
         return dummy_mask
     
