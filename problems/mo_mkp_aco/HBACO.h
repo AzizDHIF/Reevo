@@ -36,7 +36,7 @@ pop* create_pop(int maxsize, int dim);
 ind* create_ind(int dim);
 void complete_free_pop(pop *pp);
 int dominates(ind *p_ind_a, ind *p_ind_b);
-double random_nb();
+double random_nb(double,double);
 void mutate(ind *x,mut *m);
 
 int max(int a, int b);
