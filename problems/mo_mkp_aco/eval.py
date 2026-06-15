@@ -17,7 +17,7 @@ def remove_empty_line(path_file_txt):
             if line.strip():  # conserve uniquement les lignes non vides
                 f.write(line)
 
-def run_aco(executable="WeightACO_train", args=[]):
+def run_aco(executable, args=[]):
     run_cmd = [f"./{executable}.exe"] + args
     print(f"Exécution : {' '.join(run_cmd)}")
     
@@ -88,6 +88,7 @@ def concatenate_pareto_sets(pareto_dir, executable="nondominated"):
 
     run_cmd_filtrage = [
         f"./{executable}.exe",
+        
         "--filter",
         result_file
     ]
@@ -103,99 +104,105 @@ def concatenate_pareto_sets(pareto_dir, executable="nondominated"):
         print(f"Erreur à l'exécution (code {result_filtrage.returncode})")
         sys.exit(1)
 
-def calculate_ref_point(pareto_path):
 
-    points = []
 
-    with open(pareto_path, "r") as f:
-        for line in f:
 
-            line = line.strip()
+def get_profits_range(dataset_path):
+    
+    
+    
+    with open(dataset_path, "r") as f:
+        l=f.readline().strip().split()
+        n_dim=int(l[0])
+        n_items=int(l[1])
+        
+    
+        max_profits = n_dim*[""]
+        min_profits = n_dim*[""]
+        etendu_profits=n_dim*[""]
 
-            if not line:
-                continue
+        for index_dim in range(n_dim):
 
-            values = [float(x) for x in line.split()]
-            points.append(values)
+            f.readline() #skip the capacity line
+            profits=[]
+            for item in range(n_items):
+                    
+                f.readline() #skip line with item index
+                f.readline() #skip weight
+                profits.append(float(f.readline().strip()))
+            max_profits[index_dim]=max(profits)
+            min_profits[index_dim]=min(profits)
+            etendu_profits[index_dim]=max(profits) -min(profits)
+    
+    return max_profits,min_profits,etendu_profits
 
-    if not points:
-        raise ValueError("No points found in file.")
 
-    nb_obj = len(points[0])
+            
 
-    ref = []
-
-    for j in range(nb_obj):
-
-        column = [p[j] for p in points]
-
-        minimum = min(column)
-        maximum = max(column)
-
-        ref_value = maximum + 0.1 * (maximum - minimum)
-
-        ref.append(ref_value)
-
-    return ",".join(f"{x:.6f}" for x in ref)
 
 def calculate_meanHypervolume(files):
     
     mean=0
+    
 
     for pareto_file in files:
         
-        run_cmd_hv = [
-            "./hv.exe",
-            pareto_file,
-            
-            
-        ]
-
-        print("Exécution :", " ".join(run_cmd_hv))
+        print("Exécution :", " ".join(["./hv.exe", pareto_file,]))
 
         result_hv = subprocess.run(
-            run_cmd_hv,
+            ["./hv.exe", pareto_file],
             cwd=WORK_DIR,
             capture_output=True,
             text=True)
         
+      
         print(f"Résultat de l'hypervolume pour {pareto_file} : {result_hv.stdout}")
+
+
         try:
-         mean=mean+float(result_hv.stdout)
+
+            mean=mean+float(result_hv.stdout)            
         except ValueError:
+            
             print(f"Erreur de conversion pour {pareto_file} : '{result_hv.stdout.strip()}' n'est pas un nombre valide.")
             raise ValueError(f"Erreur de conversion pour {pareto_file} : '{result_hv.stdout.strip()}' n'est pas un nombre valide.")
+    
     mean=mean/len(files)
     print("moyenne pour l'hypervolume :", mean)
     return mean
 
-def calculate_meanEpsilon(files):
+def calculate_meanEpsilon(files, pareto_ref_files):
 
     
     mean=0
-    pareto_ref_list=[r"dataset\mood_train_dataset\dataset_0\pareto_ref.txt",r"dataset\mood_train_dataset\dataset_1\pareto_ref.txt",r"dataset\mood_train_dataset\dataset_2\pareto_ref.txt",r"dataset\mood_train_dataset\dataset_3\pareto_ref.txt",r"dataset\mood_train_dataset\dataset_4\pareto_ref.txt"]
-    for pareto_ref, pareto_file in zip(pareto_ref_list, files):
+  
+    for pareto_file, pareto_ref  in zip(files,pareto_ref_files):
         
         
-        run_cmd_hv = [
+        run_cmd_ep = [
             "./epsilon.exe",
             "--reference",
             pareto_ref,
             pareto_file
         ]
 
-        print("Exécution :", " ".join(run_cmd_hv))
+        print("Exécution :", " ".join(run_cmd_ep))
 
         result_ep = subprocess.run(
-            run_cmd_hv,
+            run_cmd_ep,
             cwd=WORK_DIR,
             capture_output=True,
             text=True)
         
         print(f"Résultat de l'epsilon pour {pareto_file} : {result_ep.stdout}")
         try:
-          mean=mean+float(result_ep.stdout)
+          
+          epsilon = float(result_ep.stdout.strip())
+          mean=mean+epsilon
         except ValueError:
+            print(f"returncode: {result_ep.returncode}")
+            print(f"stdout: '{result_ep.stdout}'")
+            print(f"stderr: '{result_ep.stderr}'")
             print(f"Erreur de conversion pour {pareto_file} : '{result_ep.stdout.strip()}' n'est pas un nombre valide.")
             raise ValueError(f"Erreur de conversion pour {pareto_file} : '{result_ep.stdout.strip()}' n'est pas un nombre valide.")
     mean=mean/len(files)
@@ -203,6 +210,58 @@ def calculate_meanEpsilon(files):
 
     return mean 
 
+
+def delete_folder(folder_path):
+    cmd = [
+        "powershell",
+        "-Command",
+        f"Remove-Item -Path '{folder_path}' -Recurse -Force"
+    ]
+
+    result = subprocess.run(
+        cmd,
+        capture_output=True,
+        text=True
+    )
+
+    if result.returncode != 0:
+        raise RuntimeError(
+            f"Erreur lors de la suppression : {result.stderr}"
+        )
+
+def delete_file(file_path):
+    cmd = [
+        "powershell",
+        "-Command",
+        f"Remove-Item -Path '{file_path}' -Force"
+    ]
+
+    result = subprocess.run(
+        cmd,
+        capture_output=True,
+        text=True
+    )
+
+    if result.returncode != 0:
+        raise RuntimeError(
+            f"Erreur lors de la suppression : {result.stderr}"
+        )
+   
+
+def get_pareto_ref_etendue(pareto_ref_path):
+    points = []
+    with open(pareto_ref_path, "r") as f:
+        for line in f:
+            line = line.strip()
+            if line:
+                points.append([float(x) for x in line.split()])
+    
+    nb_obj = len(points[0])
+    etendues = [
+        max(p[j] for p in points) - min(p[j] for p in points)
+        for j in range(nb_obj)
+    ]
+    return sum(etendues) / len(etendues)
 
 
 if __name__ == "__main__":
@@ -223,7 +282,7 @@ if __name__ == "__main__":
     
     pareto_set_dirs=["pareto_set\\pareto_sets_dataset_0","pareto_set\\pareto_sets_dataset_1","pareto_set\\pareto_sets_dataset_2","pareto_set\\pareto_sets_dataset_3","pareto_set\\pareto_sets_dataset_4"]
     pareto_set_files=[os.path.join(p, "final_pareto.txt_dat") for p in pareto_set_dirs]
-    pareto_ref_files=["dataset\\mood_train_dataset\\dataset_0\\reference_pareto.txt","dataset\\mood_train_dataset\\dataset_1\\reference_pareto.txt","dataset\\mood_train_dataset\\dataset_2\\reference_pareto.txt","dataset\\mood_train_dataset\\dataset_3\\reference_pareto.txt","dataset\\mood_train_dataset\\dataset_4\\reference_pareto.txt"]
+    pareto_ref_files=[r"dataset\mood_train_dataset\ref_dataset_0\final_pareto_file.txt_dat",r"dataset\mood_train_dataset\ref_dataset_1\final_pareto_file.txt_dat",r"dataset\mood_train_dataset\ref_dataset_2\final_pareto_file.txt_dat",r"dataset\mood_train_dataset\ref_dataset_3\final_pareto_file.txt_dat",r"dataset\mood_train_dataset\ref_dataset_4\final_pareto_file.txt_dat"]
     
 
     mood = sys.argv[3]
@@ -232,23 +291,29 @@ if __name__ == "__main__":
 
 
     if mood == 'train':
+        import time 
         print("[*] Running ACO on training datasets...")
-    
+        
+        start=time.time()
         #lancer l'ACO sur les datasets du train
-        """for dataset in datasets:
-            run_aco(args=[dataset])"""
+        for dataset in datasets:
+            run_aco("WeightACO_100items",args=[dataset])
+
+        end=time.time()
+
+        print(f"Temps écoulé pour le lancement de l'algo aco: {(end - start)/60:.4f} minutes")
         
         print("[*] Extracting Pareto sets from ACO results...")
 
         #extraire les sets de pareto à partir des résultats de l'ACO
-        """for (algo_result_file, pareto_output_dir) in aco_results:
-            extraire_pareto_sets(algo_result_file, pareto_output_dir)"""
+        for (algo_result_file, pareto_output_dir) in aco_results:
+            extraire_pareto_sets(algo_result_file, pareto_output_dir)
         
         print("[*] Concatenating Pareto sets and filtering with nondominated.exe...")
         #concaténer les sets de pareto extraits pour chaque dataset
 
-        """for pareto_dir in pareto_set_dirs:
-            concatenate_pareto_sets(pareto_dir)"""
+        for pareto_dir in pareto_set_dirs:
+            concatenate_pareto_sets(pareto_dir)
         
         
 
@@ -259,16 +324,108 @@ if __name__ == "__main__":
         ##hypervolume
         mean_hypervolume=calculate_meanHypervolume(pareto_set_files)
         ##epsilon
-        mean_epsilon=calculate_meanEpsilon(pareto_set_files)
+        mean_epsilon=calculate_meanEpsilon(pareto_set_files,pareto_ref_files)
+        
+        
+        #Supprimer les dossiers de sets de pareto temporaire
+        print("[*] Suppression des dossiers de sets de pareto intermédiaires...")
+        for i in range(5):
+            delete_folder(f"pareto_set\\pareto_sets_dataset_{i}")
+            #Supprimer les fichiers de résultats intermédiaires de l'ACO
+            delete_file(f"results_train_dataset_{i}.txt")
 
         print("[*] moyenne pour hypervolume et  epsilon:")
+        
         print(mean_hypervolume, mean_epsilon)
 
-    #mood = test:
+        
+
+
+   
+    #mood = val:
     else:
-        pass
+        import time 
+        start= time.time()
+        val_aco_results=[("results_val_dataset_0_100_items.txt", "pareto_set_val\\pareto_sets_dataset_0_items_100"),
+                 ("results_val_dataset_1_100_items.txt", "pareto_set_val\\pareto_sets_dataset_1_items_100"),
+                 ("results_val_dataset_2_100_items.txt", "pareto_set_val\\pareto_sets_dataset_2_items_100"),
+                 ("results_val_dataset_3_100_items.txt", "pareto_set_val\\pareto_sets_dataset_3_items_100"),
+                 ("results_val_dataset_4_100_items.txt", "pareto_set_val\\pareto_sets_dataset_4_items_100"),
+                 ("results_val_dataset_0_300_items.txt", "pareto_set_val\\pareto_sets_dataset_0_items_300"),
+                 ("results_val_dataset_1_300_items.txt", "pareto_set_val\\pareto_sets_dataset_1_items_300"),
+                 ("results_val_dataset_2_300_items.txt", "pareto_set_val\\pareto_sets_dataset_2_items_300"),
+                 ("results_val_dataset_3_300_items.txt", "pareto_set_val\\pareto_sets_dataset_3_items_300"),
+                 ("results_val_dataset_4_300_items.txt", "pareto_set_val\\pareto_sets_dataset_4_items_300"),
+                 ("results_val_dataset_0_500_items.txt", "pareto_set_val\\pareto_sets_dataset_0_items_500"),
+                 ("results_val_dataset_1_500_items.txt", "pareto_set_val\\pareto_sets_dataset_1_items_500"),
+                 ("results_val_dataset_2_500_items.txt", "pareto_set_val\\pareto_sets_dataset_2_items_500"),
+                 ("results_val_dataset_3_500_items.txt", "pareto_set_val\\pareto_sets_dataset_3_items_500"),
+                 ("results_val_dataset_4_500_items.txt", "pareto_set_val\\pareto_sets_dataset_4_items_500"),]
+        
+        val_pareto_ref_files=[]
+        val_pareto_set_files=[os.path.join(p, "final_pareto.txt_dat") for _,p in val_aco_results]
+
+            
+        print("[*] Running ACO on EVAL datasets...")
+
+        #lancer l'ACO sur les datasets du train
+        
+        for i in range(5):
+            for nb_items in [100,300,500]:
+              run_aco(f"WeightACO_eval_{nb_items}items",args=[f"dataset\\mood_val_dataset\\dataset_{i}_instance_{nb_items}_items_3_objectifs.txt"])
+        
+        end=time.time()
+
+        print(f"Temps écoulé pour le lancement de l'algo aco: {(end - start)/60:.4f} minutes")
+
+        print("[*] Extracting Pareto sets from ACO results...")
+
+        #extraire les sets de pareto à partir des résultats de l'ACO
+        for (algo_result_file, pareto_output_dir) in val_aco_results:
+            extraire_pareto_sets(algo_result_file, pareto_output_dir)
+
+        print("[*] Concatenating Pareto sets and filtering with nondominated.exe...")
+        #concaténer les sets de pareto extraits pour chaque dataset
+
+        for _,pareto_dir in val_aco_results:
+            concatenate_pareto_sets(pareto_dir)
+        
+        print("[*] Calculating  hypervolume and epsilon...")
+        #calcul des deux métriques epsilon et hypervolume
+        
+        val_pareto_set_files_100items=[f for f  in  val_pareto_set_files if "items_100" in f] 
+        val_pareto_set_files_300items=[f for f  in  val_pareto_set_files if "items_300" in f]
+        val_pareto_set_files_500items=[f for f  in  val_pareto_set_files if "items_500" in f]
+        ##hypervolume
+        
+        mean_hypervolume_100items =calculate_meanHypervolume(val_pareto_set_files_100items)
+        mean_hypervolume_300items =calculate_meanHypervolume(val_pareto_set_files_300items)
+        mean_hypervolume_500items =calculate_meanHypervolume(val_pareto_set_files_500items)
+
+        ##epsilon
+        mean_epsilon_100items=calculate_meanEpsilon(val_pareto_set_files_100items,val_pareto_ref_files)
+        mean_epsilon_300items=calculate_meanEpsilon(val_pareto_set_files_300items,val_pareto_ref_files)
+        mean_epsilon_500items=calculate_meanEpsilon(val_pareto_set_files_500items,val_pareto_ref_files)
 
 
+        #Supprimer les dossiers de sets de pareto temporaire
+        print("[*] Suppression des dossiers de sets de pareto intermédiaires...")
+        for folder, file in val_aco_results:
+            delete_folder(folder)
+            #Supprimer les fichiers de résultats intermédiaires de l'ACO
+            delete_file(file)
+        
+        print("[*] moyenne pour hypervolume et  epsilon:")
+        
+        print(f"[*] Average for hypervolume 100 items: {mean_hypervolume_100items}")
+        print(f"[*] Average for epsilon 100 items: {mean_epsilon_100items}")
 
-  
+        print(f"[*] Average for hypervolume 300 items: {mean_hypervolume_300items}")
+        print(f"[*] Average for epsilon 300 items: {mean_epsilon_300items}")
+
+        print(f"[*] Average for hypervolume 500 items: {mean_hypervolume_500items}")
+        print(f"[*] Average for epsilon 500 items: {mean_epsilon_500items}")
+
+        
+
 
