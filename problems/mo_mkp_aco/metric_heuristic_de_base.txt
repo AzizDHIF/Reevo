@@ -1,0 +1,11 @@
+Train
+[*] moyenne pour hypervolume et  epsilon:
+280.05222443561235 0.436573
+Val
+[*] moyenne pour hypervolume et  epsilon:
+[*] Average for hypervolume 100 items: 462.94325614939237
+[*] Average for epsilon 100 items: 0.5698983999999998
+[*] Average for hypervolume 300 items: 6584.395668084505
+[*] Average for epsilon 300 items: 0.4556796000000037
+[*] Average for hypervolume 500 items: 27666.468400772348
+[*] Average for epsilon 500 items: -2.6804077999999985

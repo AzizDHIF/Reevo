@@ -1,7 +1,7 @@
 import subprocess
 import sys
 import os
-
+import logging 
 WORK_DIR = os.path.dirname(os.path.abspath(__file__))
 
 
@@ -68,12 +68,12 @@ def extraire_pareto_sets(fichier_entree, dossier_sortie):
 
 
 
-def concatenate_pareto_sets(pareto_dir, executable="nondominated"):
+def concatenate_pareto_sets(pareto_dir,nb_pareto_files, executable="nondominated"):
 
     result_file = os.path.join(pareto_dir, "final_pareto.txt")
 
     with open(result_file, "w") as out:
-        for j in range(1, 11):
+        for j in range(1, nb_pareto_files+1):
             pareto_file = os.path.join(pareto_dir, f"pareto_{j}.txt")
 
             with open(pareto_file, "r") as f:
@@ -291,17 +291,16 @@ if __name__ == "__main__":
 
 
     if mood == 'train':
-        import time 
+         
         print("[*] Running ACO on training datasets...")
         
-        start=time.time()
+        
         #lancer l'ACO sur les datasets du train
         for dataset in datasets:
             run_aco("WeightACO_100items",args=[dataset])
 
-        end=time.time()
+        
 
-        print(f"Temps écoulé pour le lancement de l'algo aco: {(end - start)/60:.4f} minutes")
         
         print("[*] Extracting Pareto sets from ACO results...")
 
@@ -313,7 +312,7 @@ if __name__ == "__main__":
         #concaténer les sets de pareto extraits pour chaque dataset
 
         for pareto_dir in pareto_set_dirs:
-            concatenate_pareto_sets(pareto_dir)
+            concatenate_pareto_sets(pareto_dir,3)
         
         
 
@@ -344,8 +343,9 @@ if __name__ == "__main__":
    
     #mood = val:
     else:
-        import time 
-        start= time.time()
+        logging.info(f"[*] Evaluating ...")
+         
+        from itertools import product
         val_aco_results=[("results_val_dataset_0_100_items.txt", "pareto_set_val\\pareto_sets_dataset_0_items_100"),
                  ("results_val_dataset_1_100_items.txt", "pareto_set_val\\pareto_sets_dataset_1_items_100"),
                  ("results_val_dataset_2_100_items.txt", "pareto_set_val\\pareto_sets_dataset_2_items_100"),
@@ -362,10 +362,16 @@ if __name__ == "__main__":
                  ("results_val_dataset_3_500_items.txt", "pareto_set_val\\pareto_sets_dataset_3_items_500"),
                  ("results_val_dataset_4_500_items.txt", "pareto_set_val\\pareto_sets_dataset_4_items_500"),]
         
-        val_pareto_ref_files=[]
+        
+        val_pareto_ref_files_100items=[f"dataset\\mood_val_dataset\\ref_dataset_{i}_100_items\\final_pareto_file.txt_dat" for i in range(5)]
+        val_pareto_ref_files_300items=[f"dataset\\mood_val_dataset\\ref_dataset_{i}_300_items\\final_pareto_file.txt_dat" for i in range(5)]
+        val_pareto_ref_files_500items=[f"dataset\\mood_val_dataset\\ref_dataset_{i}_500_items\\final_pareto_file.txt_dat" for i in range(5)]
         val_pareto_set_files=[os.path.join(p, "final_pareto.txt_dat") for _,p in val_aco_results]
-
-            
+        val_pareto_set_files_100items=[f for f  in  val_pareto_set_files if "items_100" in f] 
+        val_pareto_set_files_300items=[f for f  in  val_pareto_set_files if "items_300" in f]
+        val_pareto_set_files_500items=[f for f  in  val_pareto_set_files if "items_500" in f]
+        
+       
         print("[*] Running ACO on EVAL datasets...")
 
         #lancer l'ACO sur les datasets du train
@@ -374,9 +380,7 @@ if __name__ == "__main__":
             for nb_items in [100,300,500]:
               run_aco(f"WeightACO_eval_{nb_items}items",args=[f"dataset\\mood_val_dataset\\dataset_{i}_instance_{nb_items}_items_3_objectifs.txt"])
         
-        end=time.time()
 
-        print(f"Temps écoulé pour le lancement de l'algo aco: {(end - start)/60:.4f} minutes")
 
         print("[*] Extracting Pareto sets from ACO results...")
 
@@ -388,14 +392,12 @@ if __name__ == "__main__":
         #concaténer les sets de pareto extraits pour chaque dataset
 
         for _,pareto_dir in val_aco_results:
-            concatenate_pareto_sets(pareto_dir)
+            concatenate_pareto_sets(pareto_dir,3)
         
         print("[*] Calculating  hypervolume and epsilon...")
         #calcul des deux métriques epsilon et hypervolume
         
-        val_pareto_set_files_100items=[f for f  in  val_pareto_set_files if "items_100" in f] 
-        val_pareto_set_files_300items=[f for f  in  val_pareto_set_files if "items_300" in f]
-        val_pareto_set_files_500items=[f for f  in  val_pareto_set_files if "items_500" in f]
+        
         ##hypervolume
         
         mean_hypervolume_100items =calculate_meanHypervolume(val_pareto_set_files_100items)
@@ -403,9 +405,9 @@ if __name__ == "__main__":
         mean_hypervolume_500items =calculate_meanHypervolume(val_pareto_set_files_500items)
 
         ##epsilon
-        mean_epsilon_100items=calculate_meanEpsilon(val_pareto_set_files_100items,val_pareto_ref_files)
-        mean_epsilon_300items=calculate_meanEpsilon(val_pareto_set_files_300items,val_pareto_ref_files)
-        mean_epsilon_500items=calculate_meanEpsilon(val_pareto_set_files_500items,val_pareto_ref_files)
+        mean_epsilon_100items=calculate_meanEpsilon(val_pareto_set_files_100items,val_pareto_ref_files_100items)
+        mean_epsilon_300items=calculate_meanEpsilon(val_pareto_set_files_300items,val_pareto_ref_files_300items)
+        mean_epsilon_500items=calculate_meanEpsilon(val_pareto_set_files_500items,val_pareto_ref_files_500items)
 
 
         #Supprimer les dossiers de sets de pareto temporaire
