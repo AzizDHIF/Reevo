@@ -4,7 +4,14 @@ import os
 import logging 
 WORK_DIR = os.path.dirname(os.path.abspath(__file__))
 
+def compile(c_file_name,exe_file_name):
+    run_cmd = ["gcc", c_file_name, "gpt.c", "-o", exe_file_name]
+    result=subprocess.run(run_cmd,cwd=WORK_DIR)
 
+    if result.returncode!=0:
+        print("Erreur de compilation")
+    else: print(f"Fichier {c_file_name} compilé avec succès dans {exe_file_name}")
+    
 def remove_empty_line(path_file_txt):
     """
     Supprime les lignes vides d'un fichier texte.
@@ -294,10 +301,14 @@ if __name__ == "__main__":
          
         print("[*] Running ACO on training datasets...")
         
-        
+
+        print("[*] Compiling WeightACO_train_100items.c")
+
+        compile("WeightACO_train_100items.c","WeightACO_train_100items.exe")
+
         #lancer l'ACO sur les datasets du train
         for dataset in datasets:
-            run_aco("WeightACO_100items",args=[dataset])
+            run_aco("WeightACO_train_100items",args=[dataset])
 
         
 
@@ -333,9 +344,9 @@ if __name__ == "__main__":
             #Supprimer les fichiers de résultats intermédiaires de l'ACO
             delete_file(f"results_train_dataset_{i}.txt")
 
-        print("[*] moyenne pour hypervolume et  epsilon:")
+        print("[*] moyenne pour hypervolume :")
         
-        print(mean_hypervolume, mean_epsilon)
+        print(mean_hypervolume)
 
         
 
@@ -375,6 +386,11 @@ if __name__ == "__main__":
         print("[*] Running ACO on EVAL datasets...")
 
         #lancer l'ACO sur les datasets du train
+
+
+        print("[*] Compiling WeightACO_train_100items.c")
+        for nb_items in [100,300,500]:
+            compile("WeightACO_eval_{nb_items}items.c","WeightACO_eval_{nb_items}items.exe")        
         
         for i in range(5):
             for nb_items in [100,300,500]:
@@ -410,12 +426,7 @@ if __name__ == "__main__":
         mean_epsilon_500items=calculate_meanEpsilon(val_pareto_set_files_500items,val_pareto_ref_files_500items)
 
 
-        #Supprimer les dossiers de sets de pareto temporaire
-        print("[*] Suppression des dossiers de sets de pareto intermédiaires...")
-        for folder, file in val_aco_results:
-            delete_folder(folder)
-            #Supprimer les fichiers de résultats intermédiaires de l'ACO
-            delete_file(file)
+    
         
         print("[*] moyenne pour hypervolume et  epsilon:")
         
