@@ -10,8 +10,6 @@
 #include "HBACO.h"
 
 
-#define dimension 3
-#define NBITEMS 500
 /*#define NBANTS 100*/
 #define FREQUANCY 80
 
@@ -21,8 +19,8 @@
 #endif
 
 double capacities[dimension];
-double weights[dimension][NBITEMS];
-double profits[dimension][NBITEMS];
+double weights[dimension][NBITEMS_500];
+double profits[dimension][NBITEMS_500];
 
 int nf,ni,cardP;
 int nombr;
@@ -30,7 +28,7 @@ int NBi=250+100;
 int nbgeneration=50;
 /* MOACO parameters */
 /*double meilprofit[dimension];*/
-/*double pheromone [NBITEMS];*/
+/*double pheromone [NBITEMS_500];*/
 int paretoIni=15000;
 int nbants=20;
 double rhot=0.90;
@@ -46,7 +44,7 @@ double referencePoint[dimension];
 
 
 int bruit_rate=10;
-double pheromone[NBITEMS];
+double pheromone[NBITEMS_500];
 double eta[dimension];
 int inter;
 int iseed;
@@ -791,12 +789,12 @@ solutions->size=nbants;
 
 /*random_normalisated_weights(); *///random weight
             solutions->ind_array[ant]=create_ind(nf);
-			int pris[NBITEMS];
+			int pris[NBITEMS_500];
 			double capacit[dimension];
 
 
-			int voisinage [NBITEMS];
-			double proba[NBITEMS];
+			int voisinage [NBITEMS_500];
+			double proba[NBITEMS_500];
 
 
 
@@ -852,24 +850,21 @@ solutions->size=nbants;
 	else
 	{
 		double tot=0,h=0;
-		double som[NBITEMS];
+		double som[NBITEMS_500];
         double tmp; double mul;
 
 
 		for (i=0; i<nv; i++)
 			{
-				h=0,tmp=1;
+				tmp=1;
 
-			for(j=0;j<nf;j++)//toutes les ressources //hs(oj) ratio: la dureté de l'objet oj par rapport à toutes les contraintes
-			{
-			h=h+weights[j][voisinage[i]]/capacit[j]; /*printf("voisinage");*/
-			}
+	
 
 			for(j=0;j<nf;j++)//toutes les fonctions // ratio profit ressource correspondant à l'inf heuristique
 			{
 			    eta[j]=0;
 			//eta=eta+profits[j][voisinage[i]]/h;/* printf("voisinage 2");*/ //agreration de tt les objectifs
-			eta[j]=profits[j][voisinage[i]]/h; //info heuristique pour chaque obj
+			eta[j]=heuristic_eval_500(i,weights,capacit,nv,voisinage,profits[j]); //info heuristique pour chaque obj
 
             mul=beta*vector_weight[j];
 

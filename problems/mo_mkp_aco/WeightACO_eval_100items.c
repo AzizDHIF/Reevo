@@ -10,8 +10,6 @@
 #include "HBACO.h"
 
 
-#define dimension 3
-#define NBITEMS 100
 /*#define NBANTS 100*/
 #define FREQUANCY 80
 
@@ -858,18 +856,14 @@ solutions->size=nbants;
 
 		for (i=0; i<nv; i++)
 			{
-				h=0,tmp=1;
+				tmp=1;
 
-			for(j=0;j<nf;j++)//toutes les ressources //hs(oj) ratio: la dureté de l'objet oj par rapport à toutes les contraintes
-			{
-			h=h+weights[j][voisinage[i]]/capacit[j]; /*printf("voisinage");*/
-			}
 
 			for(j=0;j<nf;j++)//toutes les fonctions // ratio profit ressource correspondant à l'inf heuristique
 			{
 			    eta[j]=0;
 			//eta=eta+profits[j][voisinage[i]]/h;/* printf("voisinage 2");*/ //agreration de tt les objectifs
-			eta[j]=profits[j][voisinage[i]]/h; //info heuristique pour chaque obj
+			eta[j]=heuristic(i,weights,capacit,nv,voisinage,profits[j]); //info heuristique pour chaque obj
 
             mul=beta*vector_weight[j];
 

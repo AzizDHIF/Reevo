@@ -64,7 +64,7 @@ def block_until_running(stdout_filepath, log_status=False, iter_num=-1, response
             break
 
 
-def extract_description(response: str) -> tuple[str, str]:
+"""def extract_description(response: str) -> tuple[str, str]:
     # Regex patterns to extract code description enclosed in GPT response, it starts with ‘<start>’ and ends with ‘<end>’
     pattern_desc = [r'<start>(.*?)```python', r'<start>(.*?)<end>']
     for pattern in pattern_desc:
@@ -72,60 +72,74 @@ def extract_description(response: str) -> tuple[str, str]:
         desc_string = desc_string.group(1).strip() if desc_string is not None else None
         if desc_string is not None:
             break
-    return desc_string
+    return desc_string"""
 
 
-def extract_code_from_generator(content):
-    """Extract code from the response of the code generator."""
-    pattern_code = r'```python(.*?)```'
+
+def extract_c_code_from_generator(content):
+    """Extract C heuristic function from the response of the code generator."""
+    
+    # 1. Cherche dans un bloc ```c ... ```
+    pattern_code = r'```c(.*?)```'
     code_string = re.search(pattern_code, content, re.DOTALL)
     code_string = code_string.group(1).strip() if code_string is not None else None
+
     if code_string is None:
-        # Find the line that starts with "def" and the line that starts with "return", and extract the code in between
+        # 2. Cherche la signature de la fonction directement dans le contenu
         lines = content.split('\n')
+        lines=[l.strip() for l in lines]
         start = None
+        brace_count = 0
         end = None
+
         for i, line in enumerate(lines):
-            if line.startswith('def'):
+            # Détecte le début de la fonction via sa signature
+            if 'double heuristic(' in line:
                 start = i
-            if 'return' in line:
-                end = i
-                break
+            
+            # Compte les accolades pour trouver la fin du bloc
+            if start is not None:
+                brace_count += line.count('{') - line.count('}')
+                if brace_count == 0 and '{' in '\n'.join(lines[start:i+1]):
+                    end = i
+                    break
+
         if start is not None and end is not None:
             code_string = '\n'.join(lines[start:end+1])
-    
+
     if code_string is None:
         return None
-    # Add import statements if not present
-    if "np" in code_string:
-        code_string = "import numpy as np\n" + code_string
-    if "torch" in code_string:
-        code_string = "import torch\n" + code_string
-    return code_string
 
+    # 3. Ajoute les includes si absents
+    code_string= '#include "HBACO.h"\n' + code_string
+
+    if "sqrt" in code_string or "pow" in code_string or "fabs" in code_string:
+        code_string = "#include <math.h>\n" + code_string
+    if "printf" in code_string or "scanf" in code_string:
+        code_string = "#include <stdio.h>\n" + code_string
+
+    return code_string
 
 def filter_code(code_string):
-    """Remove lines containing signature and import statements."""
+    """Remove lines containing signature and include statements."""
     lines = code_string.split('\n')
+    lines=[l.strip() for l in lines]
     filtered_lines = []
-    for line in lines:
-        if line.startswith('def'):
-            continue
-        elif line.startswith('import'):
-            continue
-        elif line.startswith('from'):
-            continue
-        elif line.startswith('return'):
-            filtered_lines.append(line)
+
+    # Enlever les includes
+    lines = [line for line in lines if not line.startswith('#include')]
+
+    # Trouver la première accolade et garder tout ce qui est après
+    first_brace = None
+    for i, line in enumerate(lines):
+        if '{' in line:
+             # Tronquer la ligne pour commencer au '{'
+            lines[i] = line[line.index('{'):]
+            first_brace = i
             break
-        else:
-            filtered_lines.append(line)
-    code_string = '\n'.join(filtered_lines)
-    return code_string
+    
+    if first_brace is not None:
+        filtered_lines = lines[first_brace:]
 
+    return '\n'.join(filtered_lines)
 
-def get_heuristic_name(module, possible_names: list[str]):
-    for func_name in possible_names:
-        if hasattr(module, func_name):
-            if inspect.isfunction(getattr(module, func_name)):
-                return func_name

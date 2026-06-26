@@ -5,7 +5,10 @@
 #include <stddef.h>
 
 
-
+#define dimension 3
+#define NBITEMS 100
+#define NBITEMS_300 300
+#define NBITEMS_500 500
 
 /*typedef struct {
 int *items_nonpris;
@@ -42,5 +45,8 @@ void mutate(ind *x,mut *m);
 
 int max(int a, int b);
 
-double heuristic(int index_objectif,int index_item, double weights[][100], double capacity[3], int nb_voisinage, int voisinage[100], double profit[100] );
+double heuristic(int index_item, double weights[dimension][NBITEMS], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS], double profit[NBITEMS] );
+double heuristic_eval_300(int index_item, double weights[dimension][NBITEMS_300], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS_300], double profit[NBITEMS_300] );
+double heuristic_eval_500(int index_item, double weights[dimension][NBITEMS_500], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS_500], double profit[NBITEMS_500] );
+
 #endif

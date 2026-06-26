@@ -104,7 +104,7 @@ class ReEvo:
     def init_population(self) -> None:
         # Evaluate the seed function, and set it as Elite
         logging.info("Evaluating seed function...")
-        code = extract_code_from_generator(self.seed_func).replace("v1", "v2")
+        code = extract_c_code_from_generator(self.seed_func).replace("v1", "v2")
         logging.info("Seed function code: \n" + code)
         seed_ind = {
             "stdout_filepath": f"problem_iter{self.iteration}_stdout0.txt",
@@ -147,7 +147,7 @@ class ReEvo:
         with open(file_name, 'w', encoding="utf-8") as file:
             file.writelines(response + '\n')
 
-        code = extract_code_from_generator(response)
+        code = extract_c_code_from_generator(response)
 
         # Extract code and description from response
         std_out_filepath = f"problem_iter{self.iteration}_stdout{response_id}.txt" if file_name is None else file_name + "_stdout.txt"
