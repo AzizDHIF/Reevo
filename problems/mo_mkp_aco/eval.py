@@ -274,22 +274,22 @@ def get_pareto_ref_etendue(pareto_ref_path):
 if __name__ == "__main__":
     print("[*] Running ...")
     datasets = [
-        "dataset\\mood_train_dataset\\dataset_0_instance_100_items_3_objectifs.txt",
-        "dataset\\mood_train_dataset\\dataset_1_instance_100_items_3_objectifs.txt",
-        "dataset\\mood_train_dataset\\dataset_2_instance_100_items_3_objectifs.txt",
-        "dataset\\mood_train_dataset\\dataset_3_instance_100_items_3_objectifs.txt",
-        "dataset\\mood_train_dataset\\dataset_4_instance_100_items_3_objectifs.txt",
+        os.path.join(WORK_DIR,"dataset\\mood_train_dataset\\dataset_0_instance_100_items_3_objectifs.txt"),
+        os.path.join(WORK_DIR,"dataset\\mood_train_dataset\\dataset_1_instance_100_items_3_objectifs.txt"),
+        os.path.join(WORK_DIR,"dataset\\mood_train_dataset\\dataset_2_instance_100_items_3_objectifs.txt"),
+        os.path.join(WORK_DIR,"dataset\\mood_train_dataset\\dataset_3_instance_100_items_3_objectifs.txt"),
+        os.path.join(WORK_DIR,"dataset\\mood_train_dataset\\dataset_4_instance_100_items_3_objectifs.txt"),
     ]
-    aco_results=[("results_train_dataset_0.txt", "pareto_set\\pareto_sets_dataset_0"),
-                 ("results_train_dataset_1.txt", "pareto_set\\pareto_sets_dataset_1"),
-                 ("results_train_dataset_2.txt", "pareto_set\\pareto_sets_dataset_2"),
-                 ("results_train_dataset_3.txt", "pareto_set\\pareto_sets_dataset_3"),
-                 ("results_train_dataset_4.txt", "pareto_set\\pareto_sets_dataset_4")]
+    aco_results=[(os.path.join(WORK_DIR,"results_train_dataset_0.txt"), os.path.join(WORK_DIR,"pareto_set\\pareto_sets_dataset_0")),
+                 (os.path.join(WORK_DIR,"results_train_dataset_1.txt"), os.path.join(WORK_DIR,"pareto_set\\pareto_sets_dataset_1")),
+                 (os.path.join(WORK_DIR,"results_train_dataset_2.txt"), os.path.join(WORK_DIR,"pareto_set\\pareto_sets_dataset_2")),
+                 (os.path.join(WORK_DIR,"results_train_dataset_3.txt"), os.path.join(WORK_DIR,"pareto_set\\pareto_sets_dataset_3")),
+                 (os.path.join(WORK_DIR,"results_train_dataset_4.txt"), os.path.join(WORK_DIR,"pareto_set\\pareto_sets_dataset_4"))]
     
     
-    pareto_set_dirs=["pareto_set\\pareto_sets_dataset_0","pareto_set\\pareto_sets_dataset_1","pareto_set\\pareto_sets_dataset_2","pareto_set\\pareto_sets_dataset_3","pareto_set\\pareto_sets_dataset_4"]
+    pareto_set_dirs=[os.path.join(WORK_DIR,"pareto_set\\pareto_sets_dataset_0"),os.path.join(WORK_DIR,"pareto_set\\pareto_sets_dataset_1"),os.path.join(WORK_DIR,"pareto_set\\pareto_sets_dataset_2"),os.path.join(WORK_DIR,"pareto_set\\pareto_sets_dataset_3"),os.path.join(WORK_DIR,"pareto_set\\pareto_sets_dataset_4")]
     pareto_set_files=[os.path.join(p, "final_pareto.txt_dat") for p in pareto_set_dirs]
-    pareto_ref_files=[r"dataset\mood_train_dataset\ref_dataset_0\final_pareto_file.txt_dat",r"dataset\mood_train_dataset\ref_dataset_1\final_pareto_file.txt_dat",r"dataset\mood_train_dataset\ref_dataset_2\final_pareto_file.txt_dat",r"dataset\mood_train_dataset\ref_dataset_3\final_pareto_file.txt_dat",r"dataset\mood_train_dataset\ref_dataset_4\final_pareto_file.txt_dat"]
+    pareto_ref_files=[os.path.join(WORK_DIR,r"dataset\mood_train_dataset\ref_dataset_0\final_pareto_file.txt_dat"),os.path.join(WORK_DIR,r"dataset\mood_train_dataset\ref_dataset_1\final_pareto_file.txt_dat"),os.path.join(WORK_DIR,r"dataset\mood_train_dataset\ref_dataset_2\final_pareto_file.txt_dat"),os.path.join(WORK_DIR,r"dataset\mood_train_dataset\ref_dataset_3\final_pareto_file.txt_dat"),os.path.join(WORK_DIR,r"dataset\mood_train_dataset\ref_dataset_4\final_pareto_file.txt_dat")]
     
 
     mood = sys.argv[3]
@@ -298,6 +298,7 @@ if __name__ == "__main__":
 
 
     if mood == 'train':
+        print(f"le workdir est le suivatn: {WORK_DIR}")
          
         print("[*] Running ACO on training datasets...")
         
@@ -340,9 +341,9 @@ if __name__ == "__main__":
         #Supprimer les dossiers de sets de pareto temporaire
         print("[*] Suppression des dossiers de sets de pareto intermédiaires...")
         for i in range(5):
-            delete_folder(f"pareto_set\\pareto_sets_dataset_{i}")
+            delete_folder(os.path.join(WORK_DIR,f"pareto_set\\pareto_sets_dataset_{i}"))
             #Supprimer les fichiers de résultats intermédiaires de l'ACO
-            delete_file(f"results_train_dataset_{i}.txt")
+            delete_file(os.path.join(WORK_DIR,f"results_train_dataset_{i}.txt"))
 
         print("[*] moyenne pour hypervolume :")
         
@@ -357,26 +358,26 @@ if __name__ == "__main__":
         logging.info(f"[*] Evaluating ...")
          
         from itertools import product
-        val_aco_results=[("results_val_dataset_0_100_items.txt", "pareto_set_val\\pareto_sets_dataset_0_items_100"),
-                 ("results_val_dataset_1_100_items.txt", "pareto_set_val\\pareto_sets_dataset_1_items_100"),
-                 ("results_val_dataset_2_100_items.txt", "pareto_set_val\\pareto_sets_dataset_2_items_100"),
-                 ("results_val_dataset_3_100_items.txt", "pareto_set_val\\pareto_sets_dataset_3_items_100"),
-                 ("results_val_dataset_4_100_items.txt", "pareto_set_val\\pareto_sets_dataset_4_items_100"),
-                 ("results_val_dataset_0_300_items.txt", "pareto_set_val\\pareto_sets_dataset_0_items_300"),
-                 ("results_val_dataset_1_300_items.txt", "pareto_set_val\\pareto_sets_dataset_1_items_300"),
-                 ("results_val_dataset_2_300_items.txt", "pareto_set_val\\pareto_sets_dataset_2_items_300"),
-                 ("results_val_dataset_3_300_items.txt", "pareto_set_val\\pareto_sets_dataset_3_items_300"),
-                 ("results_val_dataset_4_300_items.txt", "pareto_set_val\\pareto_sets_dataset_4_items_300"),
-                 ("results_val_dataset_0_500_items.txt", "pareto_set_val\\pareto_sets_dataset_0_items_500"),
-                 ("results_val_dataset_1_500_items.txt", "pareto_set_val\\pareto_sets_dataset_1_items_500"),
-                 ("results_val_dataset_2_500_items.txt", "pareto_set_val\\pareto_sets_dataset_2_items_500"),
-                 ("results_val_dataset_3_500_items.txt", "pareto_set_val\\pareto_sets_dataset_3_items_500"),
-                 ("results_val_dataset_4_500_items.txt", "pareto_set_val\\pareto_sets_dataset_4_items_500"),]
+        val_aco_results=[(os.path.join(WORK_DIR,"results_val_dataset_0_100_items.txt"), os.path.join(WORK_DIR,"pareto_set_val\\pareto_sets_dataset_0_items_100")),
+                 (os.path.join(WORK_DIR,"results_val_dataset_1_100_items.txt"), os.path.join(WORK_DIR,"pareto_set_val\\pareto_sets_dataset_1_items_100")),
+                 (os.path.join(WORK_DIR,"results_val_dataset_2_100_items.txt"), os.path.join(WORK_DIR,"pareto_set_val\\pareto_sets_dataset_2_items_100")),
+                 (os.path.join(WORK_DIR,"results_val_dataset_3_100_items.txt"), os.path.join(WORK_DIR,"pareto_set_val\\pareto_sets_dataset_3_items_100")),
+                 (os.path.join(WORK_DIR,"results_val_dataset_4_100_items.txt"), os.path.join(WORK_DIR,"pareto_set_val\\pareto_sets_dataset_4_items_100")),
+                 (os.path.join(WORK_DIR,"results_val_dataset_0_300_items.txt"), os.path.join(WORK_DIR,"pareto_set_val\\pareto_sets_dataset_0_items_300")),
+                 (os.path.join(WORK_DIR,"results_val_dataset_1_300_items.txt"), os.path.join(WORK_DIR,"pareto_set_val\\pareto_sets_dataset_1_items_300")),
+                 (os.path.join(WORK_DIR,"results_val_dataset_2_300_items.txt"), os.path.join(WORK_DIR,"pareto_set_val\\pareto_sets_dataset_2_items_300")),
+                 (os.path.join(WORK_DIR,"results_val_dataset_3_300_items.txt"), os.path.join(WORK_DIR,"pareto_set_val\\pareto_sets_dataset_3_items_300")),
+                 (os.path.join(WORK_DIR,"results_val_dataset_4_300_items.txt"), os.path.join(WORK_DIR,"pareto_set_val\\pareto_sets_dataset_4_items_300")),
+                 (os.path.join(WORK_DIR,"results_val_dataset_0_500_items.txt"), os.path.join(WORK_DIR,"pareto_set_val\\pareto_sets_dataset_0_items_500")),
+                 (os.path.join(WORK_DIR,"results_val_dataset_1_500_items.txt"), os.path.join(WORK_DIR,"pareto_set_val\\pareto_sets_dataset_1_items_500")),
+                 (os.path.join(WORK_DIR,"results_val_dataset_2_500_items.txt"), os.path.join(WORK_DIR,"pareto_set_val\\pareto_sets_dataset_2_items_500")),
+                 (os.path.join(WORK_DIR,"results_val_dataset_3_500_items.txt"), os.path.join(WORK_DIR,"pareto_set_val\\pareto_sets_dataset_3_items_500")),
+                 (os.path.join(WORK_DIR,"results_val_dataset_4_500_items.txt"), os.path.join(WORK_DIR,"pareto_set_val\\pareto_sets_dataset_4_items_500")),]
         
         
-        val_pareto_ref_files_100items=[f"dataset\\mood_val_dataset\\ref_dataset_{i}_100_items\\final_pareto_file.txt_dat" for i in range(5)]
-        val_pareto_ref_files_300items=[f"dataset\\mood_val_dataset\\ref_dataset_{i}_300_items\\final_pareto_file.txt_dat" for i in range(5)]
-        val_pareto_ref_files_500items=[f"dataset\\mood_val_dataset\\ref_dataset_{i}_500_items\\final_pareto_file.txt_dat" for i in range(5)]
+        val_pareto_ref_files_100items=[os.path.join(WORK_DIR,f"dataset\\mood_val_dataset\\ref_dataset_{i}_100_items\\final_pareto_file.txt_dat") for i in range(5)]
+        val_pareto_ref_files_300items=[os.path.join(WORK_DIR,f"dataset\\mood_val_dataset\\ref_dataset_{i}_300_items\\final_pareto_file.txt_dat") for i in range(5)]
+        val_pareto_ref_files_500items=[os.path.join(WORK_DIR,f"dataset\\mood_val_dataset\\ref_dataset_{i}_500_items\\final_pareto_file.txt_dat") for i in range(5)]
         val_pareto_set_files=[os.path.join(p, "final_pareto.txt_dat") for _,p in val_aco_results]
         val_pareto_set_files_100items=[f for f  in  val_pareto_set_files if "items_100" in f] 
         val_pareto_set_files_300items=[f for f  in  val_pareto_set_files if "items_300" in f]
@@ -388,9 +389,10 @@ if __name__ == "__main__":
         #lancer l'ACO sur les datasets du train
 
 
-        print("[*] Compiling WeightACO_train_100items.c")
         for nb_items in [100,300,500]:
-            compile("WeightACO_eval_{nb_items}items.c","WeightACO_eval_{nb_items}items.exe")        
+            print(f"[*] Compiling WeightACO_eval_{nb_items}items.c")
+
+            compile(f"WeightACO_eval_{nb_items}items.c","WeightACO_eval_{nb_items}items.exe")        
         
         for i in range(5):
             for nb_items in [100,300,500]:
