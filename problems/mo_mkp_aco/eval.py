@@ -4,6 +4,49 @@ import os
 import logging 
 WORK_DIR = os.path.dirname(os.path.abspath(__file__))
 
+
+import re
+
+possible_func_names = ["heuristics", "heuristics_v1", "heuristics_v2", "heuristics_v3"]
+
+def write_heuristic_train(input_txt_path: str, output_c_path: str) -> None:
+   
+    with open(input_txt_path, 'r', encoding='utf-8') as f:
+        content = f.read()
+
+    # Construit un pattern qui matche n'importe quel nom de la liste
+    pattern = r'\b(' + '|'.join(re.escape(name) for name in possible_func_names) + r')\b'
+
+    new_content, count = re.subn(pattern, 'heuristic', content)
+
+    if count == 0:
+        raise ValueError(
+            f"Aucun nom de fonction parmi {possible_func_names} trouvé dans '{input_txt_path}'"
+        )
+
+    with open(output_c_path, 'w', encoding='utf-8') as f:
+        f.write(new_content)
+
+
+def write_heuristic_eval(input_txt_path: str, output_c_path: str,nbitems: str) -> None:
+   
+    with open(input_txt_path, 'r', encoding='utf-8') as f:
+        content = f.read()
+
+    # Construit un pattern qui matche n'importe quel nom de la liste
+    pattern = r'\b(' + '|'.join(re.escape(name) for name in possible_func_names) + r')\b'
+    pattern_2= 'NBITEMS'
+    new_content, count = re.subn(pattern, 'heuristic', content)
+
+    if count == 0:
+        raise ValueError(
+            f"Aucun nom de fonction parmi {possible_func_names} trouvé dans '{input_txt_path}'"
+        )
+        
+    new_content,count=re.subn(pattern_2,nbitems,new_content)
+    with open(output_c_path, 'w', encoding='utf-8') as f:
+        f.write(new_content)
+
 def compile(c_file_name,exe_file_name):
     run_cmd = ["gcc", c_file_name, "gpt.c", "-o", exe_file_name]
     result=subprocess.run(run_cmd,cwd=WORK_DIR)
@@ -298,8 +341,11 @@ if __name__ == "__main__":
 
 
     if mood == 'train':
-        print(f"le workdir est le suivatn: {WORK_DIR}")
-         
+        
+        print("[*] Writing the C code into gpt.c...")
+
+        write_heuristic_train(os.path.join(WORK_DIR,"gpt.txt"),os.path.join(WORK_DIR,"gpt.c"))
+        
         print("[*] Running ACO on training datasets...")
         
 
@@ -389,15 +435,16 @@ if __name__ == "__main__":
         #lancer l'ACO sur les datasets du train
 
 
+                   
         for nb_items in [100,300,500]:
-            print(f"[*] Compiling WeightACO_eval_{nb_items}items.c")
-
-            compile(f"WeightACO_eval_{nb_items}items.c","WeightACO_eval_{nb_items}items.exe")        
-        
-        for i in range(5):
-            for nb_items in [100,300,500]:
-              run_aco(f"WeightACO_eval_{nb_items}items",args=[f"dataset\\mood_val_dataset\\dataset_{i}_instance_{nb_items}_items_3_objectifs.txt"])
-        
+            if nb_items in [300,500]:
+                print("[*] Writing the C code into gpt.c...")
+                write_heuristic_eval(os.path.join(WORK_DIR,"gpt.txt"),os.path.join(WORK_DIR,"gpt.c"),f'NBITEMS_{nb_items}')
+            for i in range(5):
+                print(f"[*] Compiling WeightACO_eval_{nb_items}items.c")
+                compile(f"WeightACO_eval_{nb_items}items.c","WeightACO_eval_{nb_items}items.exe") 
+                run_aco(f"WeightACO_eval_{nb_items}items",args=[f"dataset\\mood_val_dataset\\dataset_{i}_instance_{nb_items}_items_3_objectifs.txt"])
+            
 
 
         print("[*] Extracting Pareto sets from ACO results...")

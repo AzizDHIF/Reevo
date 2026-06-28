@@ -61,7 +61,7 @@ class ReEvo:
         logging.info("Function name: " + self.func_name)
         
         self.prompt_dir = f"{self.root_dir}/prompts"
-        self.output_file = f"{self.root_dir}/problems/{self.problem}/gpt.py"
+        self.output_file = f"{self.root_dir}/problems/{self.problem}/gpt.txt"
         
         # Loading all text prompts
         # Problem-specific prompt components
@@ -108,7 +108,7 @@ class ReEvo:
         logging.info("Seed function code: \n" + code)
         seed_ind = {
             "stdout_filepath": f"problem_iter{self.iteration}_stdout0.txt",
-            "code_path": f"problem_iter{self.iteration}_code0.py",
+            "code_path": f"problem_iter{self.iteration}_code0.c",
             "code": code,
             "response_id": 0,
         }
@@ -154,7 +154,7 @@ class ReEvo:
         
         individual = {
             "stdout_filepath": std_out_filepath,
-            "code_path": f"problem_iter{self.iteration}_code{response_id}.py",
+            "code_path": f"problem_iter{self.iteration}_code{response_id}.c",
             "code": code,
             "response_id": response_id,
         }
@@ -216,7 +216,7 @@ class ReEvo:
             # Store objective value for each individual
             if traceback_msg == '': # If execution has no error
                 try:
-                    individual["obj"] = float(stdout_str.split('\n')[-2]) if self.obj_type == "min" else -float(stdout_str.split('\n')[-2])
+                    individual["obj"] = float(stdout_str.split('\n')[-2]) 
                     individual["exec_success"] = True
                 except:
                     population[response_id] = self.mark_invalid_individual(population[response_id], "Invalid std out / objective value!")
@@ -265,7 +265,7 @@ class ReEvo:
             self.elitist = population[best_sample_idx]
             logging.info(f"Iteration {self.iteration}: Elitist: {self.elitist['obj']}")
         
-        best_path = self.best_code_path_overall.replace(".py", ".txt").replace("code", "response")
+        best_path = self.best_code_path_overall.replace(".c", ".txt").replace("code", "response")
         logging.info(f"Best obj: {self.best_obj_overall}, Best Code Path: {print_hyperlink(best_path, self.best_code_path_overall)}")
         logging.info(f"Iteration {self.iteration} finished...")
         logging.info(f"Function Evals: {self.function_evals}")
@@ -486,3 +486,8 @@ class ReEvo:
             self.update_iter()
 
         return self.best_code_overall, self.best_code_path_overall
+
+
+if __name__=='main':
+    run_code()
+    

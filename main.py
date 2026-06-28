@@ -51,11 +51,11 @@ def main(cfg):
         
     best_code_overall, best_code_path_overall = lhh.evolve()
     logging.info(f"Best Code Overall: {best_code_overall}")
-    best_path = best_code_path_overall.replace(".py", ".txt").replace("code", "response")
+    best_path = best_code_path_overall.replace(".c", ".txt").replace("code", "response")
     logging.info(f"Best Code Path Overall: {print_hyperlink(best_path, best_code_path_overall)}")
     
     # Run validation and redirect stdout to a file "best_code_overall_stdout.txt"
-    with open(f"{ROOT_DIR}/problems/{cfg.problem.problem_name}/gpt.py", 'w', encoding="utf-8") as file:
+    with open(f"{ROOT_DIR}/problems/{cfg.problem.problem_name}/gpt.txt", 'w', encoding="utf-8") as file:
         file.writelines(best_code_overall + '\n')
     test_script = f"{ROOT_DIR}/problems/{cfg.problem.problem_name}/eval.py"
     test_script_stdout = "best_code_overall_val_stdout.txt"
