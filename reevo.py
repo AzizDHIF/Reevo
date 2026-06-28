@@ -488,6 +488,3 @@ class ReEvo:
         return self.best_code_overall, self.best_code_path_overall
 
 
-if __name__=='main':
-    run_code()
-    

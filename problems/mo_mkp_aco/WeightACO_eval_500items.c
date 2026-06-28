@@ -973,19 +973,19 @@ inter=k;
 
 	FILE *fpareto;
   
-  if(strcmp(argv[1],"C:\\Reevo\\problems\\mo_mkp_aco\\dataset\\mood_val_dataset\\dataset_0_instance_500_items_3_objectifs.txt")==0){
+  if(strcmp(argv[1],"dataset\\mood_val_dataset\\dataset_0_instance_500_items_3_objectifs.txt")==0){
 	fpareto = fopen( "results_val_dataset_0_500_items.txt", "a+" );}
 
-  if(strcmp(argv[1],"C:\\Reevo\\problems\\mo_mkp_aco\\dataset\\mood_val_dataset\\dataset_1_instance_500_items_3_objectifs.txt")==0){
+  if(strcmp(argv[1],"dataset\\mood_val_dataset\\dataset_1_instance_500_items_3_objectifs.txt")==0){
 	fpareto = fopen( "results_val_dataset_1_500_items.txt", "a+" );}
 
-  if(strcmp(argv[1],"C:\\Reevo\\problems\\mo_mkp_aco\\dataset\\mood_val_dataset\\dataset_2_instance_500_items_3_objectifs.txt")==0){
+  if(strcmp(argv[1],"dataset\\mood_val_dataset\\dataset_2_instance_500_items_3_objectifs.txt")==0){
 	fpareto = fopen( "results_val_dataset_2_500_items.txt", "a+" );}
 
-  if(strcmp(argv[1],"C:\\Reevo\\problems\\mo_mkp_aco\\dataset\\mood_val_dataset\\dataset_3_instance_500_items_3_objectifs.txt")==0){
+  if(strcmp(argv[1],"dataset\\mood_val_dataset\\dataset_3_instance_500_items_3_objectifs.txt")==0){
 	fpareto = fopen( "results_val_dataset_3_500_items.txt", "a+" );}
 
-  if(strcmp(argv[1],"C:\\Reevo\\problems\\mo_mkp_aco\\dataset\\mood_val_dataset\\dataset_4_instance_500_items_3_objectifs.txt")==0){
+  if(strcmp(argv[1],"dataset\\mood_val_dataset\\dataset_4_instance_500_items_3_objectifs.txt")==0){
 	fpareto = fopen( "results_val_dataset_4_500_items.txt", "a+" );}
   
 

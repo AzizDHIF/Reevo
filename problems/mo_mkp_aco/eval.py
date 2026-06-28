@@ -49,6 +49,7 @@ def write_heuristic_eval(input_txt_path: str, output_c_path: str,nbitems: str) -
 
 def compile(c_file_name,exe_file_name):
     run_cmd = ["gcc", c_file_name, "gpt.c", "-o", exe_file_name]
+
     result=subprocess.run(run_cmd,cwd=WORK_DIR)
 
     if result.returncode!=0:
@@ -68,15 +69,18 @@ def remove_empty_line(path_file_txt):
                 f.write(line)
 
 def run_aco(executable, args=[]):
-    run_cmd = [f"./{executable}.exe"] + args
-    print(f"Exécution : {' '.join(run_cmd)}")
+    exe_path = os.path.join(WORK_DIR, f"{executable}.exe")  # défini EN PREMIER
+    run_cmd = [exe_path] + args  # chemin absolu directement dans la commande
     
-    result = subprocess.run(run_cmd, cwd=WORK_DIR)  
-    
+    try:
+        result = subprocess.run(run_cmd, cwd=WORK_DIR)
+    except FileNotFoundError as e:
+        print(f"[ERREUR] FileNotFoundError : {e}")
+        raise
+
     if result.returncode != 0:
         print(f"Erreur à l'exécution (code {result.returncode})")
         sys.exit(1)
-
 def extraire_pareto_sets(fichier_entree, dossier_sortie):
     import os
 
@@ -118,7 +122,7 @@ def extraire_pareto_sets(fichier_entree, dossier_sortie):
 
 
 
-def concatenate_pareto_sets(pareto_dir,nb_pareto_files, executable="nondominated"):
+def concatenate_pareto_sets(pareto_dir,nb_pareto_files, executable=os.path.join(WORK_DIR,"nondominated")):
 
     result_file = os.path.join(pareto_dir, "final_pareto.txt")
 
@@ -137,7 +141,7 @@ def concatenate_pareto_sets(pareto_dir,nb_pareto_files, executable="nondominated
 
 
     run_cmd_filtrage = [
-        f"./{executable}.exe",
+        f"{executable}.exe",
         
         "--filter",
         result_file
@@ -197,10 +201,10 @@ def calculate_meanHypervolume(files):
 
     for pareto_file in files:
         
-        print("Exécution :", " ".join(["./hv.exe", pareto_file,]))
+        print("Exécution :", " ".join([os.path.join(WORK_DIR,"hv.exe"), pareto_file,]))
 
         result_hv = subprocess.run(
-            ["./hv.exe", pareto_file],
+            [os.path.join(WORK_DIR,"hv.exe"), pareto_file],
             cwd=WORK_DIR,
             capture_output=True,
             text=True)
@@ -230,7 +234,7 @@ def calculate_meanEpsilon(files, pareto_ref_files):
         
         
         run_cmd_ep = [
-            "./epsilon.exe",
+            os.path.join(WORK_DIR,"epsilon.exe"),
             "--reference",
             pareto_ref,
             pareto_file
@@ -317,11 +321,11 @@ def get_pareto_ref_etendue(pareto_ref_path):
 if __name__ == "__main__":
     print("[*] Running ...")
     datasets = [
-        os.path.join(WORK_DIR,"dataset\\mood_train_dataset\\dataset_0_instance_100_items_3_objectifs.txt"),
-        os.path.join(WORK_DIR,"dataset\\mood_train_dataset\\dataset_1_instance_100_items_3_objectifs.txt"),
-        os.path.join(WORK_DIR,"dataset\\mood_train_dataset\\dataset_2_instance_100_items_3_objectifs.txt"),
-        os.path.join(WORK_DIR,"dataset\\mood_train_dataset\\dataset_3_instance_100_items_3_objectifs.txt"),
-        os.path.join(WORK_DIR,"dataset\\mood_train_dataset\\dataset_4_instance_100_items_3_objectifs.txt"),
+        "dataset\\mood_train_dataset\\dataset_0_instance_100_items_3_objectifs.txt",
+        "dataset\\mood_train_dataset\\dataset_1_instance_100_items_3_objectifs.txt",
+        "dataset\\mood_train_dataset\\dataset_2_instance_100_items_3_objectifs.txt",
+        "dataset\\mood_train_dataset\\dataset_3_instance_100_items_3_objectifs.txt",
+        "dataset\\mood_train_dataset\\dataset_4_instance_100_items_3_objectifs.txt",
     ]
     aco_results=[(os.path.join(WORK_DIR,"results_train_dataset_0.txt"), os.path.join(WORK_DIR,"pareto_set\\pareto_sets_dataset_0")),
                  (os.path.join(WORK_DIR,"results_train_dataset_1.txt"), os.path.join(WORK_DIR,"pareto_set\\pareto_sets_dataset_1")),
@@ -346,14 +350,14 @@ if __name__ == "__main__":
 
         write_heuristic_train(os.path.join(WORK_DIR,"gpt.txt"),os.path.join(WORK_DIR,"gpt.c"))
         
-        print("[*] Running ACO on training datasets...")
         
-
         print("[*] Compiling WeightACO_train_100items.c")
 
         compile("WeightACO_train_100items.c","WeightACO_train_100items.exe")
 
         #lancer l'ACO sur les datasets du train
+        print("[*] Running ACO on training datasets...")
+
         for dataset in datasets:
             run_aco("WeightACO_train_100items",args=[dataset])
 
@@ -440,6 +444,9 @@ if __name__ == "__main__":
             if nb_items in [300,500]:
                 print("[*] Writing the C code into gpt.c...")
                 write_heuristic_eval(os.path.join(WORK_DIR,"gpt.txt"),os.path.join(WORK_DIR,"gpt.c"),f'NBITEMS_{nb_items}')
+            else:
+                print("[*] Writing the C code into gpt.c...")
+                write_heuristic_eval(os.path.join(WORK_DIR,"gpt.txt"),os.path.join(WORK_DIR,"gpt.c"),f'NBITEMS')
             for i in range(5):
                 print(f"[*] Compiling WeightACO_eval_{nb_items}items.c")
                 compile(f"WeightACO_eval_{nb_items}items.c","WeightACO_eval_{nb_items}items.exe") 
