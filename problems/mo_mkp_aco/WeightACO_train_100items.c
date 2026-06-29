@@ -854,23 +854,20 @@ solutions->size=nbants;
 	{
 		double tot=0,h=0;
 		double som[NBITEMS];
-        double tmp; double mul;
+    double tmp; double mul;
 
 
-		for (i=0; i<nv; i++)
+				for (i=0; i<nv; i++)
 			{
 				tmp=1;
 
-		
 
 			for(j=0;j<nf;j++)//toutes les fonctions // ratio profit ressource correspondant à l'inf heuristique
 			{
 			    eta[j]=0;
 			//eta=eta+profits[j][voisinage[i]]/h;/* printf("voisinage 2");*/ //agreration de tt les objectifs
-			
-      eta[j]=heuristic(i,weights,capacit,nv,voisinage,profits[j]); //profits[j][voisinage[i]]/h; //info heuristique pour chaque obj
-      /*printf("calcul de l'heuristique ...");
-      printf("**la valeur de l'heuristique est de %f **", eta[j]).*/
+			eta[j]=heuristic(i,weights,capacit,nv,voisinage,profits[j]); //info heuristique pour chaque obj
+
             mul=beta*vector_weight[j];
 
             tmp=tmp*pow(eta[j],mul);
@@ -967,7 +964,7 @@ int main(int argc, char* argv[])
 
   read_weights_file("Weights.txt");
 
-   for(k=1;k<=3;k++)
+   for(k=1;k<=1;k++)
  {
     init_time=0.0;
     duration=0;

@@ -1,4 +1,4 @@
-problem_name: mmkp_aco
+problem_name: mo_mkp_aco
 problem_type: aco
 obj_type: max
 problem_size: 100 # problem size for training

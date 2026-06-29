@@ -7,7 +7,7 @@ WORK_DIR = os.path.dirname(os.path.abspath(__file__))
 
 import re
 
-possible_func_names = ["heuristics", "heuristics_v1", "heuristics_v2", "heuristics_v3"]
+possible_func_names = ["heuristic", "heuristic_v1", "heuristic_v2", "heuristic_v3"]
 
 def write_heuristic_train(input_txt_path: str, output_c_path: str) -> None:
    
@@ -374,7 +374,7 @@ if __name__ == "__main__":
         #concaténer les sets de pareto extraits pour chaque dataset
 
         for pareto_dir in pareto_set_dirs:
-            concatenate_pareto_sets(pareto_dir,3)
+            concatenate_pareto_sets(pareto_dir,1)
         
         
 

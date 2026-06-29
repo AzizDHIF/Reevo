@@ -70,4 +70,4 @@ def main(cfg):
             logging.info(line.strip())
 
 if __name__ == "__main__":
-    pass
+    main()

@@ -1,0 +1,1 @@
+mcycle 802 nbants 20 alphat 1 beta 10.000000 rho 0.900000 tmax 1.000000
