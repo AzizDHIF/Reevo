@@ -864,7 +864,7 @@ solutions->size=nbants;
 			{
 			    eta[j]=0;
 			//eta=eta+profits[j][voisinage[i]]/h;/* printf("voisinage 2");*/ //agreration de tt les objectifs
-			eta[j]=heuristic(i,weights,capacit,nv,voisinage,profits[j]); //info heuristique pour chaque obj
+			eta[j]=heuristic_eval_300(i,weights,capacit,nv,voisinage,profits[j]); //info heuristique pour chaque obj
 
             mul=beta*vector_weight[j];
 

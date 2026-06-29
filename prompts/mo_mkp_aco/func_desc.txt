@@ -1,0 +1,3 @@
+Suppose 'NBITEMS' indicates the scale of the problem, and `dimension' is the dimension of weights each item has. The constraint of each dimension is fixed to 1. The `heuristic` function takes as input an 'index_item` ,  a `weight` of shape (dimension, NBITEMS), a 'capacity' of shape (dimension) , 'nb_voisinage' an int indicating the number of possible neighbours of the item, 'voisinage' of shape (NBITEMS) with only the first nb_voisinage entries are valid and "voisinage[i]" contains index of the i-th neighbour of the item, 'profit' of shape (NBITEMS) containing the profit for each item, and returns a float 'heuristic(index_item, weights,capacity, nb_voisinage, voisinage, profit )' indicating how promising it is to include item of index 'index_item' in the solution.
+
+

@@ -8,4 +8,4 @@
 {elitist_code}
 
 [Improved code]
-Please write a mutated function `{func_name}_v2`, according to the reflection. Output code only and enclose your code with Python code block: ```python ... ```.
+Please write a mutated function `{func_name}_v2`, according to the reflection. Output code only and enclose your code with C code block: ```c ... ```.

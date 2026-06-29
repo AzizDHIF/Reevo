@@ -4,8 +4,7 @@
 #include "HBACO.h"
 double heuristics(int index_item, double weights[dimension][NBITEMS], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS], double profit[NBITEMS] ){
     int h=0;
-    for(int j=0;j<dimension;j++)//toutes les ressources //hs(oj) ratio: la dureté de l'objet oj par rapport à toutes les contraintes
-			{
-			h=h+weights[j][voisinage[index_item]]/capacity[j]; /*printf("voisinage");*/
+    for(int j=0;j<dimension;j++){
+			h=h+weights[j][voisinage[index_item]]/capacity[j]; 
 			}
     return profit[voisinage[index_item]]/h;}

@@ -36,14 +36,14 @@ def write_heuristic_eval(input_txt_path: str, output_c_path: str,nbitems: str) -
     # Construit un pattern qui matche n'importe quel nom de la liste
     pattern = r'\b(' + '|'.join(re.escape(name) for name in possible_func_names) + r')\b'
     pattern_2= 'NBITEMS'
-    new_content, count = re.subn(pattern, 'heuristic', content)
+    new_content, count = re.subn(pattern, f'heuristic_eval_{nbitems}', content)
 
     if count == 0:
         raise ValueError(
             f"Aucun nom de fonction parmi {possible_func_names} trouvé dans '{input_txt_path}'"
         )
         
-    new_content,count=re.subn(pattern_2,nbitems,new_content)
+    new_content,count=re.subn(pattern_2,f'NBITEMS_{nbitems}',new_content)
     with open(output_c_path, 'w', encoding='utf-8') as f:
         f.write(new_content)
 
@@ -441,12 +441,10 @@ if __name__ == "__main__":
 
                    
         for nb_items in [100,300,500]:
-            if nb_items in [300,500]:
-                print("[*] Writing the C code into gpt.c...")
-                write_heuristic_eval(os.path.join(WORK_DIR,"gpt.txt"),os.path.join(WORK_DIR,"gpt.c"),f'NBITEMS_{nb_items}')
-            else:
-                print("[*] Writing the C code into gpt.c...")
-                write_heuristic_eval(os.path.join(WORK_DIR,"gpt.txt"),os.path.join(WORK_DIR,"gpt.c"),f'NBITEMS')
+            
+            print("[*] Writing the C code into gpt.c...")
+            write_heuristic_eval(os.path.join(WORK_DIR,"gpt.txt"),os.path.join(WORK_DIR,"gpt.c"),f'{nb_items}')
+     
             for i in range(5):
                 print(f"[*] Compiling WeightACO_eval_{nb_items}items.c")
                 compile(f"WeightACO_eval_{nb_items}items.c","WeightACO_eval_{nb_items}items.exe") 
