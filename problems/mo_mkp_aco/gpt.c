@@ -1,38 +1,31 @@
 #include "HBACO.h"
-double heuristic(int index_item, double weights[dimension][NBITEMS], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS], double profit[NBITEMS] ){
-    // Calculate the remaining capacity after selecting the current item
-    double remaining_capacity[dimension];
-    for (int j = 0; j < dimension; j++) {
-        remaining_capacity[j] = capacity[j] - weights[j][index_item];
-    }
+double heuristic(int index_item, double weights[dimension][NBITEMS], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS], double profit[NBITEMS]) {
+    double sum_weights = 0.0;
+    double total_capacity = 0.0;
+    double penalty = 0.0;
 
-    // Calculate the total capacity of all knapsacks in all dimensions
-    double total_capacity = 0;
+    // Calculate sum of weights and capacities
     for (int j = 0; j < dimension; j++) {
+        sum_weights += weights[j][index_item];
         total_capacity += capacity[j];
-    }
-
-    // Calculate the average weight and profit of neighboring items
-    double avg_weight_neighbour[dimension] = {0};
-    double avg_profit_neighbour = 0;
-    for (int i = 0; i < nb_voisinage; i++) {
-        for (int j = 0; j < dimension; j++) {
-            avg_weight_neighbour[j] += weights[j][voisinage[i]] / nb_voisinage;
+        if (weights[j][index_item] > capacity[j]) {
+            penalty += weights[j][index_item] - capacity[j];
         }
-        avg_profit_neighbour += profit[voisinage[i]] / nb_voisinage;
     }
 
-    // Calculate the weight-to-profit ratio of the current item and its neighbors
-    double item_ratio = profit[index_item] / (total_capacity - remaining_capacity[0]); // simplified to one dimension for demonstration
-    double neighbour_ratio = avg_profit_neighbour / (total_capacity - remaining_capacity[0]); // simplified to one dimension for demonstration
+    // Calculate heuristic value
+    double density = (sum_weights > 0) ? profit[index_item] / sum_weights : 0.0;
+    double h = density * (1 - penalty / total_capacity);
 
-    // Combine various factors using linear combination
-    double score = 0.5 * item_ratio + 0.3 * neighbour_ratio;
-
-    // Sparsify the heuristic by setting unpromising elements to zero
-    if (score < 0.1 || remaining_capacity[0] < 0) {
-        score = 0;
+    // Apply sparsification
+    double average_profit = 0.0;
+    for (int i = 0; i < NBITEMS; i++) {
+        average_profit += profit[i];
+    }
+    average_profit /= NBITEMS;
+    if (h < average_profit / 2) {
+        h = 0.0;
     }
 
-    return score;
+    return h;
 }

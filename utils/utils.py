@@ -52,7 +52,10 @@ def block_until_running(stdout_filepath, log_status=False, iter_num=-1, response
     # Ensure that the evaluation has started before moving on
     while True:
         log = file_to_string(stdout_filepath)
-        if  len(log) > 0:
+        
+        lines = [l for l in log.splitlines() if l.strip()]
+        if  len(lines) >= 4:
+
             if log_status and "Traceback" in log:
                 logging.warning(
                     f"Iteration {iter_num}: Code Run {response_id} execution error! (see {print_hyperlink(stdout_filepath, 'stdout')}))"
@@ -61,6 +64,12 @@ def block_until_running(stdout_filepath, log_status=False, iter_num=-1, response
                 logging.info(
                     f"Iteration {iter_num}: Code Run {response_id} successful! (see {print_hyperlink(stdout_filepath, 'stdout')})"
                 )
+            break
+        
+        if "Traceback" in log:
+            logging.warning(
+                f"Iteration {iter_num}: Code Run {response_id} crashed early! (see {print_hyperlink(stdout_filepath, 'stdout')}))"
+            )
             break
 
 

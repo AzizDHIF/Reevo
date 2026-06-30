@@ -33,3 +33,11 @@ def run_aco(executable, args=[]):
     if result.returncode != 0:
         print(f"Erreur à l'exécution (code {result.returncode})")
         sys.exit(1)
+
+
+if __name__=="__main__":
+    input_txt_path="gpt.txt"
+    with open(input_txt_path, 'rb') as f:
+     raw = f.read()
+    idx = raw.find(b'heuristic_v2')
+    print(raw[idx-5:idx+20])

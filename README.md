@@ -123,14 +123,11 @@ where `gls`, `aco` and `nco` are the optional dependencies for GLS, ACO and NCO 
 
 ####  4.2. <a name='TorunReEvo'></a>To run ReEvo
 ```bash
+
+$env:GROQ_API_KEY = "your_api_key"
 # e.g., for tsp_aco
-python main.py \
-    problem=tsp_aco \  # problem name
-    init_pop_size=4 \  # initial population size
-    pop_size=4 \  # population size
-    max_fe=20 \  # maximum number of heuristic evaluations
-    timeout=20  # allowed evaluation time for one generation
-```
+python main.py problem=mkp_aco llm_client=groq init_pop_size=4 pop_size=4 max_fe=20 timeout=20
+
 
 Check out `./cfg/` for more options.
 

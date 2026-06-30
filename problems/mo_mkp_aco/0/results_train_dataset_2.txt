@@ -1,0 +1,4 @@
+mcycle 202 nbants 20 alphat 1 beta 10.000000 rho 0.900000 tmax 1.000000
+cardinalité ensemble Pareto 1 
+ temps CPU 0.444000 
+8.035607 8.302412 11.573682 

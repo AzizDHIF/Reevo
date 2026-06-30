@@ -13,7 +13,7 @@
 
 /*#define NBANTS 100*/
 
-#define FREQUANCY 80
+#define FREQUANCY 40
 
 
 #ifndef M_PI
@@ -37,7 +37,7 @@ int nbants=20;
 double rhot=0.90;
 int alphat=1;
 /*const int nbants=100;*/
-int maxcycle=802;
+int maxcycle=202;
 /*double tmin=0.5;*/
 double tmax=1.0 , beta=10.0;
 int tinit=1;
@@ -358,7 +358,7 @@ void initfile_weights_log()
     int T1,T2,M1,Zd;
     double C=exp(1);
 
-  Wfile = fopen( "Weights.txt", "a+" );
+  Wfile = fopen( "Weights_train.txt", "a+" );
   fflush(stdout);
 
 if (nf==2)
@@ -461,7 +461,7 @@ void initfile_weights()
 
 
 
-  Wfile = fopen( "Weights.txt", "a+" );
+  Wfile = fopen( "Weights_train.txt", "a+" );
   fflush(stdout);
 
 if (nf==2)
@@ -960,12 +960,12 @@ int main(int argc, char* argv[])
   char *data_path=argv[1];
   loadMOKP(data_path);
   
-  /*initfile_weights_log();*/            
+  /*initfile_weights_log();*/          
 
-  read_weights_file("Weights.txt");
+  read_weights_file("Weights_train.txt");
 
-   for(k=1;k<=1;k++)
- {
+   /*for(k=1;k<=1;k++){*/
+ 
     init_time=0.0;
     duration=0;
     double mpareto1[15000][dimension];
@@ -975,20 +975,7 @@ inter=k;
 
 	FILE *fpareto;
   
-  if(strcmp(argv[1],"dataset\\mood_train_dataset\\dataset_0_instance_100_items_3_objectifs.txt")==0){
-	fpareto = fopen( "results_train_dataset_0.txt", "a+" );}
-
-  if(strcmp(argv[1],"dataset\\mood_train_dataset\\dataset_1_instance_100_items_3_objectifs.txt")==0){
-	fpareto = fopen( "results_train_dataset_1.txt", "a+" );}
-
-  if(strcmp(argv[1],"dataset\\mood_train_dataset\\dataset_2_instance_100_items_3_objectifs.txt")==0){
-	fpareto = fopen( "results_train_dataset_2.txt", "a+" );}
-
-  if(strcmp(argv[1],"dataset\\mood_train_dataset\\dataset_3_instance_100_items_3_objectifs.txt")==0){
-	fpareto = fopen( "results_train_dataset_3.txt", "a+" );}
-
-  if(strcmp(argv[1],"dataset\\mood_train_dataset\\dataset_4_instance_100_items_3_objectifs.txt")==0){
-	fpareto = fopen( "results_train_dataset_4.txt", "a+" );}
+	fpareto = fopen(argv[2],"a+");
   
 
 	fprintf(fpareto,"mcycle %d nbants %d alphat %d beta %lf rho %lf tmax %lf\n",maxcycle,nbants,alphat,beta,rhot,tmax);
@@ -1112,7 +1099,7 @@ cardP2= otherResult("result500.3\\result500.3.1.txt",pareto2);
 /*free(bounds); printf( " \nfree bounds" );*/
 
 
-}
+
 return(0);
 
 }

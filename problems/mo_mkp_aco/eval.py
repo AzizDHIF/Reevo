@@ -53,8 +53,7 @@ def compile(c_file_name,exe_file_name):
     result=subprocess.run(run_cmd,cwd=WORK_DIR)
 
     if result.returncode!=0:
-        print("Erreur de compilation")
-    else: print(f"Fichier {c_file_name} compilé avec succès dans {exe_file_name}")
+        raise("Erreur de compilation")
     
 def remove_empty_line(path_file_txt):
     """
@@ -320,6 +319,11 @@ def get_pareto_ref_etendue(pareto_ref_path):
 
 if __name__ == "__main__":
     print("[*] Running ...")
+    mood = sys.argv[2]
+    id_response=sys.argv[1]
+    
+
+    os.makedirs(os.path.join(WORK_DIR,id_response), exist_ok=True)
     datasets = [
         "dataset\\mood_train_dataset\\dataset_0_instance_100_items_3_objectifs.txt",
         "dataset\\mood_train_dataset\\dataset_1_instance_100_items_3_objectifs.txt",
@@ -327,43 +331,35 @@ if __name__ == "__main__":
         "dataset\\mood_train_dataset\\dataset_3_instance_100_items_3_objectifs.txt",
         "dataset\\mood_train_dataset\\dataset_4_instance_100_items_3_objectifs.txt",
     ]
-    aco_results=[(os.path.join(WORK_DIR,"results_train_dataset_0.txt"), os.path.join(WORK_DIR,"pareto_set\\pareto_sets_dataset_0")),
-                 (os.path.join(WORK_DIR,"results_train_dataset_1.txt"), os.path.join(WORK_DIR,"pareto_set\\pareto_sets_dataset_1")),
-                 (os.path.join(WORK_DIR,"results_train_dataset_2.txt"), os.path.join(WORK_DIR,"pareto_set\\pareto_sets_dataset_2")),
-                 (os.path.join(WORK_DIR,"results_train_dataset_3.txt"), os.path.join(WORK_DIR,"pareto_set\\pareto_sets_dataset_3")),
-                 (os.path.join(WORK_DIR,"results_train_dataset_4.txt"), os.path.join(WORK_DIR,"pareto_set\\pareto_sets_dataset_4"))]
+    aco_results=[(os.path.join(WORK_DIR,f"{id_response}\\results_train_dataset_0.txt"), os.path.join(WORK_DIR,f"{id_response}\\pareto_set\\pareto_sets_dataset_0")),
+                 (os.path.join(WORK_DIR,f"{id_response}\\results_train_dataset_1.txt"), os.path.join(WORK_DIR,f"{id_response}\\pareto_set\\pareto_sets_dataset_1")),
+                 (os.path.join(WORK_DIR,f"{id_response}\\results_train_dataset_2.txt"), os.path.join(WORK_DIR,f"{id_response}\\pareto_set\\pareto_sets_dataset_2")),
+                 (os.path.join(WORK_DIR,f"{id_response}\\results_train_dataset_3.txt"), os.path.join(WORK_DIR,f"{id_response}\\pareto_set\\pareto_sets_dataset_3")),
+                 (os.path.join(WORK_DIR,f"{id_response}\\results_train_dataset_4.txt"), os.path.join(WORK_DIR,f"{id_response}\\pareto_set\\pareto_sets_dataset_4"))]
     
-    
-    pareto_set_dirs=[os.path.join(WORK_DIR,"pareto_set\\pareto_sets_dataset_0"),os.path.join(WORK_DIR,"pareto_set\\pareto_sets_dataset_1"),os.path.join(WORK_DIR,"pareto_set\\pareto_sets_dataset_2"),os.path.join(WORK_DIR,"pareto_set\\pareto_sets_dataset_3"),os.path.join(WORK_DIR,"pareto_set\\pareto_sets_dataset_4")]
+    result_files=[f"{id_response}\\results_train_dataset_{i}.txt" for i in range(5)]
+    pareto_set_dirs=[l[1] for l in aco_results]
     pareto_set_files=[os.path.join(p, "final_pareto.txt_dat") for p in pareto_set_dirs]
     pareto_ref_files=[os.path.join(WORK_DIR,r"dataset\mood_train_dataset\ref_dataset_0\final_pareto_file.txt_dat"),os.path.join(WORK_DIR,r"dataset\mood_train_dataset\ref_dataset_1\final_pareto_file.txt_dat"),os.path.join(WORK_DIR,r"dataset\mood_train_dataset\ref_dataset_2\final_pareto_file.txt_dat"),os.path.join(WORK_DIR,r"dataset\mood_train_dataset\ref_dataset_3\final_pareto_file.txt_dat"),os.path.join(WORK_DIR,r"dataset\mood_train_dataset\ref_dataset_4\final_pareto_file.txt_dat")]
     
-
-    mood = sys.argv[3]
     print(f"[*] Mood: {mood}")
     assert mood in ["train", "val"]
 
 
     if mood == 'train':
-        
-        print("[*] Writing the C code into gpt.c...")
 
+        print("[*] compiling ... ")
+        
         write_heuristic_train(os.path.join(WORK_DIR,"gpt.txt"),os.path.join(WORK_DIR,"gpt.c"))
-        
-        
-        print("[*] Compiling WeightACO_train_100items.c")
 
-        compile("WeightACO_train_100items.c","WeightACO_train_100items.exe")
+        compile("WeightACO_train_100items.c",f"WeightACO_train_100items_{id_response}.exe")
 
         #lancer l'ACO sur les datasets du train
         print("[*] Running ACO on training datasets...")
 
-        for dataset in datasets:
-            run_aco("WeightACO_train_100items",args=[dataset])
+        for dataset,res_file in zip(datasets,result_files):
+            run_aco(f"WeightACO_train_100items_{id_response}",args=[dataset, res_file])
 
-        
-
-        
         print("[*] Extracting Pareto sets from ACO results...")
 
         #extraire les sets de pareto à partir des résultats de l'ACO
@@ -376,24 +372,20 @@ if __name__ == "__main__":
         for pareto_dir in pareto_set_dirs:
             concatenate_pareto_sets(pareto_dir,1)
         
-        
-
         print("[*] Calculating  hypervolume and epsilon...")
         #calcul des deux métriques epsilon et hypervolume
-        
         
         ##hypervolume
         mean_hypervolume=calculate_meanHypervolume(pareto_set_files)
         ##epsilon
         mean_epsilon=calculate_meanEpsilon(pareto_set_files,pareto_ref_files)
         
-        
         #Supprimer les dossiers de sets de pareto temporaire
         print("[*] Suppression des dossiers de sets de pareto intermédiaires...")
         for i in range(5):
-            delete_folder(os.path.join(WORK_DIR,f"pareto_set\\pareto_sets_dataset_{i}"))
+            delete_folder(os.path.join(WORK_DIR,f"{id_response}\\pareto_set\\pareto_sets_dataset_{i}"))
             #Supprimer les fichiers de résultats intermédiaires de l'ACO
-            delete_file(os.path.join(WORK_DIR,f"results_train_dataset_{i}.txt"))
+            delete_file(os.path.join(WORK_DIR,f"{id_response}\\results_train_dataset_{i}.txt"))
 
         print("[*] moyenne pour hypervolume :")
         
