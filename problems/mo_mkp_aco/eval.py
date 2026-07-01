@@ -199,6 +199,8 @@ def calculate_meanHypervolume(files):
     
 
     for pareto_file in files:
+        if fichier_vide_ou_une_ligne(pareto_file):
+            continue 
         
         print("Exécution :", " ".join([os.path.join(WORK_DIR,"hv.exe"), pareto_file,]))
 
@@ -258,6 +260,7 @@ def calculate_meanEpsilon(files, pareto_ref_files):
             print(f"stderr: '{result_ep.stderr}'")
             print(f"Erreur de conversion pour {pareto_file} : '{result_ep.stdout.strip()}' n'est pas un nombre valide.")
             raise ValueError(f"Erreur de conversion pour {pareto_file} : '{result_ep.stdout.strip()}' n'est pas un nombre valide.")
+    
     mean=mean/len(files)
     print("moyenne pour l'epsilon :", mean)
 
@@ -317,10 +320,19 @@ def get_pareto_ref_etendue(pareto_ref_path):
     return sum(etendues) / len(etendues)
 
 
+def fichier_vide_ou_une_ligne(chemin_fichier):
+    """
+    Retourne True si le fichier ne contient aucune ligne ou une seule ligne,
+    False sinon.
+    """
+    with open(chemin_fichier, 'r') as f:
+        lignes = [ligne for ligne in f if ligne.strip()]  # ignore les lignes vides
+    return len(lignes) <= 1
+
 if __name__ == "__main__":
     print("[*] Running ...")
     mood = sys.argv[2]
-    id_response=sys.argv[1]
+    id_response=f"results_individual_{sys.argv[1]}"
     
 
     os.makedirs(os.path.join(WORK_DIR,id_response), exist_ok=True)
