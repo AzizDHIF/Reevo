@@ -332,10 +332,7 @@ def fichier_vide_ou_une_ligne(chemin_fichier):
 if __name__ == "__main__":
     print("[*] Running ...")
     mood = sys.argv[2]
-    id_response=f"results_individual_{sys.argv[1]}"
-    
 
-    os.makedirs(os.path.join(WORK_DIR,id_response), exist_ok=True)
     datasets = [
         "dataset\\mood_train_dataset\\dataset_0_instance_100_items_3_objectifs.txt",
         "dataset\\mood_train_dataset\\dataset_1_instance_100_items_3_objectifs.txt",
@@ -343,22 +340,27 @@ if __name__ == "__main__":
         "dataset\\mood_train_dataset\\dataset_3_instance_100_items_3_objectifs.txt",
         "dataset\\mood_train_dataset\\dataset_4_instance_100_items_3_objectifs.txt",
     ]
-    aco_results=[(os.path.join(WORK_DIR,f"{id_response}\\results_train_dataset_0.txt"), os.path.join(WORK_DIR,f"{id_response}\\pareto_set\\pareto_sets_dataset_0")),
-                 (os.path.join(WORK_DIR,f"{id_response}\\results_train_dataset_1.txt"), os.path.join(WORK_DIR,f"{id_response}\\pareto_set\\pareto_sets_dataset_1")),
-                 (os.path.join(WORK_DIR,f"{id_response}\\results_train_dataset_2.txt"), os.path.join(WORK_DIR,f"{id_response}\\pareto_set\\pareto_sets_dataset_2")),
-                 (os.path.join(WORK_DIR,f"{id_response}\\results_train_dataset_3.txt"), os.path.join(WORK_DIR,f"{id_response}\\pareto_set\\pareto_sets_dataset_3")),
-                 (os.path.join(WORK_DIR,f"{id_response}\\results_train_dataset_4.txt"), os.path.join(WORK_DIR,f"{id_response}\\pareto_set\\pareto_sets_dataset_4"))]
     
-    result_files=[f"{id_response}\\results_train_dataset_{i}.txt" for i in range(5)]
-    pareto_set_dirs=[l[1] for l in aco_results]
-    pareto_set_files=[os.path.join(p, "final_pareto.txt_dat") for p in pareto_set_dirs]
-    pareto_ref_files=[os.path.join(WORK_DIR,r"dataset\mood_train_dataset\ref_dataset_0\final_pareto_file.txt_dat"),os.path.join(WORK_DIR,r"dataset\mood_train_dataset\ref_dataset_1\final_pareto_file.txt_dat"),os.path.join(WORK_DIR,r"dataset\mood_train_dataset\ref_dataset_2\final_pareto_file.txt_dat"),os.path.join(WORK_DIR,r"dataset\mood_train_dataset\ref_dataset_3\final_pareto_file.txt_dat"),os.path.join(WORK_DIR,r"dataset\mood_train_dataset\ref_dataset_4\final_pareto_file.txt_dat")]
     
     print(f"[*] Mood: {mood}")
     assert mood in ["train", "val"]
 
 
     if mood == 'train':
+        id_response=f"results_individual_{sys.argv[1]}"
+
+        aco_results=[(os.path.join(WORK_DIR,f"{id_response}\\results_train_dataset_0.txt"), os.path.join(WORK_DIR,f"{id_response}\\pareto_set\\pareto_sets_dataset_0")),
+                 (os.path.join(WORK_DIR,f"{id_response}\\results_train_dataset_1.txt"), os.path.join(WORK_DIR,f"{id_response}\\pareto_set\\pareto_sets_dataset_1")),
+                 (os.path.join(WORK_DIR,f"{id_response}\\results_train_dataset_2.txt"), os.path.join(WORK_DIR,f"{id_response}\\pareto_set\\pareto_sets_dataset_2")),
+                 (os.path.join(WORK_DIR,f"{id_response}\\results_train_dataset_3.txt"), os.path.join(WORK_DIR,f"{id_response}\\pareto_set\\pareto_sets_dataset_3")),
+                 (os.path.join(WORK_DIR,f"{id_response}\\results_train_dataset_4.txt"), os.path.join(WORK_DIR,f"{id_response}\\pareto_set\\pareto_sets_dataset_4"))]
+    
+        result_files=[f"{id_response}\\results_train_dataset_{i}.txt" for i in range(5)]
+        pareto_set_dirs=[l[1] for l in aco_results]
+        pareto_set_files=[os.path.join(p, "final_pareto.txt_dat") for p in pareto_set_dirs]
+        pareto_ref_files=[os.path.join(WORK_DIR,r"dataset\mood_train_dataset\ref_dataset_0\final_pareto_file.txt_dat"),os.path.join(WORK_DIR,r"dataset\mood_train_dataset\ref_dataset_1\final_pareto_file.txt_dat"),os.path.join(WORK_DIR,r"dataset\mood_train_dataset\ref_dataset_2\final_pareto_file.txt_dat"),os.path.join(WORK_DIR,r"dataset\mood_train_dataset\ref_dataset_3\final_pareto_file.txt_dat"),os.path.join(WORK_DIR,r"dataset\mood_train_dataset\ref_dataset_4\final_pareto_file.txt_dat")]
+
+        os.makedirs(os.path.join(WORK_DIR,id_response), exist_ok=True)
 
         print("[*] compiling ... ")
         

@@ -964,7 +964,7 @@ int main(int argc, char* argv[])
 
   read_weights_file("Weights_train.txt");
 
-   /*for(k=1;k<=1;k++){*/
+   for(k=1;k<=1;k++){
  
     init_time=0.0;
     duration=0;
@@ -1099,7 +1099,7 @@ cardP2= otherResult("result500.3\\result500.3.1.txt",pareto2);
 /*free(bounds); printf( " \nfree bounds" );*/
 
 
-
+   }
 return(0);
 
 }

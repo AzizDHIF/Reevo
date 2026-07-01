@@ -65,9 +65,10 @@ def main(cfg):
     logging.info(f"Validation script finished. Results are saved in {print_hyperlink(test_script_stdout)}.")
     
     # Print the results
-    with open(test_script_stdout, 'r', encoding="utf-8") as file:
+    with open(test_script_stdout, 'r', encoding="cp1252") as file:
         for line in file.readlines():
             logging.info(line.strip())
 
 if __name__ == "__main__":
     main()
+    
