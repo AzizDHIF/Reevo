@@ -1,7 +1,10 @@
 import subprocess
 import sys
 import os
-import logging 
+import logging
+from pathlib import Path
+from utils.utils import print_hyperlink 
+RUN_DIR = Path(os.getcwd())  # dossier créé par Hydra pour cette exécution
 WORK_DIR = os.path.dirname(os.path.abspath(__file__))
 
 
@@ -329,6 +332,21 @@ def fichier_vide_ou_une_ligne(chemin_fichier):
         lignes = [ligne for ligne in f if ligne.strip()]  # ignore les lignes vides
     return len(lignes) <= 1
 
+
+import shutil
+
+def copy_folder_to_run_dir(source_dir: str, dest_dir: Path, folder_name: str = None) -> Path:
+    """Copie un dossier local (et son contenu) vers le dossier de l'exécution en cours."""
+    source_dir = Path(source_dir)
+    if folder_name is None:
+        folder_name = source_dir.name
+    dest_path = dest_dir / folder_name
+
+    shutil.copytree(source_dir, dest_path, dirs_exist_ok=True)
+    logging.info(f"Dossier copié: {print_hyperlink(dest_path)}")
+    return dest_path
+
+
 if __name__ == "__main__":
     print("[*] Running ...")
     mood = sys.argv[2]
@@ -412,7 +430,7 @@ if __name__ == "__main__":
     #mood = val:
     else:
         logging.info(f"[*] Evaluating ...")
-         
+        os.makedirs(os.path.join(WORK_DIR,"pareto_set_val"), exist_ok=True)
         from itertools import product
         val_aco_results=[(os.path.join(WORK_DIR,"results_val_dataset_0_100_items.txt"), os.path.join(WORK_DIR,"pareto_set_val\\pareto_sets_dataset_0_items_100")),
                  (os.path.join(WORK_DIR,"results_val_dataset_1_100_items.txt"), os.path.join(WORK_DIR,"pareto_set_val\\pareto_sets_dataset_1_items_100")),
@@ -453,7 +471,7 @@ if __name__ == "__main__":
      
             for i in range(5):
                 print(f"[*] Compiling WeightACO_eval_{nb_items}items.c")
-                compile(f"WeightACO_eval_{nb_items}items.c","WeightACO_eval_{nb_items}items.exe") 
+                compile(f"WeightACO_eval_{nb_items}items.c",f"WeightACO_eval_{nb_items}items.exe") 
                 run_aco(f"WeightACO_eval_{nb_items}items",args=[f"dataset\\mood_val_dataset\\dataset_{i}_instance_{nb_items}_items_3_objectifs.txt"])
             
 
@@ -486,8 +504,16 @@ if __name__ == "__main__":
         mean_epsilon_500items=calculate_meanEpsilon(val_pareto_set_files_500items,val_pareto_ref_files_500items)
 
 
-    
-        
+        copy_folder_to_run_dir(
+            source_dir=os.path.join(WORK_DIR, "pareto_set_val"),
+            dest_dir=RUN_DIR
+        )
+
+        delete_folder(os.path.join(WORK_DIR, "pareto_set_val"))
+        for result_file,_ in val_aco_results:
+            delete_file(result_file)
+
+            
         print("[*] moyenne pour hypervolume et  epsilon:")
         
         print(f"[*] Average for hypervolume 100 items: {mean_hypervolume_100items}")

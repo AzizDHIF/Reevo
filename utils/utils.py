@@ -3,7 +3,33 @@ import re
 import inspect
 import hydra
 import os
-
+HEADER_RULES = {
+    'math.h': [
+        'sqrt', 'pow', 'fabs', 'ceil', 'floor', 'fmod', 'exp', 'log',
+        'log2', 'log10', 'sin', 'cos', 'tan', 'atan2', 'round', 'INFINITY', 'NAN',
+    ],
+    'float.h': [
+        'DBL_MAX', 'DBL_MIN', 'FLT_MAX', 'FLT_MIN', 'DBL_EPSILON', 'FLT_EPSILON',
+    ],
+    'limits.h': [
+        'INT_MAX', 'INT_MIN', 'UINT_MAX', 'LONG_MAX', 'LONG_MIN', 'CHAR_MAX',
+    ],
+    'stdlib.h': [
+        'malloc', 'calloc', 'realloc', 'free', 'rand', 'srand', 'abs', 'qsort', 'exit',
+    ],
+    'string.h': [
+        'memset', 'memcpy', 'strcpy', 'strncpy', 'strcmp', 'strncmp', 'strlen', 'strcat',
+    ],
+    'stdio.h': [
+        'printf', 'scanf', 'fprintf', 'sprintf', 'snprintf', 'fopen', 'fclose',
+    ],
+    'stdbool.h': [
+        'bool', 'true', 'false',
+    ],
+    'stdint.h': [
+        'int32_t', 'uint32_t', 'int64_t', 'uint64_t', 'int8_t', 'uint8_t',
+    ],
+}
 def init_client(cfg):
     global client
     if cfg.get("model", None): # for compatibility
@@ -119,14 +145,16 @@ def extract_c_code_from_generator(content):
     if code_string is None:
         return None
 
-    # 3. Ajoute les includes si absents
-    code_string= '#include "HBACO.h"\n' + code_string
+    # 3. Ajoute les includes nécessaires (détection par mot entier, pas substring)
+    needed_headers = []
+    for header, symbols in HEADER_RULES.items():
+        for symbol in symbols:
+            if re.search(r'\b' + re.escape(symbol) + r'\b', code_string):
+                needed_headers.append(header)
+                break  # un seul symbole trouvé suffit pour ajouter ce header
 
-    if "sqrt" in code_string or "pow" in code_string or "fabs" in code_string:
-        code_string = "#include <math.h>\n" + code_string
-    if "printf" in code_string or "scanf" in code_string:
-        code_string = "#include <stdio.h>\n" + code_string
-
+    includes = '\n'.join(f'#include <{h}>' for h in needed_headers)
+    code_string = '#include "HBACO.h"\n' + (includes + '\n' if includes else '') + code_string
     return code_string
 
 def filter_code(code_string):
