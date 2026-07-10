@@ -3,7 +3,6 @@ import sys
 import os
 import logging
 from pathlib import Path
-from utils.utils import print_hyperlink 
 RUN_DIR = Path(os.getcwd())  # dossier créé par Hydra pour cette exécution
 WORK_DIR = os.path.dirname(os.path.abspath(__file__))
 
@@ -11,6 +10,14 @@ WORK_DIR = os.path.dirname(os.path.abspath(__file__))
 import re
 
 possible_func_names = ["heuristic", "heuristic_v1", "heuristic_v2", "heuristic_v3"]
+
+
+def print_hyperlink(path, text=None):
+    """Print hyperlink to file or folder for convenient navigation"""
+    # Format: \033]8;;file:///path/to/file\033\\text\033]8;;\033\\
+    text = text or path
+    full_path = f"file://{os.path.abspath(path)}"
+    return f"\033]8;;{full_path}\033\\{text}\033]8;;\033\\"
 
 def write_heuristic_train(input_txt_path: str, output_c_path: str) -> None:
    
