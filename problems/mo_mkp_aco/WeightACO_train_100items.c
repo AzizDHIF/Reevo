@@ -13,7 +13,7 @@
 
 /*#define NBANTS 100*/
 
-#define FREQUANCY 80
+#define FREQUANCY 40
 
 
 #ifndef M_PI
@@ -37,7 +37,7 @@ int nbants=20;
 double rhot=0.90;
 int alphat=1;
 /*const int nbants=100;*/
-int maxcycle=802;
+int maxcycle=202;
 /*double tmin=0.5;*/
 double tmax=1.0 , beta=10.0;
 int tinit=1;
@@ -358,7 +358,7 @@ void initfile_weights_log()
     int T1,T2,M1,Zd;
     double C=exp(1);
 
-  Wfile = fopen( "Weights_train.txt", "a+" );
+  Wfile = fopen( "Weights.txt", "a+" );
   fflush(stdout);
 
 if (nf==2)

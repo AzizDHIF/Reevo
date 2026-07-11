@@ -493,7 +493,7 @@ if __name__ == "__main__":
         #concaténer les sets de pareto extraits pour chaque dataset
 
         for _,pareto_dir in val_aco_results:
-            concatenate_pareto_sets(pareto_dir,3)
+            concatenate_pareto_sets(pareto_dir,1)
         
         print("[*] Calculating  hypervolume and epsilon...")
         #calcul des deux métriques epsilon et hypervolume

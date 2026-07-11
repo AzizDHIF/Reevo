@@ -1,5 +1,5 @@
 #include "HBACO.h"
-double heuristic_eval_500(int index_item, double weights[dimension][NBITEMS_500], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS_500], double profit[NBITEMS_500]) {
+double heuristic(int index_item, double weights[dimension][NBITEMS], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS], double profit[NBITEMS]) {
     // Calculate the weight and profit of the item
     double item_weight = 0;
     for (int j = 0; j < dimension; j++) {
