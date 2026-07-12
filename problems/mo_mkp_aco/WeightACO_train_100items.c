@@ -869,12 +869,11 @@ solutions->size=nbants;
 			eta[j]=heuristic(i,weights,capacit,nv,voisinage,profits[j]); //info heuristique pour chaque obj
 
             mul=beta*vector_weight[j];
-
             tmp=tmp*pow(eta[j],mul);
 
 		}
 
-	//	eta=profits[f][voisinage[i]]/poids[j][voisinage[i]];//eta dépend que de l'objectif de col //
+	//eta=profits[f][voisinage[i]]/poids[j][voisinage[i]];//eta dépend que de l'objectif de col //
 
  	 proba[i]=tmp*monPow(pheromone[voisinage[i]],alphat);
 		som[i]= tot + proba[i]; /*printf("som");*/
