@@ -10,7 +10,7 @@ WORK_DIR = os.path.dirname(os.path.abspath(__file__))
 import re
 
 possible_func_names = ["heuristic", "heuristic_v1", "heuristic_v2", "heuristic_v3"]
-
+population_size=4
 
 def print_hyperlink(path, text=None):
     """Print hyperlink to file or folder for convenient navigation"""
@@ -409,7 +409,7 @@ if __name__ == "__main__":
         #concaténer les sets de pareto extraits pour chaque dataset
 
         for pareto_dir in pareto_set_dirs:
-            concatenate_pareto_sets(pareto_dir,1)
+            concatenate_pareto_sets(pareto_dir,3)
         
         print("[*] Calculating  hypervolume and epsilon...")
         #calcul des deux métriques epsilon et hypervolume
@@ -520,7 +520,9 @@ if __name__ == "__main__":
         for result_file,_ in val_aco_results:
             delete_file(result_file)
 
-            
+        for i in range(population_size):
+            delete_folder(os.path.join(WORK_DIR,f"results_individual_{i}")) 
+        
         print("[*] moyenne pour hypervolume et  epsilon:")
         
         print(f"[*] Average for hypervolume 100 items: {mean_hypervolume_100items}")

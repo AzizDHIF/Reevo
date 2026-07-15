@@ -1,32 +1,54 @@
 #include "HBACO.h"
-double heuristic_eval_500(int index_item, double weights[dimension][NBITEMS_500], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS_500], double profit[NBITEMS_500] ){
-    double h = 0;
-    double density = 0;
+double heuristic(int index_item, double weights[dimension][NBITEMS], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS], double profit[NBITEMS]) 
+{
+    double max_weight = 0;
+    double min_weight = 1e10;
     double avg_weight = 0;
-    double util = 0;
+    double total_capacity = 0;
+    double utilization_ratio = 0;
+    double score = 0;
+    double profit_per_weight = 0;
+    double capacity_ratio = 0;
 
-    // Calculate the average weight of the item across all dimensions
-    for(int j = 0; j < dimension; j++){
-        avg_weight += weights[j][index_item];
+    // Calculate average weight and total capacity
+    for(int j = 0; j < dimension; j++) {
+        double w = weights[j][index_item];
+        max_weight = (w > max_weight) ? w : max_weight;
+        min_weight = (w < min_weight) ? w : min_weight;
+        avg_weight += w;
+        total_capacity += capacity[j];
     }
+
+    // Simplify calculations
     avg_weight /= dimension;
+    utilization_ratio = avg_weight / (total_capacity / dimension);
 
-    // Calculate the density of the item based on its profit and average weight
-    density = profit[index_item] / avg_weight;
+    // Prioritize profitability and minimize dependencies
+    profit_per_weight = profit[index_item] / avg_weight;
 
-    // Calculate the utilization factor of the item
-    for(int j = 0; j < dimension; j++){
-        util += (1 - (weights[j][index_item] / capacity[j]));
+    // Consider the neighborhood of the item
+    double neighborhood_profit = 0;
+    for(int i = 0; i < nb_voisinage; i++) {
+        neighborhood_profit += profit[voisinage[i]];
     }
-    util /= dimension;
+    neighborhood_profit /= nb_voisinage;
 
-    // Sparsify the heuristic_eval_500 by setting unpromising elements to zero
-    if (util < 0 || density < 0) {
-        return 0;
+    // Evaluate items multidimensionally
+    capacity_ratio = min_weight / max_weight;
+    double weight_variance = 0;
+    for(int j = 0; j < dimension; j++) {
+        weight_variance += (weights[j][index_item] - avg_weight) * (weights[j][index_item] - avg_weight);
     }
+    weight_variance /= dimension;
 
-    // Combine various factors to determine how promising it is to select an item
-    h = (profit[index_item] * util) / (avg_weight * (1 + nb_voisinage));
+    // Combine various factors to determine the heuristic score
+    score = profit_per_weight * (1 - utilization_ratio) * capacity_ratio * (1 - (weight_variance / (avg_weight * avg_weight)));
 
-    return h;
+    // Consider the overall profit and neighborhood profit
+    score *= (1 + neighborhood_profit / profit[index_item]);
+
+    // Sparsify the heuristic by setting unpromising elements to zero
+    if(score < 0) score = 0;
+
+    return score;
 }

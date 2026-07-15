@@ -174,3 +174,7 @@ exp/*
 ablation/*
 #API
 api_key.yaml
+#temp files
+results*.txt
+*results/
+Weight*.exe
