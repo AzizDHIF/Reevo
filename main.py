@@ -6,15 +6,17 @@ import subprocess
 from utils.utils import init_client, print_hyperlink
 import sys
 import yaml 
+import time
 ROOT_DIR = os.getcwd()
 logging.basicConfig(level=logging.INFO)
 
 @hydra.main(version_base=None, config_path="cfg", config_name="config")
 def main(cfg):
+    start_time = time.perf_counter()  # <-- début du chrono
     workspace_dir = Path.cwd()
     ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
 
-    #Initialisation de la clé api 
+    #Initialisation de la clé api si le llm_client est groq
     api_key_path=os.path.join(ROOT_DIR, "api_key.yaml")
     os.environ["GROQ_API_KEY"] = yaml.safe_load(open(api_key_path, "r"))[f"api_0"]
     
@@ -68,6 +70,9 @@ def main(cfg):
     with open(test_script_stdout, 'r', encoding="cp1252") as file:
         for line in file.readlines():
             logging.info(line.strip())
+    
+    elapsed = time.perf_counter() - start_time  # <-- fin du chrono
+    logging.info(f"Total execution time: {elapsed:.2f} seconds ({elapsed/60:.2f} minutes)")
 
 if __name__ == "__main__":
     main()
