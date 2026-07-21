@@ -963,7 +963,7 @@ int main(int argc, char* argv[])
 
   read_weights_file("Weights.txt");
 
-   for(k=1;k<=3;k++){
+   for(k=1;k<=1;k++){
  
     init_time=0.0;
     duration=0;

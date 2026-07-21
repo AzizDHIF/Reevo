@@ -409,7 +409,7 @@ if __name__ == "__main__":
         #concaténer les sets de pareto extraits pour chaque dataset
 
         for pareto_dir in pareto_set_dirs:
-            concatenate_pareto_sets(pareto_dir,3)
+            concatenate_pareto_sets(pareto_dir,1)
         
         print("[*] Calculating  hypervolume and epsilon...")
         #calcul des deux métriques epsilon et hypervolume
@@ -448,12 +448,12 @@ if __name__ == "__main__":
                  (os.path.join(WORK_DIR,"results_val_dataset_1_300_items.txt"), os.path.join(WORK_DIR,"pareto_set_val\\pareto_sets_dataset_1_items_300")),
                  (os.path.join(WORK_DIR,"results_val_dataset_2_300_items.txt"), os.path.join(WORK_DIR,"pareto_set_val\\pareto_sets_dataset_2_items_300")),
                  (os.path.join(WORK_DIR,"results_val_dataset_3_300_items.txt"), os.path.join(WORK_DIR,"pareto_set_val\\pareto_sets_dataset_3_items_300")),
-                 (os.path.join(WORK_DIR,"results_val_dataset_4_300_items.txt"), os.path.join(WORK_DIR,"pareto_set_val\\pareto_sets_dataset_4_items_300")),
-                 (os.path.join(WORK_DIR,"results_val_dataset_0_500_items.txt"), os.path.join(WORK_DIR,"pareto_set_val\\pareto_sets_dataset_0_items_500")),
-                 (os.path.join(WORK_DIR,"results_val_dataset_1_500_items.txt"), os.path.join(WORK_DIR,"pareto_set_val\\pareto_sets_dataset_1_items_500")),
-                 (os.path.join(WORK_DIR,"results_val_dataset_2_500_items.txt"), os.path.join(WORK_DIR,"pareto_set_val\\pareto_sets_dataset_2_items_500")),
-                 (os.path.join(WORK_DIR,"results_val_dataset_3_500_items.txt"), os.path.join(WORK_DIR,"pareto_set_val\\pareto_sets_dataset_3_items_500")),
-                 (os.path.join(WORK_DIR,"results_val_dataset_4_500_items.txt"), os.path.join(WORK_DIR,"pareto_set_val\\pareto_sets_dataset_4_items_500")),]
+                 (os.path.join(WORK_DIR,"results_val_dataset_4_300_items.txt"), os.path.join(WORK_DIR,"pareto_set_val\\pareto_sets_dataset_4_items_300")),]
+                 #(os.path.join(WORK_DIR,"results_val_dataset_0_500_items.txt"), os.path.join(WORK_DIR,"pareto_set_val\\pareto_sets_dataset_0_items_500")),
+                 #(os.path.join(WORK_DIR,"results_val_dataset_1_500_items.txt"), os.path.join(WORK_DIR,"pareto_set_val\\pareto_sets_dataset_1_items_500")),
+                 #(os.path.join(WORK_DIR,"results_val_dataset_2_500_items.txt"), os.path.join(WORK_DIR,"pareto_set_val\\pareto_sets_dataset_2_items_500")),
+                 #(os.path.join(WORK_DIR,"results_val_dataset_3_500_items.txt"), os.path.join(WORK_DIR,"pareto_set_val\\pareto_sets_dataset_3_items_500")),
+                 #(os.path.join(WORK_DIR,"results_val_dataset_4_500_items.txt"), os.path.join(WORK_DIR,"pareto_set_val\\pareto_sets_dataset_4_items_500")),]
         
         
         val_pareto_ref_files_100items=[os.path.join(WORK_DIR,f"dataset\\mood_val_dataset\\ref_dataset_{i}_100_items\\final_pareto_file.txt_dat") for i in range(5)]
@@ -471,7 +471,7 @@ if __name__ == "__main__":
 
 
                    
-        for nb_items in [100,300,500]:
+        for nb_items in [100,300]:
             
             print("[*] Writing the C code into gpt.c...")
             write_heuristic_eval(os.path.join(WORK_DIR,"gpt.txt"),os.path.join(WORK_DIR,"gpt.c"),f'{nb_items}')
@@ -503,12 +503,12 @@ if __name__ == "__main__":
         
         mean_hypervolume_100items =calculate_meanHypervolume(val_pareto_set_files_100items)
         mean_hypervolume_300items =calculate_meanHypervolume(val_pareto_set_files_300items)
-        mean_hypervolume_500items =calculate_meanHypervolume(val_pareto_set_files_500items)
+        #mean_hypervolume_500items =calculate_meanHypervolume(val_pareto_set_files_500items)
 
         ##epsilon
         mean_epsilon_100items=calculate_meanEpsilon(val_pareto_set_files_100items,val_pareto_ref_files_100items)
         mean_epsilon_300items=calculate_meanEpsilon(val_pareto_set_files_300items,val_pareto_ref_files_300items)
-        mean_epsilon_500items=calculate_meanEpsilon(val_pareto_set_files_500items,val_pareto_ref_files_500items)
+        #mean_epsilon_500items=calculate_meanEpsilon(val_pareto_set_files_500items,val_pareto_ref_files_500items)
 
 
         copy_folder_to_run_dir(
@@ -531,8 +531,8 @@ if __name__ == "__main__":
         print(f"[*] Average for hypervolume 300 items: {mean_hypervolume_300items}")
         print(f"[*] Average for epsilon 300 items: {mean_epsilon_300items}")
 
-        print(f"[*] Average for hypervolume 500 items: {mean_hypervolume_500items}")
-        print(f"[*] Average for epsilon 500 items: {mean_epsilon_500items}")
+        #print(f"[*] Average for hypervolume 500 items: {mean_hypervolume_500items}")
+        #print(f"[*] Average for epsilon 500 items: {mean_epsilon_500items}")
 
         
 
