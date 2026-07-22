@@ -276,43 +276,13 @@ def calculate_meanEpsilon(files, pareto_ref_files):
 
     return mean 
 
-
 def delete_folder(folder_path):
-    cmd = [
-        "powershell",
-        "-Command",
-        f"Remove-Item -Path '{folder_path}' -Recurse -Force"
-    ]
-
-    result = subprocess.run(
-        cmd,
-        capture_output=True,
-        text=True
-    )
-
-    if result.returncode != 0:
-        raise RuntimeError(
-            f"Erreur lors de la suppression : {result.stderr}"
-        )
+    if os.path.isdir(folder_path):
+        shutil.rmtree(folder_path)
 
 def delete_file(file_path):
-    cmd = [
-        "powershell",
-        "-Command",
-        f"Remove-Item -Path '{file_path}' -Force"
-    ]
-
-    result = subprocess.run(
-        cmd,
-        capture_output=True,
-        text=True
-    )
-
-    if result.returncode != 0:
-        raise RuntimeError(
-            f"Erreur lors de la suppression : {result.stderr}"
-        )
-   
+    if os.path.isfile(file_path):
+        os.remove(file_path)
 
 def get_pareto_ref_etendue(pareto_ref_path):
     points = []
@@ -428,10 +398,21 @@ if __name__ == "__main__":
         finally:
             #Supprimer les dossiers de sets de pareto temporaire
             for i in range(5):
-                delete_folder(os.path.join(WORK_DIR,f"{id_response}\\pareto_set\\pareto_sets_dataset_{i}"))
+                try:
+                    delete_folder(os.path.join(WORK_DIR,f"{id_response}\\pareto_set\\pareto_sets_dataset_{i}"))
+                except Exception as e:
+                    logging.warning(f"Failed to delete pareto_sets_dataset_{i}: {e}")
                 #Supprimer les fichiers de résultats intermédiaires de l'ACO
-                delete_file(os.path.join(WORK_DIR,f"{id_response}\\results_train_dataset_{i}.txt"))
-
+                try:
+                    delete_file(os.path.join(WORK_DIR,f"{id_response}\\results_train_dataset_{i}.txt"))
+                except Exception as e:
+                    logging.warning(f"Failed to delete results_train_dataset_{i}.txt: {e}")
+                
+            for i in range(population_size):
+                try:
+                    delete_folder(os.path.join(WORK_DIR,f"results_individual_{i}"))
+                except Exception as e:
+                    logging.warning(f"Failed to delete results_individual_{i}: {e}")
     
 
         
@@ -534,14 +515,18 @@ if __name__ == "__main__":
             #print(f"[*] Average for hypervolume 500 items: {mean_hypervolume_500items}")
             #print(f"[*] Average for epsilon 500 items: {mean_epsilon_500items}")
 
+        
         finally:
-
             delete_folder(os.path.join(WORK_DIR, "pareto_set_val"))
             for result_file,_ in val_aco_results:
-                delete_file(result_file)
+                try: delete_file(result_file)
+                except Exception as e:
+                    logging.warning(f"Failed to delete {result_file}: {e}")
 
             for i in range(population_size):
-                delete_folder(os.path.join(WORK_DIR,f"results_individual_{i}")) 
+                try: delete_folder(os.path.join(WORK_DIR,f"results_individual_{i}")) 
+                except Exception as e:
+                    logging.warning(f"Failed to delete results_individual_{i}: {e}")
 
         
 
