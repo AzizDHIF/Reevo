@@ -1,0 +1,4 @@
+Simplify, add diversity, prioritize rewards.
+Consider weighting and normalizing factors for improved heuristics.
+Emphasize prize and weight diversity.
+Consider prize-to-weight and dimension-specific ratios.

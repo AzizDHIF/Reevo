@@ -1,0 +1,4 @@
+Combine density, profit, and neighbor impact for a balanced heuristic.
+Combine density, average profit, and neighbor impact.
+Combine density, average profit, and neighbor impact metrics.
+Consider multiple factors and neighbor impacts.

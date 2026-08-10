@@ -1,0 +1,1 @@
+Prioritize diversity, simplify prize-to-weight ratios, and balance dimension-wise considerations for effective heuristics.

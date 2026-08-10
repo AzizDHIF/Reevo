@@ -1,0 +1,1 @@
+Combine diverse factors, prioritize high-reward items, and introduce sparsity using weighted averages to create effective heuristics.

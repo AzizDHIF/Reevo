@@ -1,0 +1,39 @@
+```c
+double heuristic_v2(int index_item, double weights[dimension][NBITEMS], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS], double profit[NBITEMS]) {
+    double h = 0;
+    double total_profits = 0;
+    double total_weights = 0;
+
+    // Calculate the sum of profits of neighboring items
+    for (int i = 0; i < nb_voisinage; i++) {
+        total_profits += profit[voisinage[i]];
+    }
+
+    // Calculate the sum of weights of neighboring items
+    for (int i = 0; i < nb_voisinage; i++) {
+        for (int j = 0; j < dimension; j++) {
+            total_weights += weights[j][voisinage[i]];
+        }
+    }
+
+    // Calculate the average capacity constraint ratio
+    double average_capacity_ratio = 0;
+    double sum_inverse_capacity = 0;
+    for (int j = 0; j < dimension; j++) {
+        sum_inverse_capacity += 1 / capacity[j];
+    }
+    for (int j = 0; j < dimension; j++) {
+        average_capacity_ratio += (1 / capacity[j]) / sum_inverse_capacity * weights[j][index_item];
+    }
+
+    // Combine various factors to determine the heuristic value
+    h = profit[index_item] / (total_profits + 1) * (1 - total_weights / (dimension * capacity[0] + 1)) * (1 - average_capacity_ratio);
+
+    // Sparsify the heuristic by setting unpromising elements to zero
+    if (h < 0 || total_profits < 0 || total_weights > dimension * capacity[0]) {
+        h = 0;
+    }
+
+    return h;
+}
+```

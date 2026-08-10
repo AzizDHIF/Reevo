@@ -1,0 +1,4 @@
+Simplify, prioritize key factors, and apply soft thresholds.
+Simplify and prioritize key factors.
+Prioritize density, capacity, and sparsity with adaptive thresholds.
+Simplify, prioritize density, and adjust thresholds.

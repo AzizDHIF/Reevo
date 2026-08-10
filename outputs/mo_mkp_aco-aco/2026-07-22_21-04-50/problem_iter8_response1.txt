@@ -1,0 +1,46 @@
+```c
+double heuristic_v2(int index_item, double weights[dimension][NBITEMS], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS], double profit[NBITEMS]) {
+    // Prioritize items with higher profit-to-weight ratio
+    double weight_sum = 0;
+    double density = 0;
+    for (int j = 0; j < dimension; j++) {
+        weight_sum += weights[j][index_item];
+        if (capacity[j] > 0 && weights[j][index_item] > 0) {
+            density += profit[index_item] / weights[j][index_item];
+        }
+    }
+    if (weight_sum > 0) {
+        density /= weight_sum;
+    } else {
+        density = 0;
+    }
+
+    // Simplify proximity calculation
+    double proximity = 0;
+    if (nb_voisinage > 0) {
+        for (int i = 0; i < nb_voisinage; i++) {
+            proximity += profit[voisinage[i]];
+        }
+        proximity /= nb_voisinage;
+    }
+
+    // Apply penalties
+    double penalty = 1;
+    for (int j = 0; j < dimension; j++) {
+        if (weights[j][index_item] > capacity[j]) {
+            penalty = 0.1;
+            break;
+        }
+    }
+
+    // Combine factors to get the final heuristic value, prioritizing density
+    double h = penalty * (density * 0.8 + proximity * 0.1 + (profit[index_item] / (weight_sum + 1e-9)) * 0.1);
+
+    // Sparsify the heuristic by setting unpromising elements to zero
+    if (h < 0.01) {
+        h = 0;
+    }
+
+    return h;
+}
+```

@@ -1,0 +1,1 @@
+Combine efficiency, weight ratios, and penalties, simplifying calculations to prioritize key factors and constraint satisfaction for robust MKP heuristics.

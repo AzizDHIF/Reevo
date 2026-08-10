@@ -1,0 +1,1 @@
+Combine density, profit, and neighbor impact, penalizing high max profits with low heuristics, and simplify calculations for a balanced approach.

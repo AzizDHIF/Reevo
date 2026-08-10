@@ -1,0 +1,4 @@
+Simplify and balance factors for better heuristics.
+Simplify calculations, minimize zero checks.
+Simplify calculations, reduce conditionals.
+Check inputs, validate constraints, combine relevant factors.

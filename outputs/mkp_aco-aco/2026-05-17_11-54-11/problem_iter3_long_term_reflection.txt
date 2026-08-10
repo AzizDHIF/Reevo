@@ -1,0 +1,1 @@
+Combine factors, normalize weights, and simplify to prize-to-weight ratios, then sparsify heuristics to optimize MKP solutions.

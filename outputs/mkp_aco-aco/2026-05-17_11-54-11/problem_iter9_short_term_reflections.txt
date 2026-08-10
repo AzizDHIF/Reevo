@@ -1,0 +1,4 @@
+Use prize-to-weight ratio considering all dimensions.
+Simplify calculations, avoid redundant operations.
+Avoid division by zero, use total weights, and simplify calculations.
+Simplify calculations, eliminate unnecessary operations.

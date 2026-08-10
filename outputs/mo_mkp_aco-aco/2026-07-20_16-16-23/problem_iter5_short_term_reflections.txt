@@ -1,0 +1,4 @@
+Penalize high max profits with low heuristics.
+Simplify calculations, reduce redundancy, and normalize terms.
+Simplify calculations, reduce iterations.
+Consider neighbors' profits and weights.

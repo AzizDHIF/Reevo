@@ -1,0 +1,1 @@
+Prioritize density, soften thresholds, and avoid division by zero to improve heuristic accuracy and efficiency in MO-MKP.

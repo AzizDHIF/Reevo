@@ -1,0 +1,4 @@
+Prioritize capacity checks and simplify calculations.
+Prioritize capacity checks, simplify calculations.
+Simplify calculations, prioritize feasible items.
+Prioritize dimension-wise calculations over averages.

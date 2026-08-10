@@ -1,0 +1,1 @@
+Combine diverse factors, prioritize exploration, and consider item fit and neighborhood conflicts to design efficient heuristics.

@@ -1,0 +1,4 @@
+Adjust weights and noise levels.
+Prioritize diversity, prize-to-weight ratios, and interaction terms.
+Adjust weights and thresholds for better performance.
+Adjust weights and thresholds iteratively.

@@ -1,0 +1,26 @@
+```c
+double heuristic_v2(int index_item, double weights[dimension][NBITEMS], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS], double profit[NBITEMS] ){
+    double h = 0;
+    double density = 0;
+    double average_profit = 0;
+    for(int i = 0; i < nb_voisinage; i++){
+        int item = voisinage[i];
+        double item_density = profit[item];
+        for(int j = 0; j < dimension; j++){
+            item_density /= (1 + weights[j][item] / capacity[j]);
+        }
+        h += item_density;
+        density += item_density;
+        average_profit += profit[item];
+    }
+    average_profit /= nb_voisinage;
+    double promising_factor = profit[index_item] / (average_profit + 1e-6);
+    double capacity_factor = 1;
+    for(int j = 0; j < dimension; j++){
+        capacity_factor *= (1 - weights[j][index_item] / capacity[j]);
+    }
+    double sparsity_threshold = 0.1;
+    if (density * capacity_factor < sparsity_threshold) return 0;
+    return h * promising_factor * capacity_factor;
+}
+```

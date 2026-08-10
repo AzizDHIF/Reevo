@@ -1,0 +1,4 @@
+Remove redundant calculations, simplify interactions.
+Balance ratios, diversify, and introduce randomness.
+Adjust weights and thresholds for better performance.
+Simplify, remove redundant calculations.

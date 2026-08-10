@@ -1,0 +1,4 @@
+Prioritize efficiency, weights, and constraints.
+Prioritize prize-to-weight ratio and constraint satisfaction.
+Prioritize efficiency, ratios, and constraints.
+Prioritize efficiency, constraint satisfaction, and stability.

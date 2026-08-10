@@ -1,0 +1,63 @@
+```c
+double heuristic_v2(int index_item, double weights[dimension][NBITEMS], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS], double profit[NBITEMS]) {
+    double h = 0.0;
+    double total_weight = 0.0;
+    double avg_weight = 0.0;
+    double density = 0.0;
+    double capacity_utilization = 0.0;
+    double neighbour_density = 0.0;
+
+    // Calculate the total weight of the item
+    for (int j = 0; j < dimension; j++) {
+        total_weight += weights[j][index_item];
+    }
+    avg_weight = total_weight / dimension;
+
+    // Calculate the density of the item
+    if (avg_weight > 0.000001) { // avoid division by zero
+        density = profit[index_item] / avg_weight;
+    }
+
+    // Calculate the capacity utilization
+    for (int j = 0; j < dimension; j++) {
+        capacity_utilization += weights[j][index_item] / capacity[j];
+    }
+    capacity_utilization /= dimension;
+
+    // Calculate neighbour density
+    for (int i = 0; i < nb_voisinage; i++) {
+        int neighbour_index = voisinage[i];
+        double neighbour_total_weight = 0.0;
+        for (int j = 0; j < dimension; j++) {
+            neighbour_total_weight += weights[j][neighbour_index];
+        }
+        double neighbour_avg_weight = neighbour_total_weight / dimension;
+        if (neighbour_avg_weight > 0.000001) { // avoid division by zero
+            double neighbour_density_item = profit[neighbour_index] / neighbour_avg_weight;
+            neighbour_density += neighbour_density_item;
+        }
+    }
+    neighbour_density /= nb_voisinage;
+
+    // Prioritize density, then capacity utilization, and promote sparsity
+    h = density * (1 - capacity_utilization) * (1 + neighbour_density);
+
+    // Apply soft thresholds to promote key factors
+    if (h > 0 && density < 0.5) {
+        h *= 0.7; // Reduce the heuristic value for low-density items
+    }
+    if (h > 0 && capacity_utilization > 0.8) {
+        h *= 0.3; // Reduce the heuristic value for high-capacity utilization items
+    }
+
+    // Sparsify the heuristic by setting unpromising elements to zero
+    if (h < 0.01 || density < 0.1) {
+        h = 0.0;
+    }
+
+    // Ensure non-negative heuristic values
+    h = (h > 0) ? h : 0;
+
+    return h;
+}
+```

@@ -1,0 +1,1 @@
+Combine factors, prioritize simplicity, and balance capacity and profit. Use local averages and sparsity to simplify calculations.

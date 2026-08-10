@@ -1,0 +1,30 @@
+```c
+double heuristic_v2(int index_item, double weights[dimension][NBITEMS], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS], double profit[NBITEMS] ){
+    double h = 0;
+    double density = 0;
+    double neighbor_density_sum = 0;
+    double min_capacity_ratio = 1;
+    
+    for(int j = 0; j < dimension; j++) {
+        double capacity_ratio = weights[j][index_item] / capacity[j];
+        min_capacity_ratio = (min_capacity_ratio < capacity_ratio) ? min_capacity_ratio : capacity_ratio;
+        
+        double neighbor_weights = 0;
+        for(int k = 0; k < nb_voisinage; k++) {
+            neighbor_weights += weights[j][voisinage[k]];
+        }
+        neighbor_density_sum += neighbor_weights / capacity[j];
+        
+        density += profit[index_item] / (1 + weights[j][index_item]);
+    }
+    
+    h = density / (1 + min_capacity_ratio + neighbor_density_sum);
+    
+    // Apply sparsification by setting unpromising elements to zero
+    if (h < (1.0 / NBITEMS)) {
+        h = 0;
+    }
+    
+    return h;
+}
+```

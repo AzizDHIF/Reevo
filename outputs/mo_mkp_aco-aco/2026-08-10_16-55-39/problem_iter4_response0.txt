@@ -1,0 +1,35 @@
+```c
+double heuristic_v2(int index_item, double weights[dimension][NBITEMS], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS], double profit[NBITEMS]) {
+    // Calculate the density of the item
+    double density = 0;
+    for (int j = 0; j < dimension; j++) {
+        density += weights[j][index_item] / capacity[j];
+    }
+    density /= dimension;
+
+    // Calculate the profit-to-weight ratio of the item
+    double ptw_ratio = profit[index_item] / (density + 1e-9);
+
+    // Calculate the neighborhood density and profit-to-weight ratio
+    double total_weight = 0;
+    double total_profit = 0;
+    for (int i = 0; i < nb_voisinage; i++) {
+        for (int j = 0; j < dimension; j++) {
+            total_weight += weights[j][voisinage[i]];
+        }
+        total_profit += profit[voisinage[i]];
+    }
+    double neighborhood_density = total_weight / (nb_voisinage * dimension);
+    double neighborhood_ptw_ratio = total_profit / (total_weight + 1e-9);
+
+    // Calculate the heuristic value
+    double h = ptw_ratio * (1 - density) / (neighborhood_ptw_ratio + 1e-9);
+
+    // Sparsify the heuristic by setting unpromising elements to zero
+    if (density > 1.0 || (nb_voisinage > 0 && h < neighborhood_ptw_ratio * 0.5)) {
+        h = 0;
+    }
+
+    return h;
+}
+```

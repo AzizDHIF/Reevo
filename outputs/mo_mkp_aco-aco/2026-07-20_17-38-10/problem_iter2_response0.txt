@@ -1,0 +1,33 @@
+```c
+double heuristic_v2(int index_item, double weights[dimension][NBITEMS], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS], double profit[NBITEMS]) {
+    double total_weight = 0;
+    double total_profit = 0;
+
+    // Calculate the total weight and profit of the neighbors
+    for (int i = 0; i < nb_voisinage; i++) {
+        for (int j = 0; j < dimension; j++) {
+            total_weight += weights[j][voisinage[i]];
+        }
+        total_profit += profit[voisinage[i]];
+    }
+
+    double average_weight = nb_voisinage > 0 ? total_weight / (nb_voisinage * dimension) : 0;
+    double average_profit = nb_voisinage > 0 ? total_profit / nb_voisinage : 0;
+
+    double h = 0;
+    // Calculate the heuristic value based on the average weight and profit of the neighbors
+    for (int j = 0; j < dimension; j++) {
+        h += (capacity[j] - average_weight) / (weights[j][index_item] + 1e-5);
+    }
+
+    // Combine various factors to determine how promising it is to select an item
+    double heuristic_value = profit[index_item] * (1 + average_profit) / (h / dimension + 1e-5);
+
+    // Add a threshold to prevent division by zero and set unpromising elements to zero
+    if (h == 0 || average_profit == 0) {
+        return 0;
+    } else {
+        return heuristic_value;
+    }
+}
+```

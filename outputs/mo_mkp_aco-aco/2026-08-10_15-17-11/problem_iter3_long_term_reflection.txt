@@ -1,0 +1,1 @@
+Simplify heuristics, focusing on density, pressure, utilization ratios, and neighbor profits to efficiently select items for multi-objective optimization.

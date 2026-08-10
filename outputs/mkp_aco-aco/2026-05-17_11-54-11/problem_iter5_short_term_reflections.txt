@@ -1,0 +1,4 @@
+Simplify heuristics calculations, focus on key factors.
+Simplify calculations, prioritize key factors.
+Normalize weights, combine factors intuitively.
+Simplify, focus on key factors like prize-to-weight ratio.

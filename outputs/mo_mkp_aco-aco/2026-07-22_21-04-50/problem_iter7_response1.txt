@@ -1,0 +1,52 @@
+```c
+double heuristic_v2(int index_item, double weights[dimension][NBITEMS], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS], double profit[NBITEMS]) 
+{
+    double weight_sum = 0;
+    double density = 0;
+    double proximity = 0;
+    double balance = 0;
+
+    // Calculate the total weight of the item
+    for (int j = 0; j < dimension; j++) {
+        weight_sum += weights[j][index_item];
+        if (capacity[j] > 0) {
+            density += profit[index_item] / weights[j][index_item];
+        }
+        if (weights[j][index_item] > capacity[j]) {
+            balance -= (weights[j][index_item] - capacity[j]);
+        }
+    }
+    density /= dimension;
+
+    // Calculate the proximity to neighbors
+    if (nb_voisinage > 0) {
+        for (int i = 0; i < nb_voisinage; i++) {
+            for (int j = 0; j < dimension; j++) {
+                if (weights[j][voisinage[i]] > 0 && weights[j][index_item] > 0) {
+                    proximity += (profit[voisinage[i]] + profit[index_item]) / (weights[j][voisinage[i]] + weights[j][index_item]);
+                }
+            }
+        }
+        proximity /= nb_voisinage * dimension;
+    }
+
+    // Combine factors to get the final heuristic value
+    double h = (density * 0.5 + (profit[index_item] / weight_sum) * 0.2 + proximity * 0.2 + balance * 0.1);
+
+    // Apply a penalty if the item cannot fit in any knapsack
+    double total_remaining_capacity = 0;
+    for (int j = 0; j < dimension; j++) {
+        total_remaining_capacity += capacity[j];
+    }
+    if (weight_sum > total_remaining_capacity) {
+        h *= 0.01;
+    }
+
+    // Sparsify the heuristic by setting unpromising elements to zero
+    if (h < 0) {
+        h = 0;
+    }
+
+    return h;
+}
+```

@@ -1,0 +1,22 @@
+algorithm: reevo
+max_fe: 80
+pop_size: 4
+init_pop_size: 4
+mutation_rate: 0.5
+timeout: 100
+diversify_init_pop: true
+problem:
+  problem_name: mkp_aco
+  problem_type: aco
+  obj_type: max
+  problem_size: 100
+  func_name: heuristics
+  description: Solving Multiple Knapsack Problems (MKP) through stochastic solution
+    sampling based on "heuristics". MKP involves selecting a subset of items to maximize
+    the total prize collected, subject to multi-dimensional maximum weight constraints.
+llm_client:
+  _target_: utils.llm_client.deepseek_spark.DeepSeekSparkClient
+  model: bartowski/DeepSeek-R1-Distill-Llama-70B-GGUF:Q4_K_M
+  temperature: 1.0
+  api_key: ${oc.env:DEEPSEEK_SPARK_API_KEY,sk-no-key-required}
+  base_url: http://localhost:8080/v1

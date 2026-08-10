@@ -1,0 +1,4 @@
+Consider efficiency, constraints, and robustness.
+Consider dimensionality and robustness in heuristics calculations.
+Prioritize efficiency and constraint satisfaction.
+Prioritize efficiency and prize-to-weight ratios.

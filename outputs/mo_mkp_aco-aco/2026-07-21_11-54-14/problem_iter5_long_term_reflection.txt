@@ -1,0 +1,1 @@
+Combine item density and neighbor comparisons, simplifying calculations to avoid divisions by zero, and sparsify heuristics to enhance item promise evaluation.

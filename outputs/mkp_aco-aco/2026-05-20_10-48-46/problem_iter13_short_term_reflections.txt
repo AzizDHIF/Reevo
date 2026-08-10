@@ -1,0 +1,4 @@
+Simplify and focus on key factors like diversity and prize-to-weight ratios.
+Simplify and balance factors for improved heuristics.
+Simplify and prioritize key factors like diversity and prize-to-weight ratios.
+Incorporate more diverse weight-related ratios.

@@ -1,0 +1,4 @@
+Simplify, diversify, and prioritize high-reward items.
+Combine diverse factors using weighted averages.
+Combine factors, introduce sparsity, and tune weights.
+Combine factors, use weighted averages, and sparsify heuristics.

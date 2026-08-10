@@ -1,0 +1,4 @@
+Use relevant weights and ratios to guide heuristic design.
+Simplify ratios, consider constraints.
+Simplify ratios, consider efficiency, and adjust thresholds.
+Consider multiple ratios and constraints.

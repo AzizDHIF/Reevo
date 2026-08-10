@@ -1,0 +1,4 @@
+Consider capacity ratios and neighbour influences.
+Consider capacity, neighbors, and profit interactions.
+Consider profit-to-weight ratios and neighbor impacts.
+Consider weights, profits, and capacity ratios.

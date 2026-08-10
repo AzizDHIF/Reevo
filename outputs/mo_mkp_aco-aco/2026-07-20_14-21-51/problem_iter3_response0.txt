@@ -1,0 +1,50 @@
+```c
+double heuristic_v2(int index_item, double weights[dimension][NBITEMS], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS], double profit[NBITEMS]) {
+    double total_weight = 0;
+    double total_remaining_capacity = 0;
+    double total_profit_neighborhood = 0;
+    double proximity_score = 0;
+
+    for (int j = 0; j < dimension; j++) {
+        total_weight += weights[j][index_item];
+        total_remaining_capacity += capacity[j] - weights[j][index_item];
+    }
+
+    for (int i = 0; i < nb_voisinage; i++) {
+        total_profit_neighborhood += profit[voisinage[i]];
+        // calculate proximity score
+        for (int j = 0; j < dimension; j++) {
+            proximity_score += (weights[j][index_item] - weights[j][voisinage[i]]) * (weights[j][index_item] - weights[j][voisinage[i]]);
+        }
+    }
+
+    double weight_to_capacity_ratio = 0;
+    if (total_remaining_capacity > 0) {
+        weight_to_capacity_ratio = total_weight / total_remaining_capacity;
+    }
+
+    double average_profit_neighborhood = 0;
+    if (nb_voisinage > 0) {
+        average_profit_neighborhood = total_profit_neighborhood / nb_voisinage;
+    }
+
+    double h1 = profit[index_item] / (weight_to_capacity_ratio + 1e-6);
+    double h2 = average_profit_neighborhood / (weight_to_capacity_ratio + 1e-6);
+    double h3 = profit[index_item] * average_profit_neighborhood;
+    double h4 = 1 / (proximity_score + 1e-6);
+
+    // sparsify the heuristic
+    if (weight_to_capacity_ratio > 2 || average_profit_neighborhood < 0.5 * profit[index_item] || proximity_score > 10) {
+        return 0;
+    }
+
+    double capacity_consistency = 1;
+    for (int j = 0; j < dimension; j++) {
+        if (weights[j][index_item] > capacity[j]) {
+            capacity_consistency -= 0.2;
+        }
+    }
+
+    return (h1 * 0.2 + h2 * 0.2 + h3 * 0.3 + h4 * 0.3) * capacity_consistency;
+}
+```

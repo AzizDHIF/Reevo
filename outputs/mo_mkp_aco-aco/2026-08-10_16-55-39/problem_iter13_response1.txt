@@ -1,0 +1,35 @@
+```c
+double heuristic_v2(int index_item, double weights[/*dimension*/][NBITEMS], double capacity[/*dimension*/], int nb_voisinage, int voisinage[NBITEMS], double profit[NBITEMS]) {
+    // Calculate the profit-to-weight ratio along each dimension
+    double max_ptw_ratio = 0;
+    for (int j = 0; j < /*dimension*/; j++) {
+        if (weights[j][index_item] > capacity[j]) return 0; // prioritize feasibility
+        double ptw_ratio = profit[index_item] / (weights[j][index_item] + 1e-9);
+        if (ptw_ratio > max_ptw_ratio) {
+            max_ptw_ratio = ptw_ratio;
+        }
+    }
+
+    // Consider neighborhood effect with simplified calculation
+    if (nb_voisinage > 0) {
+        double total_neighborhood_profit = 0;
+        for (int i = 0; i < nb_voisinage; i++) {
+            total_neighborhood_profit += profit[voisinage[i]];
+        }
+        double average_neighborhood_profit = total_neighborhood_profit / nb_voisinage;
+        max_ptw_ratio *= (1 + average_neighborhood_profit / (average_neighborhood_profit + 1e-9)); // enhance with neighborhood effect
+    }
+
+    // Sparsify the heuristic by setting unpromising elements to zero
+    double average_weight = 0;
+    for (int j = 0; j < /*dimension*/; j++) {
+        average_weight += weights[j][index_item];
+    }
+    average_weight /= /*dimension*/;
+    if (max_ptw_ratio < 0.5 || average_weight > 1.0) {
+        return 0; // filter out unpromising items
+    }
+
+    return max_ptw_ratio;
+}
+```

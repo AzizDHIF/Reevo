@@ -1,0 +1,68 @@
+```python
+import numpy as np
+
+def heuristics_v2(prize: np.ndarray, weight: np.ndarray) -> np.ndarray:
+    """
+    Stochastic solution sampling heuristic for Multiple Knapsack Problems (MKP).
+    
+    This heuristic combines multiple factors with normalization and weighted sums to determine the promise of each item.
+    
+    Args:
+    prize (np.ndarray): A 1D array representing the prize of each item.
+    weight (np.ndarray): A 2D array representing the weights of each item.
+    
+    Returns:
+    np.ndarray: A 1D array where each element represents how promising it is to include the corresponding item in the solution.
+    """
+    n, m = weight.shape
+    
+    # Normalize prizes to have a mean of 1
+    prize_normalized = prize / np.mean(prize) if np.mean(prize) != 0 else 0
+    
+    # Calculate the sum of weights for each item
+    weight_sum = np.sum(weight, axis=1)
+    
+    # Calculate the L2 norm of weights for each item
+    weight_norm = np.linalg.norm(weight, axis=1)
+    
+    # Calculate the inverse of the L2 norm
+    weight_norm_inverse = 1 / (weight_norm + 1e-6)
+    
+    # Normalize the inverse of the L2 norm
+    weight_norm_inverse_normalized = weight_norm_inverse / np.mean(weight_norm_inverse) if np.mean(weight_norm_inverse) != 0 else 0
+    
+    # Calculate the prize-to-weight ratio for each item
+    prize_to_weight_ratio = prize / (weight_norm + 1e-6)
+    
+    # Normalize the prize-to-weight ratio to have a mean of 1
+    prize_to_weight_ratio_normalized = prize_to_weight_ratio / np.mean(prize_to_weight_ratio) if np.mean(prize_to_weight_ratio) != 0 else 0
+    
+    # Calculate the number of non-zero weights for each item
+    weight_nonzero = np.sum(weight > 0, axis=1)
+    
+    # Normalize the number of non-zero weights to have a mean of 1
+    weight_nonzero_normalized = weight_nonzero / np.mean(weight_nonzero) if np.mean(weight_nonzero) != 0 else 0
+    
+    # Calculate the prize-to-sum-of-weights ratio for each item
+    prize_to_weight_sum_ratio = prize / (weight_sum + 1e-6)
+    
+    # Normalize the prize-to-sum-of-weights ratio to have a mean of 1
+    prize_to_weight_sum_ratio_normalized = prize_to_weight_sum_ratio / np.mean(prize_to_weight_sum_ratio) if np.mean(prize_to_weight_sum_ratio) != 0 else 0
+    
+    # Combine multiple factors with normalization and weighted sums
+    factor1 = prize_to_weight_ratio_normalized
+    factor2 = weight_norm_inverse_normalized
+    factor3 = 1 - weight_nonzero_normalized  # Prefer fewer nonzero weights
+    factor4 = prize_to_weight_sum_ratio_normalized
+    factor5 = prize_normalized
+    
+    # Use a weighted sum to combine the factors
+    weights = np.array([0.2, 0.2, 0.2, 0.2, 0.2])
+    heuristics = np.sum(np.array([factor1, factor2, factor3, factor4, factor5]) * weights, axis=0)
+    
+    # Sparsify the heuristics with a threshold
+    threshold = np.mean(heuristics) / 2 if np.mean(heuristics) != 0 else 0
+    heuristics = np.where(heuristics < threshold, 0, heuristics)
+    
+    return heuristics
+```

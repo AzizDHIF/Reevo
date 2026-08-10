@@ -1,0 +1,1 @@
+Prioritize item fit and capacity pressure, simplifying calculations and minimizing conditionals to create efficient MO-MKP heuristics.

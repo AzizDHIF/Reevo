@@ -1,0 +1,46 @@
+```c
+double heuristic_v2(int index_item, double weights[dimension][NBITEMS], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS], double profit[NBITEMS]) {
+    double h = 0;
+    double total_capacity = 0;
+    double weight_sum = 0;
+
+    // Calculate total capacity
+    for (int j = 0; j < dimension; j++) {
+        total_capacity += capacity[j];
+    }
+
+    // Calculate weight sum of the item and its neighbors
+    for (int i = 0; i < nb_voisinage; i++) {
+        for (int j = 0; j < dimension; j++) {
+            weight_sum += weights[j][voisinage[i]];
+        }
+    }
+
+    // Check if the weight sum exceeds the total capacity
+    if (weight_sum > total_capacity) {
+        return 0;  // Do not consider this item if it exceeds the total capacity
+    }
+
+    // Calculate the heuristic value
+    for (int j = 0; j < dimension; j++) {
+        h += weights[j][index_item] / capacity[j];
+    }
+
+    // Combine various factors to determine how promising it is to select an item
+    double profit_ratio = profit[index_item] / (h + 1);
+    double neighbor_profit = 0;
+    for (int i = 0; i < nb_voisinage; i++) {
+        neighbor_profit += profit[voisinage[i]];
+    }
+    double average_neighbor_profit = neighbor_profit / nb_voisinage;
+
+    double heuristic_value = profit_ratio * (average_neighbor_profit + 1);
+
+    // Sparsify the heuristic by setting unpromising elements to zero
+    if (heuristic_value < 0.1) {
+        return 0;
+    } else {
+        return heuristic_value;
+    }
+}
+```

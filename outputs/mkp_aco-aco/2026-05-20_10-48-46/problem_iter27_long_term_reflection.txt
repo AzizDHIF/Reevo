@@ -1,0 +1,1 @@
+Simplify, prioritize diversity, and balance prize-to-weight ratios and interaction terms, introducing noise and dynamic thresholds for effective MKP heuristics.

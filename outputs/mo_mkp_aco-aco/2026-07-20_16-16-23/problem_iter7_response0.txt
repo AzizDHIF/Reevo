@@ -1,0 +1,56 @@
+```c
+double heuristic_v2(int index_item, double weights[dimension][NBITEMS], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS], double profit[NBITEMS]) {
+    double total_weight = 0;
+    double max_profit = 0;
+    double neighbor_impact_sum = 0;
+    double neighbor_profit_sum = 0;
+    int valid_neighbor_count = 0;
+
+    // Calculate total weight and max profit
+    double normalized_weights[dimension];
+    double total_capacity = 0;
+    for (int j = 0; j < dimension; j++) {
+        total_weight += weights[j][index_item];
+        total_capacity += capacity[j];
+        normalized_weights[j] = weights[j][index_item] / capacity[j];
+    }
+    double average_weight = total_weight / dimension;
+
+    for (int i = 0; i < nb_voisinage; i++) {
+        if (profit[voisinage[i]] > max_profit) {
+            max_profit = profit[voisinage[i]];
+        }
+        if (profit[voisinage[i]] > 0) {
+            neighbor_profit_sum += profit[voisinage[i]];
+            valid_neighbor_count++;
+        }
+        double neighbor_weight = 0;
+        for (int j = 0; j < dimension; j++) {
+            neighbor_weight += weights[j][voisinage[i]];
+        }
+        neighbor_impact_sum += profit[voisinage[i]] / (total_weight + neighbor_weight);
+    }
+
+    // Calculate average profit and density
+    double average_profit = (valid_neighbor_count > 0) ? neighbor_profit_sum / valid_neighbor_count : 0;
+    double density = (total_weight > 0) ? profit[index_item] / total_weight : 0;
+
+    // Calculate overall heuristic
+    double overall_heuristic = (density + average_profit + neighbor_impact_sum / nb_voisinage) / (total_weight / total_capacity + 1);
+
+    // Normalize the heuristic
+    double normalized_heuristic = overall_heuristic / (max_profit + 1);
+
+    // Penalize if max profit is higher and overall heuristic is low
+    if (max_profit > profit[index_item] && normalized_heuristic < 0.5) {
+        normalized_heuristic = 0;
+    }
+
+    // Sparsify the heuristic by setting unpromising elements to zero
+    if (normalized_heuristic < 0.1) {
+        normalized_heuristic = 0;
+    }
+
+    return normalized_heuristic;
+}
+```

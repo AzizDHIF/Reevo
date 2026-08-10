@@ -1,0 +1,39 @@
+```c
+double heuristic_v2(int index_item, double weights[dimension][NBITEMS], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS], double profit[NBITEMS]) {
+    double h = 0;
+    double weight_to_capacity_ratio = 0;
+    double neighborhood_proximity = 0;
+
+    // calculate weight to capacity ratio
+    double total_weight = 0;
+    double total_remaining_capacity = 0;
+    for (int j = 0; j < dimension; j++) {
+        total_weight += weights[j][index_item];
+        total_remaining_capacity += capacity[j] - weights[j][index_item];
+    }
+    if (total_remaining_capacity > 0) {
+        weight_to_capacity_ratio = total_weight / total_remaining_capacity;
+    } else {
+        weight_to_capacity_ratio = 1e10; // set to a large value if remaining capacity is zero
+    }
+
+    // calculate neighborhood proximity
+    for (int i = 0; i < nb_voisinage; i++) {
+        neighborhood_proximity += profit[voisinage[i]];
+    }
+    neighborhood_proximity /= nb_voisinage;
+
+    // calculate heuristics
+    double h1 = profit[index_item] / (weight_to_capacity_ratio + 1e-6); // profit to weight ratio
+    double h2 = neighborhood_proximity / (weight_to_capacity_ratio + 1e-6); // neighborhood to weight ratio
+    double h3 = profit[index_item] * neighborhood_proximity; // profit to neighborhood product
+
+    // sparsify the heuristic
+    if (weight_to_capacity_ratio > 2 || neighborhood_proximity < 0.5 * profit[index_item]) {
+        return 0;
+    }
+
+    // combine heuristics
+    return h1 * 0.4 + h2 * 0.3 + h3 * 0.3;
+}
+```

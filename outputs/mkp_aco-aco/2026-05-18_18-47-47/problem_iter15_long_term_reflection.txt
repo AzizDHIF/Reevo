@@ -1,0 +1,1 @@
+Combine efficiency, prize-to-weight ratio, and constraint satisfaction, prioritizing simplicity and stability for effective heuristics.

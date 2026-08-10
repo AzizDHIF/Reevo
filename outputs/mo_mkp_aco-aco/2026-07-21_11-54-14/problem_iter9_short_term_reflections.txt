@@ -1,0 +1,4 @@
+Remove redundant conditions for sparsification.
+Incorporate diversity and pressure metrics for improved heuristics.
+Incorporate diversity, similarity metrics.
+Simplify calculations, combine effects, and avoid divisions.

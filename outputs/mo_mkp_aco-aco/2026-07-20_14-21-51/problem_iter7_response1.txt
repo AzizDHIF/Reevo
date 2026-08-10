@@ -1,0 +1,59 @@
+```c
+double heuristic_v2(int index_item, double weights[dimension][NBITEMS], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS], double profit[NBITEMS] )
+{
+    double total_weight = 0;
+    double total_remaining_capacity = 0;
+    double total_profit_neighborhood = 0;
+    double total_weight_neighborhood = 0;
+
+    // Calculate total weight, remaining capacity, and neighbor's profit and weight
+    for (int j = 0; j < dimension; j++) {
+        total_weight += weights[j][index_item];
+        total_remaining_capacity += capacity[j] - weights[j][index_item];
+    }
+    for (int i = 0; i < nb_voisinage; i++) {
+        total_profit_neighborhood += profit[voisinage[i]];
+        for (int j = 0; j < dimension; j++) {
+            total_weight_neighborhood += weights[j][voisinage[i]];
+        }
+    }
+
+    double weight_to_capacity_ratio = 0;
+    if (total_remaining_capacity > 0) {
+        weight_to_capacity_ratio = total_weight / total_remaining_capacity;
+    }
+
+    double average_profit_neighborhood = 0;
+    if (nb_voisinage > 0) {
+        average_profit_neighborhood = total_profit_neighborhood / nb_voisinage;
+    }
+
+    double average_weight_neighborhood = 0;
+    if (nb_voisinage > 0) {
+        average_weight_neighborhood = total_weight_neighborhood / (nb_voisinage * dimension);
+    }
+
+    // Simplify calculations by avoiding divisions by zero
+    double h1 = (profit[index_item] * total_remaining_capacity) / (total_weight + 1e-6);
+    double h2 = (average_profit_neighborhood * total_remaining_capacity) / (total_weight + 1e-6);
+    double h3 = profit[index_item] * average_profit_neighborhood;
+    double h4 = (profit[index_item] * (1 - weight_to_capacity_ratio)) / (average_weight_neighborhood + 1e-6);
+
+    // Prioritize capacity constraints
+    double capacity_consistency = 1;
+    for (int j = 0; j < dimension; j++) {
+        if (weights[j][index_item] > capacity[j]) {
+            capacity_consistency -= 0.2;
+            if (capacity_consistency < 0) capacity_consistency = 0;
+        }
+    }
+
+    // Apply sparsification to avoid considering unpromising items
+    if (weight_to_capacity_ratio > 2 || average_profit_neighborhood < 0.5 * profit[index_item] || average_weight_neighborhood > 2 * total_weight) {
+        return 0;
+    }
+
+    // Combine metrics with different weights
+    return (h1 * 0.3 + h2 * 0.2 + h3 * 0.2 + h4 * 0.3) * capacity_consistency;
+}
+```

@@ -1,0 +1,29 @@
+```c
+double heuristic_v2(int index_item, double weights[/*dimension*/][NBITEMS], double capacity[/*dimension*/], int nb_voisinage, int voisinage[NBITEMS], double profit[NBITEMS] ){
+    double h = 0;
+    double total_weight = 0;
+    double avg_weight_ratio = 0;
+    double item_value = 0;
+    for(int j = 0; j < /*dimension*/; j++){
+        total_weight += weights[j][index_item];
+        if(capacity[j] > 0) {
+            avg_weight_ratio += weights[j][index_item] / capacity[j];
+        }
+    }
+    item_value = profit[index_item];
+    if(/*dimension*/ > 0) {
+        avg_weight_ratio /= /*dimension*/;
+    }
+
+    // Combine various factors to determine how promising it is to select an item
+    h = item_value / (avg_weight_ratio + 1);
+
+    // Apply a sparsification threshold
+    double threshold = 0.5;  // adjust the threshold as needed
+    if(total_weight > nb_voisinage || avg_weight_ratio < threshold) {
+        h = 0;  // Set unpromising elements to zero
+    }
+
+    return h;
+}
+```

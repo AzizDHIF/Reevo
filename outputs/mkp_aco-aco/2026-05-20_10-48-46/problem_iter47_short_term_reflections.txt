@@ -1,0 +1,4 @@
+Adjust weights and thresholds to prioritize diversity and prize-to-weight ratios.
+Adjust weights and thresholds dynamically.
+Tune weights, thresholds, and noise levels.
+Simplify and balance factors for better heuristics.

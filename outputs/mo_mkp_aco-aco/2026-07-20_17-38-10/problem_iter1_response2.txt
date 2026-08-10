@@ -1,0 +1,45 @@
+```c
+double heuristic_v2(int index_item, double weights[dimension][NBITEMS], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS], double profit[NBITEMS] ){
+    double h = 0;
+    double total_weight = 0;
+    double total_profit = 0;
+    double min_capacity = 1;
+    
+    // Compute the total capacity available for the current item and its neighbors
+    for (int j = 0; j < dimension; j++){
+        min_capacity = (j == 0) ? capacity[j] : (min_capacity < capacity[j]) ? min_capacity : capacity[j];
+    }
+    
+    // Iterate over the item and its neighbors
+    for(int i = 0; i <= nb_voisinage; i++){
+        int idx = (i == 0) ? index_item : voisinage[index_item];
+        
+        // Accumulate the weights and profits of the current item and its neighbors
+        for(int j = 0; j < dimension; j++){
+            total_weight += weights[j][idx];
+        }
+        total_profit += profit[idx];
+        
+        // Break the loop if adding the next neighbor exceeds the capacity
+        if (total_weight > min_capacity){
+            break;
+        }
+    }
+    
+    // Compute a heuristic value that balances the profit and the utilization of capacity
+    if (total_weight == 0){
+        return 0; // or a very small value to avoid division by zero
+    } else {
+        h = total_profit / total_weight; // a simple version
+        // h = total_profit / (total_weight * total_weight); // a version that penalizes heavier items more
+        // h = (total_profit * min_capacity) / (total_weight * total_weight); // a version that promotes items that make the most of the capacity
+    }
+    
+    // If the total profit does not exceed a threshold, return zero to encourage exploration
+    if (total_profit < 0.1 * NBITEMS){
+        return 0;
+    }
+    
+    return h;
+}
+```

@@ -1,0 +1,4 @@
+Prioritize efficiency and constraint awareness.
+Consider efficiency and constraints when calculating heuristics.
+Combine ratios, consider constraints, and sparsify heuristics.
+Prioritize efficiency and prize-to-weight ratio.

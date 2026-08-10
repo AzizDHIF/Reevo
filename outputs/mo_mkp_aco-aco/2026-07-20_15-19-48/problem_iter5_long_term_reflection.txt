@@ -1,0 +1,1 @@
+Simplify calculations, prioritize capacity ratio, and minimize divisions to create robust heuristics.

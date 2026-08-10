@@ -1,0 +1,1 @@
+Prioritize high-reward items with favorable ratios, combining factors with adaptive weighting to balance prize, weight, and dimension diversity.

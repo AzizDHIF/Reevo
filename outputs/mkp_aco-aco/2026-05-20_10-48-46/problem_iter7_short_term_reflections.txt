@@ -1,0 +1,4 @@
+Incorporate dimension diversity and simplify factors.
+Combine multiple factors with weighted averages.
+Incorporate dimension diversity and simplify weighted averages.
+Consider dimension diversity and simplify factor combinations.

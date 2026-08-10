@@ -1,0 +1,4 @@
+Simplify and normalize relevant factors.
+Simplify and focus on key factors like prize-to-weight ratio.
+Combine factors, normalize, and sparsify heuristics.
+Simplify, prioritize prize-to-weight ratio.

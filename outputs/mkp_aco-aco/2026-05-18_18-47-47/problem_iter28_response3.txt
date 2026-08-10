@@ -1,0 +1,48 @@
+```python
+import numpy as np
+
+def heuristics_v2(prize: np.ndarray, weight: np.ndarray) -> np.ndarray:
+    """
+    Improved heuristics function for Solving Multiple Knapsack Problems (MKP) through stochastic solution sampling.
+
+    Parameters:
+    prize (np.ndarray): The prize of each item, shape (n,).
+    weight (np.ndarray): The weight of each item, shape (n, m).
+
+    Returns:
+    np.ndarray: Heuristics values, shape (n,).
+    """
+
+    # Calculate the L1 norm and L2 norm of each item
+    l1_norm = np.sum(np.abs(weight), axis=1)
+    l2_norm = np.sqrt(np.sum(np.square(weight), axis=1))
+
+    # Calculate the efficiency of each item using L1 norm and L2 norm
+    efficiency_l1 = prize / (l1_norm + 1e-6)
+    efficiency_l2 = prize / (l2_norm + 1e-6)
+
+    # Calculate the constraint satisfaction for each item
+    constraint_satisfaction_l1 = 1 - l1_norm
+    constraint_satisfaction_l2 = 1 - l2_norm
+
+    # Calculate the prize to maximum weight ratio for each item
+    prize_to_max_weight_ratio = prize / (np.max(np.abs(weight), axis=1) + 1e-6)
+
+    # Calculate the overall efficiency
+    avg_efficiency = (efficiency_l1 + efficiency_l2) / 2
+
+    # Calculate the overall constraint satisfaction
+    avg_constraint_satisfaction = (constraint_satisfaction_l1 + constraint_satisfaction_l2) / 2
+
+    # Calculate the overall heuristics by combining efficiency, constraint satisfaction, and prize to max weight ratio
+    heuristics = avg_efficiency * avg_constraint_satisfaction * prize_to_max_weight_ratio
+
+    # Normalize the heuristics values for better comparison
+    heuristics = heuristics / (np.sum(np.abs(heuristics)) + 1e-6)
+
+    # Sparsify the heuristics by setting unpromising elements to zero, using 10th percentile as threshold
+    threshold = np.percentile(np.abs(heuristics), 10)
+    heuristics = np.where(np.abs(heuristics) < threshold, 0, heuristics)
+
+    return heuristics
+```

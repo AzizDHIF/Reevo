@@ -1,0 +1,49 @@
+```c
+double heuristic_v2(int index_item, double weights[dimension][NBITEMS], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS], double profit[NBITEMS]) {
+    // Simplify calculations, focusing on local optimization and conflict avoidance
+    double sum_weights = 0.0;
+    for (int j = 0; j < dimension; j++) {
+        sum_weights += weights[j][index_item];
+    }
+    double sum_capacity = 1.0 * dimension; // Since each dimension has a capacity of 1
+
+    // If sum of weights or capacity is zero, return a very small value for this item
+    if (sum_weights == 0.0 || sum_capacity == 0.0) {
+        return 1e-9;
+    }
+
+    // Calculate how well each item fits into the knapsack, considering capacity pressure
+    double fit = 1.0 / (1.0 + sum_weights / sum_capacity);
+
+    // Consider neighborhood of current item and potential conflict, sparsifying the heuristic
+    double neighborhood_conflict = 0.0;
+    int count_conflicting = 0;
+    for (int i = 0; i < nb_voisinage; i++) {
+        int item = voisinage[i];
+        if (item == index_item) continue;  // Skip current item
+        double competing_weight = 0.0;
+        for (int j = 0; j < dimension; j++) {
+            competing_weight += weights[j][item];
+        }
+        if (competing_weight > 0.5 * sum_capacity) { // Consider only significant conflicts
+            neighborhood_conflict += 1.0;
+            count_conflicting++;
+        }
+    }
+
+    // Combine factors: the profit of item, how well it fits into the knapsack, and the neighborhood conflict
+    double final_heuristic;
+    if (count_conflicting > 0) {
+        final_heuristic = profit[index_item] * fit * (1.0 - neighborhood_conflict / count_conflicting);
+    } else {
+        final_heuristic = profit[index_item] * fit; // No conflict, only consider fit and profit
+    }
+
+    // Sparsify the heuristic by setting unpromising elements to zero
+    if (final_heuristic < 1e-6) {
+        final_heuristic = 0.0;
+    }
+
+    return final_heuristic;
+}
+```

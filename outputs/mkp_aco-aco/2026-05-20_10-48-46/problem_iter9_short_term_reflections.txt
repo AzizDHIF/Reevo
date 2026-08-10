@@ -1,0 +1,4 @@
+Simplify and prioritize key factors like prize-to-weight ratio and dimension diversity.
+Combine diverse factors with adaptive weighting.
+Use diverse, meaningful factors and adaptive weighting.
+Combine multiple factors with weighted averages.

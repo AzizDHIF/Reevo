@@ -1,0 +1,18 @@
+[*] Running ...
+[*] Mood: train
+[*] compiling ... 
+gpt.c: In function 'heuristic':
+gpt.c:31:18: error: expected '=', ',', ';', 'asm' or '__attribute__' before 'LEFT'
+   31 |     double space LEFT = 0.0;
+      |                  ^~~~
+gpt.c:31:18: error: 'LEFT' undeclared (first use in this function)
+gpt.c:31:18: note: each undeclared identifier is reported only once for each function it appears in
+gpt.c:36:13: error: 'space_LEFT' undeclared (first use in this function)
+   36 |             space_LEFT += remaining_cap - max_weight_dim;
+      |             ^~~~~~~~~~
+Traceback (most recent call last):
+  File "C:\Reevo/problems/mo_mkp_aco/eval.py", line 394, in <module>
+    compile("WeightACO_train_100items.c",f"WeightACO_train_100items_{id_response}.exe")
+  File "C:\Reevo/problems/mo_mkp_aco/eval.py", line 66, in compile
+    raise("Erreur de compilation")
+TypeError: exceptions must derive from BaseException

@@ -1,0 +1,27 @@
+```c
+double heuristic_v2(int index_item, double weights[dimension][NBITEMS], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS], double profit[NBITEMS]) {
+    double h = 0;
+    double density = profit[index_item];
+    for (int j = 0; j < dimension; j++) {
+        h += (weights[j][index_item] / capacity[j]);
+    }
+    double efficiency = density / h;
+    double marginal_gain = 0;
+    for (int i = 0; i < nb_voisinage; i++) {
+        double current_density = profit[voisinage[i]];
+        double current_h = 0;
+        for (int j = 0; j < dimension; j++) {
+            current_h += (weights[j][voisinage[i]] / capacity[j]);
+        }
+        double current_efficiency = current_density / current_h;
+        marginal_gain += (efficiency - current_efficiency);
+    }
+    double overall_promising = (density * marginal_gain) / h;
+    // Sparsify the heuristic
+    if (overall_promising < 0.5) {
+        return 0;
+    } else {
+        return overall_promising;
+    }
+}
+```

@@ -1,0 +1,42 @@
+```c
+double heuristic_v2(int index_item, double weights[dimension][NBITEMS], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS], double profit[NBITEMS]) {
+    // Prioritize feasibility
+    double h = 1.0;
+    for (int j = 0; j < dimension; j++) {
+        if (weights[j][index_item] > capacity[j]) {
+            return 0; // immediately return 0 if infeasible
+        }
+    }
+
+    // Simplify calculations and consider dimension-wise ratios
+    double total_weight = 0;
+    double total_profit = profit[index_item];
+    for (int j = 0; j < dimension; j++) {
+        total_weight += weights[j][index_item];
+    }
+    double average_weight = total_weight / dimension;
+
+    // Combine various factors to determine how promising it is to select an item
+    double h_ratio = total_profit / (total_weight + 1e-9);
+
+    // Consider neighborhood effect with simplified calculation
+    if (nb_voisinage > 0) {
+        double total_neighborhood_profit = 0;
+        for (int i = 0; i < nb_voisinage; i++) {
+            total_neighborhood_profit += profit[voisinage[i]];
+        }
+        double average_neighborhood_profit = total_neighborhood_profit / nb_voisinage;
+        double neighborhood_ratio = average_neighborhood_profit / (average_neighborhood_profit + 1e-9);
+        if (neighborhood_ratio > 0) {
+            h_ratio = h_ratio / (neighborhood_ratio + 1e-9);
+        }
+    }
+
+    // Sparsify the heuristic by setting unpromising elements to zero
+    if (h_ratio < 0.5 || average_weight > 1.0) {
+        return 0;
+    }
+
+    return h_ratio;
+}
+```

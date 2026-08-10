@@ -1,0 +1,4 @@
+Combine factors non-linearly, use penalties, and normalize.
+Combine diverse factors with weighted sums.
+Combine factors nonlinearly, use dynamic thresholds.
+Use L1 norm and adaptive thresholding.

@@ -1,0 +1,4 @@
+Tune weights and thresholds for better performance.
+Prioritize diversity, prize-to-weight ratios, and interaction terms.
+Prioritize diversity, balance ratios, and introduce noise.
+Combine diversity, ratios, and interaction terms with adaptive thresholds.

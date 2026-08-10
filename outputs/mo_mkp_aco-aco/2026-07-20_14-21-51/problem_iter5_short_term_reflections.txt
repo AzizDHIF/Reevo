@@ -1,0 +1,4 @@
+Simplify calculations, avoid divisions by near-zero values.
+Consider capacity constraints, neighborhood, and weighted ratios.
+Simplify and add capacity consistency.
+Simplify calculations, avoid divisions by zero.

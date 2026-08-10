@@ -1,0 +1,1 @@
+Prioritize diversity, ratios, and interactions.Adjust weights/thresholds iteratively, balancing performance and noise levels.

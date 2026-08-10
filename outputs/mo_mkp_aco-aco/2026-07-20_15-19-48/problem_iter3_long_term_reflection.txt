@@ -1,0 +1,1 @@
+Combine profit, weight, and capacity ratios with neighbor influences to create a robust heuristic, then sparsify to optimize item selection.

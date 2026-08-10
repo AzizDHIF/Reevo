@@ -1,0 +1,4 @@
+Prioritize item efficiency and constraint satisfaction.
+Prioritize efficiency and constraint satisfaction.
+Prioritize efficiency, robustness, and constraint satisfaction.
+Simplify calculations, prioritize L1 norm, and adjust normalization.

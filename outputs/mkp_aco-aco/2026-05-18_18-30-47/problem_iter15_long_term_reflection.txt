@@ -1,0 +1,1 @@
+Combine factors nonlinearly with penalties, normalization, and adaptive thresholds, using weighted sums and L1 norm for effective heuristics.

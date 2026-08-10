@@ -1,0 +1,1 @@
+Prioritize L1 norm, simplify calculations, and focus on efficiency and constraints for robust heuristics.

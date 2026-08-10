@@ -1,0 +1,27 @@
+```c
+double heuristic_v2(int index_item, double weights[dimension][NBITEMS], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS], double profit[NBITEMS]) 
+{
+    double total_profit = 0;
+    double key_weight = 0;
+
+    // Focus on key factors, consider only one dimension
+    for(int i = 0; i < nb_voisinage; i++){
+        int neighbor = voisinage[i];
+        total_profit += profit[neighbor];
+        key_weight += weights[0][neighbor];
+    }
+
+    // Simplify density calculation
+    double key_density = weights[0][index_item];
+
+    // Calculate heuristic value with key factors
+    double heuristic_value = (profit[index_item] / (key_density + 1e-6)) * ((total_profit / (key_weight + 1e-6)) + 1);
+
+    // Sparsify the heuristic
+    if(heuristic_value < 0.1 * profit[index_item]){
+        heuristic_value = 0;
+    }
+
+    return heuristic_value;
+}
+```

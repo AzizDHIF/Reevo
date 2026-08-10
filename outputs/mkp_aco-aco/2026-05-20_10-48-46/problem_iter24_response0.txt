@@ -1,0 +1,60 @@
+```python
+import numpy as np
+
+def heuristics_v2(prize: np.ndarray, weight: np.ndarray) -> np.ndarray:
+    """
+    This heuristics function calculates the promise of each item based on prize, 
+    weight, and dimension diversity, prioritizing key factors like diversity, 
+    prize-to-weight ratios, and interaction terms.
+
+    Parameters:
+    prize (np.ndarray): The prize of each item, shape (n,).
+    weight (np.ndarray): The weight of each item, shape (n, m).
+
+    Returns:
+    np.ndarray: The heuristics of each item, shape (n,).
+    """
+
+    # Calculate the dimension diversity of each item
+    dimension_diversity = np.std(weight, axis=1)
+
+    # Calculate the total weight of each item
+    total_weight = np.sum(weight, axis=1)
+
+    # Normalize the weights to emphasize diversity in each dimension
+    normalized_weights = weight / np.max(weight, axis=0, keepdims=True)
+
+    # Calculate the prize-to-weight ratio for each item
+    prize_to_weight_ratio = prize / (total_weight + 1e-8)  # avoid division by zero
+
+    # Calculate the prize-to-diversity ratio for each item
+    prize_to_diversity_ratio = prize / (dimension_diversity + 1e-8)  # avoid division by zero
+
+    # Calculate interaction terms between dimensions
+    interaction_terms = np.sum(weight[:, None, :] * weight[:, :, None], axis=2)
+    interaction_terms = interaction_terms / (np.sum(interaction_terms, axis=1, keepdims=True) + 1e-8)
+    interaction_bonus = np.sum(interaction_terms * np.max(weight, axis=0), axis=1)
+
+    # Combine the factors using a weighted average, prioritizing diversity, 
+    # prize-to-weight ratios, and interaction terms
+    heuristics = (
+        0.5 * prize_to_weight_ratio 
+        + 0.25 * prize_to_diversity_ratio 
+        + 0.15 * interaction_bonus
+        + 0.10 * np.mean(normalized_weights, axis=1)
+    )
+
+    # Emphasize items with diverse weights across dimensions
+    weight_diversity_bonus = np.mean(normalized_weights, axis=1)
+    heuristics = heuristics * (1 + 0.3 * weight_diversity_bonus)
+
+    # Apply a soft threshold to emphasize top items
+    threshold = np.percentile(heuristics, 35)
+    heuristics = np.where(heuristics < threshold, heuristics * 0.7, heuristics)
+
+    # Sparsify the heuristics by setting unpromising elements to zero
+    threshold = np.percentile(heuristics, 15)
+    heuristics = np.where(heuristics < threshold, 0, heuristics)
+
+    return heuristics
+```

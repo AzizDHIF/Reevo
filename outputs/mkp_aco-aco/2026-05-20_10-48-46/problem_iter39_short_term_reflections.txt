@@ -1,0 +1,4 @@
+Consider diversity, ratios, and interaction terms.
+Adjust weights and thresholds to balance diversity and prize-to-weight ratios.
+Incorporate diversity and interaction terms.
+Adjust weights and thresholds for better performance.

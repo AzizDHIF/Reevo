@@ -1,0 +1,1 @@
+Prioritize feasibility, simplify calculations, and balance factors. Use min profit-to-weight ratio for efficient capacity checks.

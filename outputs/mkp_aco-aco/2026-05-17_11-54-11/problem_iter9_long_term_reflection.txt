@@ -1,0 +1,1 @@
+Consider prize-to-weight ratio across all dimensions, simplify calculations, and handle edge cases to optimize MKP solutions.

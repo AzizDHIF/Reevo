@@ -1,0 +1,35 @@
+```c
+double heuristic_v2(int index_item, double weights[dimension][NBITEMS], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS], double profit[NBITEMS]) {
+    double h = 0.0;
+    double average_weight = 0.0;
+    double variance_weight = 0.0;
+
+    for (int j = 0; j < dimension; j++) {
+        h += weights[j][index_item] / capacity[j]; // normalize the weights by capacity
+        average_weight += weights[j][index_item];
+    }
+
+    average_weight /= dimension;
+
+    for (int j = 0; j < dimension; j++) {
+        variance_weight += (weights[j][index_item] - average_weight) * (weights[j][index_item] - average_weight);
+    }
+
+    variance_weight /= dimension;
+
+    // combine factors
+    double factor_weight = h;
+    double factor_profit = profit[index_item];
+    double factor_variance = variance_weight;
+    double factor_neighbor = (double)nb_voisinage / NBITEMS;
+
+    double heuristic_value = factor_weight * factor_profit * (1.0 + factor_variance) * factor_neighbor;
+
+    // sparsify the heuristic by setting unpromising elements to zero
+    if (heuristic_value < 0.001 * factor_profit) {
+        heuristic_value = 0.0;
+    }
+
+    return heuristic_value;
+}
+```

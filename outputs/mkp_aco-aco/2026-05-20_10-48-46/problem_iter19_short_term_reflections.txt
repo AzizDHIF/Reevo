@@ -1,0 +1,4 @@
+Simplify calculations, adjust weights, and soften thresholds.
+Simplify and prioritize key factors like diversity and prize-to-weight ratios.
+Simplify, prioritize diversity, and adapt thresholds.
+Simplify, prioritize diversity, and use weighted averages.

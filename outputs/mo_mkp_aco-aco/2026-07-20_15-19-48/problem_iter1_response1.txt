@@ -1,0 +1,26 @@
+```c
+double heuristic_v2(int index_item, double weights[dimension][NBITEMS], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS], double profit[NBITEMS]) {
+    double h = 0;
+    double profit_ratio = 0;
+    double weight_ratio = 0;
+    double neighbor_weight_ratio = 0;
+
+    // Calculate the profit-to-weight ratio for the current item
+    for (int j = 0; j < dimension; j++) {
+        weight_ratio += weights[j][index_item] / capacity[j];
+        neighbor_weight_ratio += weights[j][voisinage[index_item]] / capacity[j];
+    }
+    // Calculate the profit of the item relative to its neighbors
+    profit_ratio = profit[index_item] / (weight_ratio + 1e-6);
+
+    // Combine various factors to determine the promise of the item
+    h = profit_ratio / (1 + neighbor_weight_ratio);
+
+    // Sparsify the heuristic by setting unpromising elements to zero
+    if (h < 0 || weight_ratio > 1) {
+        h = 0;
+    }
+
+    return h;
+}
+```

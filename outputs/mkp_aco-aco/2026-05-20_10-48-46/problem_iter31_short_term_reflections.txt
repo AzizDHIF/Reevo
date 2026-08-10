@@ -1,0 +1,4 @@
+Simplify and reorder terms for better performance.
+Simplify and reorder terms for better performance.
+Adjust weights, ratios, and thresholds.
+Simplify and balance factors for improved performance.

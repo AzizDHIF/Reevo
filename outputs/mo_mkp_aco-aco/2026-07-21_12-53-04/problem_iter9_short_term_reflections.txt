@@ -1,0 +1,4 @@
+Consider neighborhood, relative profits, and utilization.
+Consider neighborhoods and relative profits.
+Consider neighborhood, relative profit, and utilization.
+Consider neighborhood, relative profit, and utilization for better heuristics.

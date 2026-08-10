@@ -1,0 +1,24 @@
+```python
+import numpy as np
+
+def heuristics_v2(prize: np.ndarray, weight: np.ndarray) -> np.ndarray:
+    """
+    Heuristics function for solving Multiple Knapsack Problems (MKP) through stochastic solution sampling.
+    
+    Parameters:
+    prize (np.ndarray): The prize of each item, of shape (n,).
+    weight (np.ndarray): The weight of each item, of shape (n, m).
+    
+    Returns:
+    np.ndarray: The heuristics value of each item, of shape (n,).
+    """
+    
+    # Calculate the key factor: prize-to-weight ratio considering all dimensions
+    total_weight = np.sum(weight, axis=1)
+    total_weight[total_weight == 0] = 1  # avoid division by zero
+    
+    # Calculate the heuristics value based on the prize-to-weight ratio
+    heuristics = prize / total_weight
+    
+    return heuristics
+```

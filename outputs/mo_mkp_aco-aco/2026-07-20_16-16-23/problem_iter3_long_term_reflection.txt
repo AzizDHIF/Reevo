@@ -1,0 +1,1 @@
+Combine density, profit, and neighbor impact for a balanced heuristic, considering multiple factors and sparsifying unpromising elements.

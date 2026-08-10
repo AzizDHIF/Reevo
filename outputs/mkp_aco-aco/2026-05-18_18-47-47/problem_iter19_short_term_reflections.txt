@@ -1,0 +1,4 @@
+Prioritize L2 norm for efficiency calculation.
+Combine efficiency, ratio, and constraints with non-linear functions.
+Combine efficiency, ratios, and constraints non-linearly.
+Combine efficiency, ratio, and constraint metrics.

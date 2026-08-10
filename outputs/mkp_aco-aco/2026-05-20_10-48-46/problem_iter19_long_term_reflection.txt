@@ -1,0 +1,1 @@
+Prioritize diversity, simplify calculations, and adapt thresholds to create effective MKP heuristics.

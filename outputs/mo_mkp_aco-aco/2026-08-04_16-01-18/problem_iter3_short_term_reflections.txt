@@ -1,0 +1,4 @@
+Balance local and global factors, consider density and neighbors.
+Consider density and neighbors' impact.
+Consider density and neighbor effects.
+Consider multi-dimensions and neighbors' total weight.

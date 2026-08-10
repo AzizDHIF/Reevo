@@ -1,0 +1,4 @@
+Use L2 norm and penalty terms for robustness.
+Combine norms, ratios, and constraints.
+Prioritize efficiency and constraint satisfaction.
+Prioritize efficiency, robustness, and dimensionality.

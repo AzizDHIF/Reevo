@@ -1,0 +1,4 @@
+Combine efficiency, prize-to-weight ratio, and constraint satisfaction.
+Combine efficiency, ratios, and constraints for robust heuristics.
+Combine norms, efficiency, and ratios for better heuristics.
+Combine efficiency, constraint satisfaction, and normalization.

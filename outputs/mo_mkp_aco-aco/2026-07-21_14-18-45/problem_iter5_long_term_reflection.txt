@@ -1,0 +1,1 @@
+Prioritize density, capacity utilization, and sparsity, leveraging averages and ratios to improve heuristic accuracy and efficiency.

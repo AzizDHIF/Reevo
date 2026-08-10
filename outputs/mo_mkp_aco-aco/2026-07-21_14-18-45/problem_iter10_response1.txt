@@ -1,0 +1,68 @@
+```c
+double heuristic_v2(int index_item, double weights[dimension][NBITEMS], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS], double profit[NBITEMS]) {
+    double h = 0.0;
+    double total_weight = 0.0;
+    double avg_weight = 0.0;
+    double density = 0.0;
+    double capacity_utilization = 0.0;
+    double sparsity = 0.0;
+
+    // Calculate the total weight of the item
+    for (int j = 0; j < dimension; j++) {
+        total_weight += weights[j][index_item];
+    }
+    avg_weight = total_weight / dimension;
+
+    // Calculate the density of the item
+    if (avg_weight > 0) {
+        density = profit[index_item] / avg_weight;
+    }
+
+    // Calculate the capacity utilization
+    for (int j = 0; j < dimension; j++) {
+        capacity_utilization += weights[j][index_item] / capacity[j];
+    }
+    capacity_utilization /= dimension;
+
+    // Calculate the sparsity of the item based on the number of non-zero weights
+    for (int j = 0; j < dimension; j++) {
+        if (weights[j][index_item] > 0) {
+            sparsity++;
+        }
+    }
+    sparsity /= dimension;
+
+    // Prioritize density, then capacity utilization, and promote sparsity
+    h = density * (1 - capacity_utilization) * (1 + sparsity);
+
+    // Apply soft thresholds to promote key factors
+    if (h > 0 && density < 0.5) {
+        h *= 0.7; // Reduce the heuristic value for low-density items
+    }
+    if (h > 0 && capacity_utilization > 0.8) {
+        h *= 0.3; // Reduce the heuristic value for high-capacity utilization items
+    }
+
+    // Ensure non-negative heuristic values
+    h = (h > 0) ? h : 0;
+
+    // Introduce a bonus factor to reward items with high profit and low weight
+    double bonus_factor = 1.0;
+    if (density > 1.0) {
+        bonus_factor = 1.2;
+    }
+    if (sparsity < 0.5) {
+        bonus_factor *= 1.1; // Reward items with low sparsity
+    }
+    h *= bonus_factor;
+
+    // Introduce a penalty factor to penalize items with high weight and low profit
+    double penalty_factor = 1.0;
+    if (density < 0.5 && total_weight > 0.5 * dimension) {
+        penalty_factor = 0.8; // Penalize items with high weight and low density
+    }
+    h *= penalty_factor;
+
+    return h;
+}
+```

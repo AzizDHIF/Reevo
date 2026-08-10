@@ -1,0 +1,4 @@
+Simplify, prioritize diversity, and consider dimension-wise interactions.
+Introduce noise, use dynamic thresholds.
+Simplify and prioritize diversity and prize-to-weight ratios.
+Simplify and balance diversity, ratios, and interactions.

@@ -1,0 +1,42 @@
+```c
+double heuristic_v2(int index_item, double weights[dimension][NBITEMS], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS], double profit[NBITEMS]) {
+    double sum_weights = 0.0;
+    double min_capacity = 1e6;
+    double max_profit = 0.0;
+
+    // Calculate the average weight and minimal capacity
+    for (int j = 0; j < dimension; j++) {
+        sum_weights += weights[j][index_item];
+        if (capacity[j] < min_capacity) {
+            min_capacity = capacity[j];
+        }
+        if (profit[voisinage[j]] > max_profit) {
+            max_profit = profit[voisinage[j]];
+        }
+    }
+
+    // Calculate the heuristic value based on a weighted sum of objectives
+    double weight_factor = sum_weights / (min_capacity * dimension);
+    double profit_factor = profit[index_item] / max_profit;
+    double neighbor_factor = (double)nb_voisinage / NBITEMS;
+
+    // Simplify and balance objective factors
+    double h = weight_factor * profit_factor * (1 + neighbor_factor);
+
+    // Sparsify the heuristic by setting unpromising elements to zero
+    if (h < 1e-6 || sum_weights > min_capacity) {
+        h = 0.0;
+    }
+
+    // Additional consideration: encourage exploration by giving more weight to less frequently visited items
+    int visit_count = 0;
+    for (int i = 0; i < nb_voisinage; i++) {
+        if (voisinage[i] == index_item) {
+            visit_count++;
+        }
+    }
+    h *= (1 + 1.0 / (1 + visit_count));
+
+    return h;
+}
+```

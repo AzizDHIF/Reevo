@@ -1,0 +1,1 @@
+Combine L1 norm, ratios, and non-linear constraints, prioritizing efficiency, stability, and constraint satisfaction for robust heuristics.

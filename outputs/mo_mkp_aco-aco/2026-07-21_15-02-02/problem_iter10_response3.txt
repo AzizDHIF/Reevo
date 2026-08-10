@@ -1,0 +1,59 @@
+```c
+double heuristic_v2(int index_item, double weights[dimension][NBITEMS], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS], double profit[NBITEMS]) {
+    // Input validation
+    if (index_item < 0 || index_item >= NBITEMS) {
+        return 1e-9; // Invalid index
+    }
+    if (nb_voisinage < 0 || nb_voisinage > NBITEMS) {
+        return 1e-9; // Invalid number of neighbors
+    }
+
+    // Check if weights and capacity are well-defined for all dimensions
+    double sum_weights = 0.0;
+    double sum_capacity = 0.0;
+    for (int j = 0; j < dimension; j++) {
+        if (weights[j][index_item] < 0 || capacity[j] < 0) {
+            return 1e-9; // Invalid weight or capacity
+        }
+        sum_weights += weights[j][index_item];
+        sum_capacity += capacity[j];
+    }
+
+    // If sum of weights or capacity is zero, return a very small value for this item
+    if (sum_weights == 0.0 || sum_capacity == 0.0) {
+        return 1e-9;
+    }
+
+    // Calculate how well each item fits into the knapsack
+    double fit = 0.0;
+    for (int j = 0; j < dimension; j++) {
+        if (capacity[j] == 0) {
+            return 1e-9; // Division by zero
+        }
+        fit += (weights[j][index_item] / capacity[j]);
+    }
+    fit = 1.0 / (1.0 + fit);
+
+    // Consider neighborhood of current item and potential conflict
+    double neighborhood_conflict = 0.0;
+    for (int i = 0; i < nb_voisinage; i++) {
+        int item = voisinage[i];
+        if (item < 0 || item >= NBITEMS) {
+            continue; // Invalid neighbor index
+        }
+        if (item == index_item) continue;  // Skip current item
+        double competing_weight = 0.0;
+        for (int j = 0; j < dimension; j++) {
+            competing_weight += (weights[j][item] / capacity[j]);
+        }
+        if (competing_weight > 0.0) {
+            neighborhood_conflict += 1.0 / (1.0 + competing_weight);
+        }
+    }
+
+    // Combine factors: the profit of item, how well it fits into the knapsack, and the neighborhood conflict
+    double final_heuristic = profit[index_item] * fit * (1.0 - neighborhood_conflict / (1.0 + nb_voisinage));
+
+    return final_heuristic;
+}
+```

@@ -1,0 +1,4 @@
+Consider capacity constraints and neighborhood proximity.
+Incorporate capacity consistency and neighborhood proximity.
+Prioritize capacity constraints and simplify calculations.
+Prioritize capacity constraints, balance weights and profits.

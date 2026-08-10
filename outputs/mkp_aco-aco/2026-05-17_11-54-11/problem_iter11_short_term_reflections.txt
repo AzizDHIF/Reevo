@@ -1,0 +1,4 @@
+Consider prize-to-weight ratio and weight dimensions.
+Simplify and avoid unnecessary calculations.
+Avoid division by zero with a small value instead of zero.
+Handle division by zero carefully.

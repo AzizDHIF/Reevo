@@ -1,0 +1,1 @@
+Prioritize high-reward items with adaptive weighting, focusing on key factors like diversity and dimension-specific prize-to-weight ratios.

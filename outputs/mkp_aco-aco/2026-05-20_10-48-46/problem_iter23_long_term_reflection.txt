@@ -1,0 +1,1 @@
+Prioritize diversity, use prize-to-weight ratios, and consider dimension-wise weights and interaction terms to design effective MKP heuristics.

@@ -1,0 +1,33 @@
+```c
+double heuristic_v2(int index_item, double weights[dimension][NBITEMS], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS], double profit[NBITEMS]) {
+    double h = 0;
+    double sum_weights = 0;
+    double sum_capacities = 0;
+    double max_profit = 0;
+    for (int j = 0; j < dimension; j++) {
+        sum_weights += weights[j][index_item];
+        sum_capacities += capacity[j];
+    }
+    max_profit = profit[index_item];
+
+    // calculate the relative weight of the item with respect to the total capacity
+    double relative_weight = sum_weights / sum_capacities;
+
+    // calculate the relative profit of the item with respect to the max profit
+    double relative_profit = max_profit / (max_profit + 1e-6); // avoid division by zero
+
+    // calculate the heuristic value
+    if (relative_weight < 0.5) {
+        h = relative_profit * (1 - relative_weight); // prioritize profit when weight is not excessive
+    } else {
+        h = relative_weight < 1 ? relative_profit / (1 + relative_weight) : 0; // penalize weight excess
+    }
+
+    // sparsify the heuristic
+    if (profit[index_item] < 0.1 * max_profit || relative_weight > 1.5) {
+        h = 0;
+    }
+
+    return h;
+}
+```

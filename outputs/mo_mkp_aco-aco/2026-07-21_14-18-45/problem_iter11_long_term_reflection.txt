@@ -1,0 +1,1 @@
+Prioritize density, utilize capacity, and apply soft thresholds. Promote sparsity and high-profit items for efficient MO-MKP heuristics.

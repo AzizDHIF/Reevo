@@ -1,0 +1,4 @@
+Adjust coefficients and thresholds for better performance.
+Adjust weights and ratios for better diversity and prize consideration.
+Adjust weights and thresholds for better prize-to-weight ratios.
+Adjust weights and coefficients for better diversity and ratio balance.

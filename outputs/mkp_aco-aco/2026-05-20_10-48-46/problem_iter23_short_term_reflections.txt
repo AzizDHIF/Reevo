@@ -1,0 +1,4 @@
+Emphasize diversity and weighted ratios.
+Consider diversity and dimension-wise weights.
+Prioritize diversity and prize-to-weight ratios.
+Prioritize diversity, prize-to-weight ratios, and interaction terms.

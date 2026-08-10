@@ -1,0 +1,1 @@
+Simplify calculations, prioritize density and capacity utilization to design efficient MO-MKP heuristics.

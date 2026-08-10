@@ -1,0 +1,1 @@
+Prioritize capacity utilization, balance profit, and simplify calculations using local averages and sparsity to design more efficient heuristics.

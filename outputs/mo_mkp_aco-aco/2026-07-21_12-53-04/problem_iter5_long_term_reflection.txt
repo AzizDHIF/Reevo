@@ -1,0 +1,1 @@
+Combine profitability, utilization, and neighborhood metrics, prioritizing relative profit and neighbor utilization to simplify and balance item selection in MO-MKP heuristics.

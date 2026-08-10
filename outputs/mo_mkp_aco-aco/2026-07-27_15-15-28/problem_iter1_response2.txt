@@ -1,0 +1,30 @@
+```c
+double heuristic_v2(int index_item, double weights[dimension][NBITEMS], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS], double profit[NBITEMS]) {
+    double h = 0.0;
+    double density = 0.0;
+    double profit_ratio = 0.0;
+    double neighbor_count = 0.0;
+
+    // Calculate the total weight and profit of the current item
+    for (int j = 0; j < dimension; j++) {
+        h += weights[j][index_item] / capacity[j];
+        density += weights[j][index_item];
+    }
+
+    // Calculate the average profit of the neighbors
+    for (int i = 0; i < nb_voisinage; i++) {
+        profit_ratio += profit[voisinage[i]];
+        neighbor_count++;
+    }
+    profit_ratio /= neighbor_count;
+
+    // Sparsify the heuristic by setting unpromising elements to zero
+    double alpha = 0.5;
+    double beta = 0.3;
+    double gamma = 0.2;
+
+    double utility = alpha * (profit[index_item] / density) + beta * (profit[index_item] / profit_ratio) + gamma * (1.0 / h);
+
+    return utility;
+}
+```

@@ -1,0 +1,53 @@
+```c
+double heuristic_v2(int index_item, double weights[dimension][NBITEMS], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS], double profit[NBITEMS]) {
+    double h = 0;
+    double min_capacity = capacity[0];
+    for(int j=1;j<dimension;j++){
+        if (capacity[j] < min_capacity) {
+            min_capacity = capacity[j];
+        }
+    }
+
+    double total_profit = 0;
+    double total_weight = 0;
+
+    // Consider only the neighbors of the current item
+    for(int i=0; i<nb_voisinage; i++){
+        int neighbor = voisinage[i];
+        total_profit += profit[neighbor];
+        for(int j=0;j<dimension;j++){
+            total_weight += weights[j][neighbor];
+        }
+    }
+
+    double average_weight = total_weight / (nb_voisinage * dimension);
+    double average_profit = total_profit / nb_voisinage;
+
+    // Calculate the average weight of the current item
+    double item_average_weight = 0;
+    for(int j=0;j<dimension;j++){
+        item_average_weight += weights[j][index_item];
+    }
+    item_average_weight /= dimension;
+
+    // Calculate the item impact
+    double item_impact = 0;
+    for(int j=0;j<dimension;j++){
+        item_impact += (weights[j][index_item] / capacity[j]);
+    }
+    item_impact /= dimension;
+
+    // Calculate the neighbor context
+    double neighbor_context = average_profit / (1 + average_weight);
+
+    // Combine various factors to determine how promising it is to select an item
+    double heuristic_value = (profit[index_item] / (1 + item_average_weight)) * (1 + neighbor_context) * (1 - item_impact);
+
+    // Add a threshold to prevent division by zero and sparsify
+    if(heuristic_value < 0 || item_impact > 0.5) {
+        return 0;
+    } else {
+        return heuristic_value;
+    }
+}
+```

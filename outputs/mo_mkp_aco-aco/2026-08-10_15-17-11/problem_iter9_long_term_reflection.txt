@@ -1,0 +1,1 @@
+Simplify and focus on key factors like density, utilization ratio, and capacity constraints to design efficient heuristics for MO-MKP.

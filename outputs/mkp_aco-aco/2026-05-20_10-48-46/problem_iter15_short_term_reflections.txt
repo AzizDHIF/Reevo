@@ -1,0 +1,4 @@
+Prioritize diversity, simplify ratios.
+Enhance diversity, sparsity, and dimension-wise considerations.
+Simplify and prioritize key factors like diversity and prize-to-weight ratios.
+Simplify and balance ratios for effective heuristics.

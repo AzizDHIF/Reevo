@@ -1,0 +1,4 @@
+Consider adaptive weighting and diverse factors.
+Consider dimension-specific prize-to-weight ratios.
+Simplify and focus on key factors like diversity.
+Adapt weights, diversify factors.

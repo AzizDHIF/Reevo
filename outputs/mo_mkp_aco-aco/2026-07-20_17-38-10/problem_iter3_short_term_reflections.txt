@@ -1,0 +1,4 @@
+Simplify calculations, consider neighbor averages.
+Balance capacity and profit with simple ratios.
+Prioritize simplicity, locality, and sparsity.
+Prioritize capacity utilization and profit balancing.

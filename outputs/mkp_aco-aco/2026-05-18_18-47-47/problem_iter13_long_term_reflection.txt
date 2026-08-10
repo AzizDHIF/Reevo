@@ -1,0 +1,1 @@
+Combine prize-to-weight ratio, efficiency, and constraint satisfaction. Prioritize simplicity and normalization for effective heuristics. Balance these factors for optimal results.

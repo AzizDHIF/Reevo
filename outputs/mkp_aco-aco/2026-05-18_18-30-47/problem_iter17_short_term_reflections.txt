@@ -1,0 +1,4 @@
+Simplify and rebalance factor combinations.
+Use nonlinear combinations and L2 norms.
+Use weighted factors and dynamic thresholds.
+Simplify combinations, normalize factors, and use dynamic thresholds.

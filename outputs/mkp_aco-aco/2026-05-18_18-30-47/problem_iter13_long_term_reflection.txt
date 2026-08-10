@@ -1,0 +1,1 @@
+Combine multiple factors with normalization and sparsification to design effective heuristics, simplifying calculations.

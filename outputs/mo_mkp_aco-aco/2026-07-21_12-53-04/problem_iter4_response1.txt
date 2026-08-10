@@ -1,0 +1,58 @@
+```c
+double heuristic_v2(int index_item, double weights[dimension][NBITEMS], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS], double profit[NBITEMS]) {
+    double h = 0;
+    double utilization = 0;
+    double average_neighbor_profit = 0;
+    int neighbor_count = 0;
+    double max_profit = 0;
+
+    // Calculate the utilization of each dimension
+    for (int j = 0; j < dimension; j++) {
+        utilization += weights[j][index_item] / capacity[j];
+    }
+
+    // Find the maximum profit among all items
+    for (int i = 0; i < NBITEMS; i++) {
+        if (profit[i] > max_profit) {
+            max_profit = profit[i];
+        }
+    }
+
+    // Consider the neighborhood of the current item
+    for (int i = 0; i < nb_voisinage; i++) {
+        int neighbor = voisinage[i];
+        average_neighbor_profit += profit[neighbor];
+        neighbor_count++;
+
+        // Calculate the utilization of the neighbor
+        double neighbor_utilization = 0;
+        for (int j = 0; j < dimension; j++) {
+            neighbor_utilization += weights[j][neighbor] / capacity[j];
+        }
+
+        // Combine the utilization and profit of the neighbor
+        h += profit[neighbor] / (neighbor_utilization + 1e-9); // Add epsilon to avoid division by zero
+    }
+
+    // Calculate the average profit of the neighbors
+    if (neighbor_count > 0) {
+        average_neighbor_profit /= neighbor_count;
+    }
+
+    // Combine the utilization and profit of the current item
+    double relative_profit = profit[index_item] / (max_profit + 1e-6); // avoid division by zero
+    h += relative_profit / (utilization + 1e-9); // Add epsilon to avoid division by zero
+
+    // Consider the relative profit compared to the average neighbor profit
+    if (neighbor_count > 0) {
+        h += (profit[index_item] - average_neighbor_profit) / (max_profit + 1e-6); // avoid division by zero
+    }
+
+    // Sparsify the heuristic by setting unpromising elements to zero
+    if (neighbor_count == 0 || utilization > 1 || relative_profit < 0.1) {
+        h = 0;
+    }
+
+    return h;
+}
+```

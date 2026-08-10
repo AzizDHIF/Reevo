@@ -1,0 +1,1 @@
+Balance efficiency, prize-to-weight ratio, and constraints. Combine ratios, consider limitations, and simplify calculations for effective heuristics.

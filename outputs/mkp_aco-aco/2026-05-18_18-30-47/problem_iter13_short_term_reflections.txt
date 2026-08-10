@@ -1,0 +1,4 @@
+Combine multiple factors with normalization.
+Consider multiple factors and normalization.
+Combine multiple factors with normalization and sparsification.
+Combine multiple factors with normalization.

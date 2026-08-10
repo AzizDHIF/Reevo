@@ -1,0 +1,51 @@
+```c
+double heuristic_v2(int index_item, double weights[dimension][NBITEMS], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS], double profit[NBITEMS]) {
+    // Check feasibility of the item
+    int is_feasible = 1;
+    for (int j = 0; j < dimension; j++) {
+        if (weights[j][index_item] > capacity[j]) {
+            is_feasible = 0;
+            break;
+        }
+    }
+
+    // If the item is not feasible, return 0
+    if (!is_feasible) {
+        return 0;
+    }
+
+    // Calculate the minimum profit-to-weight ratio along all dimensions
+    double min_ptw_ratio = profit[index_item] / (weights[0][index_item] + 1e-9);
+    for (int j = 1; j < dimension; j++) {
+        double ptw_ratio = profit[index_item] / (weights[j][index_item] + 1e-9);
+        if (ptw_ratio < min_ptw_ratio) {
+            min_ptw_ratio = ptw_ratio;
+        }
+    }
+
+    // Consider neighborhood effect with simplified calculation
+    if (nb_voisinage > 0) {
+        double total_neighborhood_profit = 0;
+        for (int i = 0; i < nb_voisinage; i++) {
+            total_neighborhood_profit += profit[voisinage[i]];
+        }
+        double average_neighborhood_profit = total_neighborhood_profit / nb_voisinage;
+        double neighborhood_ratio = average_neighborhood_profit / (average_neighborhood_profit + 1e-9);
+        if (neighborhood_ratio > 0) {
+            min_ptw_ratio = min_ptw_ratio / (neighborhood_ratio + 1e-9);
+        }
+    }
+
+    // Sparsify the heuristic by setting unpromising elements to zero
+    double average_weight = 0;
+    for (int j = 0; j < dimension; j++) {
+        average_weight += weights[j][index_item];
+    }
+    average_weight /= dimension;
+    if (min_ptw_ratio < 0.5 || average_weight > 1.0) {
+        min_ptw_ratio = 0;
+    }
+
+    return min_ptw_ratio;
+}
+```

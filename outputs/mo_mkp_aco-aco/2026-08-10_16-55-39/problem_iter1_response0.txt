@@ -1,0 +1,37 @@
+```c
+double heuristic_v2(int index_item, double weights[dimension][NBITEMS], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS], double profit[NBITEMS]) {
+    // Initialize the heuristic value
+    double h = 0.0;
+
+    // Compute the sum of weights of the item and its neighbors
+    double total_weight = 0.0;
+    for (int j = 0; j < dimension; j++) {
+        double item_weight = weights[j][index_item];
+        for (int i = 0; i < nb_voisinage; i++) {
+            total_weight += weights[j][voisinage[i]];
+        }
+        total_weight += item_weight;
+        h += item_weight / capacity[j];
+        // Add a penalty term for the capacity exceeded
+        if (item_weight > capacity[j]) {
+            h += 1.0 / (1.0 + capacity[j] - item_weight);
+        }
+    }
+
+    // Compute the total profit of the item and its neighbors
+    double total_profit = profit[index_item];
+    for (int i = 0; i < nb_voisinage; i++) {
+        total_profit += profit[voisinage[i]];
+    }
+
+    // Combine the weight and profit factors
+    double heuristic_value = total_profit / (1.0 + h);
+
+    // Apply a sparse penalty: set the heuristic value to zero if it's below a certain threshold
+    if (heuristic_value < 0.1 && total_weight > 1.5) {
+        heuristic_value = 0.0;
+    }
+
+    return heuristic_value;
+}
+```

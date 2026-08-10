@@ -1,0 +1,70 @@
+```python
+import numpy as np
+
+def heuristics_v2(prize: np.ndarray, weight: np.ndarray) -> np.ndarray:
+    """
+    This heuristics function calculates the promise of each item based on prize, 
+    weight, and dimension diversity, prioritizing key factors like diversity, 
+    prize-to-weight ratios, and interaction terms.
+
+    Parameters:
+    prize (np.ndarray): The prize of each item, shape (n,).
+    weight (np.ndarray): The weight of each item, shape (n, m).
+
+    Returns:
+    np.ndarray: The heuristics of each item, shape (n,).
+    """
+
+    # Calculate the dimension diversity of each item
+    dimension_diversity = np.std(weight, axis=1)
+
+    # Calculate the total weight of each item
+    total_weight = np.sum(weight, axis=1)
+
+    # Normalize the weights to emphasize diversity in each dimension
+    normalized_weights = weight / np.max(weight, axis=0, keepdims=True)
+
+    # Calculate the prize-to-weight ratio for each item
+    prize_to_weight_ratio = prize / (total_weight + 1e-8)  # avoid division by zero
+
+    # Calculate the prize-to-diversity ratio for each item
+    prize_to_diversity_ratio = prize / (dimension_diversity + 1e-8)  # avoid division by zero
+
+    # Combine the factors using a weighted average, prioritizing diversity and prize-to-weight ratios
+    dynamic_weight = np.max(prize_to_weight_ratio) / (np.max(prize_to_weight_ratio) + np.max(prize_to_diversity_ratio))
+    heuristics = dynamic_weight * prize_to_weight_ratio + (1 - dynamic_weight) * prize_to_diversity_ratio
+
+    # Emphasize items with diverse weights across dimensions
+    weight_diversity_bonuses = np.mean(normalized_weights, axis=1)
+    dynamic_bonus_weight = np.mean(weight_diversity_bonuses)
+    heuristics = heuristics * (1 + dynamic_bonus_weight * weight_diversity_bonuses)
+
+    # Consider dimension-wise weights to promote diversity
+    dim_weights = np.sum(weight, axis=0)  # calculate the sum of weights for each dimension
+    dim_weights = dim_weights / np.sum(dim_weights)  # normalize the dimension weights
+    dim_prize_to_weight_ratio = prize / (np.sum(weight * dim_weights, axis=1) + 1e-8)
+    dynamic_dim_weight = np.max(dim_prize_to_weight_ratio) / (np.max(dim_prize_to_weight_ratio) + np.max(heuristics))
+    heuristics = np.where(heuristics > 0, heuristics * (1 + dynamic_dim_weight * dim_prize_to_weight_ratio), heuristics)
+
+    # Consider interaction terms between dimensions to promote items that are good across multiple dimensions
+    interaction_terms = np.sum(weight[:, None, :] * weight[:, :, None], axis=-1)
+    interaction_weights = np.sum(interaction_terms, axis=0)
+    interaction_weights = interaction_weights / np.sum(interaction_weights)
+    interaction_prize_to_weight_ratio = prize / (np.sum(weight * interaction_weights, axis=1) + 1e-8)
+    dynamic_interaction_weight = np.max(interaction_prize_to_weight_ratio) / (np.max(interaction_prize_to_weight_ratio) + np.max(heuristics))
+    heuristics = np.where(heuristics > 0, heuristics * (1 + dynamic_interaction_weight * interaction_prize_to_weight_ratio), heuristics)
+
+    # Apply a dynamic threshold to emphasize top items
+    dynamic_threshold = np.percentile(heuristics, int(100 * (1 - np.max(heuristics) / (np.max(heuristics) + 1))))
+    heuristics = np.where(heuristics < dynamic_threshold, heuristics * np.exp(-(heuristics - dynamic_threshold) / (heuristics.max() - dynamic_threshold)), heuristics)
+
+    # Sparsify the heuristics by setting unpromising elements to zero
+    dynamic_sparsity_threshold = np.percentile(heuristics, int(100 * (1 - np.max(heuristics) / (np.max(heuristics) + 1))))
+    heuristics = np.where(heuristics < dynamic_sparsity_threshold, 0, heuristics)
+
+    # Introduce noise to prevent overfitting
+    dynamic_noise_scale = np.min(heuristics) / (np.max(heuristics) + 1)
+    noise = np.random.normal(0, dynamic_noise_scale, size=len(prize))
+    heuristics = np.where(heuristics > 0, heuristics * (1 + noise), heuristics)
+
+    # Re-scale the heuristics to ensure

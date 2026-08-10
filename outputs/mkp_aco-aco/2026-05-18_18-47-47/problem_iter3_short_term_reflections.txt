@@ -1,0 +1,4 @@
+Use ratios and consider constraints.
+Consider multiple weight metrics.
+Consider weight constraints and ratios.
+Combine efficiency, variance, and sparsity factors.

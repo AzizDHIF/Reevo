@@ -1,0 +1,51 @@
+```python
+import numpy as np
+
+def heuristics_v2(prize: np.ndarray, weight: np.ndarray) -> np.ndarray:
+    """
+    Improved stochastic solution sampling heuristic for Multiple Knapsack Problems (MKP).
+    
+    This heuristic prioritizes the prize-to-weight ratio, combines key factors with 
+    normalization and sparsification to design more effective heuristics.
+
+    Args:
+    prize (np.ndarray): A 1D array representing the prize of each item.
+    weight (np.ndarray): A 2D array representing the weights of each item.
+
+    Returns:
+    np.ndarray: A 1D array where each element represents how promising it is to 
+    include the corresponding item in the solution.
+    """
+    n, m = weight.shape
+    
+    # Normalize prizes to have a mean of 1
+    prize_normalized = prize / np.mean(prize)
+    
+    # Calculate the L1 norm of weights for each item
+    weight_norm = np.sum(weight, axis=1)
+    
+    # Calculate the prize-to-weight ratio for each item
+    ratio = prize_normalized / (weight_norm + 1e-6)
+    
+    # Calculate the maximum weight for each item
+    weight_max = np.max(weight, axis=1)
+    
+    # Calculate the number of non-zero weights for each item
+    weight_nonzero = np.sum(weight > 0, axis=1)
+    
+    # Combine the factors with normalization
+    heuristics = ratio * (1 + weight_max / (m + 1e-6)) * (1 + weight_nonzero / (m + 1e-6))
+    
+    # Normalize heuristics to have a mean of 1
+    heuristics_normalized = heuristics / np.mean(heuristics)
+    
+    # Sparsify the heuristics with a threshold based on the top 25% of items
+    threshold = np.percentile(heuristics_normalized, 75)
+    heuristics_sparse = np.where(heuristics_normalized < threshold, 0, heuristics_normalized)
+    
+    # Further filter the heuristics based on the prize-to-weight ratio
+    prize_weight_ratio_threshold = np.percentile(ratio, 50)
+    heuristics_sparse = np.where(ratio < prize_weight_ratio_threshold, 0, heuristics_sparse)
+    
+    return heuristics_sparse
+```

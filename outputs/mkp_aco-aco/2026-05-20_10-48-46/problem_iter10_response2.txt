@@ -1,0 +1,37 @@
+```python
+import numpy as np
+
+def heuristics_v2(prize: np.ndarray, weight: np.ndarray) -> np.ndarray:
+    """
+    This heuristics function calculates the promise of each item based on prize, 
+    weight, and dimension diversity.
+
+    Parameters:
+    prize (np.ndarray): The prize of each item, shape (n,).
+    weight (np.ndarray): The weight of each item, shape (n, m).
+
+    Returns:
+    np.ndarray: The heuristics of each item, shape (n,).
+    """
+
+    # Calculate the total weight of each item
+    total_weight = np.sum(weight, axis=1)
+
+    # Calculate the dimension diversity of each item
+    dimension_diversity = np.std(weight, axis=1)
+
+    # Calculate the prize-to-weight ratio for each item
+    prize_to_weight_ratio = prize / total_weight
+
+    # Calculate the prize-to-diversity ratio for each item
+    prize_to_diversity_ratio = prize / dimension_diversity
+
+    # Combine the factors using a weighted average
+    heuristics = 0.5 * prize_to_weight_ratio + 0.3 * prize_to_diversity_ratio + 0.2 * prize
+
+    # Sparsify the heuristics by setting unpromising elements to zero
+    threshold = np.percentile(heuristics, 20)
+    heuristics[heuristics < threshold] = 0
+
+    return heuristics
+```

@@ -1,0 +1,51 @@
+```c
+double heuristic_v2(int index_item, double weights[dimension][NBITEMS], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS], double profit[NBITEMS] ){
+    double h = 0;
+    double density = 0;
+    double avg_weight = 0;
+    double max_weight = 0;
+    for (int j = 0; j < dimension; j++) {
+        avg_weight += weights[j][index_item];
+        if (weights[j][index_item] > max_weight) {
+            max_weight = weights[j][index_item];
+        }
+    }
+    avg_weight /= dimension;
+    density = profit[index_item] / avg_weight;
+    for (int i = 0; i < nb_voisinage; i++) {
+        double neighbor_density = profit[voisinage[i]] / (avg_weight + weights[0][voisinage[i]]);
+        if (neighbor_density > density) {
+            density = neighbor_density;
+        }
+    }
+    double space_left = 0;
+    for (int j = 0; j < dimension; j++) {
+        space_left += capacity[j];
+    }
+    space_left /= dimension;
+    double weight_to_capacity_ratio = (avg_weight + max_weight) / space_left;
+    if (weight_to_capacity_ratio > 1) {
+        h = 0; // sparsifying the heuristic
+    } else {
+        double max_profit_per_capacity = profit[index_item] / max_weight;
+        double neighbor_profit_per_capacity = 0;
+        for (int i = 0; i < nb_voisinage; i++) {
+            double neighbor_profit = profit[voisinage[i]] / max_weight;
+            if (neighbor_profit > max_profit_per_capacity) {
+                max_profit_per_capacity = neighbor_profit;
+            }
+        }
+        h = density * max_profit_per_capacity * (1 - weight_to_capacity_ratio);
+    }
+    if (h > 0) {
+        double sum_neighbor_weights = 0;
+        for (int i = 0; i < nb_voisinage; i++) {
+            for (int j = 0; j < dimension; j++) {
+                sum_neighbor_weights += weights[j][voisinage[i]];
+            }
+        }
+        h /= (1 + sum_neighbor_weights / space_left); // discounting for neighbors
+    }
+    return h;
+}
+```

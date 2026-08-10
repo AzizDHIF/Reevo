@@ -1,0 +1,4 @@
+Prioritize density, capacity utilization, and sparsity.
+Average weights and utilization ratios improve heuristic accuracy.
+Simplify, focus on key factors: density, capacity utilization.
+Average weights and utilization ratios improve heuristic accuracy.

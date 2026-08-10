@@ -1,0 +1,1 @@
+Simplify heuristics by normalizing weights, combining factors, and prioritizing key factors like prize-to-weight ratios to optimize MKP solutions.

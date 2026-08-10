@@ -1,0 +1,14 @@
+[*] Running ...
+[*] Mood: train
+[*] compiling ... 
+gpt.c: In function 'heuristic':
+gpt.c:27:125: error: 'j' undeclared (first use in this function)
+   27 |         neighbor_impact_sum += (profit[voisinage[i]] / (total_weight + neighbor_weight)) * (1 - (neighbor_weight / capacity[j]));
+      |                                                                                                                             ^
+gpt.c:27:125: note: each undeclared identifier is reported only once for each function it appears in
+Traceback (most recent call last):
+  File "C:\Reevo/problems/mo_mkp_aco/eval.py", line 394, in <module>
+    compile("WeightACO_train_100items.c",f"WeightACO_train_100items_{id_response}.exe")
+  File "C:\Reevo/problems/mo_mkp_aco/eval.py", line 66, in compile
+    raise("Erreur de compilation")
+TypeError: exceptions must derive from BaseException

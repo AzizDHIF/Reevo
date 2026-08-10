@@ -1,0 +1,1 @@
+Prioritize feasibility, simplify calculations, and consider dimension-wise ratios to enhance heuristic efficiency in MO-MKP.

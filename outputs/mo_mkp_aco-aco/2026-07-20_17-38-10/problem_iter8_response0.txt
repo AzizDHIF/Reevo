@@ -1,0 +1,67 @@
+```c
+double heuristic_v2(int index_item, double weights[dimension][NBITEMS], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS], double profit[NBITEMS]) {
+    // Calculate the minimum capacity across all dimensions
+    double min_capacity = capacity[0];
+    for (int j = 1; j < dimension; j++) {
+        if (capacity[j] < min_capacity) {
+            min_capacity = capacity[j];
+        }
+    }
+
+    // Calculate the total profit and weight of the neighbors
+    double total_profit = 0;
+    double total_weight[dimension] = {0};
+    for (int i = 0; i < nb_voisinage; i++) {
+        int neighbor = voisinage[i];
+        total_profit += profit[neighbor];
+        for (int j = 0; j < dimension; j++) {
+            total_weight[j] += weights[j][neighbor];
+        }
+    }
+
+    // Calculate the average weight and profit of the neighbors
+    double average_weight[dimension] = {0};
+    double average_profit = total_profit / nb_voisinage;
+    for (int j = 0; j < dimension; j++) {
+        average_weight[j] = total_weight[j] / nb_voisinage;
+    }
+
+    // Calculate the heuristic value based on the average weight and profit of the neighbors
+    double h = 0;
+    for (int j = 0; j < dimension; j++) {
+        if (capacity[j] - average_weight[j] > 0) {
+            h += weights[j][index_item] / (capacity[j] - average_weight[j]);
+        } else {
+            h += weights[j][index_item];
+        }
+    }
+
+    // Add a sparsifying factor to set unpromising elements to zero
+    double sparsifying_factor = (total_profit > 0 && h > 0) ? 1 : 0;
+
+    // Combine various factors to determine how promising it is to select an item
+    double heuristic_value = (profit[index_item] / (h + 1e-6)) * (1 + average_profit) * sparsifying_factor;
+
+    // Adjust heuristic value according to remaining capacity
+    double remaining_capacity[dimension] = {0};
+    double total_weight_with_item[dimension] = {0};
+    for (int j = 0; j < dimension; j++) {
+        remaining_capacity[j] = capacity[j];
+        total_weight_with_item[j] = total_weight[j];
+        total_weight_with_item[j] += weights[j][index_item];
+    }
+
+    double capacity_factor = 1;
+    for (int j = 0; j < dimension; j++) {
+        if (remaining_capacity[j] - total_weight_with_item[j] < 0) {
+            capacity_factor *= (1 - (total_weight_with_item[j] - remaining_capacity[j]) / total_weight_with_item[j]);
+        } else {
+            capacity_factor *= (1 + (remaining_capacity[j] - total_weight_with_item[j]) / total_weight_with_item[j]);
+        }
+    }
+
+    heuristic_value *= capacity_factor;
+
+    return heuristic_value;
+}
+```

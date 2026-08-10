@@ -1,0 +1,9 @@
+[*] Running ...
+[*] Dataset loaded: C:\Users\Zoghlami Souad\Documents\dossier_aziz\Stage\travaux_stage\reevo/problems/mkp_aco\dataset/train100_dataset.npz with 5 instances.
+[*] Instance 0: 10.754123128155243
+[*] Instance 1: 18.37217646827787
+[*] Instance 2: 17.470205379305682
+[*] Instance 3: 10.230618539557735
+[*] Instance 4: 40.321080224883744
+[*] Average:
+19.429640748036057

@@ -1,0 +1,4 @@
+Simplify calculations, avoid penalties.
+Simplify calculations, reduce divisions, and remove redundant factors.
+Incorporate average weights and profits.
+Incorporate item's impact and neighbors' context.

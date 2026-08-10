@@ -1,0 +1,4 @@
+Combine efficiency, ratio, and constraint metrics.
+Combine efficiency and constraint metrics with penalties for better heuristics.
+Use diverse norms and balanced factors.
+Penalize exceeded constraints directly.

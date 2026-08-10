@@ -1,0 +1,4 @@
+Normalize weights, combine factors intuitively.
+Combine multiple factors, use variance and max weights.
+Combine multiple factors, use ratios, and sparsify heuristics.
+Simplify heuristics to focus on prize-to-weight ratio.

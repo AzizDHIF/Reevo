@@ -1,0 +1,4 @@
+Simplify, focus on prize-to-weight ratio.
+Handle edge cases, like division by zero.
+Simplify heuristics by focusing on key factors, like prize-to-weight ratio.
+Simplify and focus on key factors like prize-to-weight ratio.

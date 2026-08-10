@@ -1,0 +1,1 @@
+Prioritize diversity, prize-to-weight ratios, and dynamic adjustments. Balance factors and tune weights, thresholds, and noise for optimal stochastic sampling in MKP.

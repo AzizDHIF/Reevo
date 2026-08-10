@@ -1,0 +1,1 @@
+Focus on prize-to-weight ratio, handle edge cases, and simplify heuristics to optimize MKP solutions.

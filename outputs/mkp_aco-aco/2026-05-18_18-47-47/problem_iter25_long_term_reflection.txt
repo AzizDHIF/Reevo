@@ -1,0 +1,1 @@
+Prioritize item efficiency, prize-to-weight ratios, and constraint satisfaction. Simplify calculations, consider dimensionality, and optimize for L1 norm and robustness.

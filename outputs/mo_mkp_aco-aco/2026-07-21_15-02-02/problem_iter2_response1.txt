@@ -1,0 +1,54 @@
+```c
+double heuristic_v2(int index_item, double weights[dimension][NBITEMS], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS], double profit[NBITEMS]) {
+    // Check if weights and capacity are well-defined for all dimensions
+    double sum_weights = 0.0;
+    double sum_capacity = 0.0;
+    for (int j = 0; j < dimension; j++) {
+        sum_weights += weights[j][index_item];
+        sum_capacity += capacity[j];
+    }
+
+    // If sum of weights or capacity is zero, return a very small value for this item
+    if (sum_weights == 0.0 || sum_capacity == 0.0) {
+        return 1e-9;
+    }
+
+    // Calculate how well each item fits into the knapsack
+    double fit = 0.0;
+    for (int j = 0; j < dimension; j++) {
+        fit += (weights[j][index_item] / capacity[j]);
+    }
+    fit = 1.0 / (1.0 + fit);
+
+    // Consider neighborhood of current item and potential conflict
+    double neighborhood_importance = 0.0;
+    int neighborhood_count = 0;
+    for (int i = 0; i < nb_voisinage; i++) {
+        int item = voisinage[i];
+        if (item == index_item) continue;  // Skip current item
+        double competing_weight = 0.0;
+        for (int j = 0; j < dimension; j++) {
+            competing_weight += (weights[j][item] / capacity[j]);
+        }
+        neighborhood_importance += competing_weight / (1 + competing_weight);
+        neighborhood_count++;
+    }
+    if (neighborhood_count > 0) {
+        neighborhood_importance /= neighborhood_count;
+    }
+
+    // Combine factors: the profit of item, how well it fits into the knapsack, and the neighborhood importance
+    double final_heuristic = profit[index_item] * fit * (1.0 - neighborhood_importance);
+
+    // Encourage exploration by giving more weight to less frequently visited items
+    int visit_count = 0;
+    for (int i = 0; i < nb_voisinage; i++) {
+        if (voisinage[i] == index_item) {
+            visit_count++;
+        }
+    }
+    final_heuristic *= (1 + 1.0 / (1 + visit_count));
+
+    return final_heuristic;
+}
+```

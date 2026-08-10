@@ -1,0 +1,5 @@
+- problem=tsp_aco
+- init_pop_size=4
+- pop_size=4
+- max_fe=20
+- timeout=20

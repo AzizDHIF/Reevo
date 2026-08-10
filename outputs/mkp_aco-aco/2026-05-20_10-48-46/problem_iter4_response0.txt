@@ -1,0 +1,37 @@
+```python
+import numpy as np
+
+def heuristics_v2(prize: np.ndarray, weight: np.ndarray) -> np.ndarray:
+    """
+    This function calculates an improved heuristic value for each item in the multiple knapsack problem.
+    
+    Parameters:
+    prize (np.ndarray): The prizes of the items, shape (n,).
+    weight (np.ndarray): The weights of the items, shape (n, m).
+    
+    Returns:
+    np.ndarray: Heuristic values for each item, shape (n,).
+    """
+    
+    # Calculate the simplified prize-to-weight ratio
+    prize_to_weight_ratio = prize / np.sum(weight, axis=1)
+    
+    # Introduce a sparsity factor to filter out unpromising items
+    sparsity_factor = 0.5
+    threshold = np.percentile(prize_to_weight_ratio, 100 * (1 - sparsity_factor))
+    
+    # Calculate the weight diversity factor
+    weight_diversity = np.sum(weight > 0.5, axis=1)
+    weight_diversity_factor = 0.2
+    
+    # Calculate the prize factor to prioritize high-reward items
+    prize_factor = 0.8
+    prize_max = np.max(prize)
+    
+    # Calculate the heuristic value by combining the factors
+    heuristics = np.where(prize_to_weight_ratio >= threshold, 
+                          prize_to_weight_ratio + weight_diversity_factor * weight_diversity + prize_factor * prize / prize_max, 
+                          0)
+    
+    return heuristics
+```

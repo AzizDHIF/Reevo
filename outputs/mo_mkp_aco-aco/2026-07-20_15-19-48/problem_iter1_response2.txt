@@ -1,0 +1,30 @@
+```c
+double heuristic_v2(int index_item, double weights[dimension][NBITEMS], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS], double profit[NBITEMS] ){
+    double h = 0;
+    double ratio = 0;
+    double max_ratio = 0;
+    
+    // Calculate the minimum capacity constraint among all dimensions for the item's neighbours
+    for(int j = 0; j < dimension; j++){
+        if(weights[j][voisinage[index_item]] > 0){
+            ratio = weights[j][voisinage[index_item]] / capacity[j];
+            if(ratio > max_ratio){
+                max_ratio = ratio;
+            }
+        }
+    }
+    
+    // Calculate a heuristic estimate by considering both profit and weights
+    for(int i = 0; i < nb_voisinage; i++){
+        h += profit[voisinage[i]] / (1 + max_ratio * weights[0][voisinage[i]]);
+    }
+    
+    // Apply sparsity to the heuristic by setting unpromising elements to zero
+    double alpha = 0.1; // Sparsity threshold
+    if(h < alpha){
+        h = 0;
+    }
+    
+    return h;
+}
+```

@@ -1,0 +1,4 @@
+Use L1 norm and combine ratios for better stability.
+Prioritize efficiency and constraint satisfaction.
+Prioritize efficiency, stability, and constraint satisfaction.
+Prioritize efficiency, stability, and non-linear constraint consideration.

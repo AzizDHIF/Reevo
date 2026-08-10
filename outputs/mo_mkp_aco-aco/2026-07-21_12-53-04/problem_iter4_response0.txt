@@ -1,0 +1,38 @@
+```c
+double heuristic_v2(int index_item, double weights[dimension][NBITEMS], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS], double profit[NBITEMS]) {
+    double utilization = 0;
+    double average_neighbor_profit = 0;
+    int neighbor_count = 0;
+
+    // Calculate the utilization of each dimension
+    for (int j = 0; j < dimension; j++) {
+        utilization += weights[j][index_item];
+    }
+    utilization /= dimension;
+
+    // Consider the neighborhood of the current item
+    for (int i = 0; i < nb_voisinage; i++) {
+        int neighbor = voisinage[i];
+        average_neighbor_profit += profit[neighbor];
+        neighbor_count++;
+    }
+
+    // Calculate the average profit of the neighbors
+    if (neighbor_count > 0) {
+        average_neighbor_profit /= neighbor_count;
+    }
+
+    // Combine the utilization and profit of the current item and its neighbors
+    double item_metric = profit[index_item] / (utilization + 1e-9);
+    double neighbor_metric = average_neighbor_profit / (utilization + 1e-9);
+
+    double h = item_metric + neighbor_metric;
+
+    // Sparsify the heuristic by setting unpromising elements to zero
+    if (neighbor_count == 0 || utilization > 1 || profit[index_item] < 0.1 * average_neighbor_profit) {
+        h = 0;
+    }
+
+    return h;
+}
+```

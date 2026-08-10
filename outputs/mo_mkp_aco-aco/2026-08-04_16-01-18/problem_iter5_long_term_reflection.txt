@@ -1,0 +1,1 @@
+Focus on key factors, simplify calculations, and avoid divisions by near-zero values to create efficient heuristics for MO-MKP.

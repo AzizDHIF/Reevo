@@ -1,0 +1,67 @@
+```c
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+
+#define NBITEMS 10  // Define the number of items
+#define dimension 2  // Define the dimension of weights
+
+double heuristic_v2(int index_item, double weights[dimension][NBITEMS], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS], double profit[NBITEMS]) {
+    double h_weight = 0;  // Initialize the weighted heuristic
+    double h_density = 0;  // Initialize the density heuristic
+    double h_profit = 0;  // Initialize the profit heuristic
+
+    // Calculate the weighted heuristic
+    double sum_weights = 0;
+    for (int j = 0; j < dimension; j++) {
+        sum_weights += weights[j][index_item];
+    }
+    for (int j = 0; j < dimension; j++) {
+        h_weight += (weights[j][index_item] / sum_weights) * (1 - (weights[j][index_item] / capacity[j]));
+    }
+
+    // Calculate the density heuristic
+    double sum_weight_voisinage = 0;
+    for (int i = 0; i < nb_voisinage; i++) {
+        for (int j = 0; j < dimension; j++) {
+            sum_weight_voisinage += weights[j][voisinage[i]];
+        }
+    }
+    for (int i = 0; i < nb_voisinage; i++) {
+        double sum_weights_voisinage_item = 0;
+        for (int j = 0; j < dimension; j++) {
+            sum_weights_voisinage_item += weights[j][voisinage[i]];
+        }
+        h_density += sum_weights_voisinage_item / sum_weight_voisinage;
+    }
+
+    // Calculate the profit heuristic
+    for (int i = 0; i < NBITEMS; i++) {
+        h_profit += profit[i];
+    }
+    h_profit = profit[index_item] / h_profit;
+
+    // Combine the heuristics and sparsify
+    double heuristic = h_weight * h_density * h_profit;
+    if (heuristic < 0.001) {  // Sparsify the heuristic by setting unpromising elements to zero
+        return 0;
+    }
+
+    return heuristic;
+}
+
+// Example usage:
+int main() {
+    double weights[dimension][NBITEMS] = {{1, 2, 3, 4, 5, 6, 7, 8, 9, 10},
+                                           {10, 9, 8, 7, 6, 5, 4, 3, 2, 1}};
+    double capacity[dimension] = {10, 10};
+    int nb_voisinage = 3;
+    int voisinage[NBITEMS] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+    double profit[NBITEMS] = {10, 20, 30, 40, 50, 60, 70, 80, 90, 100};
+
+    double result = heuristic_v2(0, weights, capacity, nb_voisinage, voisinage, profit);
+    printf("%f\n", result);
+
+    return 0;
+}
+```

@@ -1,0 +1,1 @@
+Prioritize prize-to-weight ratio, simplify heuristics, and combine key factors with normalization and sparsification to design more effective heuristics.

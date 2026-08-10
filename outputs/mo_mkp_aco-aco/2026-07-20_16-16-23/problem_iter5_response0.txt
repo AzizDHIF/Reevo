@@ -1,0 +1,50 @@
+```c
+double heuristic_v2(int index_item, double weights[dimension][NBITEMS], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS], double profit[NBITEMS]) 
+{
+    double h = 0;
+    double total_weight = 0;
+    double max_profit = 0;
+    double neighbor_impact_sum = 0;
+    double neighbor_profit_sum = 0;
+    int valid_neighbor_count = 0;
+
+    // Calculate total weight and max profit
+    for (int j = 0; j < dimension; j++) {
+        total_weight += weights[j][index_item];
+        h += weights[j][index_item] / capacity[j];
+    }
+    for (int i = 0; i < nb_voisinage; i++) {
+        if (profit[voisinage[i]] > max_profit) {
+            max_profit = profit[voisinage[i]];
+        }
+        if (profit[voisinage[i]] > 0) {
+            neighbor_profit_sum += profit[voisinage[i]];
+            valid_neighbor_count++;
+        }
+        double neighbor_weight = 0;
+        for (int j = 0; j < dimension; j++) {
+            neighbor_weight += weights[j][voisinage[i]];
+        }
+        neighbor_impact_sum += profit[voisinage[i]] / (total_weight + neighbor_weight);
+    }
+
+    // Calculate average profit and density
+    double average_profit = (valid_neighbor_count > 0) ? neighbor_profit_sum / valid_neighbor_count : 0;
+    double density = (total_weight > 0) ? profit[index_item] / total_weight : 0;
+
+    // Simplify and balance overall heuristic calculation
+    double overall_heuristic = density * average_profit * (neighbor_impact_sum / (nb_voisinage + 1));
+
+    // Penalize if max profit is higher and overall heuristic is low
+    if (max_profit > profit[index_item] && overall_heuristic < 0.5) {
+        overall_heuristic = 0;
+    }
+
+    // Sparsify heuristic
+    if (overall_heuristic < 0.1) {
+        overall_heuristic = 0;
+    }
+
+    return overall_heuristic;
+}
+```

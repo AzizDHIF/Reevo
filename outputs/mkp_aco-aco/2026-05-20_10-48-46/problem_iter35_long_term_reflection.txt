@@ -1,0 +1,1 @@
+Prioritize diversity, balance ratios, and interaction terms. Introduce adaptive thresholds and noise to enhance stochastic sampling for MKP, optimizing weights for better performance.

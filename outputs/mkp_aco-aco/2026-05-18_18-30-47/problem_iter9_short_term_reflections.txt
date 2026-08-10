@@ -1,0 +1,4 @@
+Use normalization, inverse weighting, and sparsification.
+Simplify calculations, avoid unnecessary normalizations.
+Simplify and prioritize prize-to-weight ratio for better heuristics.
+Combine multiple factors with normalization and sparsification.

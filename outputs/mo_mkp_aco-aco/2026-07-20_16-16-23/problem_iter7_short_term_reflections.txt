@@ -1,0 +1,4 @@
+Consider weighting and normalizing factors.
+Simplify calculations, reduce variables, and normalize values.
+Consider density, neighbor impact, and capacity constraints.
+Simplify calculations, reduce redundancy, and normalize values.

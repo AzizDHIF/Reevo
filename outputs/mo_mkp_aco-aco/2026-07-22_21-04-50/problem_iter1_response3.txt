@@ -1,0 +1,46 @@
+```c
+double heuristic_v2(int index_item, double weights[dimension][NBITEMS], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS], double profit[NBITEMS]) {
+    double h = 0;
+    double density = 0;
+    double neighborhood_profit = 0;
+    double neighborhood_weight = 0;
+    int count_valid_neighbors = 0;
+
+    // Calculate the average remaining capacity for each dimension
+    for (int j = 0; j < dimension; j++) {
+        if (capacity[j] > 0) {
+            // Calculate the item's density for each dimension
+            density += weights[j][index_item] / capacity[j];
+            h += weights[j][index_item];
+        }
+    }
+
+    // Calculate the neighborhood's profit and weight
+    for (int i = 0; i < nb_voisinage; i++) {
+        neighborhood_profit += profit[voisinage[i]];
+        for (int j = 0; j < dimension; j++) {
+            neighborhood_weight += weights[j][voisinage[i]];
+        }
+        count_valid_neighbors++;
+    }
+
+    // Calculate the average neighborhood profit and weight
+    if (count_valid_neighbors > 0) {
+        neighborhood_profit /= count_valid_neighbors;
+        neighborhood_weight /= (count_valid_neighbors * dimension);
+    }
+
+    // Combine the factors using a weighted sum
+    double heuristic_value = (profit[index_item] / (h + 1e-6)) * (1 + neighborhood_profit / (neighborhood_weight + 1e-6));
+    if (density > 1) {
+        heuristic_value *= (1 - density);
+    }
+
+    // Set unpromising elements to zero
+    if (heuristic_value < 0 || capacity[0] <= 0) {
+        heuristic_value = 0;
+    }
+
+    return heuristic_value;
+}
+```

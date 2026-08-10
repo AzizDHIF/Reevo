@@ -1,0 +1,1 @@
+Adjust coefficients, weights, and thresholds dynamically to balance diversity, prize, and ratio considerations, optimizing stochastic sampling in MKP.

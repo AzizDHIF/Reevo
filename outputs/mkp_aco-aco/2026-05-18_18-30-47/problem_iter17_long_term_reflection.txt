@@ -1,0 +1,1 @@
+Combine factors nonlinearly, using L2 norms and dynamic thresholds, to create effective heuristics for MKP, simplifying and normalizing factor combinations.

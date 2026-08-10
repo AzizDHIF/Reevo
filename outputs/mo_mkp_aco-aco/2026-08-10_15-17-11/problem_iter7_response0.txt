@@ -1,0 +1,62 @@
+```c
+double heuristic_v2(int index_item, double weights[dimension][NBITEMS], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS], double profit[NBITEMS]) 
+{
+    double h = 0.0;
+    double sum_weights = 0.0;
+    double min_capacity = capacity[0];
+    double max_capacity = capacity[0];
+    
+    // calculate sum of weights and min/max capacity
+    for (int j = 0; j < dimension; j++) {
+        sum_weights += weights[j][index_item];
+        if (capacity[j] < min_capacity) {
+            min_capacity = capacity[j];
+        }
+        if (capacity[j] > max_capacity) {
+            max_capacity = capacity[j];
+        }
+    }
+    
+    // calculate density factor
+    double density_factor = profit[index_item] / sum_weights;
+    
+    // calculate pressure factor
+    double pressure_factor = 0.0;
+    for (int j = 0; j < dimension; j++) {
+        pressure_factor += weights[j][index_item] / capacity[j];
+    }
+    pressure_factor /= dimension;
+    
+    // calculate utility factor (including neighbor and capacity factors)
+    double max_neighbor_profit = 0.0;
+    for (int i = 0; i < nb_voisinage; i++) {
+        double neighbor_sum_weights = 0.0;
+        for (int j = 0; j < dimension; j++) {
+            neighbor_sum_weights += weights[j][voisinage[i]];
+        }
+        if (neighbor_sum_weights <= max_capacity) {
+            if (profit[voisinage[i]] > max_neighbor_profit) {
+                max_neighbor_profit = profit[voisinage[i]];
+            }
+        }
+    }
+    double utilization_ratio = 1.0;
+    for (int j = 0; j < dimension; j++) {
+        if (capacity[j] != 0) {
+            utilization_ratio *= (1 - weights[j][index_item] / capacity[j]);
+        }
+    }
+    double utility_factor = (profit[index_item] - max_neighbor_profit) * utilization_ratio;
+    
+    // calculate heuristic value
+    double total_weight_factor = sum_weights * (1.0 / max_capacity);
+    h = density_factor * utility_factor * (1 - pressure_factor) - total_weight_factor;
+    
+    // sparsify heuristic by setting unpromising elements to zero
+    if (h < 0) {
+        h = 0.0;
+    }
+    
+    return h;
+}
+```

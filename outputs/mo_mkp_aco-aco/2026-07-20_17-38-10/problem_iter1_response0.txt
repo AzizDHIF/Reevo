@@ -1,0 +1,36 @@
+```c
+double heuristic_v2(int index_item, double weights[dimension][NBITEMS], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS], double profit[NBITEMS]) {
+    double h = 0;
+    double sum_weights = 0;
+    double avg_profit = 0;
+    int count_voisinage = 0;
+
+    // Compute the average profit of neighboring items
+    for (int i = 0; i < nb_voisinage; i++) {
+        avg_profit += profit[voisinage[i]];
+        count_voisinage++;
+    }
+    avg_profit /= count_voisinage;
+
+    // Compute a weighted sum of the weights of the item and its neighboring items
+    for (int j = 0; j < dimension; j++) {
+        for (int i = 0; i < nb_voisinage; i++) {
+            sum_weights += weights[j][voisinage[i]];
+        }
+        h += weights[j][index_item] / capacity[j];
+    }
+
+    // Compute a ratio of the item's profit to the average profit of its neighbors
+    double profit_ratio = profit[index_item] / avg_profit;
+
+    // Combine the factors to determine the promise of the item
+    double promise = (profit[index_item] / (h + 1e-9)) * (1 - (sum_weights / (nb_voisinage * dimension)));
+
+    // Sparsify the heuristic by setting unpromising elements to zero
+    if (promise < 0.1 || profit_ratio < 0.5) {
+        promise = 0;
+    }
+
+    return promise;
+}
+```

@@ -1,0 +1,4 @@
+Prioritize diversity, prize-to-weight ratios, and interaction terms.
+Simplify and balance factors for better heuristics.
+Tune weights and thresholds for better performance.
+Emphasize diversity, prize-to-weight ratios, and interaction terms.

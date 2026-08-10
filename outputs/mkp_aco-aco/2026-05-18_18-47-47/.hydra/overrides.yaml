@@ -1,0 +1,6 @@
+- llm_client=groq
+- problem=mkp_aco
+- init_pop_size=4
+- pop_size=4
+- max_fe=100
+- timeout=100

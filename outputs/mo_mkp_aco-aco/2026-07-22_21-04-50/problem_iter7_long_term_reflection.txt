@@ -1,0 +1,1 @@
+Prioritize item density and balance factors, simplify calculations, and apply targeted penalties to create effective MO-MKP heuristics.

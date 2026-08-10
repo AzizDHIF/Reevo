@@ -1,0 +1,47 @@
+```c
+double heuristic_v2(int index_item, double weights[dimension][NBITEMS], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS], double profit[NBITEMS] ) 
+{
+    double h = 0.0;
+    double density = profit[index_item];
+    for (int j = 0; j < dimension; j++) 
+    {
+        density /= weights[j][index_item];
+    }
+    double utilization_ratio = 1.0;
+    for (int j = 0; j < dimension; j++) 
+    {
+        if (capacity[j] != 0) 
+        {
+            utilization_ratio *= (1 - weights[j][index_item] / capacity[j]);
+        }
+    }
+    double max_capacity = capacity[0];
+    for (int j = 1; j < dimension; j++) 
+    {
+        if (capacity[j] > max_capacity) 
+        {
+            max_capacity = capacity[j];
+        }
+    }
+    double total_weight_factor = 0.0;
+    for (int j = 0; j < dimension; j++) 
+    {
+        total_weight_factor += weights[j][index_item] / max_capacity;
+    }
+    double neighbor_max_profit = 0.0;
+    for (int i = 0; i < nb_voisinage; i++) 
+    {
+        if (profit[voisinage[i]] > neighbor_max_profit) 
+        {
+            neighbor_max_profit = profit[voisinage[i]];
+        }
+    }
+    double item_utility = (profit[index_item] - neighbor_max_profit) * utilization_ratio;
+    h = density * item_utility / (1 + total_weight_factor);
+    if (h < 0) 
+    {
+        h = 0.0;
+    }
+    return h;
+}
+```

@@ -1,0 +1,1 @@
+Prioritize relative profit and neighbor utilization, using normalized metrics to simplify and balance item selection in MO-MKP heuristics.

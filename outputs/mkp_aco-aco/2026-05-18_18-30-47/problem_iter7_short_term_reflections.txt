@@ -1,0 +1,4 @@
+Simplify, focus on key factors like prize-to-weight ratio.
+Avoid division by zero with small epsilon value.
+Combine normalized factors, use inverse norms, and apply thresholds.
+Add small epsilon value to avoid division by zero.

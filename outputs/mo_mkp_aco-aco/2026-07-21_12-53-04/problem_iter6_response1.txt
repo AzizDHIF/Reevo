@@ -1,0 +1,54 @@
+```c
+double heuristic_v2(int index_item, double weights[dimension][NBITEMS], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS], double profit[NBITEMS]) {
+    double h = 0;
+    double utilization = 0;
+    double neighbor_profits = 0;
+    int neighbor_count = 0;
+    double max_profit = 0;
+    double min_profit = 1e9;
+
+    // Calculate the utilization of each dimension
+    for(int j = 0; j < dimension; j++) {
+        utilization += weights[j][index_item] / capacity[j];
+        utilization /= dimension; // normalize utilization by dimension
+    }
+
+    // Find the maximum and minimum profit among all items
+    for (int i = 0; i < NBITEMS; i++) {
+        if (profit[i] > max_profit) {
+            max_profit = profit[i];
+        }
+        if (profit[i] < min_profit) {
+            min_profit = profit[i];
+        }
+    }
+
+    // Consider the neighborhood of the current item
+    for(int i = 0; i < nb_voisinage; i++) {
+        int neighbor = voisinage[i];
+        neighbor_profits += profit[neighbor];
+        neighbor_count++;
+
+        // Calculate the heuristic for the neighbor
+        double neighbor_utilization = 0;
+        for(int j = 0; j < dimension; j++) {
+            neighbor_utilization += weights[j][neighbor] / capacity[j];
+        }
+        neighbor_utilization /= dimension; // normalize utilization by dimension
+
+        // Combine the utilization and profit of the neighbor
+        h += (profit[neighbor] - min_profit) / (max_profit - min_profit + 1e-6) / (neighbor_utilization + 1e-9); 
+    }
+
+    // Combine the utilization and profit of the current item
+    double relative_profit = (profit[index_item] - min_profit) / (max_profit - min_profit + 1e-6); 
+    h += relative_profit / (utilization + 1e-9); 
+
+    // Sparsify the heuristic by setting unpromising elements to zero
+    if(neighbor_count == 0 || utilization > 1 || relative_profit < 0.1) {
+        h = 0;
+    }
+
+    return h;
+}
+```

@@ -1,0 +1,1 @@
+Combine prize, weight, and dimension diversity, prioritizing high-reward items with favorable prize-to-weight ratios.

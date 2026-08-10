@@ -1,0 +1,1 @@
+Combine capacity, neighborhood, ratio, proximity, and profit metrics, and apply sparsification to design robust heuristics for MO-MKP.

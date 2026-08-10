@@ -1,0 +1,4 @@
+Use density and neighbor comparisons for better heuristic design.
+Consider density and neighborhood effects.
+Use density and neighborhood comparisons.
+Consider density and neighbor effects.

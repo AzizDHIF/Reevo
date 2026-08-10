@@ -1,0 +1,20 @@
+[*] Running ...
+[*] Dataset loaded: C:\Users\Zoghlami Souad\Documents\dossier_aziz\Stage\travaux_stage\reevo/problems/mkp_aco\dataset/train100_dataset.npz with 5 instances.
+[*] Instance 0: 11.014212265830526
+[*] Instance 1: 18.610190637596702
+Traceback (most recent call last):
+  File "C:\Users\Zoghlami Souad\Documents\dossier_aziz\Stage\travaux_stage\reevo/problems/mkp_aco/eval.py", line 58, in <module>
+    obj = solve(prize, weight)
+          ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Zoghlami Souad\Documents\dossier_aziz\Stage\travaux_stage\reevo/problems/mkp_aco/eval.py", line 23, in solve
+    heu = heuristics(prize.copy(), weight.copy()) + 1e-9
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Zoghlami Souad\Documents\dossier_aziz\Stage\travaux_stage\reevo\problems\mkp_aco\gpt.py", line 41, in heuristics_v2
+    heuristics = (
+                   
+  File "C:\Users\Zoghlami Souad\Documents\dossier_aziz\Stage\travaux_stage\reevo\env\Lib\site-packages\numpy\linalg\_linalg.py", line 648, in inv
+    ainv = _umath_linalg.inv(a, signature=signature)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Zoghlami Souad\Documents\dossier_aziz\Stage\travaux_stage\reevo\env\Lib\site-packages\numpy\linalg\_linalg.py", line 145, in _raise_linalgerror_singular
+    raise LinAlgError("Singular matrix")
+numpy.linalg.LinAlgError: Singular matrix

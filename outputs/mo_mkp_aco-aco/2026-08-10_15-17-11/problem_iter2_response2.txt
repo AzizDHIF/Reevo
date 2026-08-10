@@ -1,0 +1,34 @@
+```c
+double heuristic_v2(int index_item, double weights[dimension][NBITEMS], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS], double profit[NBITEMS]) {
+    double total_weight = 0.0;
+    double pressure = 0.0;
+    
+    // Calculate total weight and pressure
+    for (int j = 0; j < dimension; j++) {
+        total_weight += weights[j][index_item];
+        if (capacity[j] > 0) {
+            pressure += (weights[j][index_item] / capacity[j]);
+        }
+    }
+    
+    // Calculate density
+    double density = profit[index_item] / total_weight;
+    
+    // Calculate neighborhood promising
+    double neighborhood_promising = 0.0;
+    for (int i = 0; i < nb_voisinage; i++) {
+        neighborhood_promising += profit[voisinage[i]];
+    }
+    neighborhood_promising /= (double) nb_voisinage;
+    
+    // Combine factors
+    double promising_item = density * neighborhood_promising / (1.0 + pressure);
+    
+    // Sparsify the heuristic
+    if (promising_item < 0.1 * neighborhood_promising) {
+        promising_item = 0.0;
+    }
+    
+    return promising_item;
+}
+```

@@ -1,0 +1,34 @@
+```c
+double heuristic_v2(int index_item, double weights[dimension][NBITEMS], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS], double profit[NBITEMS]) {
+    double avg_weight = 0.0;
+    double density = 0.0;
+    double capacity_utilization = 0.0;
+    double h = 0.0;
+
+    // Calculate average weight of the item
+    for (int j = 0; j < dimension; j++) {
+        avg_weight += weights[j][index_item];
+    }
+    avg_weight /= dimension;
+
+    // Calculate density and capacity utilization
+    if (avg_weight > 0) {
+        density = profit[index_item] / avg_weight;
+    }
+    for (int j = 0; j < dimension; j++) {
+        capacity_utilization += weights[j][index_item] / capacity[j];
+    }
+    capacity_utilization /= dimension;
+
+    // Prioritize density and capacity utilization
+    if (density > 0 && capacity_utilization < 1) {
+        h = density * (1 - capacity_utilization);
+        // Apply soft thresholds
+        if (density < 0.5) h *= 0.7;
+        if (capacity_utilization > 0.8) h *= 0.3;
+    }
+
+    // Ensure non-negative heuristic values
+    return (h > 0) ? h : 0;
+}
+```

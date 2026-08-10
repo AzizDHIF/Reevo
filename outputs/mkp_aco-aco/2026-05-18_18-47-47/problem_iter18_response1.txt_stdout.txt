@@ -1,0 +1,41 @@
+[*] Running ...
+[*] Dataset loaded: C:\Users\Zoghlami Souad\Documents\dossier_aziz\Stage\travaux_stage\reevo/problems/mkp_aco\dataset/train100_dataset.npz with 5 instances.
+[*] Instance 0: 10.944354472941086
+[*] Instance 1: 19.23256481547152
+[*] Instance 2: 17.284457252005183
+[*] Instance 3: 9.742722513274831
+C:\Users\Zoghlami Souad\Documents\dossier_aziz\Stage\travaux_stage\reevo\problems\mkp_aco\gpt.py:41: RuntimeWarning: overflow encountered in exp
+  
+C:\Users\Zoghlami Souad\Documents\dossier_aziz\Stage\travaux_stage\reevo\problems\mkp_aco\gpt.py:41: RuntimeWarning: invalid value encountered in divide
+  
+Traceback (most recent call last):
+  File "C:\Users\Zoghlami Souad\Documents\dossier_aziz\Stage\travaux_stage\reevo/problems/mkp_aco/eval.py", line 58, in <module>
+    obj = solve(prize, weight)
+          ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Zoghlami Souad\Documents\dossier_aziz\Stage\travaux_stage\reevo/problems/mkp_aco/eval.py", line 27, in solve
+    obj, _ = aco.run(N_ITERATIONS)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Zoghlami Souad\Documents\dossier_aziz\Stage\travaux_stage\reevo\env\Lib\site-packages\torch\utils\_contextlib.py", line 124, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Zoghlami Souad\Documents\dossier_aziz\Stage\travaux_stage\reevo\problems\mkp_aco\aco.py", line 50, in run
+    sols = self.gen_sol() # (n_ants, max_horizon)
+           ^^^^^^^^^^^^^^
+  File "C:\Users\Zoghlami Souad\Documents\dossier_aziz\Stage\travaux_stage\reevo\problems\mkp_aco\aco.py", line 92, in gen_sol
+    items = self.pick_item(mask, dummy_mask)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Zoghlami Souad\Documents\dossier_aziz\Stage\travaux_stage\reevo\problems\mkp_aco\aco.py", line 103, in pick_item
+    dist = Categorical(dist)
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\Zoghlami Souad\Documents\dossier_aziz\Stage\travaux_stage\reevo\env\Lib\site-packages\torch\distributions\categorical.py", line 85, in __init__
+    super().__init__(batch_shape, validate_args=validate_args)
+  File "C:\Users\Zoghlami Souad\Documents\dossier_aziz\Stage\travaux_stage\reevo\env\Lib\site-packages\torch\distributions\distribution.py", line 77, in __init__
+    raise ValueError(
+ValueError: Expected parameter probs (Tensor of shape (10, 101)) of distribution Categorical(probs: torch.Size([10, 101])) to satisfy the constraint Simplex(), but found invalid values:
+tensor([[nan, nan, nan,  ..., nan, nan, nan],
+        [nan, nan, nan,  ..., nan, nan, nan],
+        [nan, nan, nan,  ..., nan, nan, nan],
+        ...,
+        [nan, nan, nan,  ..., nan, nan, nan],
+        [nan, nan, nan,  ..., nan, nan, nan],
+        [nan, nan, nan,  ..., nan, nan, nan]], dtype=torch.float64)

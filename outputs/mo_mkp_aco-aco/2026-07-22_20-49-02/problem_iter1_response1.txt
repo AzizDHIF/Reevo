@@ -1,0 +1,43 @@
+```c
+double heuristic_v2(int index_item, double weights[dimension][NBITEMS], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS], double profit[NBITEMS]) {
+    double max_weight = 0.0;
+    double total_weight = 0.0;
+    double max_capacity = 0.0;
+    double total_capacity = 0.0;
+    double h = 0.0;
+    
+    // Calculate total weight for the current item
+    for (int j = 0; j < dimension; j++) {
+        total_weight += weights[j][index_item];
+        max_weight = (max_weight > weights[j][index_item]) ? max_weight : weights[j][index_item];
+    }
+    
+    // Calculate total and max capacity for all dimensions
+    for (int j = 0; j < dimension; j++) {
+        total_capacity += capacity[j];
+        max_capacity = (max_capacity > capacity[j]) ? max_capacity : capacity[j];
+    }
+    
+    // Calculate heuristic based on total and max weight, capacity and profits
+    h = (1 - ((total_weight / total_capacity) * (1 - (profit[index_item] / NBITEMS)))) * profit[index_item];
+    
+    // Check if adding this item will fill more than half of the total available capacity
+    double capacity_utilization = max_weight / max_capacity;
+    if (capacity_utilization > 0.5) {
+        h *= (1 - (capacity_utilization - 0.5));
+    }
+    
+    // Consider neighboring items and their weights
+    double neighbor_weights = 0.0;
+    for (int i = 0; i < nb_voisinage; i++) {
+        neighbor_weights += total_weight;
+    }
+    double neighbor_profit = 0.0;
+    for (int i = 0; i < nb_voisinage; i++) {
+        neighbor_profit += profit[voisinage[i]];
+    }
+    h = (h * neighbor_profit) / (neighbor_weight + (neighbor_profit * 0.1));
+    
+    return h;
+}
+```

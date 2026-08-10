@@ -1,0 +1,51 @@
+```c
+double heuristic_v2(int index_item, double weights[dimension][NBITEMS], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS], double profit[NBITEMS]) {
+    double h = 0.0;
+    double max_capacity = capacity[0];
+    for (int j = 1; j < dimension; j++) {
+        if (capacity[j] > max_capacity) {
+            max_capacity = capacity[j];
+        }
+    }
+
+    // Calculate density
+    double sum_weights = 0.0;
+    for (int j = 0; j < dimension; j++) {
+        sum_weights += weights[j][index_item];
+    }
+    double density = profit[index_item] / sum_weights;
+
+    // Calculate pressure
+    double pressure = 0.0;
+    for (int j = 0; j < dimension; j++) {
+        if (capacity[j] != 0) {
+            pressure += weights[j][index_item] / capacity[j];
+        }
+    }
+    pressure /= dimension;
+
+    // Calculate utilization ratio
+    double utilization_ratio = 1.0;
+    for (int j = 0; j < dimension; j++) {
+        if (capacity[j] != 0) {
+            utilization_ratio *= (1 - weights[j][index_item] / capacity[j]);
+        }
+    }
+
+    // Calculate utility
+    double max_neighbor_profit = 0.0;
+    for (int i = 0; i < nb_voisinage; i++) {
+        if (profit[voisinage[i]] > max_neighbor_profit) {
+            max_neighbor_profit = profit[voisinage[i]];
+        }
+    }
+    double utility = (profit[index_item] - max_neighbor_profit) * utilization_ratio;
+
+    // Combine factors
+    h = density * utility * (1 - pressure);
+    if (h < 0) {
+        h = 0.0;
+    }
+    return h;
+}
+```

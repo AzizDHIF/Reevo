@@ -1,0 +1,1 @@
+Prioritize efficiency, robustness, and L1 norm. Focus on item efficiency, constraint satisfaction, and simplify calculations for robust heuristics.

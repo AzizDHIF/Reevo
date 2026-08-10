@@ -1,0 +1,1 @@
+Prioritize diversity, prize-to-weight ratios, and interaction terms. Balance and simplify factors, tuning weights and thresholds for optimal performance.

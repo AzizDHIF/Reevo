@@ -1,0 +1,4 @@
+Simplify calculations, reduce redundancy, and balance item and neighbor metrics.
+Consider neighborhood and relative profits.
+Consider relative profits and utilization.
+Prioritize relative profit and neighbor utilization.

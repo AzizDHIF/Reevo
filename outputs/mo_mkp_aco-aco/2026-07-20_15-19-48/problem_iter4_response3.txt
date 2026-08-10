@@ -1,0 +1,21 @@
+```c
+double heuristic_v2(int index_item, double weights[dimension][NBITEMS], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS], double profit[NBITEMS]) {
+    double promising_value = 1.0;
+    double h = 0;
+
+    // Calculate the promising value based on capacity ratio and weight of neighbours
+    for (int j = 0; j < dimension; j++) {
+        promising_value *= (1 - weights[j][index_item] / capacity[j]);
+        h += weights[j][voisinage[0]] / capacity[j]; // assuming voisinage[0] is a valid neighbour
+    }
+
+    // Calculate neighbour influence
+    double neighbour_influence = 0;
+    for (int i = 0; i < nb_voisinage; i++) {
+        neighbour_influence += profit[voisinage[i]];
+    }
+
+    // Combine various factors with more weights on promising value
+    return (profit[index_item] * promising_value) / (h + 1) + neighbour_influence / (nb_voisinage * (h + 1));
+}
+```

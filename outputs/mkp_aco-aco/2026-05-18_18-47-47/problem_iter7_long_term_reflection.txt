@@ -1,0 +1,1 @@
+Prioritize prize-to-weight ratios, normalize weights, and simplify calculations to balance efficiency and variance.

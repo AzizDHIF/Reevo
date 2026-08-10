@@ -1,0 +1,1 @@
+Combine weights, ratios, and constraints to balance efficiency, variance, and sparsity, guiding heuristic design with simplified ratios and adjusted thresholds.

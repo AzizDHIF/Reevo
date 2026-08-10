@@ -1,0 +1,4 @@
+Use L1 norm, non-linear functions, and adaptive thresholds.
+Simplify and prioritize key factors like efficiency and constraints.
+Simplify calculations, reduce non-linearities.
+Simplify calculations, avoid unnecessary norms.

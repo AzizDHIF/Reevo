@@ -1,0 +1,1 @@
+Simplify calculations, prioritize prize-to-weight ratio, and apply normalization, sparsification, and inverse weighting to design effective heuristics.

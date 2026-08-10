@@ -1,0 +1,21 @@
+[*] Running ...
+[*] Mood: train
+[*] compiling ... 
+Traceback (most recent call last):
+  File "C:\reevo/problems/mo_mkp_aco/eval.py", line 384, in <module>
+    compile("WeightACO_train_100items.c",f"WeightACO_train_100items_{id_response}.exe")
+  File "C:\reevo/problems/mo_mkp_aco/eval.py", line 64, in compile
+    result=subprocess.run(run_cmd,cwd=WORK_DIR)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\subprocess.py", line 550, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\subprocess.py", line 1201, in communicate
+    self.wait()
+  File "C:\Python311\Lib\subprocess.py", line 1264, in wait
+    return self._wait(timeout=timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python311\Lib\subprocess.py", line 1590, in _wait
+    result = _winapi.WaitForSingleObject(self._handle,
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyboardInterrupt

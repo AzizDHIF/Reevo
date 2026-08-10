@@ -1,0 +1,1 @@
+Prioritize efficiency, prize-to-weight ratio, and simplify calculations to balance competing factors and constraints for effective heuristics.

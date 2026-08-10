@@ -1,0 +1,1 @@
+Prioritize diversity, balance ratios, and randomness. Simplify and remove redundant calculations to improve stochastic solution sampling for MKP. Adjust weights and thresholds for optimal performance.

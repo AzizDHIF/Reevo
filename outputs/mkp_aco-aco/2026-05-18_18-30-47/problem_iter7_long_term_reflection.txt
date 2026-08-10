@@ -1,0 +1,1 @@
+Prioritize prize-to-weight ratio, normalize, and add a small epsilon value to avoid division by zero, simplifying heuristics for effective MKP solutions.

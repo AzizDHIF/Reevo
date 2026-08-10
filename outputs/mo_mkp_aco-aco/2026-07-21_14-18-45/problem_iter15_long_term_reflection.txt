@@ -1,0 +1,1 @@
+Prioritize density, consider capacity and neighborhood factors, and apply soft thresholds to design efficient MO-MKP heuristics.

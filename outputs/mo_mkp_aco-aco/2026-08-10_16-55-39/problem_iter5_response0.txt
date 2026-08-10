@@ -1,0 +1,46 @@
+```c
+double heuristic_v2(int index_item, double weights[dimension][NBITEMS], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS], double profit[NBITEMS]) {
+    // Calculate the density of the item
+    double density = 0;
+    for (int j = 0; j < dimension; j++) {
+        density += profit[index_item] / (weights[j][index_item] + 1e-9);
+    }
+    density /= dimension;
+
+    // Calculate the average profit-to-weight ratio of the item and its neighborhood
+    double total_neighborhood_profit = profit[index_item];
+    double total_neighborhood_weight = 0;
+    for (int i = 0; i < dimension; i++) {
+        total_neighborhood_weight += weights[i][index_item];
+    }
+    double average_ptw_ratio = total_neighborhood_profit / (total_neighborhood_weight + 1e-9);
+    double neighborhood_ptw_ratio = 0;
+    if (nb_voisinage > 0) {
+        double total_voisinage_profit = 0;
+        double total_voisinage_weight = 0;
+        for (int i = 0; i < nb_voisinage; i++) {
+            total_voisinage_profit += profit[voisinage[i]];
+            for (int j = 0; j < dimension; j++) {
+                total_voisinage_weight += weights[j][voisinage[i]];
+            }
+        }
+        neighborhood_ptw_ratio = total_voisinage_profit / (total_voisinage_weight + 1e-9);
+    }
+
+    // Prioritize density, profit ratios, and neighborhood effects
+    double h = density * average_ptw_ratio / (neighborhood_ptw_ratio + 1e-9);
+
+    // Penalize items that exceed capacity and apply a sparsity threshold
+    for (int j = 0; j < dimension; j++) {
+        if (weights[j][index_item] > capacity[j]) {
+            h = 0;
+            break;
+        }
+    }
+    if (h < 0.5 || total_neighborhood_weight > dimension) {
+        h = 0;
+    }
+
+    return h;
+}
+```
