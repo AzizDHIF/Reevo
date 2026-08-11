@@ -1,0 +1,1 @@
+Prioritize constraints, simplify calculations, and use meaningful factors like weight-to-capacity ratios to guide effective item selection in MO-MKP heuristics.

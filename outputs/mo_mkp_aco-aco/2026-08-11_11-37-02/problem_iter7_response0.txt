@@ -1,0 +1,51 @@
+```c
+double heuristic_v2(int index_item, double weights[dimension][NBITEMS], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS], double profit[NBITEMS]) {
+    // Prioritize constraint satisfaction
+    double capacity_violation = 0;
+    double weight_to_capacity_ratio = 0;
+    double valid_dimensions = 0;
+    for(int j = 0; j < dimension; j++) {
+        if (capacity[j] > 0) {
+            if (weights[j][index_item] > capacity[j]) {
+                capacity_violation += weights[j][index_item] - capacity[j];
+            } else {
+                weight_to_capacity_ratio += weights[j][index_item] / capacity[j];
+                valid_dimensions++;
+            }
+        }
+    }
+
+    // Simplify calculations and sparsify the heuristic
+    if (valid_dimensions > 0) {
+        weight_to_capacity_ratio /= valid_dimensions;
+    } else {
+        return 0;
+    }
+
+    // Simplify neighbor comparison and prioritize capacity
+    double best_neighbor_profit = 0;
+    if (nb_voisinage > 0) {
+        for (int i = 0; i < nb_voisinage; i++) {
+            if (profit[voisinage[i]] > best_neighbor_profit) {
+                best_neighbor_profit = profit[voisinage[i]];
+            }
+        }
+    }
+
+    // Combine factors and simplify
+    double h = 0;
+    if (capacity_violation == 0) {
+        double neighbor_factor = (best_neighbor_profit > 0) ? best_neighbor_profit / profit[index_item] : 1;
+        double capacity_factor = 1 / (weight_to_capacity_ratio + 1e-9);
+        double profit_factor = profit[index_item];
+        h = capacity_factor * profit_factor / (neighbor_factor + 1e-9);
+    }
+
+    // Sparsify the heuristic by setting unpromising elements to zero
+    if (h < 1e-9) {
+        h = 0;
+    }
+
+    return h;
+}
+```

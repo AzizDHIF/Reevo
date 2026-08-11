@@ -1,0 +1,45 @@
+```c
+double heuristic_v2(int index_item, double weights[dimension][NBITEMS], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS], double profit[NBITEMS]) {
+    // Prioritize feasibility
+    double feasibility = 1.0;
+    for (int j = 0; j < dimension; j++) {
+        if (capacity[j] > 0 && weights[j][index_item] > capacity[j]) {
+            feasibility = 0.0;
+            break;
+        }
+    }
+
+    if (feasibility == 0.0) {
+        return 0.0;
+    }
+
+    // Normalize weights
+    double normalized_weight = 0.0;
+    double total_capacity = 0.0;
+    for (int j = 0; j < dimension; j++) {
+        if (capacity[j] > 0) {
+            normalized_weight += weights[j][index_item] / capacity[j];
+            total_capacity += 1.0;
+        }
+    }
+    if (total_capacity > 0) {
+        normalized_weight /= total_capacity;
+    } else {
+        return 0.0;
+    }
+
+    // Compare neighbors effectively
+    double best_neighbor_profit = 0.0;
+    for (int i = 0; i < nb_voisinage; i++) {
+        if (profit[voisinage[i]] > best_neighbor_profit) {
+            best_neighbor_profit = profit[voisinage[i]];
+        }
+    }
+    double neighbor_factor = (best_neighbor_profit > profit[index_item] && best_neighbor_profit > 0) ? best_neighbor_profit / profit[index_item] : 1.0;
+
+    // Calculate heuristic value
+    double h = profit[index_item] / (normalized_weight * neighbor_factor + 1e-9);
+
+    return h;
+}
+```

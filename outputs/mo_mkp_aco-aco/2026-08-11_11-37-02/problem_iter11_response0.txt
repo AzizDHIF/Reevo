@@ -1,0 +1,50 @@
+```c
+double heuristic_v2(int index_item, double weights[dimension][NBITEMS], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS], double profit[NBITEMS]) {
+    // Prioritize constraints
+    double capacity_violation = 0;
+    double weight_to_capacity_ratio = 0;
+    double valid_dimensions = 0;
+    for(int j = 0; j < dimension; j++) {
+        if (capacity[j] > 0) {
+            if (weights[j][index_item] > capacity[j]) {
+                capacity_violation += weights[j][index_item] - capacity[j];
+            } else {
+                weight_to_capacity_ratio += weights[j][index_item] / capacity[j];
+                valid_dimensions++;
+            }
+        }
+    }
+
+    // Simplify calculations
+    if (valid_dimensions > 0) {
+        weight_to_capacity_ratio /= valid_dimensions;
+    } else {
+        return 0;
+    }
+
+    // Neighbor comparison with sparsity
+    double best_neighbor_profit = 0;
+    if (nb_voisinage > 0) {
+        for (int i = 0; i < nb_voisinage; i++) {
+            if (profit[voisinage[i]] > best_neighbor_profit) {
+                best_neighbor_profit = profit[voisinage[i]];
+            }
+        }
+    }
+
+    // Balance factors for item selection
+    double h = 0;
+    if (capacity_violation == 0) {
+        double neighbor_factor = (best_neighbor_profit > 0) ? best_neighbor_profit / profit[index_item] : 1;
+        double capacity_utilization_factor = 1 - weight_to_capacity_ratio;
+        h = profit[index_item] * capacity_utilization_factor / (neighbor_factor + 1e-9);
+    }
+
+    // Sparsify the heuristic
+    if (h < 1e-6) {
+        h = 0;
+    }
+
+    return h;
+}
+```

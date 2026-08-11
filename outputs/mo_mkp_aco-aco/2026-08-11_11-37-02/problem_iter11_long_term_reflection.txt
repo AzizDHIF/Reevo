@@ -1,0 +1,1 @@
+Prioritize constraints, simplify calculations, and balance factors to guide effective item selection, ensuring capacity utilization and neighbor comparisons.

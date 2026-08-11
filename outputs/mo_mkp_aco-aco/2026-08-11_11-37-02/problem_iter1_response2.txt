@@ -1,0 +1,51 @@
+```c
+double heuristic_v2(int index_item, double weights[dimension][NBITEMS], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS], double profit[NBITEMS] ){
+    // Calculate the total remaining capacity in all dimensions
+    double total_capacity = 0;
+    for(int j = 0; j < dimension; j++) {
+        total_capacity += capacity[j];
+    }
+
+    // Calculate the total weight of the item in all dimensions
+    double total_weight = 0;
+    for(int j = 0; j < dimension; j++) {
+        total_weight += weights[j][index_item];
+    }
+
+    // Calculate the average capacity in each dimension
+    double avg_capacity = total_capacity / dimension;
+
+    // Calculate the maximum weight in each dimension
+    double max_weight = 0;
+    for(int j = 0; j < dimension; j++) {
+        max_weight = (weights[j][index_item] > max_weight) ? weights[j][index_item] : max_weight;
+    }
+
+    // Sparsify the heuristic by setting unpromising elements to zero
+    if (max_weight > avg_capacity) {
+        return 0;
+    }
+
+    // Calculate the heuristic value based on the item's weight, capacity, and profit
+    double h = 0;
+    for(int j = 0; j < dimension; j++) {
+        h += (weights[j][index_item] / capacity[j]) * (1 + (profit[index_item] / (1 + total_weight)));
+    }
+
+    // Calculate the average weight of the item's neighbors
+    double avg_neighbor_weight = 0;
+    for(int i = 0; i < nb_voisinage; i++) {
+        double sum = 0;
+        for(int j = 0; j < dimension; j++) {
+            sum += weights[j][voisinage[i]];
+        }
+        avg_neighbor_weight += sum / dimension;
+    }
+    avg_neighbor_weight /= nb_voisinage;
+
+    // Combine the heuristic values and neighbor weights
+    h = (h / dimension) * (1 + (total_weight / (1 + avg_neighbor_weight)));
+
+    return profit[index_item] / (h + 1);
+}
+```

@@ -1,0 +1,4 @@
+Prioritize constraint satisfaction and capacity utilization.
+Simplify calculations, prioritize constraints, and neighborhood comparisons.
+Prioritize constraints, simplify calculations, and balance factors.
+Simplify and prioritize constraint satisfaction and neighbor comparisons.

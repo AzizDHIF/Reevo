@@ -1,0 +1,54 @@
+```c
+double heuristic_v2(int index_item, double weights[dimension][NBITEMS], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS], double profit[NBITEMS]) {
+    // Calculate capacity violation for the item
+    double capacity_violation = 0;
+    for(int j = 0; j < dimension; j++) {
+        if (weights[j][index_item] > capacity[j]) {
+            capacity_violation += weights[j][index_item] - capacity[j];
+        }
+    }
+
+    // If capacity is violated, item is not promising
+    if (capacity_violation > 0) {
+        return 0;
+    }
+
+    // Calculate the total weight-to-capacity ratio for the item
+    double weight_to_capacity_ratio = 0;
+    double valid_dimensions = 0;
+    for(int j = 0; j < dimension; j++) {
+        if (capacity[j] > 0) {
+            weight_to_capacity_ratio += weights[j][index_item] / capacity[j];
+            valid_dimensions++;
+        }
+    }
+
+    // Adjust the ratio based on the number of valid dimensions
+    if (valid_dimensions > 0) {
+        weight_to_capacity_ratio /= valid_dimensions;
+    } else {
+        // If all dimensions are fully utilized, the item is not promising
+        return 0;
+    }
+
+    // Calculate the neighbor factor based on the profit ratio, simplify by comparing with the best neighbor
+    double best_neighbor_profit = 0;
+    if (nb_voisinage > 0) {
+        for (int i = 0; i < nb_voisinage; i++) {
+            if (profit[voisinage[i]] > best_neighbor_profit) {
+                best_neighbor_profit = profit[voisinage[i]];
+            }
+        }
+    }
+
+    double neighbor_factor = best_neighbor_profit / (profit[index_item] + 1e-9);
+
+    // Compute the total heuristic value as a combination of factors, prioritize capacity and simplify
+    double h = profit[index_item] / (weight_to_capacity_ratio + 1e-9);
+    if (neighbor_factor > 1) {
+        h /= neighbor_factor;
+    }
+
+    return h;
+}
+```

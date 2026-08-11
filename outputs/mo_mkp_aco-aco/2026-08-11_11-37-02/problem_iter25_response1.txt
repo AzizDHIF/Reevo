@@ -1,5 +1,5 @@
-#include "HBACO.h"
-double heuristic_eval_300(int index_item, double weights[dimension][NBITEMS_300], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS_300], double profit[NBITEMS_300]) 
+```c
+double heuristic_v2(int index_item, double weights[dimension][NBITEMS], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS], double profit[NBITEMS]) 
 {
     // Prioritize constraint satisfaction and simplify calculations
     double weight_to_capacity_ratio = 0;
@@ -45,10 +45,11 @@ double heuristic_eval_300(int index_item, double weights[dimension][NBITEMS_300]
     double capacity_factor = (max_weight > 0) ? max_weight / min_neighbor_weight : 1;
     double h = profit[index_item] / (weight_to_capacity_ratio + 1e-9) / (neighbor_factor + 1e-9) / (capacity_factor + 1e-9);
 
-    // Sparsify the heuristic_eval_300 by setting unpromising elements to zero
+    // Sparsify the heuristic by setting unpromising elements to zero
     if (h < 1e-6) {
         return 0;
     }
 
     return h;
 }
+```

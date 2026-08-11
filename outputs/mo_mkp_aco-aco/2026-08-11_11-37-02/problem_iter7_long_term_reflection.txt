@@ -1,0 +1,1 @@
+Prioritize constraints, simplify calculations, and consider weight-to-capacity ratios to guide item selection effectively in MO-MKP.

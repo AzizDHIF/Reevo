@@ -1,0 +1,25 @@
+```c
+double heuristic_v2(int index_item, double weights[dimension][NBITEMS], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS], double profit[NBITEMS] ){
+    // Combine various factors to determine how promising it is to select an item
+    double weight_factor = 0;
+    double capacity_factor = 0;
+    double profitability_factor = 0;
+    double neighbor_factor = 0;
+
+    for(int j = 0; j < dimension; j++){
+        weight_factor += weights[j][index_item] / capacity[j];
+        capacity_factor += (capacity[j] > 0) ? 1 : 0;
+    }
+
+    profitability_factor = profit[index_item];
+
+    for (int i = 0; i < nb_voisinage; i++){
+        neighbor_factor += (profit[voisinage[i]] / profit[index_item]);
+    }
+
+    // Compute the total heuristic value as a combination of the factors
+    double h = (profitability_factor / (weight_factor + 1e-9)) * (capacity_factor / dimension) * (1 / (1 + neighbor_factor));
+
+    return h;
+}
+```

@@ -1,0 +1,1 @@
+Prioritize constraints, simplify calculations to balance ratios, and consider neighbor factors to design effective heuristics for MO-MKP.

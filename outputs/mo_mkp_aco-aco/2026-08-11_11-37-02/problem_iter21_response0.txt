@@ -1,18 +1,16 @@
-#include "HBACO.h"
-double heuristic_eval_300(int index_item, double weights[dimension][NBITEMS_300], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS_300], double profit[NBITEMS_300]) 
-{
+```c
+double heuristic_v2(int index_item, double weights[dimension][NBITEMS], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS], double profit[NBITEMS]) {
     // Prioritize constraint satisfaction and simplify calculations
     double weight_to_capacity_ratio = 0;
     double valid_dimensions = 0;
-    double max_weight = 0;
+    double capacity_violation = 0;
     for(int j = 0; j < dimension; j++) {
         if (capacity[j] > 0) {
             if (weights[j][index_item] <= capacity[j]) {
                 weight_to_capacity_ratio += weights[j][index_item] / capacity[j];
                 valid_dimensions++;
-                if (weights[j][index_item] > max_weight) {
-                    max_weight = weights[j][index_item];
-                }
+            } else {
+                capacity_violation += (weights[j][index_item] - capacity[j]);
             }
         }
     }
@@ -25,30 +23,23 @@ double heuristic_eval_300(int index_item, double weights[dimension][NBITEMS_300]
 
     // Simplify neighbor comparison and prioritize capacity
     double best_neighbor_profit = 0;
-    double min_neighbor_weight = 1e9;
     if (nb_voisinage > 0) {
         for (int i = 0; i < nb_voisinage; i++) {
             if (profit[voisinage[i]] > best_neighbor_profit) {
                 best_neighbor_profit = profit[voisinage[i]];
             }
-            double neighbor_weight = 0;
-            for (int j = 0; j < dimension; j++) {
-                neighbor_weight += weights[j][voisinage[i]];
-            }
-            if (neighbor_weight < min_neighbor_weight) {
-                min_neighbor_weight = neighbor_weight;
-            }
         }
     }
 
     double neighbor_factor = (best_neighbor_profit > 0) ? best_neighbor_profit / profit[index_item] : 1;
-    double capacity_factor = (max_weight > 0) ? max_weight / min_neighbor_weight : 1;
-    double h = profit[index_item] / (weight_to_capacity_ratio + 1e-9) / (neighbor_factor + 1e-9) / (capacity_factor + 1e-9);
+    double capacity_penalty = (capacity_violation > 0) ? capacity_violation : 0;
+    double h = profit[index_item] / (weight_to_capacity_ratio + capacity_penalty + 1e-9) / (neighbor_factor + 1e-9);
 
-    // Sparsify the heuristic_eval_300 by setting unpromising elements to zero
+    // Sparsify the heuristic by setting unpromising elements to zero
     if (h < 1e-6) {
         return 0;
     }
 
     return h;
 }
+```

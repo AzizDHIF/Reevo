@@ -1,0 +1,27 @@
+```c
+double heuristic_v2(int index_item, double weights[dimension][NBITEMS], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS], double profit[NBITEMS]) {
+    // Prioritize capacity constraints
+    double capacity_factor = 1.0;
+    for (int j = 0; j < dimension; j++) {
+        if (capacity[j] - weights[j][index_item] < 0) {
+            capacity_factor *= (1 - (weights[j][index_item] - capacity[j]) / capacity[j]);
+        }
+    }
+
+    // Prioritize neighbor constraints
+    double neighbor_factor = 1.0;
+    for (int i = 0; i < nb_voisinage; i++) {
+        double neighbor_profitability = profit[voisinage[i]];
+        double neighbor_weight = 0;
+        for (int j = 0; j < dimension; j++) {
+            neighbor_weight += weights[j][voisinage[i]];
+        }
+        neighbor_factor *= (1 - neighbor_weight / (neighbor_weight + neighbor_profitability));
+    }
+
+    // Combine capacity and neighbor factors with profitability
+    double h = profit[index_item] * capacity_factor * neighbor_factor;
+
+    return h;
+}
+```
