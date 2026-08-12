@@ -177,3 +177,138 @@ def filter_code(code_string):
 
     return '\n'.join(filtered_lines)
 
+def get_last_n_lines(file_path,nb_lines):
+    with open(file_path, "r", encoding="cp1252") as f:
+        lines = f.readlines()
+
+    return [line.rstrip("\n") for line in lines[-nb_lines:]]
+
+import re
+import matplotlib.pyplot as plt
+
+
+def plot_results(results):
+    """
+    results : dictionnaire
+        clé   = nombre d'itérations (int)
+        valeur = liste de chaînes contenant les moyennes
+    """
+    logging.info(f"Plotting results from : {results}")
+
+    hypervolume_100 = []
+    hypervolume_300 = []
+    epsilon_100 = []
+    epsilon_300 = []
+
+    iterations = sorted(results.keys())
+
+    for iteration in iterations:
+        lines = results[iteration]
+
+        hv_100 = hv_300 = eps_100 = eps_300 = None
+
+        for line in lines:
+
+            # Hypervolume
+            match = re.search(
+                r'Average for hypervolume (\d+) items:\s*([0-9.eE+-]+)',
+                line
+            )
+
+            if match:
+                items = int(match.group(1))
+                value = float(match.group(2))
+
+                if items == 100:
+                    hv_100 = value
+                elif items == 300:
+                    hv_300 = value
+
+            # Epsilon
+            match = re.search(
+                r'Average for epsilon (\d+) items:\s*([0-9.eE+-]+)',
+                line
+            )
+
+            if match:
+                items = int(match.group(1))
+                value = float(match.group(2))
+
+                if items == 100:
+                    eps_100 = value
+                elif items == 300:
+                    eps_300 = value
+
+        hypervolume_100.append(hv_100)
+        hypervolume_300.append(hv_300)
+        epsilon_100.append(eps_100)
+        epsilon_300.append(eps_300)
+
+    # =========================
+    # Graphique 1 : Hypervolume
+    # =========================
+
+    plt.figure(figsize=(10, 6))
+
+    plt.plot(
+        iterations,
+        hypervolume_100,
+        marker="o",
+        label="Average for 100 items"
+    )
+
+    plt.plot(
+        iterations,
+        hypervolume_300,
+        marker="o",
+        label="Average for 300 items"
+    )
+
+    plt.xlabel("Nombre d'itérations")
+    plt.ylabel("Hypervolume")
+    plt.title("Hypervolume en fonction du nombre d'itérations")
+    plt.legend()
+    plt.grid(True)
+    plt.tight_layout()
+    plt.show()
+
+    # =========================
+    # Graphique 2 : Epsilon
+    # =========================
+
+    plt.figure(figsize=(10, 6))
+
+    plt.plot(
+        iterations,
+        epsilon_100,
+        marker="o",
+        label="Average for 100 items"
+    )
+
+    plt.plot(
+        iterations,
+        epsilon_300,
+        marker="o",
+        label="Average for 300 items"
+    )
+
+    plt.xlabel("Nombre d'itérations")
+    plt.ylabel("Epsilon")
+    plt.title("Epsilon en fonction du nombre d'itérations")
+    plt.legend()
+    plt.grid(True)
+    plt.tight_layout()
+    plt.show()
+
+def make_dictionnary_results(paths):
+  
+
+    results = {}
+    iterations = [25, 50, 75, 100]
+    for path,iter in zip(paths, iterations):
+        l=get_last_n_lines(path, 4)
+        results[iter] = l
+
+       
+    return results
+    

@@ -3,7 +3,7 @@ import logging
 import os
 from pathlib import Path
 import subprocess
-from utils.utils import init_client, print_hyperlink
+from utils.utils import init_client, print_hyperlink, plot_results, make_dictionnary_results
 import sys
 import yaml 
 import time
@@ -74,6 +74,13 @@ def main(cfg):
     elapsed = time.perf_counter() - start_time  # <-- fin du chrono
     logging.info(f"Total execution time: {elapsed:.2f} seconds ({elapsed/60:.2f} minutes)")
 
+
+
+    
 if __name__ == "__main__":
-    main()
+    if sys.argv[1]=="plot_results":
+        plot_results(make_dictionnary_results(sys.argv[2:]))
+        
+    else:
+        main()
     
