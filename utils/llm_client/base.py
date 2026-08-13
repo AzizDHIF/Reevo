@@ -6,6 +6,8 @@ import concurrent
 from random import random
 import os
 import yaml 
+import httpx
+import openai
 logger = logging.getLogger(__name__)
 
 class BaseClient(object):
@@ -36,6 +38,14 @@ class BaseClient(object):
         for attempt in range(1000):
             try:
                 response_cur = self._chat_completion_api(messages, temperature, n)
+            except (openai.APIConnectionError, httpx.ConnectError, httpx.ReadError, httpx.ConnectTimeout) as e:
+                # Erreur de connexion (tunnel SSH coupé, serveur local injoignable, etc.)
+                wait_time = min(5 * (attempt + 1), 60)  # backoff progressif, plafonné à 60s
+                logger.warning(
+                    f"Connection error (attempt {attempt+1}): {e}. "
+                    f"Vérifie que le tunnel SSH est actif. Nouvelle tentative dans {wait_time}s..."
+                )
+                time.sleep(wait_time)
             except Exception as e:
                 logger.exception(e)
                 logger.info(f"Attempt {attempt+1} failed with error: {e}")

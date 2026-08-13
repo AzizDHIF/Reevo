@@ -28,6 +28,6 @@ class DeepSeekSparkClient(OpenAIClient):
         assert n == 1
         response = self.client.chat.completions.create(
             model=self.model, messages=messages, temperature=temperature, stream=False,
-            max_tokens=4096, timeout=300,  # DeepSeek-R1 "réfléchit" avant de répondre → besoin de marge
+            max_tokens=4096, timeout=1200,  # DeepSeek-R1 "réfléchit" avant de répondre → besoin de marge
         )
         return response.choices

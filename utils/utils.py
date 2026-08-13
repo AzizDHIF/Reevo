@@ -187,13 +187,13 @@ import re
 import matplotlib.pyplot as plt
 
 
+
 def plot_results(results):
     """
     results : dictionnaire
         clé   = nombre d'itérations (int)
         valeur = liste de chaînes contenant les moyennes
     """
-    logging.info(f"Plotting results from : {results}")
 
     hypervolume_100 = []
     hypervolume_300 = []
@@ -244,58 +244,118 @@ def plot_results(results):
         epsilon_100.append(eps_100)
         epsilon_300.append(eps_300)
 
-    # =========================
-    # Graphique 1 : Hypervolume
-    # =========================
+    # --------------------------------------------------
+    # Fonction pour régler automatiquement l'axe Y
+    # --------------------------------------------------
+
+    def set_y_scale(values):
+        valid_values = [v for v in values if v is not None]
+
+        if not valid_values:
+            return
+
+        min_value = min(valid_values)
+        max_value = max(valid_values)
+
+        # Cas où toutes les valeurs sont identiques
+        if min_value == max_value:
+            margin = abs(min_value) * 0.1
+
+            if margin == 0:
+                margin = 1
+
+        else:
+            margin = (max_value - min_value) * 0.1
+
+        plt.ylim(
+            min_value - margin,
+            max_value + margin
+        )
+
+    # ==================================================
+    # 1. Hypervolume - 100 items
+    # ==================================================
 
     plt.figure(figsize=(10, 6))
 
     plt.plot(
         iterations,
         hypervolume_100,
-        marker="o",
-        label="Average for 100 items"
-    )
-
-    plt.plot(
-        iterations,
-        hypervolume_300,
-        marker="o",
-        label="Average for 300 items"
+        marker="o"
     )
 
     plt.xlabel("Nombre d'itérations")
     plt.ylabel("Hypervolume")
-    plt.title("Hypervolume en fonction du nombre d'itérations")
-    plt.legend()
+    plt.title("Hypervolume - 100 items")
+
+    set_y_scale(hypervolume_100)
+
     plt.grid(True)
     plt.tight_layout()
     plt.show()
 
-    # =========================
-    # Graphique 2 : Epsilon
-    # =========================
+    # ==================================================
+    # 2. Hypervolume - 300 items
+    # ==================================================
+
+    plt.figure(figsize=(10, 6))
+
+    plt.plot(
+        iterations,
+        hypervolume_300,
+        marker="o"
+    )
+
+    plt.xlabel("Nombre d'itérations")
+    plt.ylabel("Hypervolume")
+    plt.title("Hypervolume - 300 items")
+
+    set_y_scale(hypervolume_300)
+
+    plt.grid(True)
+    plt.tight_layout()
+    plt.show()
+
+    # ==================================================
+    # 3. Epsilon - 100 items
+    # ==================================================
 
     plt.figure(figsize=(10, 6))
 
     plt.plot(
         iterations,
         epsilon_100,
-        marker="o",
-        label="Average for 100 items"
-    )
-
-    plt.plot(
-        iterations,
-        epsilon_300,
-        marker="o",
-        label="Average for 300 items"
+        marker="o"
     )
 
     plt.xlabel("Nombre d'itérations")
     plt.ylabel("Epsilon")
-    plt.title("Epsilon en fonction du nombre d'itérations")
-    plt.legend()
+    plt.title("Epsilon - 100 items")
+
+    set_y_scale(epsilon_100)
+
+    plt.grid(True)
+    plt.tight_layout()
+    plt.show()
+
+    # ==================================================
+    # 4. Epsilon - 300 items
+    # ==================================================
+
+    plt.figure(figsize=(10, 6))
+
+    plt.plot(
+        iterations,
+        epsilon_300,
+        marker="o"
+    )
+
+    plt.xlabel("Nombre d'itérations")
+    plt.ylabel("Epsilon")
+    plt.title("Epsilon - 300 items")
+
+    set_y_scale(epsilon_300)
+
     plt.grid(True)
     plt.tight_layout()
     plt.show()
