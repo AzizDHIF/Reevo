@@ -1,0 +1,4 @@
+Simplify calculations, focus on key factors.
+Consider density, neighborhood, and capacity constraints.
+Prioritize feasibility, density, and neighborhood profit.
+Simplify, prioritize feasibility, and leverage neighborhood information.

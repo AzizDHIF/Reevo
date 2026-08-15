@@ -211,7 +211,7 @@ def plot_results(results):
 
             # Hypervolume
             match = re.search(
-                r'Average for hypervolume (\d+) items:\s*([0-9.eE+-]+)',
+                r'Average for hypervolume for dataset (\d+) items:\s*([0-9.eE+-]+)',
                 line
             )
 
@@ -226,7 +226,7 @@ def plot_results(results):
 
             # Epsilon
             match = re.search(
-                r'Average for epsilon (\d+) items:\s*([0-9.eE+-]+)',
+                r'Average for epsilon for dataset (\d+) items:\s*([0-9.eE+-]+)',
                 line
             )
 
@@ -286,7 +286,7 @@ def plot_results(results):
 
     plt.xlabel("Nombre d'itérations")
     plt.ylabel("Hypervolume")
-    plt.title("Hypervolume - 100 items")
+    plt.title("Hypervolume - Dataset 100 items")
 
     set_y_scale(hypervolume_100)
 
@@ -308,7 +308,7 @@ def plot_results(results):
 
     plt.xlabel("Nombre d'itérations")
     plt.ylabel("Hypervolume")
-    plt.title("Hypervolume - 300 items")
+    plt.title("Hypervolume - Dataset 300 items")
 
     set_y_scale(hypervolume_300)
 
@@ -330,7 +330,7 @@ def plot_results(results):
 
     plt.xlabel("Nombre d'itérations")
     plt.ylabel("Epsilon")
-    plt.title("Epsilon - 100 items")
+    plt.title("Epsilon - Dataset 100 items")
 
     set_y_scale(epsilon_100)
 
@@ -352,7 +352,7 @@ def plot_results(results):
 
     plt.xlabel("Nombre d'itérations")
     plt.ylabel("Epsilon")
-    plt.title("Epsilon - 300 items")
+    plt.title("Epsilon - Dataset 300 items")
 
     set_y_scale(epsilon_300)
 

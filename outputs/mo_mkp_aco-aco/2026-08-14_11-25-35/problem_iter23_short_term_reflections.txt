@@ -1,0 +1,4 @@
+Prioritize feasibility, simplify calculations.
+Prioritize feasibility, balance density and profit.
+Prioritize feasibility, balance density and profit.
+Consider feasibility and balance density, profit, and neighborhood.

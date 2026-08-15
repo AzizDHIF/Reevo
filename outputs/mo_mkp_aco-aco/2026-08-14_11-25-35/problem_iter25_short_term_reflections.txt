@@ -1,0 +1,4 @@
+Prioritize feasibility, balance density and profit.
+Prioritize feasibility, simplify calculations.
+Prioritize feasibility, avoid division by zero.
+Consider density, remaining capacity, and neighborhood profit.

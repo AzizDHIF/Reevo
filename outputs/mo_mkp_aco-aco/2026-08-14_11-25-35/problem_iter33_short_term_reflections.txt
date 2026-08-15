@@ -1,0 +1,4 @@
+Incorporate feasibility directly into heuristic calculation.
+Prioritize feasibility, balance metrics, and integrate neighborhood quality.
+Prioritize feasibility, balance density and profit.
+Prioritize feasibility and integrate neighborhood quality.

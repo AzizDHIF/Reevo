@@ -1,0 +1,54 @@
+```c
+double heuristic_v2(int index_item, double weights[dimension][NBITEMS], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS], double profit[NBITEMS]) {
+    // Calculate the density of the item, considering all dimensions
+    double density = 0;
+    for (int j = 0; j < dimension; j++) {
+        if (capacity[j] > 0) {
+            density += weights[j][index_item] / capacity[j];
+        } else {
+            // If capacity is 0, set density to infinity to discourage selection
+            density = Infinity;
+            break;
+        }
+    }
+
+    // Calculate the remaining capacity after including the item
+    double remaining_capacity = 1;
+    for (int j = 0; j < dimension; j++) {
+        if (capacity[j] - weights[j][index_item] < 0) {
+            // If including the item exceeds capacity in any dimension, set remaining capacity to 0
+            remaining_capacity = 0;
+            break;
+        } else {
+            remaining_capacity *= (capacity[j] - weights[j][index_item]) / capacity[j];
+        }
+    }
+
+    // Calculate the average profit of the neighborhood, excluding the item itself
+    double sum_profit_voisinage = 0;
+    double count_voisinage = 0;
+    for (int i = 0; i < nb_voisinage; i++) {
+        if (index_item != voisinage[i]) {
+            sum_profit_voisinage += profit[voisinage[i]];
+            count_voisinage++;
+        }
+    }
+    double average_profit_voisinage = (count_voisinage > 0) ? sum_profit_voisinage / count_voisinage : 0;
+
+    // Calculate a balance factor to ensure diverse selections
+    double balance_factor = 0;
+    if (average_profit_voisinage > 0) {
+        balance_factor = profit[index_item] / average_profit_voisinage;
+    }
+
+    // Calculate the heuristic value, combining density, profit, and neighborhood quality
+    double h = (profit[index_item] / (density + 1e-6)) * (1 + balance_factor) * (remaining_capacity + 1e-6);
+
+    // Sparsify the heuristic, setting low values to 0
+    if (h < 0.01 || remaining_capacity == 0) {
+        return 0;
+    }
+
+    return h;
+}
+```

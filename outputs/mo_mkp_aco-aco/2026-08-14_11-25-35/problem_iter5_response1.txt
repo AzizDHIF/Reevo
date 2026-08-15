@@ -1,0 +1,35 @@
+```c
+double heuristic_v2(int index_item, double weights[dimension][NBITEMS], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS], double profit[NBITEMS]) {
+    // Calculate the local density of the item, prioritizing capacity constraints
+    double local_density = 0;
+    for (int j = 0; j < dimension; j++) {
+        if (weights[j][index_item] > capacity[j]) {
+            local_density += 1e6; // penalize items that exceed capacity
+        } else {
+            local_density += weights[j][index_item] / capacity[j];
+        }
+    }
+
+    // Calculate the average profit of the neighborhood, focusing on key factors
+    double sum_profit_voisinage = 0;
+    double count_voisinage = 0;
+    for (int i = 0; i < nb_voisinage; i++) {
+        if (index_item != voisinage[i]) {
+            sum_profit_voisinage += profit[voisinage[i]];
+            count_voisinage++;
+        }
+    }
+    double average_profit_voisinage = (count_voisinage > 0) ? sum_profit_voisinage / count_voisinage : 0;
+
+    // Calculate the heuristic value, balancing capacity and neighborhood effects
+    double h = profit[index_item] / (local_density + 1e-6);
+    h *= (1 + (average_profit_voisinage / (profit[index_item] + 1e-6)));
+
+    // Sparsify the heuristic, focusing on promising items
+    if (h < 0.01 || local_density > 1) {
+        return 0;
+    }
+
+    return h;
+}
+```

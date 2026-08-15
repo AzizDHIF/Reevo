@@ -1,0 +1,4 @@
+Consider density, neighborhood, and remaining capacity.
+Simplify calculations, remove unnecessary factors.
+Simplify calculations, reduce conditional checks.
+Simplify calculations, focus on key factors.

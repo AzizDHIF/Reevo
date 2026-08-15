@@ -1,0 +1,56 @@
+```c
+double heuristic_v2(int index_item, double weights[dimension][NBITEMS], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS], double profit[NBITEMS] ) {
+    // Calculate the density of the item
+    double density = 0;
+    for (int j = 0; j < dimension; j++) {
+        if (capacity[j] > 0) {
+            density += weights[j][index_item] / capacity[j];
+        }
+    }
+
+    // Calculate the feasibility of including the item
+    double feasibility = 1;
+    for (int j = 0; j < dimension; j++) {
+        if (weights[j][index_item] > capacity[j]) {
+            feasibility = 0;
+            break;
+        }
+    }
+
+    // Calculate the average profit of the neighborhood
+    double sum_profit_voisinage = 0;
+    double count_voisinage = 0;
+    for (int i = 0; i < nb_voisinage; i++) {
+        if (index_item != voisinage[i]) {
+            sum_profit_voisinage += profit[voisinage[i]];
+            count_voisinage++;
+        }
+    }
+    double average_profit_voisinage = (count_voisinage > 0) ? sum_profit_voisinage / count_voisinage : 0;
+
+    // Calculate the diversity of the neighborhood
+    double diversity_voisinage = 0;
+    for (int i = 0; i < nb_voisinage; i++) {
+        if (index_item != voisinage[i]) {
+            double similarity = 0;
+            for (int j = 0; j < dimension; j++) {
+                similarity += weights[j][index_item] * weights[j][voisinage[i]];
+            }
+            diversity_voisinage += 1 - similarity;
+        }
+    }
+    diversity_voisinage /= count_voisinage;
+
+    // Calculate the heuristic value
+    double h = feasibility * profit[index_item] / (density + 1e-6);
+    h *= (1 + (average_profit_voisinage / (profit[index_item] + 1e-6)));
+    h *= (1 + diversity_voisinage);
+
+    // Sparsify the heuristic
+    if (h < 0.01) {
+        return 0;
+    }
+
+    return h;
+}
+```

@@ -521,16 +521,16 @@ if __name__ == "__main__":
 
 
             
-            print("[*] moyenne pour hypervolume et  epsilon:")
+            print("[*] Average for hypervolume and epsilon:")
             
-            print(f"[*] Average for hypervolume 100 items: {mean_hypervolume_100items}")
-            print(f"[*] Average for epsilon 100 items: {mean_epsilon_100items}")
+            print(f"[*] Average for hypervolume for dataset 100 items: {mean_hypervolume_100items}")
+            print(f"[*] Average for epsilon for dataset 100 items: {mean_epsilon_100items}")
 
-            print(f"[*] Average for hypervolume 300 items: {mean_hypervolume_300items}")
-            print(f"[*] Average for epsilon 300 items: {mean_epsilon_300items}")
+            print(f"[*] Average for hypervolume for dataset 300 items: {mean_hypervolume_300items}")
+            print(f"[*] Average for epsilon for dataset 300 items: {mean_epsilon_300items}")
 
-            #print(f"[*] Average for hypervolume 500 items: {mean_hypervolume_500items}")
-            #print(f"[*] Average for epsilon 500 items: {mean_epsilon_500items}")
+            #print(f"[*] Average for hypervolume for dataset 500 items: {mean_hypervolume_500items}")
+            #print(f"[*] Average for epsilon for dataset 500 items: {mean_epsilon_500items}")
 
         
         finally:

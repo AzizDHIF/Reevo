@@ -1,0 +1,1 @@
+Combine item density, neighborhood profit, and capacity. Prioritize local properties, sparsify heuristics, and focus on density and profit for better MO-MKP solutions.

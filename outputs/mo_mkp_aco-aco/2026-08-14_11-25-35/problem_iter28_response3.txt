@@ -1,0 +1,37 @@
+```c
+double heuristic_v2(int index_item, double weights[dimension][NBITEMS], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS], double profit[NBITEMS]) {
+    // Calculate the capacity impact of the item
+    double capacity_impact = 1;
+    for (int j = 0; j < dimension; j++) {
+        if (capacity[j] - weights[j][index_item] >= 0) {
+            capacity_impact *= (capacity[j] - weights[j][index_item]) / capacity[j];
+        } else {
+            capacity_impact = 0;
+            break;
+        }
+    }
+
+    // Calculate the neighborhood profit impact
+    double neighborhood_impact = 0;
+    double sum_profit_voisinage = 0;
+    double count_voisinage = 0;
+    for (int i = 0; i < nb_voisinage; i++) {
+        if (index_item != voisinage[i]) {
+            sum_profit_voisinage += profit[voisinage[i]];
+            count_voisinage++;
+        }
+    }
+    double average_profit_voisinage = (count_voisinage > 0) ? sum_profit_voisinage / count_voisinage : 0;
+    neighborhood_impact = average_profit_voisinage / (profit[index_item] + 1e-6);
+
+    // Calculate the heuristic value
+    double h = profit[index_item] * capacity_impact * (1 + neighborhood_impact);
+
+    // Sparsify the heuristic
+    if (h < 0.01) {
+        return 0;
+    }
+
+    return h;
+}
+```

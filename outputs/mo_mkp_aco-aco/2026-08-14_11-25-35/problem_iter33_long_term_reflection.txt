@@ -1,0 +1,1 @@
+Prioritize feasibility, balance metrics, and integrate neighborhood quality to design efficient MO-MKP heuristics, emphasizing density, profit, and local search.

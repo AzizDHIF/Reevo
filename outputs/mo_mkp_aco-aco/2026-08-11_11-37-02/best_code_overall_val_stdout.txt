@@ -24,94 +24,94 @@
 [*] Compiling WeightACO_eval_300items.c
 [*] Compiling WeightACO_eval_300items.c
 [*] Extracting Pareto sets from ACO results...
-1 fichiers créés dans 'C:\Reevo\problems\mo_mkp_aco\pareto_set_val\pareto_sets_dataset_0_items_100'
-1 fichiers créés dans 'C:\Reevo\problems\mo_mkp_aco\pareto_set_val\pareto_sets_dataset_1_items_100'
-1 fichiers créés dans 'C:\Reevo\problems\mo_mkp_aco\pareto_set_val\pareto_sets_dataset_2_items_100'
-1 fichiers créés dans 'C:\Reevo\problems\mo_mkp_aco\pareto_set_val\pareto_sets_dataset_3_items_100'
-1 fichiers créés dans 'C:\Reevo\problems\mo_mkp_aco\pareto_set_val\pareto_sets_dataset_4_items_100'
-1 fichiers créés dans 'C:\Reevo\problems\mo_mkp_aco\pareto_set_val\pareto_sets_dataset_0_items_300'
-1 fichiers créés dans 'C:\Reevo\problems\mo_mkp_aco\pareto_set_val\pareto_sets_dataset_1_items_300'
-1 fichiers créés dans 'C:\Reevo\problems\mo_mkp_aco\pareto_set_val\pareto_sets_dataset_2_items_300'
-1 fichiers créés dans 'C:\Reevo\problems\mo_mkp_aco\pareto_set_val\pareto_sets_dataset_3_items_300'
-1 fichiers créés dans 'C:\Reevo\problems\mo_mkp_aco\pareto_set_val\pareto_sets_dataset_4_items_300'
+1 fichiers crï¿½ï¿½s dans 'C:\Reevo\problems\mo_mkp_aco\pareto_set_val\pareto_sets_dataset_0_items_100'
+1 fichiers crï¿½ï¿½s dans 'C:\Reevo\problems\mo_mkp_aco\pareto_set_val\pareto_sets_dataset_1_items_100'
+1 fichiers crï¿½ï¿½s dans 'C:\Reevo\problems\mo_mkp_aco\pareto_set_val\pareto_sets_dataset_2_items_100'
+1 fichiers crï¿½ï¿½s dans 'C:\Reevo\problems\mo_mkp_aco\pareto_set_val\pareto_sets_dataset_3_items_100'
+1 fichiers crï¿½ï¿½s dans 'C:\Reevo\problems\mo_mkp_aco\pareto_set_val\pareto_sets_dataset_4_items_100'
+1 fichiers crï¿½ï¿½s dans 'C:\Reevo\problems\mo_mkp_aco\pareto_set_val\pareto_sets_dataset_0_items_300'
+1 fichiers crï¿½ï¿½s dans 'C:\Reevo\problems\mo_mkp_aco\pareto_set_val\pareto_sets_dataset_1_items_300'
+1 fichiers crï¿½ï¿½s dans 'C:\Reevo\problems\mo_mkp_aco\pareto_set_val\pareto_sets_dataset_2_items_300'
+1 fichiers crï¿½ï¿½s dans 'C:\Reevo\problems\mo_mkp_aco\pareto_set_val\pareto_sets_dataset_3_items_300'
+1 fichiers crï¿½ï¿½s dans 'C:\Reevo\problems\mo_mkp_aco\pareto_set_val\pareto_sets_dataset_4_items_300'
 [*] Concatenating Pareto sets and filtering with nondominated.exe...
-Exécution : C:\Reevo\problems\mo_mkp_aco\nondominated.exe --filter C:\Reevo\problems\mo_mkp_aco\pareto_set_val\pareto_sets_dataset_0_items_100\final_pareto.txt
-Exécution : C:\Reevo\problems\mo_mkp_aco\nondominated.exe --filter C:\Reevo\problems\mo_mkp_aco\pareto_set_val\pareto_sets_dataset_1_items_100\final_pareto.txt
-Exécution : C:\Reevo\problems\mo_mkp_aco\nondominated.exe --filter C:\Reevo\problems\mo_mkp_aco\pareto_set_val\pareto_sets_dataset_2_items_100\final_pareto.txt
-Exécution : C:\Reevo\problems\mo_mkp_aco\nondominated.exe --filter C:\Reevo\problems\mo_mkp_aco\pareto_set_val\pareto_sets_dataset_3_items_100\final_pareto.txt
-Exécution : C:\Reevo\problems\mo_mkp_aco\nondominated.exe --filter C:\Reevo\problems\mo_mkp_aco\pareto_set_val\pareto_sets_dataset_4_items_100\final_pareto.txt
-Exécution : C:\Reevo\problems\mo_mkp_aco\nondominated.exe --filter C:\Reevo\problems\mo_mkp_aco\pareto_set_val\pareto_sets_dataset_0_items_300\final_pareto.txt
-Exécution : C:\Reevo\problems\mo_mkp_aco\nondominated.exe --filter C:\Reevo\problems\mo_mkp_aco\pareto_set_val\pareto_sets_dataset_1_items_300\final_pareto.txt
-Exécution : C:\Reevo\problems\mo_mkp_aco\nondominated.exe --filter C:\Reevo\problems\mo_mkp_aco\pareto_set_val\pareto_sets_dataset_2_items_300\final_pareto.txt
-Exécution : C:\Reevo\problems\mo_mkp_aco\nondominated.exe --filter C:\Reevo\problems\mo_mkp_aco\pareto_set_val\pareto_sets_dataset_3_items_300\final_pareto.txt
-Exécution : C:\Reevo\problems\mo_mkp_aco\nondominated.exe --filter C:\Reevo\problems\mo_mkp_aco\pareto_set_val\pareto_sets_dataset_4_items_300\final_pareto.txt
+Exï¿½cution : C:\Reevo\problems\mo_mkp_aco\nondominated.exe --filter C:\Reevo\problems\mo_mkp_aco\pareto_set_val\pareto_sets_dataset_0_items_100\final_pareto.txt
+Exï¿½cution : C:\Reevo\problems\mo_mkp_aco\nondominated.exe --filter C:\Reevo\problems\mo_mkp_aco\pareto_set_val\pareto_sets_dataset_1_items_100\final_pareto.txt
+Exï¿½cution : C:\Reevo\problems\mo_mkp_aco\nondominated.exe --filter C:\Reevo\problems\mo_mkp_aco\pareto_set_val\pareto_sets_dataset_2_items_100\final_pareto.txt
+Exï¿½cution : C:\Reevo\problems\mo_mkp_aco\nondominated.exe --filter C:\Reevo\problems\mo_mkp_aco\pareto_set_val\pareto_sets_dataset_3_items_100\final_pareto.txt
+Exï¿½cution : C:\Reevo\problems\mo_mkp_aco\nondominated.exe --filter C:\Reevo\problems\mo_mkp_aco\pareto_set_val\pareto_sets_dataset_4_items_100\final_pareto.txt
+Exï¿½cution : C:\Reevo\problems\mo_mkp_aco\nondominated.exe --filter C:\Reevo\problems\mo_mkp_aco\pareto_set_val\pareto_sets_dataset_0_items_300\final_pareto.txt
+Exï¿½cution : C:\Reevo\problems\mo_mkp_aco\nondominated.exe --filter C:\Reevo\problems\mo_mkp_aco\pareto_set_val\pareto_sets_dataset_1_items_300\final_pareto.txt
+Exï¿½cution : C:\Reevo\problems\mo_mkp_aco\nondominated.exe --filter C:\Reevo\problems\mo_mkp_aco\pareto_set_val\pareto_sets_dataset_2_items_300\final_pareto.txt
+Exï¿½cution : C:\Reevo\problems\mo_mkp_aco\nondominated.exe --filter C:\Reevo\problems\mo_mkp_aco\pareto_set_val\pareto_sets_dataset_3_items_300\final_pareto.txt
+Exï¿½cution : C:\Reevo\problems\mo_mkp_aco\nondominated.exe --filter C:\Reevo\problems\mo_mkp_aco\pareto_set_val\pareto_sets_dataset_4_items_300\final_pareto.txt
 [*] Calculating  hypervolume and epsilon...
-Exécution : C:\Reevo\problems\mo_mkp_aco\hv.exe C:\Reevo\problems\mo_mkp_aco\pareto_set_val\pareto_sets_dataset_0_items_100\final_pareto.txt_dat
-Résultat de l'hypervolume pour C:\Reevo\problems\mo_mkp_aco\pareto_set_val\pareto_sets_dataset_0_items_100\final_pareto.txt_dat : 8.7495501984877       
+Exï¿½cution : C:\Reevo\problems\mo_mkp_aco\hv.exe C:\Reevo\problems\mo_mkp_aco\pareto_set_val\pareto_sets_dataset_0_items_100\final_pareto.txt_dat
+Rï¿½sultat de l'hypervolume pour C:\Reevo\problems\mo_mkp_aco\pareto_set_val\pareto_sets_dataset_0_items_100\final_pareto.txt_dat : 8.7495501984877       
 
-Exécution : C:\Reevo\problems\mo_mkp_aco\hv.exe C:\Reevo\problems\mo_mkp_aco\pareto_set_val\pareto_sets_dataset_1_items_100\final_pareto.txt_dat
-Résultat de l'hypervolume pour C:\Reevo\problems\mo_mkp_aco\pareto_set_val\pareto_sets_dataset_1_items_100\final_pareto.txt_dat : 95.043960565753       
+Exï¿½cution : C:\Reevo\problems\mo_mkp_aco\hv.exe C:\Reevo\problems\mo_mkp_aco\pareto_set_val\pareto_sets_dataset_1_items_100\final_pareto.txt_dat
+Rï¿½sultat de l'hypervolume pour C:\Reevo\problems\mo_mkp_aco\pareto_set_val\pareto_sets_dataset_1_items_100\final_pareto.txt_dat : 95.043960565753       
 
-Exécution : C:\Reevo\problems\mo_mkp_aco\hv.exe C:\Reevo\problems\mo_mkp_aco\pareto_set_val\pareto_sets_dataset_2_items_100\final_pareto.txt_dat
-Résultat de l'hypervolume pour C:\Reevo\problems\mo_mkp_aco\pareto_set_val\pareto_sets_dataset_2_items_100\final_pareto.txt_dat : 17.010437195995       
+Exï¿½cution : C:\Reevo\problems\mo_mkp_aco\hv.exe C:\Reevo\problems\mo_mkp_aco\pareto_set_val\pareto_sets_dataset_2_items_100\final_pareto.txt_dat
+Rï¿½sultat de l'hypervolume pour C:\Reevo\problems\mo_mkp_aco\pareto_set_val\pareto_sets_dataset_2_items_100\final_pareto.txt_dat : 17.010437195995       
 
-Exécution : C:\Reevo\problems\mo_mkp_aco\hv.exe C:\Reevo\problems\mo_mkp_aco\pareto_set_val\pareto_sets_dataset_3_items_100\final_pareto.txt_dat
-Résultat de l'hypervolume pour C:\Reevo\problems\mo_mkp_aco\pareto_set_val\pareto_sets_dataset_3_items_100\final_pareto.txt_dat : 84.1447370403449      
+Exï¿½cution : C:\Reevo\problems\mo_mkp_aco\hv.exe C:\Reevo\problems\mo_mkp_aco\pareto_set_val\pareto_sets_dataset_3_items_100\final_pareto.txt_dat
+Rï¿½sultat de l'hypervolume pour C:\Reevo\problems\mo_mkp_aco\pareto_set_val\pareto_sets_dataset_3_items_100\final_pareto.txt_dat : 84.1447370403449      
 
-Exécution : C:\Reevo\problems\mo_mkp_aco\hv.exe C:\Reevo\problems\mo_mkp_aco\pareto_set_val\pareto_sets_dataset_4_items_100\final_pareto.txt_dat
-Résultat de l'hypervolume pour C:\Reevo\problems\mo_mkp_aco\pareto_set_val\pareto_sets_dataset_4_items_100\final_pareto.txt_dat : 48.6286435598815      
+Exï¿½cution : C:\Reevo\problems\mo_mkp_aco\hv.exe C:\Reevo\problems\mo_mkp_aco\pareto_set_val\pareto_sets_dataset_4_items_100\final_pareto.txt_dat
+Rï¿½sultat de l'hypervolume pour C:\Reevo\problems\mo_mkp_aco\pareto_set_val\pareto_sets_dataset_4_items_100\final_pareto.txt_dat : 48.6286435598815      
 
 moyenne pour l'hypervolume : 50.715465712092424
-Exécution : C:\Reevo\problems\mo_mkp_aco\hv.exe C:\Reevo\problems\mo_mkp_aco\pareto_set_val\pareto_sets_dataset_0_items_300\final_pareto.txt_dat
-Résultat de l'hypervolume pour C:\Reevo\problems\mo_mkp_aco\pareto_set_val\pareto_sets_dataset_0_items_300\final_pareto.txt_dat : 29.7846722774091      
+Exï¿½cution : C:\Reevo\problems\mo_mkp_aco\hv.exe C:\Reevo\problems\mo_mkp_aco\pareto_set_val\pareto_sets_dataset_0_items_300\final_pareto.txt_dat
+Rï¿½sultat de l'hypervolume pour C:\Reevo\problems\mo_mkp_aco\pareto_set_val\pareto_sets_dataset_0_items_300\final_pareto.txt_dat : 29.7846722774091      
 
-Exécution : C:\Reevo\problems\mo_mkp_aco\hv.exe C:\Reevo\problems\mo_mkp_aco\pareto_set_val\pareto_sets_dataset_1_items_300\final_pareto.txt_dat
-Résultat de l'hypervolume pour C:\Reevo\problems\mo_mkp_aco\pareto_set_val\pareto_sets_dataset_1_items_300\final_pareto.txt_dat : 24.1280953446004      
+Exï¿½cution : C:\Reevo\problems\mo_mkp_aco\hv.exe C:\Reevo\problems\mo_mkp_aco\pareto_set_val\pareto_sets_dataset_1_items_300\final_pareto.txt_dat
+Rï¿½sultat de l'hypervolume pour C:\Reevo\problems\mo_mkp_aco\pareto_set_val\pareto_sets_dataset_1_items_300\final_pareto.txt_dat : 24.1280953446004      
 
-Exécution : C:\Reevo\problems\mo_mkp_aco\hv.exe C:\Reevo\problems\mo_mkp_aco\pareto_set_val\pareto_sets_dataset_2_items_300\final_pareto.txt_dat
-Résultat de l'hypervolume pour C:\Reevo\problems\mo_mkp_aco\pareto_set_val\pareto_sets_dataset_2_items_300\final_pareto.txt_dat : 173.572030557606      
+Exï¿½cution : C:\Reevo\problems\mo_mkp_aco\hv.exe C:\Reevo\problems\mo_mkp_aco\pareto_set_val\pareto_sets_dataset_2_items_300\final_pareto.txt_dat
+Rï¿½sultat de l'hypervolume pour C:\Reevo\problems\mo_mkp_aco\pareto_set_val\pareto_sets_dataset_2_items_300\final_pareto.txt_dat : 173.572030557606      
 
-Exécution : C:\Reevo\problems\mo_mkp_aco\hv.exe C:\Reevo\problems\mo_mkp_aco\pareto_set_val\pareto_sets_dataset_3_items_300\final_pareto.txt_dat
-Résultat de l'hypervolume pour C:\Reevo\problems\mo_mkp_aco\pareto_set_val\pareto_sets_dataset_3_items_300\final_pareto.txt_dat : 99.4498651127881      
+Exï¿½cution : C:\Reevo\problems\mo_mkp_aco\hv.exe C:\Reevo\problems\mo_mkp_aco\pareto_set_val\pareto_sets_dataset_3_items_300\final_pareto.txt_dat
+Rï¿½sultat de l'hypervolume pour C:\Reevo\problems\mo_mkp_aco\pareto_set_val\pareto_sets_dataset_3_items_300\final_pareto.txt_dat : 99.4498651127881      
 
-Exécution : C:\Reevo\problems\mo_mkp_aco\hv.exe C:\Reevo\problems\mo_mkp_aco\pareto_set_val\pareto_sets_dataset_4_items_300\final_pareto.txt_dat
-Résultat de l'hypervolume pour C:\Reevo\problems\mo_mkp_aco\pareto_set_val\pareto_sets_dataset_4_items_300\final_pareto.txt_dat : 28.0380002227306      
+Exï¿½cution : C:\Reevo\problems\mo_mkp_aco\hv.exe C:\Reevo\problems\mo_mkp_aco\pareto_set_val\pareto_sets_dataset_4_items_300\final_pareto.txt_dat
+Rï¿½sultat de l'hypervolume pour C:\Reevo\problems\mo_mkp_aco\pareto_set_val\pareto_sets_dataset_4_items_300\final_pareto.txt_dat : 28.0380002227306      
 
 moyenne pour l'hypervolume : 70.99453270302683
-Exécution : C:\Reevo\problems\mo_mkp_aco\epsilon.exe --reference C:\Reevo\problems\mo_mkp_aco\dataset\mood_val_dataset\ref_dataset_0_100_items\final_pareto_file.txt_dat C:\Reevo\problems\mo_mkp_aco\pareto_set_val\pareto_sets_dataset_0_items_100\final_pareto.txt_dat
-Résultat de l'epsilon pour C:\Reevo\problems\mo_mkp_aco\pareto_set_val\pareto_sets_dataset_0_items_100\final_pareto.txt_dat : 2.359364              
+Exï¿½cution : C:\Reevo\problems\mo_mkp_aco\epsilon.exe --reference C:\Reevo\problems\mo_mkp_aco\dataset\mood_val_dataset\ref_dataset_0_100_items\final_pareto_file.txt_dat C:\Reevo\problems\mo_mkp_aco\pareto_set_val\pareto_sets_dataset_0_items_100\final_pareto.txt_dat
+Rï¿½sultat de l'epsilon pour C:\Reevo\problems\mo_mkp_aco\pareto_set_val\pareto_sets_dataset_0_items_100\final_pareto.txt_dat : 2.359364              
 
-Exécution : C:\Reevo\problems\mo_mkp_aco\epsilon.exe --reference C:\Reevo\problems\mo_mkp_aco\dataset\mood_val_dataset\ref_dataset_1_100_items\final_pareto_file.txt_dat C:\Reevo\problems\mo_mkp_aco\pareto_set_val\pareto_sets_dataset_1_items_100\final_pareto.txt_dat
-Résultat de l'epsilon pour C:\Reevo\problems\mo_mkp_aco\pareto_set_val\pareto_sets_dataset_1_items_100\final_pareto.txt_dat : 3.969223              
+Exï¿½cution : C:\Reevo\problems\mo_mkp_aco\epsilon.exe --reference C:\Reevo\problems\mo_mkp_aco\dataset\mood_val_dataset\ref_dataset_1_100_items\final_pareto_file.txt_dat C:\Reevo\problems\mo_mkp_aco\pareto_set_val\pareto_sets_dataset_1_items_100\final_pareto.txt_dat
+Rï¿½sultat de l'epsilon pour C:\Reevo\problems\mo_mkp_aco\pareto_set_val\pareto_sets_dataset_1_items_100\final_pareto.txt_dat : 3.969223              
 
-Exécution : C:\Reevo\problems\mo_mkp_aco\epsilon.exe --reference C:\Reevo\problems\mo_mkp_aco\dataset\mood_val_dataset\ref_dataset_2_100_items\final_pareto_file.txt_dat C:\Reevo\problems\mo_mkp_aco\pareto_set_val\pareto_sets_dataset_2_items_100\final_pareto.txt_dat
-Résultat de l'epsilon pour C:\Reevo\problems\mo_mkp_aco\pareto_set_val\pareto_sets_dataset_2_items_100\final_pareto.txt_dat : 3.642806              
+Exï¿½cution : C:\Reevo\problems\mo_mkp_aco\epsilon.exe --reference C:\Reevo\problems\mo_mkp_aco\dataset\mood_val_dataset\ref_dataset_2_100_items\final_pareto_file.txt_dat C:\Reevo\problems\mo_mkp_aco\pareto_set_val\pareto_sets_dataset_2_items_100\final_pareto.txt_dat
+Rï¿½sultat de l'epsilon pour C:\Reevo\problems\mo_mkp_aco\pareto_set_val\pareto_sets_dataset_2_items_100\final_pareto.txt_dat : 3.642806              
 
-Exécution : C:\Reevo\problems\mo_mkp_aco\epsilon.exe --reference C:\Reevo\problems\mo_mkp_aco\dataset\mood_val_dataset\ref_dataset_3_100_items\final_pareto_file.txt_dat C:\Reevo\problems\mo_mkp_aco\pareto_set_val\pareto_sets_dataset_3_items_100\final_pareto.txt_dat
-Résultat de l'epsilon pour C:\Reevo\problems\mo_mkp_aco\pareto_set_val\pareto_sets_dataset_3_items_100\final_pareto.txt_dat : 2.398338              
+Exï¿½cution : C:\Reevo\problems\mo_mkp_aco\epsilon.exe --reference C:\Reevo\problems\mo_mkp_aco\dataset\mood_val_dataset\ref_dataset_3_100_items\final_pareto_file.txt_dat C:\Reevo\problems\mo_mkp_aco\pareto_set_val\pareto_sets_dataset_3_items_100\final_pareto.txt_dat
+Rï¿½sultat de l'epsilon pour C:\Reevo\problems\mo_mkp_aco\pareto_set_val\pareto_sets_dataset_3_items_100\final_pareto.txt_dat : 2.398338              
 
-Exécution : C:\Reevo\problems\mo_mkp_aco\epsilon.exe --reference C:\Reevo\problems\mo_mkp_aco\dataset\mood_val_dataset\ref_dataset_4_100_items\final_pareto_file.txt_dat C:\Reevo\problems\mo_mkp_aco\pareto_set_val\pareto_sets_dataset_4_items_100\final_pareto.txt_dat
-Résultat de l'epsilon pour C:\Reevo\problems\mo_mkp_aco\pareto_set_val\pareto_sets_dataset_4_items_100\final_pareto.txt_dat : 3.037068              
+Exï¿½cution : C:\Reevo\problems\mo_mkp_aco\epsilon.exe --reference C:\Reevo\problems\mo_mkp_aco\dataset\mood_val_dataset\ref_dataset_4_100_items\final_pareto_file.txt_dat C:\Reevo\problems\mo_mkp_aco\pareto_set_val\pareto_sets_dataset_4_items_100\final_pareto.txt_dat
+Rï¿½sultat de l'epsilon pour C:\Reevo\problems\mo_mkp_aco\pareto_set_val\pareto_sets_dataset_4_items_100\final_pareto.txt_dat : 3.037068              
 
 moyenne pour l'epsilon : 3.0813597999999995
-Exécution : C:\Reevo\problems\mo_mkp_aco\epsilon.exe --reference C:\Reevo\problems\mo_mkp_aco\dataset\mood_val_dataset\ref_dataset_0_300_items\final_pareto_file.txt_dat C:\Reevo\problems\mo_mkp_aco\pareto_set_val\pareto_sets_dataset_0_items_300\final_pareto.txt_dat
-Résultat de l'epsilon pour C:\Reevo\problems\mo_mkp_aco\pareto_set_val\pareto_sets_dataset_0_items_300\final_pareto.txt_dat : 19.64311              
+Exï¿½cution : C:\Reevo\problems\mo_mkp_aco\epsilon.exe --reference C:\Reevo\problems\mo_mkp_aco\dataset\mood_val_dataset\ref_dataset_0_300_items\final_pareto_file.txt_dat C:\Reevo\problems\mo_mkp_aco\pareto_set_val\pareto_sets_dataset_0_items_300\final_pareto.txt_dat
+Rï¿½sultat de l'epsilon pour C:\Reevo\problems\mo_mkp_aco\pareto_set_val\pareto_sets_dataset_0_items_300\final_pareto.txt_dat : 19.64311              
 
-Exécution : C:\Reevo\problems\mo_mkp_aco\epsilon.exe --reference C:\Reevo\problems\mo_mkp_aco\dataset\mood_val_dataset\ref_dataset_1_300_items\final_pareto_file.txt_dat C:\Reevo\problems\mo_mkp_aco\pareto_set_val\pareto_sets_dataset_1_items_300\final_pareto.txt_dat
-Résultat de l'epsilon pour C:\Reevo\problems\mo_mkp_aco\pareto_set_val\pareto_sets_dataset_1_items_300\final_pareto.txt_dat : 5.858779              
+Exï¿½cution : C:\Reevo\problems\mo_mkp_aco\epsilon.exe --reference C:\Reevo\problems\mo_mkp_aco\dataset\mood_val_dataset\ref_dataset_1_300_items\final_pareto_file.txt_dat C:\Reevo\problems\mo_mkp_aco\pareto_set_val\pareto_sets_dataset_1_items_300\final_pareto.txt_dat
+Rï¿½sultat de l'epsilon pour C:\Reevo\problems\mo_mkp_aco\pareto_set_val\pareto_sets_dataset_1_items_300\final_pareto.txt_dat : 5.858779              
 
-Exécution : C:\Reevo\problems\mo_mkp_aco\epsilon.exe --reference C:\Reevo\problems\mo_mkp_aco\dataset\mood_val_dataset\ref_dataset_2_300_items\final_pareto_file.txt_dat C:\Reevo\problems\mo_mkp_aco\pareto_set_val\pareto_sets_dataset_2_items_300\final_pareto.txt_dat
-Résultat de l'epsilon pour C:\Reevo\problems\mo_mkp_aco\pareto_set_val\pareto_sets_dataset_2_items_300\final_pareto.txt_dat : 20.538439             
+Exï¿½cution : C:\Reevo\problems\mo_mkp_aco\epsilon.exe --reference C:\Reevo\problems\mo_mkp_aco\dataset\mood_val_dataset\ref_dataset_2_300_items\final_pareto_file.txt_dat C:\Reevo\problems\mo_mkp_aco\pareto_set_val\pareto_sets_dataset_2_items_300\final_pareto.txt_dat
+Rï¿½sultat de l'epsilon pour C:\Reevo\problems\mo_mkp_aco\pareto_set_val\pareto_sets_dataset_2_items_300\final_pareto.txt_dat : 20.538439             
 
-Exécution : C:\Reevo\problems\mo_mkp_aco\epsilon.exe --reference C:\Reevo\problems\mo_mkp_aco\dataset\mood_val_dataset\ref_dataset_3_300_items\final_pareto_file.txt_dat C:\Reevo\problems\mo_mkp_aco\pareto_set_val\pareto_sets_dataset_3_items_300\final_pareto.txt_dat
-Résultat de l'epsilon pour C:\Reevo\problems\mo_mkp_aco\pareto_set_val\pareto_sets_dataset_3_items_300\final_pareto.txt_dat : 11.727651             
+Exï¿½cution : C:\Reevo\problems\mo_mkp_aco\epsilon.exe --reference C:\Reevo\problems\mo_mkp_aco\dataset\mood_val_dataset\ref_dataset_3_300_items\final_pareto_file.txt_dat C:\Reevo\problems\mo_mkp_aco\pareto_set_val\pareto_sets_dataset_3_items_300\final_pareto.txt_dat
+Rï¿½sultat de l'epsilon pour C:\Reevo\problems\mo_mkp_aco\pareto_set_val\pareto_sets_dataset_3_items_300\final_pareto.txt_dat : 11.727651             
 
-Exécution : C:\Reevo\problems\mo_mkp_aco\epsilon.exe --reference C:\Reevo\problems\mo_mkp_aco\dataset\mood_val_dataset\ref_dataset_4_300_items\final_pareto_file.txt_dat C:\Reevo\problems\mo_mkp_aco\pareto_set_val\pareto_sets_dataset_4_items_300\final_pareto.txt_dat
-Résultat de l'epsilon pour C:\Reevo\problems\mo_mkp_aco\pareto_set_val\pareto_sets_dataset_4_items_300\final_pareto.txt_dat : 13.741289             
+Exï¿½cution : C:\Reevo\problems\mo_mkp_aco\epsilon.exe --reference C:\Reevo\problems\mo_mkp_aco\dataset\mood_val_dataset\ref_dataset_4_300_items\final_pareto_file.txt_dat C:\Reevo\problems\mo_mkp_aco\pareto_set_val\pareto_sets_dataset_4_items_300\final_pareto.txt_dat
+Rï¿½sultat de l'epsilon pour C:\Reevo\problems\mo_mkp_aco\pareto_set_val\pareto_sets_dataset_4_items_300\final_pareto.txt_dat : 13.741289             
 
 moyenne pour l'epsilon : 14.301853600000001
 [*] moyenne pour hypervolume et  epsilon:
-[*] Average for hypervolume 100 items: 50.715465712092424
-[*] Average for epsilon 100 items: 3.0813597999999995
-[*] Average for hypervolume 300 items: 70.99453270302683
-[*] Average for epsilon 300 items: 14.301853600000001
+[*] Average for hypervolume for dataset 100 items: 50.715465712092424
+[*] Average for epsilon for dataset 100 items: 3.0813597999999995
+[*] Average for hypervolume for dataset 300 items: 70.99453270302683
+[*] Average for epsilon for dataset 300 items: 14.301853600000001

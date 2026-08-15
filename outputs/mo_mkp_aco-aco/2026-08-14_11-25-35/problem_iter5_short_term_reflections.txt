@@ -1,0 +1,4 @@
+Prioritize local properties, density, and profit.
+Simplify calculations, normalize factors.
+Prioritize density and local properties.
+Consider capacity and neighborhood effects carefully.

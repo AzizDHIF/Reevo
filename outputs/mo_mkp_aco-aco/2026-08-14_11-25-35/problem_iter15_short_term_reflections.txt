@@ -1,0 +1,4 @@
+Consider density and remaining capacity.
+Simplify, prioritize profit, and minimize computations.
+Prioritize feasibility and consider remaining capacity.
+Simplify density calculation, prioritize item fit and neighborhood profit.

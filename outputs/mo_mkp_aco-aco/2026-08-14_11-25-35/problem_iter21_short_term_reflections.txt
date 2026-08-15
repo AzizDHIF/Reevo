@@ -1,0 +1,4 @@
+Simplify calculations, avoid redundant checks.
+Prioritize feasibility and balance density, profit, and neighborhood.
+Prioritize feasibility and density.
+Simplify calculations, prioritize feasibility.

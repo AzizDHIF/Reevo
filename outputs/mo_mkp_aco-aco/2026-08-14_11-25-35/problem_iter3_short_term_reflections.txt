@@ -1,0 +1,4 @@
+Prioritize density, capacity, and neighborhood profit.
+Focus on item density and neighborhood profit.
+Prioritize local item properties over neighborhood calculations.
+Consider density and neighborhood profit.

@@ -1,0 +1,4 @@
+Prioritize feasibility, balance factors, and stabilize outputs.
+Prioritize feasibility, balance density and profit.
+Prioritize feasibility and balance density, profit, and capacity.
+Consider capacity impact and neighborhood profit.

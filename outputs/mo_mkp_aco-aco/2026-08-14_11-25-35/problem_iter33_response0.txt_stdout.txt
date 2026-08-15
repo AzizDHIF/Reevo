@@ -1,0 +1,14 @@
+[*] Running ...
+[*] Mood: train
+[*] compiling ... 
+gpt.c: In function 'heuristic':
+gpt.c:10:23: error: 'Infinity' undeclared (first use in this function)
+   10 |             density = Infinity;
+      |                       ^~~~~~~~
+gpt.c:10:23: note: each undeclared identifier is reported only once for each function it appears in
+Traceback (most recent call last):
+  File "C:\Reevo/problems/mo_mkp_aco/eval.py", line 384, in <module>
+    compile("WeightACO_train_100items.c",f"WeightACO_train_100items_{id_response}.exe")
+  File "C:\Reevo/problems/mo_mkp_aco/eval.py", line 67, in compile
+    raise RuntimeError("Erreur de compilation")
+RuntimeError: Erreur de compilation
