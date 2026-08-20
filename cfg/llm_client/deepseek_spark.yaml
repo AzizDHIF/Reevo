@@ -1,6 +1,6 @@
 _target_: utils.llm_client.deepseek_spark.DeepSeekSparkClient
 
-model: bartowski/DeepSeek-R1-Distill-Llama-70B-GGUF:Q4_K_M
+model: ggml-org/Qwen3.6-27B-GGUF:Q4_K_M
 temperature: 1.0
 api_key: ${oc.env:DEEPSEEK_SPARK_API_KEY,sk-no-key-required}
 base_url: http://localhost:8080/v1
