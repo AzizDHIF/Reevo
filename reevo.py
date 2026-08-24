@@ -468,7 +468,32 @@ class ReEvo:
             population_to_select = self.population if (self.elitist is None or self.elitist in self.population) else [self.elitist] + self.population # add elitist to population for selection
             selected_population = self.random_select(population_to_select)
             if selected_population is None:
-                raise RuntimeError("Selection failed. Please check the population.")
+                diagnostic_lines = []
+                for idx, ind in enumerate(population_to_select):
+                    diagnostic_lines.append(
+                        f"[{idx}] response_id={ind.get('response_id')} "
+                        f"exec_success={ind.get('exec_success')} "
+                        f"obj={ind.get('obj')} "
+                        f"code_path={ind.get('code_path')}\n"
+                        f"{'-'*40}\n"
+                        f"{ind.get('code')}\n"
+                        f"{'='*40}\n"
+                    )
+
+                debug_file = f"problem_iter{self.iteration}_selection_failure_debug.txt"
+                with open(debug_file, 'w', encoding="utf-8", errors="replace") as f:
+                    f.writelines(diagnostic_lines)
+
+                summary = "\n".join(
+                    f"[{idx}] exec_success={ind.get('exec_success')} obj={ind.get('obj')}"
+                    for idx, ind in enumerate(population_to_select)
+                )
+                raise RuntimeError(
+                    "Selection failed. Please check the population.\n"
+                    f"Population size: {len(population_to_select)}\n"
+                    f"Summary:\n{summary}\n"
+                    f"Full code of each individual written to: {debug_file}"
+                )
             # Short-term reflection
             short_term_reflection_tuple = self.short_term_reflection(selected_population) # (response_lst, worse_code_lst, better_code_lst)
             # Crossover

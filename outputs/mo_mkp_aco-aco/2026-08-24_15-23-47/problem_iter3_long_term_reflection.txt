@@ -1,0 +1,4 @@
+1. Utilize all relevant factors proportionally and consistently.
+2. Simplify calculations by emphasizing direct relationships and avoiding unnecessary complexities.
+3. Ensure robustness through feature scaling, dynamic coefficient adjustment, and strategic use of conditionals.
+4. Sparsify heuristics by setting unpromising elements to zero selectively.

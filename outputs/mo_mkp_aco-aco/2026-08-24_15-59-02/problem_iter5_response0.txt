@@ -1,0 +1,21 @@
+```c
+double heuristic_v2(int index_item, double weights[dimension][NBITEMS], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS], double profit[NBITEMS]) {
+    double h = 0;
+    double inv_capacity_sum = 0;
+
+    for (int j = 0; j < dimension; j++) {
+        inv_capacity_sum += 1.0 / capacity[j];
+    }
+
+    if (inv_capacity_sum == 0) {
+        return 0;
+    }
+
+    for (int k = 0; k < nb_voisinage; k++) {
+        double obj_score = (weights[0][voisinage[k]] / inv_capacity_sum) + profit[voisinage[k]];
+        h += obj_score * obj_score; // Squaring to prioritize higher values
+    }
+
+    return h;
+}
+```

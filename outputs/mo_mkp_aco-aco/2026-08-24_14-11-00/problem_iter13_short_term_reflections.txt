@@ -1,0 +1,4 @@
+Normalize capacities and avoid division by zero for more reliable and robust heuristics.
+Consider adapting weight adjustments, modifying division values, and updating the threshold for more robust heuristic performance.
+Avoid unnecessary computations, reduce redundant variables, and simplify calculations for efficient heuristic design in MO-MKP.
+Hint: Use more accurate handling of capacity constraints, simplify computations, and adjust threshold conditions carefully for better heuristics.

@@ -1,0 +1,3 @@
+1. Focus on essential factors for item selection.
+2. Balance weight and profit influences wisely, avoiding potential zero divisions.
+3. Incorporate user-defined factors and penalize exceeded capacity carefully for improved performance in MO-MKP.

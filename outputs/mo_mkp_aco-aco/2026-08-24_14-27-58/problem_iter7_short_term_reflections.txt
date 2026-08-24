@@ -1,0 +1,6 @@
+Normalize weights before dividing, consider all dimensions equally, and simplify weight adjustment terms.
+
+1. Avoid division by zero in computations.
+2. Normalize weight ratios for better heuristic evaluation.
+Balance weight and profit factors; consider small constant adjustments for stability; simplify calculations and avoid over-complexity for scalability.
+Consider using voisinage[index_item] consistently, simplifying weight access, and avoiding excessive computations for efficiency and clarity.

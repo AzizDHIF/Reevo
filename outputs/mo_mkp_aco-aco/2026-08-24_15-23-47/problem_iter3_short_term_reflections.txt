@@ -1,0 +1,5 @@
+Utilize all relevant factors consistently and simplify calculations for better heuristic performance.
+Consider feature scaling, adjusting coefficients dynamically, using conditionals wisely, and ensuring robustness in heuristic design.
+- Emphasize direct relationship between variables.
+- Simplify calculations and avoid unnecessary conditions and variables.
+Utilize consistent and relevant factors proportionally to the problem's dimensions when designing heuristic functions.

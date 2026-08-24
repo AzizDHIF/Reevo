@@ -1,0 +1,1 @@
+Prioritize simplification, efficient variable manipulation, and careful threshold management for improved MO-MKP heuristic design. Update 'h' selectively, handle division by zero, and streamline weight-normalization processes effectively.

@@ -1,0 +1,4 @@
+Focus on relative importance of item's weight, not overall capacity; adjust weights accordingly for better performance.
+Prioritize using the remaining capacity for each dimension and normalize weights for improved performance.
+Prioritize higher values by squaring the objective scores for better heuristic performance.
+Prioritize direct item evaluation over indirect neighbor evaluation for better heuristic performance.

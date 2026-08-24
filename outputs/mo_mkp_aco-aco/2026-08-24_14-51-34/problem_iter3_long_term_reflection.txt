@@ -1,0 +1,4 @@
+1. Emphasize weight and profit contributions equally in heuristic calculation.
+2. Balance weight constraint handling and prioritize profitable items with less weight.
+3. Combine factors judiciously for promising item selection.
+4. Set unpromising elements to zero for sparser heuristics.

@@ -1,0 +1,3 @@
+1. Prioritize essential factors like normalized weights and ratios in MO-MKP item selection.
+2. Balance profit and weight influences efficiently to avoid zero divisions and excessive computations.
+3. Utilize normalized weights and ratios directly for clarity, efficiency, and improved performance in heuristic calculations.

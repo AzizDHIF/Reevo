@@ -1,0 +1,34 @@
+```c
+double heuristic_v2(int index_item, double weights[dimension][NBITEMS], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS], double profit[NBITEMS])
+{
+    double h = 0;
+    double normalized_weights[dimension];
+    double weight_ratio = 0;
+    double profit_ratio = 0;
+
+    for (int j = 0; j < dimension; j++) {
+        h += weights[j][voisinage[index_item]] / capacity[j];
+    }
+
+    for (int j = 0; j < dimension; j++) {
+        double total_weight = 0;
+        for (int i = 0; i < NBITEMS; i++) {
+            total_weight += weights[j][i];
+        }
+        normalized_weights[j] = total_weight != 0 ? weights[j][voisinage[index_item]] / total_weight : 0;
+    }
+
+    for (int j = 0; j < dimension; j++) {
+        if (normalized_weights[j] != 0) {
+            weight_ratio += normalized_weights[j];
+        }
+    }
+
+    if (weight_ratio != 0) {
+        profit_ratio = profit[voisinage[index_item]] / weight_ratio;
+        return profit_ratio / h;
+    } else {
+        return 0;
+    }
+}
+```

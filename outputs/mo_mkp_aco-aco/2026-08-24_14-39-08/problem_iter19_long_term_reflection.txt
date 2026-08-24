@@ -1,0 +1,3 @@
+- Balance weight and profit trade-offs effectively by penalizing weight breaches and prioritizing profit increments.
+- Emphasize profit improvement over neighbor comparison, penalize individual weight violations, and favor simpler calculations.
+- Consider diverse item influences in proximity neighbors for enhanced heuristic performance in MO-MKP.

@@ -1,0 +1,4 @@
+Consider normalizing weights and capacity in the heuristic calculation to improve performance in MO-MKP.
+Consider normalizing weight usage and aligning profit to weight balance for better heuristic accuracy.
+Consider normalizing weights by capacity to compute heuristic more effectively with proper scaling.
+Prioritize individual item characteristics over total weights for more effective heuristics in MO-MKP.

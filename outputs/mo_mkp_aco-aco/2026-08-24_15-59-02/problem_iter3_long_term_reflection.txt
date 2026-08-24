@@ -1,0 +1,4 @@
+1. Combine factors judiciously for item selection in MO-MKP heuristics.
+2. Ensure stable values and dynamic weighting for robustness.
+3. Utilize neighbor context and balance influence, objective values, and remaining capacity.
+4. Focus on individual item's weight and thorough neighbor analysis for effective decision-making.

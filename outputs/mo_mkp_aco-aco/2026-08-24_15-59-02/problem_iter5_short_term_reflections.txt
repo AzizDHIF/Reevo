@@ -1,0 +1,4 @@
+Focus on direct item evaluation using current weights and capacity, prioritize high-value neighbors, and consider non-linear transformations.
+Focus on the relevance of item weights to overall capacity utilization and objective contributions for improved heuristics.
+Prioritize direct item impact on objectives, consider all neighbors, and avoid unnecessary calculations for efficiency in heuristics.
+Leverage item-specific information and directly incorporate neighbors' contribution to improve heuristic performance efficiently.

@@ -1,0 +1,4 @@
+Consider balancing weight and profit factors with respect to dimensionality to improve heuristics performance.
+Consider balancing penalty and profit factors, penalize weight exceeding capacity, and prioritize objective contribution.
+Emphasize balancing weight and profit factors proportionally based on capacity rather than fixed weights.
+Consider balancing weight and profit factors, prioritize efficiency over penalties, and leverage capacity constraints effectively.

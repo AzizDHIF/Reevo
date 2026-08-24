@@ -1,0 +1,5 @@
+Consider incorporating additional relevant information like remaining capacity to enhance heuristic performance effectively.
+1. Consider balancing computations to avoid redundant loops. 
+2. Utilize all available information efficiently.
+- Prioritize normalized feature calculation for more stable heuristics.
+Consider incorporating information on remaining capacity and adjusting weight ratio for better performance in the heuristic function.

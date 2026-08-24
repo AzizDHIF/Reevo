@@ -1,0 +1,4 @@
+Consider incorporating relative weights, avoiding zero division, and sparsity for more effective heuristics.
+Consider balancing weight and profit factors, avoiding division by zero, and adjusting promising metric calculation for improved efficiency.
+Emphasize simplicity, balance weight and profit factors, avoid penalizing exceeded capacity, and prioritize efficiency in calculations.
+Focus on considering the ratio of profit to capacity and exploiting specific weight relationships in the heuristic.

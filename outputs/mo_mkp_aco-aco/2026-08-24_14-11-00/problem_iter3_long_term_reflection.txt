@@ -1,0 +1,1 @@
+Combine factors judiciously for item selection. Avoid premature normalization, balance strengthening factors equally, and adjust based on problem characteristics. Use unified computation approach, normalized weights, and early stopping conditions for efficiency. Prioritize simplicity, experiment, and use conditional checks for optimal performance.

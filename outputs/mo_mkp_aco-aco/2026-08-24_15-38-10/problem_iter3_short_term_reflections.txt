@@ -1,0 +1,4 @@
+Consider overall contribution of item. Ensure ratio reflects both weight and profit interactions. Balance complexity and accuracy.
+Utilize ratios (e.g., profit/weight) to guide heuristic selection and prioritize computation based on significant value contributions.
+Consider incorporating item-specific ratios rather than solely focusing on total values to improve heuristic accuracy.
+Consider incorporating both total weight and profit calculations to better estimate item desirability in MO-MKP heuristics.

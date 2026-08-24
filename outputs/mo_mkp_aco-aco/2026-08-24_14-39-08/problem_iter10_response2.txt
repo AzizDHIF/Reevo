@@ -1,0 +1,18 @@
+```c
+double heuristic_v2(int index_item, double weights[dimension][NBITEMS], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS], double profit[NBITEMS]) {
+    double profit_factor = 0.8, weight_penalty = 0.01;
+    double h = 0, normalized_profit, score;
+
+    for (int j = 0; j < dimension; j++) {
+        h += weights[j][index_item] / capacity[j];
+        if (weights[j][index_item] / capacity[j] <= weight_penalty) return 0; // sparsify if element unpromising
+    }
+
+    if (h <= weight_penalty) return 0; // sparsify if element unpromising
+
+    normalized_profit = (profit[index_item] - profit[voisinage[0]]) / profit[voisinage[0]]; // Normalize profit
+    score = profit[index_item] * profit_factor - h * (1 - profit_factor);
+
+    return score;
+}
+```

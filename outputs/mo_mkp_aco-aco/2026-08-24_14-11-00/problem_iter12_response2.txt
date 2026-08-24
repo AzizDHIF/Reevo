@@ -1,0 +1,26 @@
+```c
+double heuristic_v2(int index_item, double weights[dimension][NBITEMS], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS], double profit[NBITEMS]) {
+    const double epsilon = 0.0001;
+    const double factor = 0.7;
+
+    double capacity_norm = 0.0;
+    for (int j = 0; j < dimension; j++) {
+        capacity_norm += capacity[j];
+    }
+
+    if (capacity_norm < epsilon) {
+        return 0.0;
+    }
+
+    double h = epsilon;
+    for (int j = 0; j < dimension; j++) {
+        if (capacity[j] > 0) {
+            h += weights[j][voisinage[index_item]] / (capacity_norm * 0.001);
+        }
+    }
+
+    double heuristic_value = profit[voisinage[index_item]] / (h + epsilon);
+
+    return (heuristic_value < 0.5) ? 0.0 : heuristic_value * factor;
+}
+```

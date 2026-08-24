@@ -1,0 +1,4 @@
+1. Streamline calculations by simplifying and reducing variables.
+2. Prioritize essential terms and optimize capacity handling.
+3. Normalize weights efficiently within the calculation loop for accurate evaluation.
+4. Experiment with constants and precomputed values cautiously for improved MO-MKP heuristic performance.

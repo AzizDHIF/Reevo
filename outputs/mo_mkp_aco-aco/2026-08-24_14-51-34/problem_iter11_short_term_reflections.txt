@@ -1,0 +1,4 @@
+Focus on ensuring feasible solutions and penalizing constraint violations to improve heuristic performance.
+Emphasize feasible solutions, penalizing constraint violations, and balance weight and profit factors effectively.
+Consider weighting factors carefully, penalize unfavorable cases, and adapt neighbor calculations for better heuristics design.
+Consider penalizing violations, prioritizing under-capacity items, mitigating drawbacks of fixed factors.

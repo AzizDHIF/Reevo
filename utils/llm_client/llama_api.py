@@ -22,9 +22,11 @@ class LlamaAPIClient(OpenAIClient):
         super().__init__(model, temperature, base_url, api_key)
     
     def _chat_completion_api(self, messages: list[dict], temperature: float, n: int = 1):
-        assert n == 1
-        response = self.client.chat.completions.create(
-            model=self.model, messages=messages, temperature=temperature, stream=False,
-            max_tokens=1024, timeout=100,
-        )
-        return response.choices
+        choices = []
+        for _ in range(n):
+            response = self.client.chat.completions.create(
+                model=self.model, messages=messages, temperature=temperature, stream=False,
+                max_tokens=1024, timeout=100,
+            )
+            choices.extend(response.choices)
+        return choices

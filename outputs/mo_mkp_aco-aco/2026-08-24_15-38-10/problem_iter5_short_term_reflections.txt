@@ -1,0 +1,5 @@
+1. Consider normalizing weights before calculating contribution ratios.
+2. Integrate profit-weight ratios for better heuristic evaluations.
+Emphasize individual item impact on objectives over ratios; prioritize meaningful calculations for better heuristic efficiency.
+Utilize contribution of item profit to weight for more effective heuristic in MO-MKP.
+Prioritize proportionality and item impact for better heuristic efficiency in MO-MKP.

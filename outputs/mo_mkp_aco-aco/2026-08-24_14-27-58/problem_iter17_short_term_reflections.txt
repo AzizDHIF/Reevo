@@ -1,0 +1,4 @@
+Consider incorporating the remaining capacity in the promising factor calculation for more effective decision-making in heuristics.
+Consider incorporating the effect of remaining capacity in the heuristic calculation for better performance.
+Consider incorporating the remaining capacity and other item weights into the heuristic calculation for better performance.
+Consider incorporating remaining capacity and reducing unnecessary computations in heuristic design for better performance.

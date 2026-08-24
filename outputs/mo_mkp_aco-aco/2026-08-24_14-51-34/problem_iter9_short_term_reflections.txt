@@ -1,0 +1,4 @@
+Consider emphasizing feasibility and penalizing violations to improve heuristics for MO-MKP problems.
+Focus on relative item's weight to capacity ratios and neighbor scores for better heuristic performance.
+Emphasize efficient use of neighbors, balance weight consideration, prioritize lower weights, and avoid unnecessary penalization.
+Consider minimizing duplicated calculations, favoring simplicity and clarity, and emphasizing the balance between objectives.

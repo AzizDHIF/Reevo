@@ -1,0 +1,17 @@
+```c
+double heuristic_v2(int index_item, double weights[dimension][NBITEMS], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS], double profit[NBITEMS] ) {
+    double profit_factor = 0.8, weight_factor = 0.2;
+    double total_combined_weight = 0, profit_diff, score;
+    
+    for(int j = 0; j < dimension; j++) {
+        total_combined_weight += weights[j][index_item] / capacity[j];
+    }
+    
+    if(total_combined_weight > 1) return 0; // Discard if total weight exceeds capacity
+    
+    profit_diff = profit[index_item] - profit[voisinage[0]]; // Calculate profit improvement compared to the first neighbor
+    score = profit_factor * profit_diff - weight_factor * total_combined_weight; // Combine profit and weight factors
+    
+    return score;
+}
+```

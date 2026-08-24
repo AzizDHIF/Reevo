@@ -1,0 +1,19 @@
+```c
+double heuristic_v2(int index_item, double weights[dimension][NBITEMS], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS], double profit[NBITEMS]) {
+    double weight_factor = 0.6;
+    double profit_factor = 0.4;
+
+    double weight_contribution = 0;
+    double profit_contribution = 0;
+
+    for(int j = 0; j < dimension; j++) {
+        if(weights[j][voisinage[index_item]] > capacity[j]) {
+            weight_contribution += weights[j][voisinage[index_item]] - capacity[j]; // Penalize weights exceeding capacity
+        }
+    }
+
+    profit_contribution = profit_factor * profit[voisinage[index_item]];
+
+    return weight_factor * weight_contribution + profit_contribution;
+}
+```

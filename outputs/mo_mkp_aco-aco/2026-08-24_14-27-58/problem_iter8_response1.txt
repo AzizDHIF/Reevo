@@ -1,0 +1,19 @@
+```c
+double heuristic_v2(int index_item, double weights[dimension][NBITEMS], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS], double profit[NBITEMS]) {
+    double promising_factor = 0;
+    int neighbor_index = voisinage[index_item];
+
+    double normalized_weight_sum = 0;
+    for (int j = 0; j < dimension; j++) {
+        normalized_weight_sum += weights[j][neighbor_index] / capacity[j];
+    }
+
+    if (normalized_weight_sum > 0) {
+        promising_factor = profit[neighbor_index] / normalized_weight_sum;
+        promising_factor *= 1 - weights[0][neighbor_index] / weights[1][neighbor_index]; // Adjusting based on specific weights
+        return promising_factor > 0 ? promising_factor : 0; // Sparsify the heuristic
+    } else {
+        return 0;
+    }
+}
+```

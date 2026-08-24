@@ -1,0 +1,4 @@
+Simplify calculations, focus on item quality, use normalized profit, and penalize excessive weight ratio iteratively.
+Use weight_ratio as a primary factor, penalize low thresholds, separate weight and profit computations, aim for balanced contributions.
+Normalize weights consistently and emphasize profit in heuristic calculation for better MO-MKP performance.
+Focus on the item's individual characteristics, penalize non-promising items early, and emphasize profit.

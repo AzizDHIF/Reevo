@@ -1,0 +1,3 @@
+1. Simplify calculations, prioritize essential terms, and adjust thresholds carefully.
+2. Normalize capacities, optimize weight adjustments, and avoid unnecessary computations.
+3. Update division values, handle constraints accurately, and streamline variable usage.

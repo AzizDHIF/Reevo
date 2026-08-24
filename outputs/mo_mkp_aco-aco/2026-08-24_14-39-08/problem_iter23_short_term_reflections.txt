@@ -1,0 +1,4 @@
+Consider normalizing weights by capacities in heuristic calculations for improved performance.
+Focus on maximizing profit improvement relative to the best neighbor and ensuring weight remains within capacity limit.
+Focus on essential factors like profit-weight ratio, avoid unnecessary calculations; prioritize simplicity and effectiveness.
+Balance weight and profit factors in heuristics for MO-MKP; priorize improvement over individual metrics.

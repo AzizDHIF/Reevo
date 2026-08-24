@@ -1,0 +1,1 @@
+Emphasize relative item weights and dynamic weighting adjustment, normalize weights based on remaining capacity, square objective scores, prioritize direct item evaluation.

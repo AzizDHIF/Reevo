@@ -1,0 +1,4 @@
+1. Normalize weights and integrate profit-weight ratios for impactful heuristic selection in MO-MKP.
+2. Emphasize individual item impact and prioritize meaningful calculations for efficiency.
+3. Balance complexity with accuracy by considering both weight and profit in heuristic evaluations.
+4. Leverage item-specific ratios and contribution to weight for effective heuristic design.

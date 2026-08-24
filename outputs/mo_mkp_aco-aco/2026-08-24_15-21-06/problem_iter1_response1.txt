@@ -1,0 +1,22 @@
+```c
+double heuristic_v2(int index_item, double weights[dimension][NBITEMS], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS], double profit[NBITEMS]){
+    double h = 0;
+    double min_diff = DBL_MAX;
+    for (int j = 0; j < dimension; j++) {
+        double diff = capacity[j] - weights[j][voisinage[index_item]];
+        if (diff < 0) {
+            min_diff = 0;
+            break;
+        }
+        h += diff;
+        if (diff < min_diff) {
+            min_diff = diff;
+        }
+    }
+    if (min_diff == 0) {
+        return 0;
+    } else {
+        return profit[voisinage[index_item]] / h;
+    }
+}
+```

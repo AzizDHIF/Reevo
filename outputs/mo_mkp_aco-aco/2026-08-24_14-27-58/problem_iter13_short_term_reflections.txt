@@ -1,0 +1,5 @@
+Consider using normalized weights, examine weight distribution, and ensure non-zero weight division avoidance for improved heuristics.
+Consider directly using relevant input values without unnecessary calculations or intermediate variables for more efficient heuristics.
+Consider normalizing weights before computing promising factor to avoid division by zero biases.
+1. Consider ratio of weights in total sum rather than specific weights.
+2. Use weight ratio to adjust promising factor.

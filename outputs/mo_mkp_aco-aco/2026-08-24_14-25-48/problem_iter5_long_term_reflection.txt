@@ -1,0 +1,3 @@
+1. Integrate factors purposefully, prune wisely, and prioritize efficiency in MO-MKP heuristics.
+2. Directly evaluate item weight, prioritize normalization, and emphasize item-specific calculations for improved performance.
+3. Balance scaling, importance, and combinatorial aspects to enhance heuristic effectiveness in MO-MKP.

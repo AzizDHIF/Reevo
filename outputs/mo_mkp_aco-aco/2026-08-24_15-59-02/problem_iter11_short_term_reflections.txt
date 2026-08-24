@@ -1,0 +1,4 @@
+Emphasize higher values with appropriate power transformation; avoid extreme transformations for objective scoring.
+Emphasize high-value objectives, simplify weight normalization, and reduce unnecessary complexity for improved heuristic design.
+Normalize weights for better scaling, prioritize squaring over cubing for objective scoring in heuristics.
+Consider incorporating relative weights and non-linear transformations for better sensitivity to key factors.

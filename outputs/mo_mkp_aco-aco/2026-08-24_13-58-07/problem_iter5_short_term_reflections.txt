@@ -1,0 +1,4 @@
+Leverage item-specific properties directly in heuristic calculation to improve sampling efficiency.
+Prefer simplicity and direct relevance to objective, avoiding unnecessary calculations beyond item's own attributes.
+Prioritize considerations of weight, capacity, and profit together for more effective heuristics.
+Avoid redundant computations, prioritize individual item characteristics, and simplify heuristics for improved performance.

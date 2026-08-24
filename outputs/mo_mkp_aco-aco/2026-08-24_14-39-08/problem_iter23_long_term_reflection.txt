@@ -1,0 +1,2 @@
+1. Normalize weights by capacities and prioritize profit improvement relative to neighbors for better performance in MO-MKP.
+2. Focus on profit-weight ratio, efficiency in weight handling, and minimizing unnecessary calculations for effective heuristic designs.

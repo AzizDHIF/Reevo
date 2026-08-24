@@ -1,0 +1,26 @@
+```c
+double heuristic_v2(int index_item, double weights[dimension][NBITEMS], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS], double profit[NBITEMS] )
+{
+    double weight_factor = 0.7;
+    double profit_factor = 0.3;
+    double promising_score = 0;
+
+    // Balance weight ratios and penalize violations
+    double weight_contribution = 0;
+    for (int j = 0; j < dimension; j++) {
+        if (capacity[j] >= weights[j][index_item]) {
+            weight_contribution += weights[j][index_item] / capacity[j];
+        } else {
+            weight_contribution += 1.0; // Penalize if weight exceeds capacity
+        }
+    }
+
+    // Prefer feasible solutions with balanced weight ratios
+    promising_score += weight_factor * (1 / weight_contribution);
+
+    // Emphasize profit for optimizing objectives
+    promising_score += profit_factor * profit[index_item];
+
+    return promising_score;
+}
+```

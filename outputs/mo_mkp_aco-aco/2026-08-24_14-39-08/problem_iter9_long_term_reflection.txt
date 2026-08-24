@@ -1,0 +1,3 @@
+1. Sparsify elements wisely, balance weight/profit, normalize profit.
+2. Prioritize item properties, adapt weight/profit ratio based on neighborhood.
+3. Emphasize item relevance, adjust penalties, simplify computations for efficiency.

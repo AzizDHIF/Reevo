@@ -1,0 +1,5 @@
+1. Ensure handling of division by zero.
+2. Consider adjusting factors based on problem characteristics.
+Hint: Consider incorporating constraints and thresholds for more effective pruning and better trade-offs in heuristic calculation.
+Adjust factors to balance exploration and exploitation, consider dynamic factors, and test for improved performance.
+Prioritize stable division calculations, consider thresholding for early-rejection, and introduce tunable factors for flexibility and robustness.

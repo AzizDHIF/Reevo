@@ -1,0 +1,4 @@
+Emphasize the balance between profit and weight, considering the relevance of capacity constraints for each dimension.
+Normalize calculations, handle special cases early, and reduce unnecessary computations for efficient heuristics design.
+Prioritize handling edge cases, avoid unnecessary computations, and ensure numerical stability for improved heuristic design.
+Emphasize value normalization, address division by zero, and consider the relevance of objective functions.

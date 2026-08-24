@@ -1,0 +1,32 @@
+```c
+double heuristic_v2(int index_item, double weights[dimension][NBITEMS], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS], double profit[NBITEMS] ){
+    double h=0;
+    for(int j=0;j<dimension;j++){
+        h=h+weights[j][voisinage[index_item]]/capacity[j]; 
+	}
+    
+    double value = profit[voisinage[index_item]]/h; // original value
+    
+    // Additional factors for determining promise
+    double factor1 = 0.5; // Weight factor
+    double factor2 = 0.3; // Profit factor
+    double factor3 = 0.2; // Overweight factor
+    
+    // Penalizing the value for weight exceeded capacity
+    for(int j=0;j<dimension;j++){
+        if (weights[j][voisinage[index_item]] > capacity[j]){
+            value *= factor3;
+        }
+    }
+  
+    // Combine multiple factors
+    value = value * factor1 + profit[voisinage[index_item]] * factor2;
+    
+    // Setting unpromising elements to zero
+    if (value < 0){
+        value = 0;
+    }
+    
+    return value;
+}
+```

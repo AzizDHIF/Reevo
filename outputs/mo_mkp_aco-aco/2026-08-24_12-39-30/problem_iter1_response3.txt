@@ -1,0 +1,66 @@
+```c
+/* ---------------------------------------------------------------
+ * heuristic_v2 - a richer stochastic heuristic for MO-MKP
+ *
+ * Parameters:
+ *   index_item    : index of the candidate item
+ *   weights       : weight[dimension][NBITEMS] matrix
+ *   capacity      : remaining capacity per dimension (updated externally)
+ *   nb_voisinage  : number of neighbours considered (<= NBITEMS)
+ *   voisinage     : list of neighbour indices (only first nb_voisinage are valid)
+ *   profit        : profit per item (single objective)
+ *
+ * Returns:
+ *   A double score that reflects the desirability of inserting the
+ *   item into the current partial solution.  Scores ≤ 0 mean “do not
+ *   take”.  Larger positive values indicate more promising items.
+ * --------------------------------------------------------------- */
+double heuristic_v2(int index_item,
+                    double weights[dimension][NBITEMS],
+                    double capacity[dimension],
+                    int nb_voisinage,
+                    int voisinage[NBITEMS],
+                    double profit[NBITEMS])
+{
+    /* ---------- 1. Feasibility check (hard constraint) ---------- */
+    for (int d = 0; d < dimension; ++d) {
+        if (weights[d][index_item] > capacity[d])
+            return 0.0;                     /* cannot fit in this dimension */
+    }
+
+    /* ---------- 2. Basic weight‑to‑capacity ratio ---------------- */
+    double weight_ratio = 0.0;
+    double total_capacity = 0.0;
+    for (int d = 0; d < dimension; ++d) {
+        weight_ratio   += weights[d][index_item] / capacity[d];
+        total_capacity += capacity[d];
+    }
+    if (weight_ratio == 0.0) weight_ratio = 1e-12;   /* avoid division by zero */
+
+    /* ---------- 3. Neighborhood influence ------------------------ */
+    double neigh_profit_sum = 0.0;
+    double neigh_weight_sum = 0.0;
+    for (int k = 0; k < nb_voisinage; ++k) {
+        int nid = voisinage[k];
+        neigh_profit_sum += profit[nid];
+        for (int d = 0; d < dimension; ++d)
+            neigh_weight_sum += weights[d][nid];
+    }
+
+    double avg_neigh_profit = (nb_voisinage > 0) ?
+                              (neigh_profit_sum / nb_voisinage) : 0.0;
+    double avg_neigh_weight = (nb_voisinage > 0) ?
+                              (neigh_weight_sum / (nb_voisinage * dimension)) : 0.0;
+
+    /* ---------- 4. Composite score -------------------------------- */
+    /*  - profit of the item (higher is better)
+     *  - penalize by its own weight ratio
+     *  - boost if its profit is larger than the neighborhood average
+     *  - additional smoothing using neighbor weight density
+     */
+    double profit_factor   = profit[index_item];
+    double density_factor  = 1.0 / (1.0 + weight_ratio);          /* 0..1 */
+    double relative_profit = (avg_neigh_profit > 0.0) ?
+                             (profit_factor / avg_neigh_profit) : 1.0;
+    double neighbor_sparsity = (avg_neigh_weight > 0.0) ?
+                               (1.0 / (1.0 + avg_neigh_weight)) : 1

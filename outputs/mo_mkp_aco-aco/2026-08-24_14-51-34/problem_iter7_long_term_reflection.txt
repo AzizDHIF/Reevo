@@ -1,0 +1,2 @@
+1. Construct heuristics that dynamically balance weight vs. profit ratios and penalize exceeding capacities effectively for superior MO-MKP performance. 
+2. Utilize ratio-based metrics, prioritize valid weight contribution, and optimize efficiency by minimizing penalties in the solution sampling process.

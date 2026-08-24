@@ -1,0 +1,4 @@
+Consider prioritizing weight handling and normalize profit for better heuristics in MO-MKP.
+Focus on item's own properties rather than its neighbors, balance weight and profit influence effectively.
+Consider balancing weight and profit factors adaptively based on neighborhood information and scale of the problem.
+Emphasize item relevance over weight contribution, adjust penalties for unpromising elements, simplify computations.

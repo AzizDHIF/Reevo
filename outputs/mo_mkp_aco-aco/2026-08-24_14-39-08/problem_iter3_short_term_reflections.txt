@@ -1,0 +1,4 @@
+Prioritize relative contributions of factors over absolute values; balance complexity with interpretability for better performance.
+Prioritize avoiding division by zero, balance complexity with performance, and consider relative scaling in heuristics.
+Focus on a more robust promising factor calculation accounting for weight to capacity ratio in each dimension.
+Emphasize stability, handle edge cases, and simplify expressions to improve heuristic performance.

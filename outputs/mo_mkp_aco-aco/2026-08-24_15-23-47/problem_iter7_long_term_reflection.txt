@@ -1,0 +1,4 @@
+- Simplify calculations, reduce redundancies, adjust weights thoughtfully.
+- Ensure readability, modularity, and consistent weighting for multiple objectives.
+- Emphasize simplicity, avoid redundancies, consider proportionality, balance objectives effectively.
+- Minimize unnecessary computations, eliminate redundant variables for efficient heuristics.

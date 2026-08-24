@@ -1,0 +1,7 @@
+1. Consider average weight for neighbors instead of individual dimensions.
+2. Avoid zero division and simplify calculations.
+Focus on relative importance of item's profit and weight in relation to the solution's capacity for better heuristics.
+Prioritize individual item's characteristics over neighbor averages. Use meaningful transformations and consider all relevant factors distinctly.
+
+1. Utilize local information efficiently.
+2. Consider multiple factors cumulatively for better decision-making.

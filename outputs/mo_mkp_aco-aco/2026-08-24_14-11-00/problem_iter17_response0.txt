@@ -1,0 +1,14 @@
+```c
+double heuristic_v2(int index_item, double weights[dimension][NBITEMS], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS], double profit[NBITEMS]) {
+    double h = 0.0001; // Prevent division by zero
+    double factor = 0.7;
+    
+    for (int j = 0; j < dimension; j++) {
+        h += (capacity[j] > 0) ? (weights[j][voisinage[index_item]] / (capacity[j] * 0.001)) : 0;
+    }
+    
+    double heuristic_value = (h > 0.001) ? profit[voisinage[index_item]] / h : 0.0;
+    
+    return (heuristic_value < 0.5) ? 0.0 : heuristic_value * factor;
+}
+```

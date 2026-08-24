@@ -1,0 +1,2 @@
+1. Sparsify unpromising elements, balance weight/profit factors, penalize efficiently for MO-MKP.
+2. Prioritize critical analysis, leverage scaling, weight ratios effectively for stable heuristic design.

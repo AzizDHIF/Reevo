@@ -1,0 +1,3 @@
+- Emphasize profit improvement over sparsity.
+- Prioritize simplicity and direct relevance to objectives.
+- Focus on effective balance between profit and weight penalties.

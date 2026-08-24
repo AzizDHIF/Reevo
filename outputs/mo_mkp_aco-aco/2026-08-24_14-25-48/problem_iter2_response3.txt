@@ -1,0 +1,13 @@
+```c
+double heuristic_v2(int index_item, double weights[dimension][NBITEMS], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS], double profit[NBITEMS]) {
+    double h = 0;
+    for (int j = 0; j < dimension; j++) {
+        h += weights[j][voisinage[index_item]] / capacity[j];
+    }
+
+    int importance_factor = 2; // Adjust this factor to emphasize the importance of the calculation compared to the ratio
+    double promising_ratio = profit[voisinage[index_item]] / (h * nb_voisinage * factorial(dimension));
+
+    return promising_ratio >= 0.5 ? (1 + importance_factor) * promising_ratio : 0;
+}
+```

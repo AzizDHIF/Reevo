@@ -1,0 +1,4 @@
+Ensure stable heuristic values by adequately handling zero division and dynamically weighting factors.
+Consider utilizing additional context, like neighbors count, for better decision-making in heuristics.
+Focus on item's own weight instead of neighbors; consider all neighbors' contributions together.
+Consider balancing neighbor influence, objective value, and remaining capacity in heuristic calculations for MO-MKP.

@@ -1,0 +1,18 @@
+```c
+double heuristic_v2(int index_item, double weights[dimension][NBITEMS], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS], double profit[NBITEMS] ){
+    double h=0, combined_factor = 0.0;
+    
+    // Calculate combined factor
+    for(int j=0;j<dimension;j++){
+			h += weights[j][voisinage[index_item]] / capacity[j]; 
+	}
+    combined_factor = 0.5 * (profit[voisinage[index_item]] / h) + 0.5 * ((double)nb_voisinage) / NBITEMS;
+    
+    // Sparse heuristic
+    if (combined_factor <= 0.01) {
+        return 0.0;
+    } else {
+        return combined_factor;
+    }
+}
+```

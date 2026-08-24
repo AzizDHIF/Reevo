@@ -1,0 +1,84 @@
+```c
+/*--------------------------------------------------------------
+  heuristic_v2 : advanced promise estimator for a single item
+  --------------------------------------------------------------
+  Parameters
+  ----------
+  index_item   : index of the candidate item
+  weights      : [dimension][NBITEMS] weight matrix
+  capacity     : remaining capacity per dimension (updated externally)
+  nb_voisinage : number of valid neighbours in voisinage
+  voisinage    : neighbour index list (only first nb_voisinage entries are valid)
+  profit       : profit of each item (single objective)
+  
+  Returns
+  -------
+  A non‑negative double that quantifies how promising it is to add
+  the candidate item to the current partial solution.  Very low values
+  (< eps) are set to zero to sparsify the heuristic output.
+--------------------------------------------------------------*/
+double heuristic_v2(int index_item,
+                    double weights[dimension][NBITEMS],
+                    const double capacity[dimension],
+                    int nb_voisinage,
+                    const int voisinage[NBITEMS],
+                    const double profit[NBITEMS])
+{
+    const double eps = 1e-6;          /* sparsification threshold */
+
+    /* 1) Basic profit‑to‑weight efficiency of the candidate item   */
+    double weight_sum = 0.0;
+    for (int d = 0; d < dimension; ++d) {
+        double w = weights[d][index_item];
+        /* if the item does not fit in a dimension, penalise heavily   */
+        if (w > capacity[d]) {
+            return 0.0;               /* impossible to insert -> zero */
+        }
+        weight_sum += w;
+    }
+    if (weight_sum <= 0.0) return 0.0;   /* guard against division by zero */
+
+    double efficiency = profit[index_item] / weight_sum;
+
+    /* 2) Local neighbourhood information: average profit/weight
+          ratio of the nb_voisinage neighbours                     */
+    double neigh_score = 0.0;
+    if (nb_voisinage > 0) {
+        for (int i = 0; i < nb_voisinage; ++i) {
+            int n_idx = voisinage[i];
+            double n_weight_sum = 0.0;
+            for (int d = 0; d < dimension; ++d)
+                n_weight_sum += weights[d][n_idx];
+
+            if (n_weight_sum > 0.0) {
+                double n_eff = profit[n_idx] / n_weight_sum;
+                neigh_score += n_eff;
+            }
+        }
+        neigh_score /= (double)nb_voisinage;   /* average neighbour efficiency */
+    }
+
+    /* 3) Capacity slack factor – encourages items that leave more room */
+    double slack_factor = 1.0;
+    for (int d = 0; d < dimension; ++d) {
+        double remaining = capacity[d] - weights[d][index_item];
+        if (remaining < 0.0) return 0.0;          /* infeasible, already handled */
+        slack_factor *= (remaining + eps) / (capacity[d] + eps);
+    }
+
+    /* 4) Combine the three components. Tunable weights (alpha,beta,gamma) */
+    const double alpha = 0.5;   /* profit‑to‑weight importance */
+    const double beta  = 0.3;   /* neighbour influence           */
+    const double gamma = 0.2;   /* capacity slack                */
+
+    double raw_score = alpha * efficiency +
+                       beta  * neigh_score +
+                       gamma * slack_factor;
+
+    /* 5) Sparsify: set very small values to zero */
+    if (raw_score < eps)
+        return 0.0;
+
+    return raw_score;
+}
+```

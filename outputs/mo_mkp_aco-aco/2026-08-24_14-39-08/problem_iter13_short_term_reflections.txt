@@ -1,0 +1,5 @@
+Rebalance weight relevance and profit impact, prioritize profit improvement over sparsity in heuristic design.
+Focus on simplicity, direct relevance to objectives, avoid unnecessary thresholds or complex calculations for better heuristics.
+1. Avoid unnecessary computations and conditions.
+2. Simplify calculations by directly using available data for scoring.
+Focus on balancing profit and weight penalties effectively for better heuristics in MO-MKP.

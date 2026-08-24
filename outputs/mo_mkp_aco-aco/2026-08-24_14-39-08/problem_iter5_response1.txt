@@ -1,0 +1,17 @@
+```c
+double heuristic_v2(int index_item, double weights[dimension][NBITEMS], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS], double profit[NBITEMS] ) {
+    double profit_factor = 0.8, weight_factor = 0.2, score = 0;
+    
+    for (int j = 0; j < dimension; j++) {
+        double weight_ratio = weights[j][voisinage[index_item]] / capacity[j];
+        if (weight_ratio <= 0.01) return 0; // sparsify if element unpromising
+        score += weight_ratio * weight_factor;
+    }
+
+    if (score <= 0.01) return 0; // sparsify if element unpromising
+
+    score += profit[voisinage[index_item]] * profit_factor;
+    
+    return score;
+}
+```

@@ -1,0 +1,19 @@
+```c
+double heuristic_v2(int index_item, double weights[dimension][NBITEMS], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS], double profit[NBITEMS]) {
+    double h = 0;
+    double promising_factor = 0.5;  
+    double imbalance_factor = 1;
+
+    for (int j = 0; j < dimension; j++) {
+        if (j % 2 == 0) {  // Consider alternate dimensions for calculation
+            h = h + weights[j][voisinage[index_item]] / capacity[j];
+        }
+    }
+
+    if (h > 0) {
+        return promising_factor * (profit[voisinage[index_item]] / h);
+    } else {
+        return 0;
+    }
+}
+```

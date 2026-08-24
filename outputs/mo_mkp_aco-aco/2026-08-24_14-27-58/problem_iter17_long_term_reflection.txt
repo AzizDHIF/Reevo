@@ -1,0 +1,4 @@
+1. Utilize remaining capacity in factor calculations for informed decisions.
+2. Prioritize efficiency by considering remaining capacity and reducing redundant computations.
+3. Enhance stability by normalizing features and adjusting weight ratios with remaining capacity.
+4. Improve performance by incorporating remaining capacity in heuristic calculations.

@@ -1,0 +1,4 @@
+Simplify calculations, prioritize weight control, and define clear weight and profit factors for scoring in heuristics.
+Focus on handling weight constraints efficiently and adjusting profit-to-weight ratio balance for better performance.
+- Focus on combined impact of all dimensions and neighboring items.
+Focus on proportional weight utilization, profit improvement, and concise formulae.

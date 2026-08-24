@@ -1,0 +1,23 @@
+```c
+double heuristic_v2(int index_item, double weights[dimension][NBITEMS], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS], double profit[NBITEMS]) {
+    double promising_factor = 0;
+    double weight_sum = 0;
+
+    for (int j = 0; j < dimension; j++) {
+        weight_sum += weights[j][voisinage[index_item]]; // Compute the total weight of the item
+    }
+
+    if (weight_sum > 0) {
+        double weight_ratio = 0;
+        for (int j = 0; j < dimension; j++) {
+            weight_ratio += weights[j][voisinage[index_item]] / weight_sum; // Calculate the weight ratio for each dimension
+        }
+
+        promising_factor = profit[voisinage[index_item]] * (1 - weight_ratio); // Compute the promising factor based on profit and weight ratio
+
+        return promising_factor > 0 ? promising_factor : 0; // Return promising factor if positive, otherwise return 0
+    } else {
+        return 0;
+    }
+}
+```

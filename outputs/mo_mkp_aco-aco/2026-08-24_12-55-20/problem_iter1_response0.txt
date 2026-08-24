@@ -1,0 +1,33 @@
+```c
+#include <stdlib.h>
+#include <float.h>
+
+double heuristic_v2(int index_item,
+                    double weights[dimension][NBITEMS],
+                    double capacity[dimension],
+                    int nb_voisinage,
+                    int voisinage[NBITEMS],
+                    double profit[NBITEMS])
+{
+    /* 1️⃣ Normalized weight consumption of the candidate item */
+    double norm_w = 0.0;
+    for (int d = 0; d < dimension; ++d) {
+        double cap = capacity[d];
+        if (cap > 0.0) {
+            norm_w += weights[d][index_item] / cap;
+        }
+    }
+    /* protect against division by zero */
+    if (norm_w < DBL_EPSILON) norm_w = DBL_EPSILON;
+
+    double profit_ratio = profit[index_item] / norm_w;
+
+    /* 2️⃣ Influence of the neighbourhood (average profit/weight) */
+    double neigh_profit = 0.0;
+    double neigh_norm_w = 0.0;
+    for (int n = 0; n < nb_voisinage; ++n) {
+        int nb_idx = voisinage[n];                /* neighbour index */
+        neigh_profit += profit[nb_idx];
+        for (int d = 0; d < dimension; ++d) {
+            double cap = capacity[d];
+            if (cap >

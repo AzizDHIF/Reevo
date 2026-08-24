@@ -1,0 +1,1 @@
+Simplify calculations, leverage fixed constraints, balance objectives, and reduce redundant operations for efficient and accurate MO-MKP heuristics. Avoid unnecessary divisions, focus on readability, and prioritize proportionality to enhance performance and robustness.

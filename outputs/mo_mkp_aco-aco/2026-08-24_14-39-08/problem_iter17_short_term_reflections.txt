@@ -1,0 +1,4 @@
+Consider trade-offs between weight and profit factors, penalize weight breaches, and prioritize promising elements effectively.
+Avoid premature penalties, focus on total impact of inclusion, leverage neighbor comparison for insight in heuristics.
+Prioritize penalizing exceeded weight early and design penalties more carefully for optimal performance.
+Consider penalizing excessive weight more aggressively and prioritizing profit directly in heuristic calculations.

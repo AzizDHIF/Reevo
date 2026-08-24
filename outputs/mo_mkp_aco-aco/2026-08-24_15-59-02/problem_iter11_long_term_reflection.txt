@@ -1,0 +1,1 @@
+Prioritize high values with moderate power transformations, optimize objective scoring with proper weighting adjustments, and streamline calculations for efficient heuristic design in MO-MKP.

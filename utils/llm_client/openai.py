@@ -29,7 +29,10 @@ class OpenAIClient(BaseClient):
         if isinstance(self.ClientClass, str):
             logger.fatal(f"Package `{self.ClientClass}` is required")
             exit(-1)
-        
+
+        if self.api_key_path:
+            with open(self.api_key_path, "r") as f:
+                api_key = yaml.safe_load(f)["api_0_openai"]
         self.base_url = base_url
         self._api_key_lock = threading.Lock()
         self.client = self.ClientClass(api_key=api_key, base_url=base_url)

@@ -1,0 +1,4 @@
+Consider balancing weights and profits more effectively, penalizing unpromising items and focusing on diverse contributions.
+Emphasize profit improvement over neighbor comparison and adjust factor balance judiciously for better heuristic performance.
+Consider penalizing individual weight violations, updating the weight calculation strategy, and favoring simpler calculations for better heuristics.
+Prioritize penalizing violating weights, balance factors, and consider diverse item influences in proximity neighbors.

@@ -1,0 +1,18 @@
+```c
+double heuristic_v2(int index_item, double weights[dimension][NBITEMS], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS], double profit[NBITEMS]) {
+    double weight_factor = 0.3;
+    double profit_factor = 0.7;
+
+    double weight_penalty = 0;
+    for(int j = 0; j < dimension; j++){
+        double remaining_capacity = capacity[j] - weights[j][voisinage[index_item]];
+        if (remaining_capacity < 0) {
+            weight_penalty += remaining_capacity;
+        }
+    }
+
+    double promising_score = weight_factor * weight_penalty + profit_factor * profit[voisinage[index_item]];
+
+    return promising_score;
+}
+```

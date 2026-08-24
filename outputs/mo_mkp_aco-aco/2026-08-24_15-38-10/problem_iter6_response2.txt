@@ -1,0 +1,14 @@
+```c
+double heuristic_v2(int index_item, double weights[dimension][NBITEMS], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS], double profit[NBITEMS]) {
+    double impact = 0;
+
+    for (int j = 0; j < dimension; j++) {
+        if (weights[j][index_item] != 0) {
+            double item_impact = profit[voisinage[index_item]] / weights[j][index_item];
+            impact += item_impact;
+        }
+    }
+
+    return impact;
+}
+```

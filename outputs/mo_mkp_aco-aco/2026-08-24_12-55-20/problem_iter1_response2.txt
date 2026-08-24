@@ -1,0 +1,81 @@
+```c
+/*  heuristic_v2 : a richer stochastic heuristic for MO‑MKP
+ *
+ *  It combines:
+ *   1. feasibility (any weight exceeding remaining capacity => 0)
+ *   2. a profit‑to‑weighted‑usage ratio of the item itself
+ *   3. a neighbourhood influence term derived from the first
+ *      nb_voisinage neighbours (average profit/weight ratio)
+ *   4. sparsification – scores below a small epsilon are set to 0.
+ *
+ *  The function follows the exact signature required by the caller
+ *  and never recomputes capacity or neighbours beyond the supplied
+ *  arguments.
+ */
+double heuristic_v2(int index_item,
+                    double weights[dimension][NBITEMS],
+                    double capacity[dimension],
+                    int nb_voisinage,
+                    int voisinage[NBITEMS],
+                    double profit[NBITEMS])
+{
+    const double EPS = 1e-4;          /* sparsification threshold          */
+    double item_weight_sum = 0.0;     /* total resource consumption of item*/
+    double item_ratio;                /* profit / weighted usage            */
+    int d;
+
+    /* ---------- feasibility check ----------
+       If the item cannot fit into any dimension, it is discarded.
+    */
+    for (d = 0; d < dimension; ++d) {
+        double w = weights[d][index_item];
+        if (w > capacity[d] || w < 0.0) {
+            return 0.0;
+        }
+        item_weight_sum += w / capacity[d];
+    }
+
+    /* ---------- basic profit‑to‑resource ratio ----------
+       Smaller denominator -> higher ratio, favouring items that
+       consume less of the scarce capacities.
+    */
+    if (item_weight_sum <= 0.0) {
+        return 0.0;          /* should not happen, but guard against div‑0 */
+    }
+    item_ratio = profit[index_item] / item_weight_sum;
+
+    /* ---------- neighbourhood influence ----------
+       Average profit‑to‑resource ratio of the first nb_voisinage neighbours.
+       The neighbour indices are provided in voisinage[0 .. nb_voisinage‑1].
+    */
+    double neigh_ratio_sum = 0.0;
+    int cnt = 0;
+    for (int i = 0; i < nb_voisinage; ++i) {
+        int n_idx = voisinage[i];
+        if (n_idx < 0 || n_idx >= NBITEMS) continue;   /* safety */
+
+        double neigh_weight_sum = 0.0;
+        int feasible = 1;
+        for (d = 0; d < dimension; ++d) {
+            double w = weights[d][n_idx];
+            if (w > capacity[d]) { feasible = 0; break; }
+            neigh_weight_sum += w / capacity[d];
+        }
+        if (feasible && neigh_weight_sum > 0.0) {
+            neigh_ratio_sum += profit[n_idx] / neigh_weight_sum;
+            ++cnt;
+        }
+    }
+
+    double neigh_ratio = (cnt > 0) ? (neigh_ratio_sum / cnt) : 0.0;
+
+    /* ---------- blending of own and neighbourhood scores ----------
+       Give a slightly higher importance to the item's own ratio
+       (α = 0.7) while still being guided by the local landscape (β = 0.3).
+    */
+    const double ALPHA = 0.7;
+    const double BETA  = 0.3;
+    double score = ALPHA * item_ratio + BETA * neigh_ratio;
+
+    /* ---------- sparsification ----------
+       Very low scores are set to zero to prune the search space

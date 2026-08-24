@@ -1,0 +1,24 @@
+```c
+double heuristic_v2(int index_item, double weights[dimension][NBITEMS], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS], double profit[NBITEMS]) {
+    double profit_factor = 0.7, weight_factor = 0.3;
+    double weight_penalty = 0.01;
+    double weight_sum = 0.0;
+    
+    for (int j = 0; j < dimension; j++) {
+        double weight_ratio = weights[j][index_item] / capacity[j];
+        weight_sum += weight_ratio;
+        
+        if (weight_ratio <= weight_penalty) {
+            return 0; // Penalize if individual weight ratio violates constraints
+        }
+    }
+    
+    if (weight_sum <= weight_penalty) {
+        return 0; // Penalize if total weight exceeds capacity
+    }
+
+    double score = profit[index_item] * profit_factor - weight_sum * weight_factor;
+
+    return score;
+}
+```

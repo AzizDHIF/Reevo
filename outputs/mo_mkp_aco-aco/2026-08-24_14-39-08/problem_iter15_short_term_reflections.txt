@@ -1,0 +1,4 @@
+Consider holistic feature combinations, penalize weight breach, and focus on profit increment for better heuristics.
+Balance weight and profit factors carefully. Prioritize code simplicity. Incorporate sparsity checks effectively.
+Consider penalizing early for infeasibility, balancing factors, and efficiently combining objectives for better heuristics.
+Consider balancing weight, profit factors and introducing scoring mechanism for effective heuristic in optimization problems.

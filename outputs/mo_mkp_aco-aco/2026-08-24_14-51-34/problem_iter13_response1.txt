@@ -1,0 +1,27 @@
+```c
+double heuristic_v2(int index_item, double weights[dimension][NBITEMS], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS], double profit[NBITEMS]) {
+    double weight_factor = 0.6;
+    double profit_factor = 0.4;
+
+    double weight_contribution = 0;
+    int capacity_violation = 0;
+    for (int j = 0; j < dimension; j++) {
+        if (capacity[j] >= weights[j][index_item]) {
+            weight_contribution += weights[j][index_item] / capacity[j];
+        } else {
+            weight_contribution += 1.0; // Penalize if weight exceeds capacity
+            capacity_violation = 1;
+        }
+    }
+
+    // Penalize if capacity is violated
+    if (capacity_violation) {
+        return -1;
+    }
+
+    // Determine promising score considering both weight and profit factors
+    double promising_score = weight_factor * (1 / weight_contribution) + profit_factor * profit[index_item];
+
+    return promising_score;
+}
+```

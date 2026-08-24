@@ -1,0 +1,4 @@
+1. Create heuristics that balance weight and profit based on dimensional significance.
+2. Penalize weight exceeding capacity and prioritize objective contribution.
+3. Adjust weight and profit balancing based on varying capacities.
+4. Prioritize efficiency over penalties and leverage capacity constraints effectively.
