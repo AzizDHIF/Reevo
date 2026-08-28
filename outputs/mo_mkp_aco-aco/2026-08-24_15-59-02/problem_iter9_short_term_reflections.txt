@@ -1,4 +1,0 @@
-Prioritize higher values by squaring them in the heuristic calculation to improve performance and solution quality.
-Square objective scores to prioritize high values and enhance solution quality efficiently.
-Prioritize higher values, avoid unnecessary calculations, and give more weight to objective-related terms.
-Utilize dynamic weighting adjustments and non-linear transformations to improve heuristic sampling efficiency for MO-MKP.

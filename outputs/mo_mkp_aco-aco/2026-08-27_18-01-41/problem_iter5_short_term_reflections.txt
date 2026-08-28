@@ -1,0 +1,6 @@
+Emphasize clarity, simplicity, and efficiency; prioritize effective feature combination and boundary handling for better heuristics.
+Increase profit emphasis, reduce weight emphasis to balance objectives and prevent capacity overflow.
+Consider penalizing items that exceed capacity, balancing weights and profits, and early stopping for efficiency.
+Focus on a simpler, more direct calculation, avoid unnecessary conditions, and consider the impact of ratio relationships.
+1. Simplify calculations, reduce factors, and incorporate all relevant factors directly in return value.
+Balance exploration & exploitation, adjust weight & profit factors, ensure capacity, maintain diversity, consider neighboring items.

@@ -1,0 +1,1 @@
+Design heuristics for MO-MKP by customizing factors, balancing weight-profit ratios, reusing calculations, simplifying logic, and avoiding unnecessary complexity for efficient and effective performance.

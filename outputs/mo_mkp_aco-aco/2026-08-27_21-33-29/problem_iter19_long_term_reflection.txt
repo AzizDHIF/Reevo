@@ -1,0 +1,1 @@
+Prioritize additive relationships, normalize scales early, prevent division by small values, utilize capacity info efficiently, avoid unnecessary calculations, normalize before combining, adjust weight calculations, frame in profit ratio.

@@ -1,4 +1,0 @@
-Consider capacity constraints and neighbor interactions.
-Simplify and balance factors for better heuristics.
-Simplify and balance factors for more effective heuristics.
-Consider capacity, neighbor context, and item impact.

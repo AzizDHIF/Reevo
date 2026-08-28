@@ -1,3 +1,0 @@
-1. Incorporate profit-to-weight ratio directly for item evaluation.
-2. Streamline calculations, address edge cases efficiently, and prioritize efficiency and relevance.
-3. Emphasize informative neighbor evaluations and overall performance in heuristic design.

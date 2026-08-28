@@ -1,0 +1,7 @@
+Consider using neighboring item index instead of the current item for calculating heuristic; adjust weights and profit accordingly.
+Consider incorporating more relevant factors like remaining capacity and effective neighbor profit.
+Leverage neighbor index for better heuristics; avoid unnecessary computation for efficiency and accuracy.
+Normalize heuristic components, balance weights of profit and weight, consider overall impact more.
+Focus on balancing weight and profit ratios, consider non-linear weight-normalization, and avoid division by capacity.
+Better code focuses on neighbours. Analyze neighbours' impact efficiently and adjust weight-profit balance accordingly.
+

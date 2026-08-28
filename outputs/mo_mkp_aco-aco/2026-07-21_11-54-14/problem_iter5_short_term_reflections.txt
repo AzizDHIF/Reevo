@@ -1,4 +1,0 @@
-Simplify and balance density and neighborhood effects.
-Simplify calculations, avoid divisions by zero.
-Simplify calculations, focus on density and neighborhood effects.
-Simplify calculations, avoid divisions by zero.

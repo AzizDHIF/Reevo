@@ -1,4 +1,0 @@
-Prioritize capacity constraints and neighborhood effects.
-Prioritize local properties, balance density, and profit.
-Prioritize local properties, neighborhood effects, and capacity constraints.
-Prioritize local properties and consider neighborhood information.

@@ -1,1 +1,0 @@
-Balance factors, simplify calculations, ensure robustness with scaling & adjustments, sparsify heuristics selectively, and handle edge cases efficiently for better MO-MKP performance.

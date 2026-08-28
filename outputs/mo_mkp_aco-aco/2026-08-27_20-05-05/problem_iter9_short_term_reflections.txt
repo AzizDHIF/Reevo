@@ -1,0 +1,7 @@
+Consider normalizing weights, tuning weight-profit ratios, and using profit density for better heuristics.
+Emphasize balance between objectives, use normalized weight difference, consider density of profits.
+Focus on using neighborhood item's properties; avoid unnecessary calculations; consider effectiveness. Aim for simplicity and efficiency.
+Simplify calculations, prioritize simple and intuitive factors, focus on direct effectiveness over intermediate ratios or metrics.
+Leverage proportionality and combine objective factors wisely; prioritize simplicity and direct relevance to objectives.
+• Emphasize weight importance in heuristic calculation.
+• Consider using neighbors for better performance.

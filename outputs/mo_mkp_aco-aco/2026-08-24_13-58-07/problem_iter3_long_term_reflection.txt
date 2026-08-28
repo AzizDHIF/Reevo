@@ -1,2 +1,0 @@
-1. Design a scoring function combining item characteristics and their impact on multi-objective performance.
-2. Enhance efficiency by considering multiple relevant factors collectively, prioritizing individual item traits in decision-making.

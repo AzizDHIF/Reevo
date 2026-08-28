@@ -1,0 +1,21 @@
+```c
+double heuristic_v2(int index_item, double weights[dimension][NBITEMS], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS], double profit[NBITEMS]) {
+    double small_value = 0.001;
+    double weighted_capacity_sum = small_value;
+
+    for (int j = 0; j < dimension; j++) {
+        if (capacity[j] <= 0) {
+            return 0; // Early termination if capacity is exhausted or invalid
+        }
+        weighted_capacity_sum += weights[j][voisinage[index_item]] / capacity[j];
+    }
+
+    if (weighted_capacity_sum < small_value) {
+        return 0; // Prevent division by small values
+    }
+
+    double normalized_weighted_profit = profit[voisinage[index_item]] / weighted_capacity_sum;
+
+    return normalized_weighted_profit * normalized_weighted_profit; // Square of the normalized profit as an adjustment
+}
+```  

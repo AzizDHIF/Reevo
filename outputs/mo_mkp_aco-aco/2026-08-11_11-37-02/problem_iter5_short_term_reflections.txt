@@ -1,4 +1,0 @@
-Consider weight-to-capacity ratios and neighbor profit ratios.
-Prioritize constraints, simplify calculations.
-Prioritize constraints, simplify calculations.
-Simplify and prioritize constraints.

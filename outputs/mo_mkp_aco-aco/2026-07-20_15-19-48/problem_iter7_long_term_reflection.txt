@@ -1,1 +1,0 @@
-Simplify calculations, prioritize capacity ratio, and balance key factors to create robust heuristics for MO-MKP.

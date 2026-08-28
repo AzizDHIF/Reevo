@@ -1,1 +1,0 @@
-Prioritize item density, proximity, and capacity. Simplify calculations, avoiding division by zero, to create effective MO-MKP heuristics.

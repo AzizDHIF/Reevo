@@ -1,4 +1,0 @@
-Simplify calculations, prioritize density, and introduce sparsity.
-Simplify calculations, use averages, and introduce thresholds.
-Prioritize density, average weight, and capacity utilization.
-Simplify calculations, prioritize density and capacity.

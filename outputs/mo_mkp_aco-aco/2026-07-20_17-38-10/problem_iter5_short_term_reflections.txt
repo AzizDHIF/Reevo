@@ -1,4 +1,0 @@
-Prioritize capacity utilization and profit balancing.
-Prioritize average weights and profits over totals.
-Consider neighbor averages and sparsifying factors.
-Simplify calculations, remove redundant checks.

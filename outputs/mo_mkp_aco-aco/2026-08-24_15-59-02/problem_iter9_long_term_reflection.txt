@@ -1,3 +1,0 @@
-1. Prioritize high values by squaring them in heuristic calculations for MO-MKP.
-2. Use dynamic weighting adjustments and non-linear transformations to enhance efficiency.
-3. Focus on direct item evaluation and avoid unnecessary calculations in the heuristic sampling process.

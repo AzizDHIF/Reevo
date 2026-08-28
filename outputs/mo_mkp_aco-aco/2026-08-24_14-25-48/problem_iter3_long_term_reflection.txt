@@ -1,6 +1,0 @@
-1. Combine factors judiciously for item selection.
-2. Sparsify heuristic by pruning unpromising items.
-3. Prioritize efficiency, simplicity, relevance to objectives.
-4. Use normalized weights, maintain feasibility.
-5. Leverage insights, adjust factors, balance computations.
-6. Emphasize scaling, importance, combinatorial aspects.

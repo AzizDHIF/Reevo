@@ -1,4 +1,0 @@
-Simplify and normalize calculations for better heuristics.
-Simplify calculations, prioritize capacity ratio, and minimize divisions.
-Consider capacity ratio and neighbor influence carefully.
-Simplify calculations, reduce variables.

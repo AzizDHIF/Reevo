@@ -1,1 +1,0 @@
-Simplify and focus on key factors, prioritizing item fit and capacity pressure, to design efficient MO-MKP heuristics.

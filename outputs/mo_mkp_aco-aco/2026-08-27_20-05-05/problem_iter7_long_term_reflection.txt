@@ -1,0 +1,4 @@
+1. Emphasize remaining capacity and neighbor attributes for improved heuristics.
+2. Normalize ratios of weights and profits, balance importance weights efficiently.
+3. Prioritize efficient feature normalization and profit density over weight capacity ratio.
+4. Incorporate neighbor information and custom factors for enhanced performance.

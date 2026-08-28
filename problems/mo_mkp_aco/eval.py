@@ -234,7 +234,7 @@ def calculate_meanHypervolume(files):
             raise ValueError(f"Erreur de conversion pour {pareto_file} : '{result_hv.stdout.strip()}' n'est pas un nombre valide.")
     
     mean=mean/len(files)
-    print("moyenne pour l'hypervolume :", mean)
+    
     return mean
 
 def calculate_meanEpsilon(files, pareto_ref_files):
@@ -273,7 +273,7 @@ def calculate_meanEpsilon(files, pareto_ref_files):
             raise ValueError(f"Erreur de conversion pour {pareto_file} : '{result_ep.stdout.strip()}' n'est pas un nombre valide.")
     
     mean=mean/len(files)
-    print("moyenne pour l'epsilon :", mean)
+
 
     return mean 
 

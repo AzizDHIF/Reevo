@@ -1,4 +1,0 @@
-Use relative measures, like differences, not ratios.
-Consider similarity, not ratio, for neighborhood effect.
-Consider density and neighborhood similarity.
-Incorporate neighborhood and capacity effects.

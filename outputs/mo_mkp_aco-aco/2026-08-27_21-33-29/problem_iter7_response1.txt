@@ -1,0 +1,18 @@
+```c
+double heuristic_v2(int index_item, double weights[dimension][NBITEMS], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS], double profit[NBITEMS]) {
+    double h = 0;
+    double profit_to_weight_ratio = profit[voisinage[index_item]] / weights[0][voisinage[index_item]];
+    
+    // Check if selecting the item violates the capacity constraints
+    for (int j = 0; j < dimension; j++) {
+        if (weights[j][index_item] <= capacity[j]) {
+            h += weights[j][voisinage[index_item]] / capacity[j];
+        } else {
+            return 0;  // Return 0 if the capacity constraint is violated
+        }
+    }
+    
+    // Increase the heuristic value for items with high profit-to-weight ratios
+    return profit_to_weight_ratio * h;
+}
+```

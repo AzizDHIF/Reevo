@@ -1,0 +1,20 @@
+```c
+double heuristic_v2(int index_item, double weights[dimension][NBITEMS], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS], double profit[NBITEMS]){
+    double h=0;
+    
+	// Calculate total weight needed for the item
+    for(int j=0;j<dimension;j++){
+        h += weights[j][voisinage[index_item]] / capacity[j]; 
+    }
+    
+	// Determine the effectiveness based on a combination of weight and profit
+    double effectiveness = profit[voisinage[index_item]] / h;
+    
+	// Enhance by penalizing high weight items that are outside the capacity and sparsifying others
+    if(h >= 1.0){
+        return effectiveness * 0.1;
+    } else {
+        return effectiveness;
+    }
+}
+```

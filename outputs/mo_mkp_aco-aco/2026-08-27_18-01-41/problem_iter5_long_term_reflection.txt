@@ -1,0 +1,4 @@
+1. Prioritize clarity, simplicity, and efficiency.
+2. Balance profit and weight objectives effectively.
+3. Penalize capacity violations, focus on simpler calculations.
+4. Emphasize exploration and exploitation balance, neighbor selection, and profit improvement.

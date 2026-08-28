@@ -1,4 +1,0 @@
-Simplify neighborhood effect calculations for better performance.
-Simplify, prioritize density, and integrate neighborhood effects.
-Simplify calculations, prioritize key factors.
-Simplify calculations, prioritize key factors.

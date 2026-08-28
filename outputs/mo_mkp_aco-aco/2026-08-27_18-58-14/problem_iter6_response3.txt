@@ -1,0 +1,22 @@
+```c
+double heuristic_v2(int index_item, double weights[dimension][NBITEMS], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS], double profit[NBITEMS] )
+{
+    double h = 0;
+    double weight_ratio = 0.5;
+    double profit_ratio = 0.5;
+
+    for (int j = 0; j < dimension; j++) {
+        if (weights[j][index_item] > capacity[j]) {
+            return 0; // Early pruning if capacity constraint violated
+        }
+        h += weights[j][index_item] / capacity[j];
+    }
+
+    double weight_component = h == 0 ? 0 : weights[0][index_item] / h;
+    double profit_component = profit[index_item] / (h + 1);
+
+    double heuristic_value = weight_ratio * weight_component + profit_ratio * profit_component;
+
+    return heuristic_value;
+}
+```

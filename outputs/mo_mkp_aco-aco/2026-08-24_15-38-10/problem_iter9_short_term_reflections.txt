@@ -1,4 +1,0 @@
-Consider incorporating both profit and weight scaling to better capture item importance and avoid overestimation.
-Consider incorporating both profit and capacity scaling factors for more effective item selection heuristics.
-Consider the item's profit-to-weight ratio and weighted contribution to capacity for improved heuristics.
-Consider incorporating both profit and weight ratios while considering the capacity to better assess item inclusion.

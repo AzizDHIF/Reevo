@@ -1,0 +1,20 @@
+```c
+double heuristic_v2(int index_item, double weights[dimension][NBITEMS], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS], double profit[NBITEMS]) {
+    double h = 0;
+    
+    for (int j = 0; j < dimension; j++) {
+        h += weights[j][voisinage[index_item]] / capacity[j];
+    }
+
+    double factor1 = capacity[0] - weights[0][voisinage[index_item]]; // Remaining capacity for dimension 0
+    double factor2 = nb_voisinage; // Number of neighbors
+
+    double heuristic_value = (profit[voisinage[index_item]] / h) * factor1 * factor2;
+
+    if (factor1 <= 0 || factor2 <= 0) {
+        return 0;
+    }
+
+    return heuristic_value;
+}
+```

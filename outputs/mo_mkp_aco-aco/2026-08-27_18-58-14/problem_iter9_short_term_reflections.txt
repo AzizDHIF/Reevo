@@ -1,0 +1,6 @@
+Adjust component ratios for better balance, include more informative variables, handle zero division edge case smartly.
+Ensure consistency between weight and profit computations, use neighbor indices for calculating heuristic.
+Utilize the neighbors (`voisinage`) within calculations for a more effective heuristic in MO-MKP.
+Normalize weight calculation, handle zero division case, and perform conditional return for efficiency gain.
+Utilize the normalized weight sum and neighbor index for better heuristic accuracy.
+Prioritize pruning with capacity checks, normalize weights, and balance components; consider better weight and profit calculations.

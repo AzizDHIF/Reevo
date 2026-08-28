@@ -1,0 +1,6 @@
+1. Utilize custom factors that combine relevant parameters to improve heuristic performance.
+Emphasize balanced weight-profit ratio, consider neighboring items optimally, and minimize unproductive computations.
+Focus on a balanced combination of profit and weight ratios while considering effectiveness over penalization.
+Reuse calculations, simplify logic, penalize based on weights, consider both weight and profit, and avoid unnecessary complexity.
+Balance weight and profit contributions based on pre-defined ratios. Focus on simplicity and efficiency.
+Focus on balancing weights and profits in heuristics for MO-MKP. Optimize ratios rather than absolutes for better performance.

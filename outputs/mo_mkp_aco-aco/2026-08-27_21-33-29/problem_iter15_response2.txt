@@ -1,0 +1,15 @@
+```c
+double heuristic_v2(int index_item, double weights[dimension][NBITEMS], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS], double profit[NBITEMS] ) {
+    double ratio_sum = 0.001; // Initialize a small non-zero value to prevent division by zero
+    for (int j = 0; j < dimension; j++) {
+        if (capacity[j] <= 0) {
+            return 0; // Early termination if capacity is exhausted or invalid
+        }
+        double weight_ratio = weights[j][voisinage[index_item]] / capacity[j];
+        if (weight_ratio > 0) {
+            ratio_sum += 1.0 / weight_ratio; // Utilize inverse ratios for better additive relationship
+        }
+    }
+    return profit[voisinage[index_item]] * ratio_sum; // Combine profit and ratios for heuristic value
+}
+```

@@ -1,0 +1,6 @@
+Normalize weights before usage, prioritize capacity checking, balance ratio weights for better performance.
+Emphasize neighbor feasibility and normalize weights correctly for improved heuristics in MO-MKP.
+Leverage neighboring item information, use it to compute h, and ensure proper handling of potential division by zero.
+Focus on early pruning, efficient computation, and utilizing normalized measures for better heuristic designs.
+Utilize neighborhood information, avoid unnecessary computations, and prioritize early pruning for improved heuristics.
+Focus on efficient early pruning and normalize calculations to improve heuristic efficiency and accuracy.

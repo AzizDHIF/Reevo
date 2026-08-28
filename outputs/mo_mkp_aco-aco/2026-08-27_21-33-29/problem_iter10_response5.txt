@@ -1,0 +1,30 @@
+```c
+double heuristic_v2(int index_item, double weights[dimension][NBITEMS], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS], double profit[NBITEMS])
+{
+    double h = 0;
+    double profit_weight_ratio = profit[voisinage[index_item]] / capacity[0]; // Prioritize profit-to-weight ratio
+
+    // Utilize valid neighbors efficiently
+    for (int i = 0; i < nb_voisinage; i++)
+    {
+        int neighbor_index = voisinage[i];
+        for (int j = 0; j < dimension; j++)
+        {
+            h += weights[j][neighbor_index] / capacity[j];
+            if (h > 1.0)
+            {
+                return 0.0;
+            }
+        }
+    }
+
+    // Sparsify the heuristic by setting unpromising elements to zero
+    if (h == 0)
+    {
+        return 0;
+    }
+
+    // Focus on feasible solutions and leverage precomputed data
+    return profit_weight_ratio * (1 / h); // Consider realizable ratios with optimal factor utilization
+}
+```

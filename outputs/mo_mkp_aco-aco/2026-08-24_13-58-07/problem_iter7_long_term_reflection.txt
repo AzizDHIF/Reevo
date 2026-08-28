@@ -1,1 +1,0 @@
-Focus on simplifying the scoring function by normalizing weights and capacities. Emphasize individual item traits, align profit to weight balance, and prioritize relevant computations for efficient sampling in MO-MKP.

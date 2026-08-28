@@ -1,0 +1,6 @@
+Utilize valid neighbors directly for better estimates. Focus on feasibility and efficiency within constraints.
+Leverage precomputed neighbors for higher efficiency and accuracy in heuristics for MO-MKP.
+Consider using a realizable ratio concept and early stopping for inefficient item evaluations.
+Utilize precomputed neighbors and avoid unnecessary checks; focus on relevant item indices for efficiency.
+Leverage neighbors' information, use normalized weights over capacities for better heuristic quality in MO-MKP.
+Use relevant neighbor weight ratios instead of current item for improved heuristic performance in MO-MKP.

@@ -1,1 +1,0 @@
-Prioritize feasibility, balance density and profit. Simplify calculations and consider neighborhood for efficient MO-MKP heuristics.

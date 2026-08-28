@@ -1,2 +1,0 @@
-1. Normalize weights by capacities and balance profit and weight priorities for improved MO-MKP performance.
-2. Scale weights by capacity dimensions, adjust profit weighting, and focus on profit-driven scoring for more efficient heuristic designs.

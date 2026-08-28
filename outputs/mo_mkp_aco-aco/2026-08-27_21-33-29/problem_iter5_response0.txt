@@ -1,0 +1,16 @@
+```c
+#define MAX_NB_ITEMS 100
+
+double heuristic_v2(int index_item, double weights[dimension][MAX_NB_ITEMS], double capacity[dimension], int nb_voisinage, int voisinage[MAX_NB_ITEMS], double profit[NBITEMS]) {
+    double weight_sum = 0;
+    for (int j = 0; j < dimension; j++) {
+        weight_sum += weights[j][index_item];
+    }
+    
+    if (weight_sum == 0) {
+        return 0;
+    }
+    
+    return profit[index_item] / weight_sum;
+}
+```

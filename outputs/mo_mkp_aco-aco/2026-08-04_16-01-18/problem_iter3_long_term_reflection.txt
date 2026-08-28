@@ -1,1 +1,0 @@
-Balance local and global factors, considering density, neighbors, and multi-dimensions to create effective heuristics for MO-MKP.

@@ -1,0 +1,4 @@
+1. Utilize neighboring item insights for accurate estimates.
+2. Introduce custom factors for additional constraints.
+3. Focus on balancing weight-profit ratios effectively.
+4. Prioritize simplicity, meaningful calculations, and stable solutions.

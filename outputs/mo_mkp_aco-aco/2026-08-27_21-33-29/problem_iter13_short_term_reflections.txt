@@ -1,0 +1,6 @@
+Utilize direct computation of neighbors over dimension with profit-to-weight ratio for efficient heuristics.
+Simplify heuristic calculations, avoid unnecessary loops; focus on direct computation to improve efficiency.
+Prioritize single efficient computation over nested loops for MO-MKP heuristics.
+Leverage available capacity efficiently, prioritize simplicity, avoid unnecessary loops.
+Avoid unnecessary loops and calculations; prioritize direct and efficient computation for better heuristic efficiency.
+Leverage direct calculations on relevant neighbors for efficient heuristic estimation.

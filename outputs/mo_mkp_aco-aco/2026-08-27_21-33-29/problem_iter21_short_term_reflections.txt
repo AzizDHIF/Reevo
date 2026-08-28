@@ -1,0 +1,6 @@
+Avoid redundant computations, normalize variables early, and consider nonlinear transformations for better heuristics.
+Normalize weights before combining, avoid potential division by small values.
+Add a small non-zero value for division stability, handle small h for division, and consider ratio transformations.
+Utilize additive nature over multiplicative in heuristic design for improved performance.
+Avoid unnecessary calculations, reuse intermediate results, initialize division tolerant value.
+Normalize weights first, then compute profit, avoiding multiple division operations.

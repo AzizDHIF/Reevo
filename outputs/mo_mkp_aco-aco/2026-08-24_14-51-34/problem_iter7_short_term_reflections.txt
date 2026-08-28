@@ -1,4 +1,0 @@
-Incorporate penalization for exceeding capacity, focus on valid weight contribution, balance weight and profit factors efficiently.
-Use ratios instead of differences and balance factors dynamically to improve multi-objective heuristic performance.
-Consider balancing penalty factors and utilizing ratio-based metrics for better heuristics in MO-MKP.
-Include capacity check, penalize exceeding weights, balance weight and profit factors, and avoid unnecessary computations.

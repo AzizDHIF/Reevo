@@ -1,4 +1,0 @@
-Simplify calculations, prioritize feasibility.
-Simplify and balance feasibility, profitability, and neighborhood factors.
-Simplify and prioritize capacity checks.
-Simplify calculations, prioritize feasibility, and consider neighborhood effects.

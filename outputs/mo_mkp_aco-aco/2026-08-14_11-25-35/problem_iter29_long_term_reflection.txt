@@ -1,1 +1,0 @@
-Prioritize feasibility, balance density, profit, and capacity. Consider neighborhood quality and capacity impact for efficient and stable MO-MKP heuristics.

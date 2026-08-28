@@ -1,4 +1,0 @@
-Simplify and prioritize constraints.
-Prioritize constraint satisfaction and simplify calculations.
-Prioritize capacity, simplify calculations.
-Prioritize constraint satisfaction and simplify calculations.

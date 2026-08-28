@@ -1,1 +1,0 @@
-Prioritize item fit, minimize conflicts, and consider capacity pressure and sparsification. Simplify calculations, focusing on local optimization and conflict avoidance to design efficient MO-MKP heuristics.

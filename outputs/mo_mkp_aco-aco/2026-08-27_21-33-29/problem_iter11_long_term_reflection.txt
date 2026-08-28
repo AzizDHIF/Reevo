@@ -1,0 +1,1 @@
+Prioritize profit-to-weight ratios, leverage precomputed neighbors efficiently, sparsify solution space, focus on feasible solutions, simplify logic, reduce redundant calculations, and minimize branching for efficient heuristic design.

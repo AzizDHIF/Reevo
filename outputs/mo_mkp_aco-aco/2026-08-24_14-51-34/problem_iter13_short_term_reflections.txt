@@ -1,4 +1,0 @@
-Encourage high-weight items if capacity is not violated; avoid multiple constraint violations.
-Consider handling capacity violations before computing weight contribution for improved performance.
-Emphasize feasibility first, simplify calculations, and balance weight and profit factors for better heuristics.
-Utilize capacity violation handling directly in heuristic calculation to improve heuristics for MO-MKP.

@@ -1,4 +1,0 @@
-Avoid unnecessary computations, simplify calculations, prioritize efficiency over complexity, and consider direct relevance to objectives.
-Consider normalized weights by capacity and prioritize maintaining feasibility; simplify calculations and handling edge cases intuitively.
-Leverage algorithm-specific insights, adjust importance factors, balance computations, and emphasize key calculations.
-Emphasize proper scaling, relative importance of elements, and consider combinatorial aspects for effective heuristics.

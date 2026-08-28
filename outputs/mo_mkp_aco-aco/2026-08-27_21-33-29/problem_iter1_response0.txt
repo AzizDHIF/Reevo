@@ -1,0 +1,19 @@
+```c
+double heuristic_v2(int index_item, double weights[dimension][NBITEMS], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS], double profit[NBITEMS] ){
+    double h_w = 0, h_p = 0, heur = 0;
+    
+    for(int j=0; j<dimension; j++) {
+        h_w += weights[j][voisinage[index_item]] / capacity[j];
+    }
+    
+    h_w /= dimension;
+    
+    for(int i=0; i<nb_voisinage; i++) {
+        int neighbor = voisinage[i];
+        double neighbor_ratio = weight_w > 0 ? (weights[0][neighbor] / weight_w) : 0.0;
+        heur += fmax(profit[neighbor] / weight_p, 0.0) * neighbor_ratio;
+    }
+    
+    return fmin(heur, 2.0);
+}
+```

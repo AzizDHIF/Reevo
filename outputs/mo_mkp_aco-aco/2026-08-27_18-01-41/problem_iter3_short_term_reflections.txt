@@ -1,0 +1,6 @@
+Focus on balancing exploration and exploitation; incorporate sparsifying factors wisely for better heuristics.
+Use a balanced mix of weight and profit factors, considering capacity overflow, without unnecessary complexity.
+Prioritize consistent heuristics over highly variable ones to improve solution quality and convergence speed.
+Focus on decisive elements, simplify computations, and maintain a clear decision threshold for efficient heuristic design.
+Utilize neighbors directly, consider sparsity handling, and combine factors efficiently for better heuristic performance.
+Emphasize neighbor selection and profit enhancement for improved heuristic performance.

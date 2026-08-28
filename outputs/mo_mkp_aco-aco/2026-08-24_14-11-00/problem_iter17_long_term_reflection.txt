@@ -1,1 +1,0 @@
-Prioritize simplicity and efficiency in heuristics for MO-MKP by avoiding unnecessary calculations, robustly handling edge cases, and streamlining weight-normalization processes. Update variables selectively, avoid division by zero, and ensure readability for improved performance.

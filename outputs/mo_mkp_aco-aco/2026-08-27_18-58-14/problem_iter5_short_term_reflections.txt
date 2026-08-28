@@ -1,0 +1,6 @@
+Emphasize diversity in neighbor evaluation, focus on outliers, balance ratio weights.
+Use direct neighboring item information; avoid unnecessary computations; prioritize significant factors and reduce conditional complexity.
+Prioritize balanced consideration of weight and profit components; avoid singular focus on just one aspect.
+Utilize early pruning based on constraints, balance weight and profit components, and reduce redundant calculations.
+Balance weight and profit contributions, consider non-zero divisor edge cases, and use weighted components in heuristics.
+Leverage neighbor information efficiently to compute promising heuristics; avoid unnecessary calculations and conditions for better performance.

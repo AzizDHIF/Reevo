@@ -1,4 +1,0 @@
-Avoid divisions by near-zero values, simplify calculations.
-Simplify calculations, reduce variables.
-Avoid division by near-zero values, simplify calculations.
-Simplify calculations, focus on key factors.

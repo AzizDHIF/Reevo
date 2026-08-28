@@ -1,1 +1,0 @@
-Combine metrics, apply sparsification, and simplify calculations, prioritizing capacity constraints and avoiding divisions by zero to design robust MO-MKP heuristics.

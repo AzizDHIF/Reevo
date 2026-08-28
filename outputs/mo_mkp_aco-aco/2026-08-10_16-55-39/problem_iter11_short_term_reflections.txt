@@ -1,4 +1,0 @@
-Prioritize feasibility, consider dimension-wise ratios.
-Simplify calculations, prioritize constraints.
-Simplify calculations, prioritize feasibility checks.
-Simplify calculations, avoid thresholds, and incorporate neighborhood effects wisely.

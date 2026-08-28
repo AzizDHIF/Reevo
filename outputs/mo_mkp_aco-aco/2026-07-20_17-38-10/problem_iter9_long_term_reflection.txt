@@ -1,1 +1,0 @@
-Prioritize capacity, balance objectives, and simplify using averages and neighbor context to create effective heuristics.

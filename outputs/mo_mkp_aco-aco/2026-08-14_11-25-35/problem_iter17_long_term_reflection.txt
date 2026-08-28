@@ -1,1 +1,0 @@
-Prioritize feasibility, balance density and profit, and simplify calculations to design efficient heuristics for MO-MKP.

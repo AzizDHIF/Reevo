@@ -11,7 +11,7 @@
 
 
 /*#define NBANTS 100*/
-#define FREQUANCY 40
+#define FREQUANCY 80
 
 
 #ifndef M_PI
@@ -34,7 +34,7 @@ int nbants=20;
 double rhot=0.90;
 int alphat=1;
 /*const int nbants=100;*/
-int maxcycle=202;
+int maxcycle=800;
 /*double tmin=0.5;*/
 double tmax=1.0 , beta=10.0;
 int tinit=1;

@@ -1,4 +1,0 @@
-Consider capacity and neighbor influences.
-Prioritize capacity ratio and neighbors.
-Simplify calculations, prioritize key factors.
-Prioritize capacity ratio and profit.

@@ -1,4 +1,0 @@
-Simplify, focus on density and pressure.
-Consider utilization ratios and neighbor profits.
-Simplify, focus on key factors, and avoid unnecessary computations.
-Consider utilization ratios and max capacities.

@@ -1,2 +1,0 @@
-1. Sparsify elements while maintaining balance between weight and profit and normalize profit for enhanced performance.
-2. Prioritize item relevance, adapt weight/profit ratio dynamically, and simplify computations to improve efficiency in solving MO-MKPs.

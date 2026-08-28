@@ -1,1 +1,0 @@
-Combine item density, neighborhood similarity, and capacity effects, using relative differences, and incorporate diversity metrics for improved heuristics. Simplify calculations to enhance efficiency.

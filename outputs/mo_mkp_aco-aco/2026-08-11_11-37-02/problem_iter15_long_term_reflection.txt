@@ -1,1 +1,0 @@
-Prioritize constraints, simplify calculations, and balance factors. Focus on capacity and profit ratios, feasibility, and neighbor comparisons to design effective heuristics.

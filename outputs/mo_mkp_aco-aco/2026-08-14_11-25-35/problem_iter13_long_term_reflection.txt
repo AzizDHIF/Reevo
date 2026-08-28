@@ -1,1 +1,0 @@
-Prioritize feasibility, density, and neighborhood, simplifying calculations to balance objectives and leverage key factors for effective heuristics.

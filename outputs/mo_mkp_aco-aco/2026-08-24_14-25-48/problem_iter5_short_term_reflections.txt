@@ -1,4 +1,0 @@
-Consider focusing on item weight directly rather than indirectly through neighbor weights for better heuristic performance.
-Focus on direct item evaluation rather than neighbor ratios for efficient heuristic design in MO-MKP.
-Consider the impact of normalization and focus on item-specific calculations for improved heuristic performance.
-Emphasize item-specific calculations directly on item's weight and profit for better heuristic function efficiency.

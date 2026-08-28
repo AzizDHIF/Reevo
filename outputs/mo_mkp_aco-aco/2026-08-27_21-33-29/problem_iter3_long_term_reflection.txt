@@ -1,0 +1,1 @@
+Combine profit-to-weight ratio, sparsification, and efficient factor utilization for promising item selection in MO-MKP. Emphasize heuristic simplicity, key factor importance, and relation to objectives for effective decision-making.

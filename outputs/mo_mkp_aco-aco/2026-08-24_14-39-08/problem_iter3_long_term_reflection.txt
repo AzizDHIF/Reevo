@@ -1,3 +1,0 @@
-1. Prioritize relative contributions over absolute values for factors in heuristic design.
-2. Sparsify by setting unpromising elements to zero; account for weight to capacity ratios.
-3. Emphasize stability, handle edge cases, simplify expressions, and balance complexity.

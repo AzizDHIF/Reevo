@@ -1,4 +1,0 @@
-Consider relative profits and neighbor Utilization.
-Consider normalization and relative metrics.
-Focus on relative metrics and neighbor utilization.
-Simplify, focus on key metrics.

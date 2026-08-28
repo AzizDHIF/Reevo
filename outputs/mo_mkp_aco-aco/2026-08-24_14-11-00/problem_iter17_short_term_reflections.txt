@@ -1,5 +1,0 @@
-1. Avoid unnecessary calculations and conditions for efficiency.
-2. Ensure robust handling of edge cases in heuristic designs.
-Consider avoiding unnecessary computations, utilizing available information efficiently, and enhancing readability for better heuristics.
-Avoid unnecessary computations; prioritize direct use of relevant inputs. Be cautious with division by zero.
-Consider efficiency, handle edge cases, and adjust update strategy for better heuristic design.

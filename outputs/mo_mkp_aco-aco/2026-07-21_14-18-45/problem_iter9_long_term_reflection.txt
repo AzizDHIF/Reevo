@@ -1,1 +1,0 @@
-Prioritize key factors, density, and capacity. Apply soft thresholds to improve heuristic accuracy and efficiency in MO-MKP.

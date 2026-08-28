@@ -1,0 +1,3 @@
+1. Normalize weights, prioritize capacity checks, and balance ratio weights.
+2. Emphasize neighbor feasibility, utilize neighboring item info, and handle potential divisions by zero.
+3. Focus on early pruning, efficient computations, and normalization for improved heuristic performance.

@@ -1,0 +1,7 @@
+1. Consider neighbors directly for more accurate estimates.
+2. Introduce custom factors to incorporate additional constraints.
+Utilize valid neighbor index (voisinage) directly and incorporate custom factors effectively for improved heuristic diversification.
+Emphasize adjusted ratios, consider utilization, and density metrics for better heuristic design efficiency in MO-MKP.
+Focus on simplicity, better variable naming, and meaningful calculations for heuristic values to improve heuristic performance.
+Focus on balancing weight and profit ratios, properly consider weight utilization, and optimize profit density calculations.
+Focus on simplifying and balancing key factors like weight utilization, profit density, and custom factors effectively.

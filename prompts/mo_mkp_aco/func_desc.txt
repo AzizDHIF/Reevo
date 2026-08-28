@@ -2,3 +2,4 @@ Suppose 'NBITEMS' indicates the scale of the problem, and `dimension' is the dim
 The parameter capacity contains the remaining capacity of the current partial solution for each dimension. It is updated by the algorithm before each call to heuristic; the heuristic must not recompute it.
 The parameters nb_voisinage and voisinage are already computed by the algorithm. The heuristic should only use the first nb_voisinage entries of voisinage; it must not recompute or search for neighbors.
 Do not redeclare the parameter types
+Constrain the LLM explicitly: state the required complexity bound (e.g. "O(dimension) only, no loops over NBITEMS, no sorting, no dynamic allocation, no recursion")

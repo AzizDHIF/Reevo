@@ -1,0 +1,1 @@
+Prioritize additive relationships, normalize early, apply nonlinear transformations, handle small values, reuse results, utilize additive nature, and normalize before combining for better MO-MKP heuristics.

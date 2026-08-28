@@ -1,0 +1,6 @@
+Minimize redundant calculations, simplify logic, and reduce branching for efficient heuristic design.
+Avoid unnecessary conditions and calculations, focus on the direct relationship between profit and weighted sum.
+Maximize the use of precomputed neighbors and reduce unnecessary computations for efficient MO-MKP heuristic design.
+Leverage precomputed neighbors efficiently and minimize unnecessary calculations for improved heuristic performance.
+Avoid unnecessary computations, utilize precomputed neighbors, and simplify calculations to improve heuristic efficiency.
+Prioritize profit-to-weight ratio, efficiently utilize neighbor data, sparsify, and focus on feasible solutions.

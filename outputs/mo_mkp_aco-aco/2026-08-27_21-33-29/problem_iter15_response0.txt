@@ -1,0 +1,16 @@
+```c
+double heuristic_v2(int index_item, double weights[dimension][NBITEMS], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS], double profit[NBITEMS] ) {
+    double h = 0.001; // Initialize a small non-zero value to prevent division by zero
+    double promising_ratio = 0;
+    for (int j = 0; j < dimension; j++) {
+        if (capacity[j] <= 0) {
+            return 0; // Early termination if capacity is exhausted or invalid
+        }
+        h += weights[j][voisinage[index_item]] / capacity[j];
+    }
+    
+    promising_ratio = profit[voisinage[index_item]] / h;
+
+    return promising_ratio <= 0 ? 0 : promising_ratio; // Avoid negative promising ratios
+}
+```

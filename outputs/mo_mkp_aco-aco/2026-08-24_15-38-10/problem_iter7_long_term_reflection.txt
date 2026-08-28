@@ -1,3 +1,0 @@
-- Prioritize impactful features and item-specific ratios.
-- Emphasize efficiency through simplified, meaningful calculations.
-- Consider individual contributions and capacity constraints for informative heuristics in MO-MKP.

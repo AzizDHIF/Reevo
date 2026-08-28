@@ -1,6 +1,0 @@
-1. Simplify calculations; reduce unnecessary variables.
-2. Focus on key terms; remove redundant normalization.
-Simplify normalization and incorporate practical constraints for more accurate and efficient heuristic evaluation.
-1. Normalize weights directly in the calculation loop.
-2. Ensure capacity handling is efficient and updated correctly.
-Normalize weights, consider total weight, and incorporate capacity constraints for better heuristic performance.

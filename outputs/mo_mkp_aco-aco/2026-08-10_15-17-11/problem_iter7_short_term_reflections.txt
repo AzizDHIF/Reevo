@@ -1,4 +1,0 @@
-Simplify, focus on key factors, and sparsify calculations.
-Prioritize density, pressure, and utility factors.
-Incorporate neighbor, capacity, and utilization factors.
-Consider neighbors' capacities and weights.

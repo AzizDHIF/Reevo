@@ -1,4 +1,0 @@
-Combine density, proximity, and penalty factors.
-Simplify, combine meaningful factors.
-Simplify calculations, prioritize item density, and introduce penalty functions.
-Combine density, proximity, and penalties.

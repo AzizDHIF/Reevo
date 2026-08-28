@@ -1,0 +1,4 @@
+1. Balance exploration and exploitation effectively for better heuristics.
+2. Prioritize consistency over variability for improved convergence.
+3. Simplify computations and set clear decision thresholds.
+4. Emphasize neighbor selection and profit enhancement for efficiency.

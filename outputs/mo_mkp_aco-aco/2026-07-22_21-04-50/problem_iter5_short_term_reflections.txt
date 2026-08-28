@@ -1,4 +1,0 @@
-Prioritize density, consider proximity.
-Combine density, proximity, and penalties for better heuristics.
-Prioritize density, simplify calculations, and apply penalties.
-Prioritize density, balance factors, and penalize infeasible items.

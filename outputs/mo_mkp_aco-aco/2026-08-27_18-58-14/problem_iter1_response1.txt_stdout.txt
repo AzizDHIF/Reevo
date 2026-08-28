@@ -1,0 +1,15 @@
+[*] Running ...
+[*] Mood: train
+[*] compiling ... 
+gpt.c: In function 'heuristic':
+gpt.c:5:12: error: 'profits' undeclared (first use in this function); did you mean 'profit'?
+    5 |         h+=profits[voisinage[index_item]] * weights[j][voisinage[index_item]] / (0.001 + (float)capacity[j]);
+      |            ^~~~~~~
+      |            profit
+gpt.c:5:12: note: each undeclared identifier is reported only once for each function it appears in
+Traceback (most recent call last):
+  File "C:\Reevo/problems/mo_mkp_aco/eval.py", line 384, in <module>
+    compile("WeightACO_train_100items.c",f"WeightACO_train_100items_{id_response}.exe")
+  File "C:\Reevo/problems/mo_mkp_aco/eval.py", line 67, in compile
+    raise RuntimeError("Erreur de compilation")
+RuntimeError: Erreur de compilation

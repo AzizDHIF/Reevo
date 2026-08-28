@@ -1,0 +1,20 @@
+```c
+double heuristic_v2(int index_item, double weights[dimension][NBITEMS], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS], double profit[NBITEMS]) {
+    double w_factor = 0.7; // Weight factor
+    double p_factor = 0.3; // Profit factor
+    double h = 0;
+
+    for (int j = 0; j < dimension && h < 1; j++) {
+        h += weights[j][voisinage[index_item]] / capacity[j];
+    }
+
+    if (h >= 1) {
+        return 0; // Zero value if current item overflows capacity
+    }
+
+    double neighbor_score = profit[voisinage[index_item]] / h;
+
+    // Apply prioritized factors to determine final score
+    return p_factor * neighbor_score;
+}
+```

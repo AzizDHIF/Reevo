@@ -1,0 +1,17 @@
+```c
+double heuristic_v2(int index_item, double weights[dimension][NBITEMS], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS], double profit[NBITEMS] ){
+    double h=0;
+    for(int j=0;j<dimension;j++){
+        h += weights[j][voisinage[index_nb]]/capacity[j]; 
+    }
+    
+    // Calculate a promising value based on multiple factors
+    double factor1 = profit[voisinage[index_item]]/h;
+    double factor2 = 1 / weights[j][index_item];
+    
+    // Increase the effect of factor2 and detect unpromising combinations
+    if (factor2 < 0.1) return 0;
+    
+    return factor1 * factor2;
+}
+```

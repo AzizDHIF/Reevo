@@ -1,3 +1,0 @@
-1. Integrate capacity constraints and favor feasible solutions.
-2. Streamline computations, prioritize relevant variables, and focus on efficiency.
-3. Incorporate multi-dimensional aspects and balance profit-weight ratios effectively.

@@ -1,4 +1,0 @@
-Consider incorporating capacity constraints, adjusting weights, and favoring feasible solutions for better heuristics.
-Avoid unnecessary computations, prefer concise code, and focus on relevant variables for better performance in heuristics.
-Consider including multiple dimensions in heuristic computations for better performance in MO-MKP.
-Consider the relative ratio between profit and weight for a more effective heuristic in MO-MKP.

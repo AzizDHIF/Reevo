@@ -1,4 +1,0 @@
-Combine capacity and neighborhood information for robust heuristics.
-Consider ratio, neighborhood, and sparsification.
-Combine weights, profits, and neighborhood information effectively.
-Combine proximity, ratio, and profit metrics.

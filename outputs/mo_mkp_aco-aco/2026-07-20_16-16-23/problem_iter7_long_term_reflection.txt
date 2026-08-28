@@ -1,1 +1,0 @@
-Simplify calculations, consider density, neighbor impact, and capacity. Normalize values and weights for a balanced approach.

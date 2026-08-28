@@ -1,3 +1,0 @@
-- Prioritize items with high impact ratios (e.g., profit/weight) in MO-MKP.
-- Utilize item-specific ratios for accurate heuristic selection.
-- Balance complexity and accuracy by combining weight and profit in heuristic calculations.

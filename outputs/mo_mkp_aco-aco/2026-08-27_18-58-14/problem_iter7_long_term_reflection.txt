@@ -1,0 +1,1 @@
+- Emphasize diverse neighbor evaluation and prioritize computations over individual item properties for efficient heuristics in MO-MKP. Balance weight and profit ratios, utilize precomputed data, incorporate early pruning, and leverage weighted components for robust solutions.

@@ -1,1 +1,0 @@
-Combine simplicity, locality, and conflict avoidance, prioritizing item fit and neighborhood conflicts to design efficient heuristics for MO-MKP.

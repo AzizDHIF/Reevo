@@ -1,6 +1,0 @@
-- problem=mo_mkp_aco
-- llm_client=deepseek_spark
-- init_pop_size=4
-- pop_size=4
-- max_fe=25
-- timeout=200

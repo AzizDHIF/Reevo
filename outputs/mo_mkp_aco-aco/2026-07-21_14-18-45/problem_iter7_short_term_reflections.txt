@@ -1,4 +1,0 @@
-Prioritize key factors, soften thresholds.
-Prioritize density, apply soft thresholds.
-Check division by zero, simplify thresholds, and remove randomness.
-Avoid division by zero, simplify thresholds.

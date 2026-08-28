@@ -1,1 +1,0 @@
-Prioritize capacity, balance profit, and simplify using averages and sparsity. Incorporate average weights, profits, item impact, and neighbors' context to reduce calculations and avoid penalties.

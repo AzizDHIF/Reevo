@@ -1,4 +1,0 @@
-Emphasize both weight and profit contributions in the heuristic calculation for more robust performance.
-Use a balanced combination of weight and profit factors for promising scores in heuristic functions.
-Prioritize weight constraint violation handling and balance profit and weight in the heuristic calculation for MO-MKP.
-Reward profitable items with less weight and penalize exceeding capacity for better heuristic performance.

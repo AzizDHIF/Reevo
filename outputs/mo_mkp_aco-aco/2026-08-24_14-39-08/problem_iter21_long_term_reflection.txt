@@ -1,4 +1,0 @@
-1. Emphasize weight-profit trade-off with clear scoring factors.
-2. Prioritize efficient weight handling and profit balance adjustments.
-3. Consider combined impact of all dimensions and neighboring items.
-4. Focus on proportional weight usage, profit enhancement, and simple calculations.

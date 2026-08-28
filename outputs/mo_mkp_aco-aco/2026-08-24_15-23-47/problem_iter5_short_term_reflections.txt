@@ -1,4 +1,0 @@
-Consider incorporating multiple factors in the heuristic, balancing weight ratios and objective values for better performance.
-Consider relevance of item to available capacity, maintain balance between objectives, and avoid unnecessary computations for better heuristics.
-Consider balancing multiple factors and handling edge cases efficiently for better heuristic design.
-Consider balancing contributions of weights and capacities for better heuristic performance in MO-MKP.

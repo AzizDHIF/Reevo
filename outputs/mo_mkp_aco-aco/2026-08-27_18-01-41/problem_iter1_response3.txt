@@ -1,0 +1,24 @@
+```c
+double heuristic_v2(int index_item, double weights[dimension][NBITEMS], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS], double profit[NBITEMS] ){
+    double h=0, promising_threshold = 0.2;
+    double weight_capacity_ratio = 0;
+    double profit_density = 0;
+
+    for(int j=0; j<dimension; j++){
+        h += weights[j][voisinage[index_item]] / capacity[j];
+    }
+
+    if(h == 0){
+        return 0; // Setting unpromising elements to zero
+    }
+
+    weight_capacity_ratio = h / dimension;
+
+    if(weight_capacity_ratio > promising_threshold){
+        profit_density = profit[voisinage[index_item]] / h;
+        return profit_density;
+    }
+
+    return 0; // Setting unpromising elements to zero
+}
+```

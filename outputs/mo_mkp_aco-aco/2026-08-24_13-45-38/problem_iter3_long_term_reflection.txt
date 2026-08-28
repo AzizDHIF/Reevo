@@ -1,3 +1,0 @@
-1. Normalize inputs, prioritize diverse factors, and sparsify heuristics efficiently.
-2. Emphasize iterative neighbor calculations and consistent, informative item weight computations.
-3. Avoid division by zero, consider multiple neighbors, and focus on overall performance for better heuristic design.

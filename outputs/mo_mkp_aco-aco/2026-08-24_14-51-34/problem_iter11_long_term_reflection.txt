@@ -1,2 +1,0 @@
-1. Prioritize feasible solutions, penalize violations, and balance weight ratios effectively for improved MO-MKP heuristics.
-2. Emphasize efficient neighbor utilization, minimize duplications, and carefully weigh factors to adapt calculations wisely for superior performance.

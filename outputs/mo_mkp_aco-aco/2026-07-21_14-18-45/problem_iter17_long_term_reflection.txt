@@ -1,1 +1,0 @@
-Prioritize density, simplify, and apply adaptive thresholds to key factors like capacity and sparsity for efficient MO-MKP heuristics.

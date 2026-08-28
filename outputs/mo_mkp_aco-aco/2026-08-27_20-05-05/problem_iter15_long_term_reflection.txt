@@ -1,0 +1,1 @@
+Focus on balancing weight-profit ratios effectively, utilize neighboring item insights, and normalize custom factors for improved MO-MKP heuristic performance. Avoid unnecessary calculations and prioritize balancing objectives for stable solutions.

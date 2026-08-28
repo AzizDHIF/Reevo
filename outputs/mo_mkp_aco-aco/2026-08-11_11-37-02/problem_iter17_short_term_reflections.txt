@@ -1,4 +1,0 @@
-Simplify calculations, prioritize constraints.
-Simplify calculations, balance factors.
-Simplify calculations, prioritize constraints.
-Prioritize constraints, simplify calculations.

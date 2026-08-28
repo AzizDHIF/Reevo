@@ -1,4 +1,0 @@
-Simplify calculations, remove redundant factors.
-Prioritize fit and conflict over weighted sums.
-Consider capacity pressure and sparsification factors.
-Incorporate capacity pressure and sparsification factors.

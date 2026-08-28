@@ -1,0 +1,7 @@
+Use relevant neighbors' information directly in heuristic computation for improved performance; balance multiple components efficiently.
+Prioritize neighbor computation over individual item properties for better heuristic efficiency.
+Use precomputed neighbor's data directly for heuristics; consider the impact of constraints in objective evaluation.
+Balance between profit and weight ratio, check capacity early, and avoid unnecessary computations for better heuristics.
+- Consider early pruning based on constraints.
+- Utilize weighted combination of weight and profit components.
+Consider balancing weight and profit components, handle division by zero, and avoid possible negative returns.

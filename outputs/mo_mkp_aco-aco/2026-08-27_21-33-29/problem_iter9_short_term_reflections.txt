@@ -1,0 +1,6 @@
+Avoid unnecessary intermediate computations, optimize division operations, focus on simplicity and readability.
+Prioritize profit-to-weight ratio, efficiently update heuristic, sparsify and focus on feasible solutions.
+Leverage feasibility check early, avoid unnecessary calculations, focus on ratio stability and optimize for realizable solution.
+Utilize early termination and efficient calculation for improved heuristic design.
+Focus on calculating a single metric efficiently from valid neighbors respecting constraints for better heuristics.
+Simplify calculations by avoiding unnecessary loops and computations to improve heuristic efficiency and effectiveness.

@@ -1,1 +1,0 @@
-Combine neighborhood, utilization, and profitability metrics to evaluate item selection, and sparsify heuristics by zeroing unpromising elements.

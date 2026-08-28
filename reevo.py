@@ -217,7 +217,7 @@ class ReEvo:
             # Store objective value for each individual
             if traceback_msg == '': # If execution has no error
                 try:
-                    individual["obj"] = float(stdout_str.split('\n')[-2]) 
+                    individual["obj"] = -float(stdout_str.split('\n')[-2]) 
                     individual["exec_success"] = True
                 except:
                     population[response_id] = self.mark_invalid_individual(population[response_id], "Invalid std out / objective value!")

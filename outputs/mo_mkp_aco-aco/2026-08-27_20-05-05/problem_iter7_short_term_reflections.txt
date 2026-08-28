@@ -1,0 +1,6 @@
+Emphasize remaining capacity, consider neighbor's attributes, utilize effective factors, minimize unnecessary computations.
+Utilize normalized ratios of weights and profits, balance importance weights, and ensure meaningful ratio combinations.
+Prioritize efficient feature normalization and consider custom factors for better heuristic designs.
+Prioritize profit density over weight capacity ratio; balance weights and profits effectively in calculations.
+- Consider incorporating neighbor information and custom factors for better heuristic performance.
+Focus on meaningful ratio or density measures over individual components with correct weightings.

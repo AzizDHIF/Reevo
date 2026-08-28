@@ -1,0 +1,22 @@
+```c
+double heuristic_v2(int index_item, double weights[dimension][NBITEMS], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS], double profit[NBITEMS]) {
+    double h = 1; // Initialization for avoiding division by zero
+    for (int j = 0; j < dimension; j++) {
+        h += weights[j][voisinage[index_item]] / capacity[j];
+    }
+    double first_factor = profit[voisinage[index_item]] / h;
+    
+    double second_factor = 1;
+    for (int i = 0; i < nb_voisinage; i++) {
+        if (i != index_item) {
+            double temp_h = 1;
+            for (int j = 0; j < dimension; j++) {
+                temp_h += weights[j][voisinage[i]] / capacity[j];
+            }
+            second_factor *= 1.0 / (1 + temp_h);
+        }
+    }
+    
+    return first_factor * second_factor;
+}
+```

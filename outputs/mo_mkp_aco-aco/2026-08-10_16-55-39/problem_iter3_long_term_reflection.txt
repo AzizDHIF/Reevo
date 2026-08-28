@@ -1,1 +1,0 @@
-Simplify heuristics by prioritizing key factors like density and profit ratios, and sparsify by eliminating unpromising items to improve efficiency.

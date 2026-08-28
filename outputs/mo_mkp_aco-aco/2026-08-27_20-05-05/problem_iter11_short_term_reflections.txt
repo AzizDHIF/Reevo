@@ -1,0 +1,8 @@
+Avoid simplistic heuristics; consider multi-dimensional factors, effective resource utilization, and balanced objective trade-offs for better performance.
+Leverage direct capacity ratios, custom factors, and profit effectiveness to enhance heuristic performance efficiently.
+1. Prioritize stability in profit and weight utilization.
+2. Include custom factors to balance conflicting objectives.
+3. Leverage efficiency with existing computed values.
+Integrate additional problem-specific factors, prioritize efficient resource usage, and ensure outputs reflect solution quality accurately.
+Emphasize profit density over weight ratio, normalize weight difference, and balance profit-weight trade-off.
+Utilize ratios of normalized values and dimension-wise calculations efficiently for better heuristics.

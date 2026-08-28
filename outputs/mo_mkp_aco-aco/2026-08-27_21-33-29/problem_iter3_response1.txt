@@ -1,0 +1,24 @@
+```c
+double heuristic_v2(int index_item, double weights[dimension][NBITEMS], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS], double profit[NBITEMS]) {
+    double h = 0;
+    double max_ratio = 0;
+
+    for (int j = 0; j < dimension; j++) {
+        h += weights[j][voisinage[index_item]] / capacity[j];
+    }
+
+    // Calculate profit-to-weight ratio and find the maximum
+    for (int i = 0; i < nb_voisinage; i++) {
+        double ratio = profit[voisinage[i]] / (weights[j][voisinage[i]] + 1); // Using weight + 1 to avoid division by zero
+        if (ratio > max_ratio) {
+            max_ratio = ratio;
+        }
+    }
+
+    // Normalize the heuristic value by the maximum ratio
+    if (max_ratio == 0) {
+        return 0; // Ensure no division by zero
+    }
+    return profit[voisinage[index_item]] / (h + max_ratio);
+}
+```

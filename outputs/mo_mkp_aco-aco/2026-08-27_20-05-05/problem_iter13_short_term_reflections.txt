@@ -1,0 +1,6 @@
+Adjust weight and profit ratios based on problem characteristics to improve heuristic performance.
+Focus on simplicity, balance ratio weights, and utilize effective factors over including multiple intermediate calculations.
+Consider incorporating additional factors and custom weights based on problem-specific insights for better performance.
+Focus on normalizing factors, incorporating dimensions equally, and balancing weights and profits effectively for better performance.
+_Simplify calculations, balance weight/profit ratios, consider overall effectiveness for better heuristics._
+Emphasize neighbor contribution, balance weight and profit ratios dynamically for better heuristics.

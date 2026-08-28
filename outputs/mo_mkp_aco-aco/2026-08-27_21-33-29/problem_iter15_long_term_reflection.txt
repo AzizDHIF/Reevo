@@ -1,0 +1,1 @@
+Prioritize additive relationships over multiplication for efficiency in MO-MKP heuristics. Utilize precomputed neighbors effectively, focus on valid indices to avoid errors, and consider early termination for promising solutions. Avoid numerical instability by summing ratios and handle edge cases to improve heuristic performance.

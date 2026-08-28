@@ -1,4 +1,0 @@
-Focus on simplifying calculations, avoiding redundancies, and adjusting weight factors for better performance.
-Focus on readability, modularity, and consistent weighting for multiple objectives in heuristics design.
-Emphasize simplicity, avoid redundant computations, consider proportionality weights, and balance objective contributions effectively.
-1. Avoid unnecessary computations and eliminate redundant variables to improve heuristic efficiency.

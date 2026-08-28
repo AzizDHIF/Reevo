@@ -1,0 +1,1 @@
+- Prioritize additive relationships and handle edge cases for efficiency in MO-MKP heuristics. Normalize scales, early termination and prevent division by small or zero values for improved performance.

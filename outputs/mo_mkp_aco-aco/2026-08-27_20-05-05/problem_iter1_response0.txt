@@ -1,0 +1,20 @@
+```c
+double heuristic_v2(int index_item, double weights[dimension][NBITEMS], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS], double profit[NBITEMS] ){
+    double h=0;
+    for(int j=0;j<dimension;j++){
+			h=h+weights[j][voisinage[index_item]]/capacity[j]; 
+	}
+	
+	double factor1 = profit[voisinage[index_item]] / h;
+	
+	// Combine multiple factors to determine the promise of selecting the item
+	double factor2 = capacity[0] - weights[0][index_item]; // Some custom factor combining weight and capacity
+
+	// Sparsify by setting unpromising elements to zero
+	if (factor2 < 0) {
+		return 0.0;
+	}
+	
+	return factor1 * factor2;
+}
+```

@@ -1,4 +1,0 @@
-Simplify, prioritize constraints, and use neighbor factors.
-Simplify, prioritize constraints, and sparsify calculations.
-Simplify calculations, prioritize constraints.
-Simplify and prioritize constraint satisfaction.

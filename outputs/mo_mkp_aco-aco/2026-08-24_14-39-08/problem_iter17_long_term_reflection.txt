@@ -1,1 +1,0 @@
-Balance weight and profit trade-offs effectively, penalize weight breaches carefully, prioritize profit increments, leverage neighbor comparisons, and simplify code for better heuristic design in MO-MKP.

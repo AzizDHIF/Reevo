@@ -1,0 +1,3 @@
+1. Utilize neighboring item indices and factors like remaining capacity for improved heuristics.
+2. Normalize components, balance weights of profit and weight, avoid unnecessary computations for efficiency.
+3. Focus on neighbor impact analysis, adjust weight-profit balance efficiently, and simplify logic for better performance.

@@ -1,1 +1,0 @@
-Focus on key factors: density, pressure, utilization ratio, and utility to simplify heuristics for efficient item selection in MO-MKP.

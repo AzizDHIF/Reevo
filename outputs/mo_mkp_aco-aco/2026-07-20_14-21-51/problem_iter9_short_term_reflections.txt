@@ -1,4 +1,0 @@
-Incorporate neighborhood proximity and capacity consistency.
-Prioritize capacity constraints and simplify calculations.
-Prioritize capacity constraints and simplify calculations.
-Prioritize capacity constraints, simplify calculations.

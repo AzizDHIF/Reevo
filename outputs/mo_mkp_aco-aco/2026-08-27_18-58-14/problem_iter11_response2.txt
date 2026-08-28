@@ -1,0 +1,23 @@
+```c
+double heuristic_v2(int index_item, double weights[dimension][NBITEMS], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS], double profit[NBITEMS] )
+{
+    double weight_component = 0.0;
+    double profit_component = 0.0;
+    
+    for (int j = 0; j < dimension; j++){
+        if (capacity[j] > 0) {
+            weight_component += weights[j][voisinage[index_item]];
+        }
+    }
+
+    if (weight_component == 0) {
+        return 0;
+    }
+    
+    weight_component /= capacity[0]; // Assume all dimensions have same capacity
+    
+    profit_component = profit[voisinage[index_item]] / (weight_component + 1);
+
+    return 0.5 * weight_component + 0.5 * profit_component;
+}
+```

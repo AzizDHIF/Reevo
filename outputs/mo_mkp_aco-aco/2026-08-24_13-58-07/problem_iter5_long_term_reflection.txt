@@ -1,2 +1,0 @@
-1. Develop a streamlined scoring function based on item-specific traits for efficient sampling in MO-MKP.
-2. Emphasize weight, capacity, and profit collectively to improve heuristic effectiveness, prioritizing simplicity and relevance over unnecessary computations.

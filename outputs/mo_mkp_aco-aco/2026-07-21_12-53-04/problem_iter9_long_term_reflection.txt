@@ -1,1 +1,0 @@
-Prioritize relative profit, neighbor utilization, and consider neighborhood to design better MO-MKP heuristics.

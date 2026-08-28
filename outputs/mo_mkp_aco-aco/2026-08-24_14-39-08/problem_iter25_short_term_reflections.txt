@@ -1,4 +1,0 @@
-Consider normalizing weights by capacity dimensions to prevent favoring items based solely on a single dimension.
-Consider scaling weights by capacity for combined comparison and adjust weight factor accordingly.
-Increase emphasis on profit by adjusting profit_factor and weight_factor ratio for better heuristic performance.
-Increase profit factor weight, favoring higher profits more in scoring.

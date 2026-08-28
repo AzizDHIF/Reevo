@@ -1,4 +1,0 @@
-Combine density, capacity, and neighbourhood factors with soft thresholds.
-Prioritize density, capacity, and sparsity with thresholds.
-Consider density, capacity, and neighborhood pressure.
-Prioritize density, apply soft thresholds.

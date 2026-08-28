@@ -1,5 +1,0 @@
-Normalize weights and consider capacity, balance profit and weight factors, handle potential division by zero.
-
-Utilize normalized weights, consider specific weights ratio, and avoid redundant computation for better heuristics.
-Utilize ratios directly in heuristic calculations, considering weight distribution equally and specific weight relationships.
-Use the neighbor index directly for weights and profit calculation to avoid additional lookups and improve performance.

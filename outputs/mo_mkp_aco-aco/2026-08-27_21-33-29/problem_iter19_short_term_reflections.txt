@@ -1,0 +1,6 @@
+Utilize the available capacity information efficiently and avoid unnecessary computations for improved heuristics.
+Avoid unnecessary calculations (e.g., combined_factor) and ensure division handling for better heuristic design.
+Normalize before combining in heuristics for better stability. Avoid unnecessary operations to improve performance and clarity.
+Avoid adding arbitrary small values and adjust weight calculations appropriately for better heuristic performance.
+Use weight divide by remaining capacity with small value adjustment. Efficiently combine factors for better promise estimation.
+Normalize profit earlier and frame heuristic in terms of profit ratio for more robust performance.

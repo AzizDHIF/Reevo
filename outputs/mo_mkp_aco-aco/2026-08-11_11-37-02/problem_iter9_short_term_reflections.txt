@@ -1,4 +1,0 @@
-Prioritize constraints, simplify calculations.
-Prioritize constraints, simplify calculations, and sparsify heuristics.
-Prioritize constraint satisfaction, simplify calculations.
-Prioritize constraints, simplify calculations, and use meaningful factors.

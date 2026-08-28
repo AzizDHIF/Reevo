@@ -1,0 +1,15 @@
+```c
+double heuristic_v2(int index_item, double weights[dimension][NBITEMS], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS], double profit[NBITEMS]) {
+    double realizable_ratio = 0;
+    
+    for (int j = 0; j < dimension; j++) {
+        if (weights[j][voisinage[index_item]] <= capacity[j]) {
+            realizable_ratio += (double)weights[j][voisinage[index_item]] / capacity[j];
+        } else {
+            return 0;
+        }
+    }
+    
+    return profit[voisinage[index_item]] / realizable_ratio;
+}
+```

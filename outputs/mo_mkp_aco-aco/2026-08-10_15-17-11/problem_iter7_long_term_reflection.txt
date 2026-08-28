@@ -1,1 +1,0 @@
-Prioritize density, pressure, and utility, incorporating neighbor and capacity factors to simplify and sparsify item selection in MO-MKP.

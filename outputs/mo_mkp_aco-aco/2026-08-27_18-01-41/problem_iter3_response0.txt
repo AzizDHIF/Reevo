@@ -1,0 +1,19 @@
+```c
+double heuristic_v2(int index_item, double weights[dimension][NBITEMS], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS], double profit[NBITEMS]) {
+    double w_factor = 0.7; // Weight factor
+    double p_factor = 0.3; // Profit factor
+    double h = 0;
+
+    // Incorporate balance of exploration and exploitation by considering both weight and profit factors
+    for (int j = 0; j < dimension && h < 1; j++) {
+        h += weights[j][voisinage[index_item]] / capacity[j];
+    }
+
+    if (h >= 1) {
+        return 0; // Zero value if current item overflows capacity
+    }
+
+    // Combine weight and profit factors to determine item's promise level
+    return (p_factor * profit[voisinage[index_item]]) / (w_factor * h + p_factor);
+}
+```

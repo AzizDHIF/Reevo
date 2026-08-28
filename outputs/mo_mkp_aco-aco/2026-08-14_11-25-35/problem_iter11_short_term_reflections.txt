@@ -1,4 +1,0 @@
-Prioritize density, neighborhood, and sparsity.
-Consider density, neighborhood, and capacity constraints.
-Simplify and prioritize relevant factors.
-Simplify calculations, prioritize feasibility, and balance objectives.

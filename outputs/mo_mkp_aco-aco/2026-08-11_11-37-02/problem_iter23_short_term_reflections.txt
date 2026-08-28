@@ -1,4 +1,0 @@
-Prioritize constraint satisfaction and simplify calculations.
-Simplify, prioritize constraints, and sparsify calculations.
-Simplify, prioritize constraints, and penalize violations.
-Simplify, prioritize constraints, and sparsify calculations.

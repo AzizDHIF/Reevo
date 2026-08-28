@@ -1,4 +1,0 @@
-Prioritize simplicity, balance objectives, and consider neighborhood conflicts.
-Prioritize simplicity, locality, and conflict avoidance.
-Optimize factor combinations, consider conflicts, and simplify calculations.
-Prioritize fit and conflict over weighted sums.

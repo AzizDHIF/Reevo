@@ -1,4 +1,0 @@
-Consider emphasizing profitable items and efficient use of capacity for effective selection heuristics.
-Focus on both weight to capacity ratio and profit factor balance for efficient heuristics design.
-Avoid premature return statements and prioritize balanced consideration of weight, profit, and capacity utilization.
-Emphasize both weight and profit factors, penalize unpromising items efficiently, and avoid unnecessary calculations for better heuristics.

@@ -1,0 +1,4 @@
+1. Normalize weights, prioritize profit density, balance objectives efficiently.
+2. Leverage neighbor attributes, simplify calculations, focus on direct effectiveness.
+3. Emphasize weight importance, consider normalized features, and tune ratios wisely.
+4. Incorporate custom factors, prioritize simplicity, and use neighbor information strategically.

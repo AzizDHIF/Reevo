@@ -1,0 +1,25 @@
+```c
+double heuristic_v2(int index_item, double weights[dimension][NBITEMS], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS], double profit[NBITEMS]) {
+    double h = 0;
+    double w_factor = 0.7; // Weight factor
+    double p_factor = 0.3; // Profit factor
+    
+    for (int j = 0; j < dimension && h < 1; j++) {
+        h += weights[j][voisinage[index_item]] / capacity[j];
+    }
+    
+    if (h >= 1) {
+        return 0; // Zero value if current item overflows capacity
+    }
+    
+    // Combining weight, profit, and neighborhood information for decision making
+    double candidate_value = (p_factor * profit[voisinage[index_item]]) / (w_factor * h + p_factor);
+    
+    // Adding consistency for convergence
+    if (candidate_value < 0.5) {
+        return 0; // Set unpromising elements to zero
+    }
+    
+    return candidate_value;
+}
+```  

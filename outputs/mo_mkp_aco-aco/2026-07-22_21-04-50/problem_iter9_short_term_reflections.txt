@@ -1,4 +1,0 @@
-Simplify calculations, avoid division by zero.
-Simplify calculations, prioritize key factors.
-Simplify calculations, avoid division by zero.
-Prioritize density, proximity, and capacity constraints.

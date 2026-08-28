@@ -1,5 +1,0 @@
-Consider incorporating multi-dimensional analysis and scaling factors to improve heuristic performance.
-Leverage sparsification and balance profit and weight to capacity ratios efficiently.
-1. Consider item weight and capacity ratio.
-2. Penalize based on weight contribution.
-Utilize a factor for promising items and consider weight ratios to improve heuristic for MO-MKP.

@@ -1,1 +1,0 @@
-Prioritize capacity checks, feasible items, and dimension-wise calculations to enhance heuristic efficiency and effectiveness in MO-MKP.

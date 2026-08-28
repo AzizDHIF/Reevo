@@ -1,4 +1,0 @@
-Simplify and prioritize capacity and profit ratios.
-Prioritize feasibility, normalize weights, and compare neighbors effectively.
-Simplify calculations, prioritize constraints.
-Prioritize constraint satisfaction and simplify calculations.

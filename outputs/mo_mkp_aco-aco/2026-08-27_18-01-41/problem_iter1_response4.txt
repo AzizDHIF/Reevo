@@ -1,0 +1,17 @@
+```c
+double heuristic_v2(int index_item, double weights[dimension][NBITEMS], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS], double profit[NBITEMS] ){
+    double h=0;
+    for(int j=0;j<dimension;j++){
+        if (capacity[j] > 0) {
+            h += weights[j][index_item] / capacity[j];
+        } else {
+            return 0; // Early exit if capacity is exceeded
+        }
+    }
+    if (h > 0) {
+        return profit[index_item] / h;
+    } else {
+        return 0;
+    }
+}
+```

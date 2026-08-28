@@ -1,0 +1,1 @@
+Emphasize diverse neighbor evaluation, balance weight and profit ratios efficiently, prioritize significant factors, incorporate early pruning, and leverage weighted components for robust MO-MKP heuristics.

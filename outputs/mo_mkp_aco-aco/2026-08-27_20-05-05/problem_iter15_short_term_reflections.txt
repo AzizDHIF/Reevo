@@ -1,0 +1,7 @@
+Focus on accurate and meaningful ratios as heuristic factors, balancing weight utilization and profit density effectively.
+Use neighboring item for computation, factor in capacity efficiently, balance weight and profit ratios judiciously.
+Utilize relevant ratios directly, avoid unnecessary computations, and prioritize balancing objectives for better heuristics.
+1. Balance weight and profit ratios to improve performance.
+2. Avoid unnecessary calculations when determining item inclusion.
+Normalize custom factors, balance objectives evenly, and compute ratios based on relevant metrics critically.
+Consider balancing weight and profit ratios, using normalized custom factors, and avoiding hard-coded values simplifying the heuristic.

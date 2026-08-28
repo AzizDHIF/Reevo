@@ -1,1 +1,0 @@
-Combine item density, neighbor comparisons, and objective factors to determine item promise, and sparsify heuristics by zeroing unpromising elements.

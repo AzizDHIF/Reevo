@@ -1,0 +1,36 @@
+[*] Running ...
+[*] Mood: train
+[*] compiling ... 
+gpt.c: In function 'heuristic':
+gpt.c:13:33: error: 'weight_w' undeclared (first use in this function); did you mean 'weights'?
+   13 |         double neighbor_ratio = weight_w > 0 ? (weights[0][neighbor] / weight_w) : 0.0;
+      |                                 ^~~~~~~~
+      |                                 weights
+gpt.c:13:33: note: each undeclared identifier is reported only once for each function it appears in
+gpt.c:14:17: error: implicit declaration of function 'fmax' [-Wimplicit-function-declaration]
+   14 |         heur += fmax(profit[neighbor] / weight_p, 0.0) * neighbor_ratio;
+      |                 ^~~~
+gpt.c:2:1: note: include '<math.h>' or provide a declaration of 'fmax'
+    1 | #include "HBACO.h"
+  +++ |+#include <math.h>
+    2 | double heuristic(int index_item, double weights[dimension][NBITEMS], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS], double profit[NBITEMS] ){
+gpt.c:14:17: warning: incompatible implicit declaration of built-in function 'fmax' [-Wbuiltin-declaration-mismatch]
+   14 |         heur += fmax(profit[neighbor] / weight_p, 0.0) * neighbor_ratio;
+      |                 ^~~~
+gpt.c:14:17: note: include '<math.h>' or provide a declaration of 'fmax'
+gpt.c:14:41: error: 'weight_p' undeclared (first use in this function); did you mean 'weights'?
+   14 |         heur += fmax(profit[neighbor] / weight_p, 0.0) * neighbor_ratio;
+      |                                         ^~~~~~~~
+      |                                         weights
+gpt.c:17:12: error: implicit declaration of function 'fmin' [-Wimplicit-function-declaration]
+   17 |     return fmin(heur, 2.0);
+      |            ^~~~
+gpt.c:17:12: note: include '<math.h>' or provide a declaration of 'fmin'
+gpt.c:17:12: warning: incompatible implicit declaration of built-in function 'fmin' [-Wbuiltin-declaration-mismatch]
+gpt.c:17:12: note: include '<math.h>' or provide a declaration of 'fmin'
+Traceback (most recent call last):
+  File "C:\Reevo/problems/mo_mkp_aco/eval.py", line 384, in <module>
+    compile("WeightACO_train_100items.c",f"WeightACO_train_100items_{id_response}.exe")
+  File "C:\Reevo/problems/mo_mkp_aco/eval.py", line 67, in compile
+    raise RuntimeError("Erreur de compilation")
+RuntimeError: Erreur de compilation

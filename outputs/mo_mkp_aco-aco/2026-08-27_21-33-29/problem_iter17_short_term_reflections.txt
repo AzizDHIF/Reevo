@@ -1,0 +1,7 @@
+Avoid division by very small or zero values, handle edge cases, and terminate early when necessary.
+Avoid division by zero, handle exhausted capacity early, and consider initializing with a small non-zero value.
+Normalize early, prevent division by zero, consider corner cases for better heuristics design.
+Use early termination for invalid cases and prevent division by zero to improve heuristic performance in MO-MKP.
+Normalize weight and profit scales, handle corner cases, avoid division by small numbers.
+
+Ensure non-zero division, handle exhausted capacities, avoid redundant checks, and adjust heuristics for better performance.

@@ -1,1 +1,0 @@
-Prioritize feasibility, simplify calculations, and consider key factors and neighborhood effects to enhance heuristic efficiency in MO-MKP.

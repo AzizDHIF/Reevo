@@ -1,0 +1,1 @@
+Design heuristics for MO-MKP by prioritizing profit-to-weight ratios, sparsity, and factor utilization. Optimize for simplicity, readability, and efficiency by avoiding unnecessary computations, focusing on feasible solutions, and leveraging precomputed data early.

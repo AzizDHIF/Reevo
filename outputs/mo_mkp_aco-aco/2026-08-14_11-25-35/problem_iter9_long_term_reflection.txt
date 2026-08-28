@@ -1,1 +1,0 @@
-Prioritize density, neighborhood, and capacity. Simplify calculations, focusing on key factors to create efficient heuristics for MO-MKP.

@@ -1,1 +1,0 @@
-Combine density, proximity, and penalties. Simplify calculations, prioritize item density, and introduce penalty functions to create effective heuristics.

@@ -1,2 +1,0 @@
-1. Design heuristics that prioritize feasibility, penalize violations, and balance weight ratios effectively.
-2. Emphasize efficient neighbor utilization, minimize duplicated calculations, and maintain clarity in balancing objectives for superior MO-MKP performance.

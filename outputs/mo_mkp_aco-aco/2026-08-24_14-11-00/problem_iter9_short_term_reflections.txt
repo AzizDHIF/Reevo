@@ -1,4 +1,0 @@
-Normalize weights, prevent division by zero, and use precomputed values for better heuristic performance.
-Normalize weights and avoid division by zero to improve heuristic performance.
-Adjust constants, avoid unnecessary adders; prioritize robustness and simplify calculations for better heuristic performance.
-Normalize & precompute critical values carefully for robust & efficient heuristic evaluations.

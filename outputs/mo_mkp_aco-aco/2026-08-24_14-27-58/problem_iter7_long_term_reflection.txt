@@ -1,4 +1,0 @@
-1. Prioritize essential factors for MO-MKP item selection.
-2. Balance weight and profit influences with normalized ratios.
-3. Avoid zero divisions, simplify weight adjustments, and maintain computational efficiency.
-4. Use consistent weight access methods and minimize excessive computations for clarity and efficiency.

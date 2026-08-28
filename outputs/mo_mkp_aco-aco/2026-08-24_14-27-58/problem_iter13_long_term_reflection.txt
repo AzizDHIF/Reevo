@@ -1,3 +1,0 @@
-1. Emphasize feasible solutions by integrating capacity constraints.
-2. Optimize efficiency by prioritizing relevant variables.
-3. Utilize weight ratios effectively in computing promising factor for improved heuristics.

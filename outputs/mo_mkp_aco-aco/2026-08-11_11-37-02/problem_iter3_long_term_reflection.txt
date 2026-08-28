@@ -1,1 +1,0 @@
-Combine capacity, neighbor, and objective factors, prioritizing constraints and simplifying the heuristic to effectively guide item selection in MO-MKP.

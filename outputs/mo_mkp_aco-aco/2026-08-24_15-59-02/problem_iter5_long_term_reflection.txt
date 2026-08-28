@@ -1,1 +1,0 @@
-- Focus on balanced factor combination, stable dynamic weighting, and efficient neighbor analysis for robust and efficient MO-MKP heuristics.

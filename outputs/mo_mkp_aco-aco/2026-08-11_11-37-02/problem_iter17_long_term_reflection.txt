@@ -1,1 +1,0 @@
-Prioritize constraints, simplify calculations, and balance factors to design effective heuristics for MO-MKP, focusing on capacity and profit ratios.

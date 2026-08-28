@@ -1,1 +1,0 @@
-Prioritize capacity constraints, balance weights and profits, and incorporate neighborhood proximity to design robust heuristics. Simplify calculations for efficiency.

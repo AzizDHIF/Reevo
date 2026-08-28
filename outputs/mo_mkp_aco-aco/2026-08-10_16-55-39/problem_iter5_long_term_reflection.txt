@@ -1,1 +1,0 @@
-Prioritize density, profit ratios, and neighborhood effects. Simplify calculations by dimension-wise analysis to improve heuristic efficiency.

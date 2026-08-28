@@ -1,4 +1,0 @@
-Prioritize density and profit ratios.
-Simplify calculations, reduce dimensions.
-Consider dimension-wise calculations and neighborhood effects.
-Prioritize dimension-wise ratios and neighborhood effects.

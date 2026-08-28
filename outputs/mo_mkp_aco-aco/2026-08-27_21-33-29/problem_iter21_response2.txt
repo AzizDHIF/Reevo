@@ -1,0 +1,27 @@
+```c
+double heuristic_v2(int index_item, double weights[dimension][NBITEMS], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS], double profit[NBITEMS]) {
+    double h = 0.001; // Initialize a small non-zero value to prevent division by zero
+    double sum_weights = 0.001; // Initialize sum of weights with small non-zero value
+
+    for (int j = 0; j < dimension; j++) {
+        if (capacity[j] <= 0) {
+            return 0; // Early termination if capacity is exhausted or invalid
+        }
+        h += weights[j][voisinage[index_item]] / capacity[j];
+        sum_weights += weights[j][voisinage[index_item]]; // Calculate sum of weights for normalization
+    }
+
+    if (h <= 0.001) {
+        return 0; // Prevent division by very small h value
+    }
+
+    double normalized_sum_weights = sum_weights / (dimension * NBITEMS); // Normalize sum of weights
+
+    double ratio = profit[voisinage[index_item]] / h;
+
+    // Adjust the result based on combined factors
+    double adjusted_ratio = ratio * (1 - normalized_sum_weights); // Adjust ratio with normalized sum of weights
+
+    return adjusted_ratio;
+}
+```

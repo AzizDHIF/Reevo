@@ -1,4 +1,0 @@
-Simplify calculations, prioritize feasibility.
-Prioritize capacity checks, use min profit-to-weight ratio.
-Simplify, prioritize feasibility, and balance factors.
-Simplify calculations, prioritize feasibility.

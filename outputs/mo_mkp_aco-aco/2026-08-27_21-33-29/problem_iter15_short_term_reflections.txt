@@ -1,0 +1,6 @@
+Leverage neighbor information and early termination for promising heuristics in MO-MKP.
+Avoid excessive multiplication of factors, focus on additive relationships for better heuristics.
+Avoid division by zero and index out of range errors by using valid neighbor index in calculations.
+Avoid multiplying factors for ratios as it may lead to numerical instability; rather, sum them.
+Consider impact of early termination and avoid division by zero for improved heuristic design.
+Avoid premature termination, handle edge cases, and minimize division by zero risks for better heuristic design.

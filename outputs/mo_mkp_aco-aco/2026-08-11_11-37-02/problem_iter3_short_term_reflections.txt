@@ -1,4 +1,0 @@
-Consider capacity constraints and neighbor effects.
-Prioritize capacity and neighbor constraints.
-Simplify and combine relevant factors effectively.
-Consider capacity and neighbor violations when designing heuristics.

@@ -1,2 +1,0 @@
-1. Prioritize relative contributions and sparsify by setting unpromising elements to zero for MO-MKP.  
-2. Emphasize stability, simplify expressions, balance complexity; leverage multi-dimensional analysis, scaling factors, weight ratios, and penalties efficiently.

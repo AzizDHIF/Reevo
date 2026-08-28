@@ -1,0 +1,6 @@
+Use realizable ratio calculations over fixed loops exploiting dimensions for better heuristic design efficiency.
+Avoid unnecessary computations, simplify expressions, focus on essential factors, and handle special cases efficiently.
+Leverage all relevant dimensions' information and their interactions for better heuristic accuracy and robustness.
+Leverage multiple dimensions and consider weight distribution for improved heuristic accuracy.
+Utilize all dimensions proportionally; consider individual dimension ratios in heuristic calculations for MO-MKP.
+Avoid unnecessary calculations and focus on valid neighbors for more efficient heuristic design.

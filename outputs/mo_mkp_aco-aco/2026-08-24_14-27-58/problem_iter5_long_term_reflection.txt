@@ -1,3 +1,0 @@
-1. Prioritize essential factors for item selection in MO-MKP.
-2. Balance weight and profit influences effectively.
-3. Incorporate relative weights, avoid zero divisions, and exploit specific weight relationships for efficiency.

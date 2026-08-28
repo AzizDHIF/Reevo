@@ -1,4 +1,0 @@
-Prioritize density, utilize capacity, and apply soft thresholds.
-Promote density, sparsity, and high-profit items.
-Simplify and normalize calculations for better heuristic performance.
-Promote sparsity, reward high-profit items.

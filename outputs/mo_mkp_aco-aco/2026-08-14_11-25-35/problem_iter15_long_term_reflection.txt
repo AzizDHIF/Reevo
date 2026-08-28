@@ -1,1 +1,0 @@
-Prioritize feasibility, simplify density calculations, and consider remaining capacity and neighborhood profit to design efficient heuristics for MO-MKP.

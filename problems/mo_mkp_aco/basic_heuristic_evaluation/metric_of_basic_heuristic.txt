@@ -1,8 +1,6 @@
 Val
-[*] moyenne pour hypervolume et  epsilon:
-[*] Average for hypervolume 100 items: 412.13380477327144
-[*] Average for epsilon 100 items: 0.8003691999999996
-[*] Average for hypervolume 300 items: 5989.605994294298
-[*] Average for epsilon 300 items: 1.0551595999999985
-[*] Average for hypervolume 500 items: 21031.03580646994
-[*] Average for epsilon 500 items: -1.9296782000000043
+[*] Average for hypervolume and epsilon:
+[*] Average for hypervolume for dataset 100 items: 503.1001860358009
+[*] Average for epsilon for dataset 100 items: 0.5432724
+[*] Average for hypervolume for dataset 300 items: 6125.378708613573
+[*] Average for epsilon for dataset 300 items: 0.4995423999999963

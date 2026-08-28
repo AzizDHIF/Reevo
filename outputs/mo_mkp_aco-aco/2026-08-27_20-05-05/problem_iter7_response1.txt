@@ -1,0 +1,26 @@
+```c
+double heuristic_v2(int index_item, double weights[dimension][NBITEMS], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS], double profit[NBITEMS]) {
+    double h = 0;
+    double max_effectiveness = 0;
+    
+    for (int j = 0; j < nb_voisinage; j++) {
+        double neighbor_effectiveness = profit[voisinage[j]] / (weights[0][voisinage[j]] / capacity[0]); // Normalized profit-density ratio
+        if (neighbor_effectiveness > max_effectiveness) {
+            max_effectiveness = neighbor_effectiveness;
+        }
+    }
+
+    double w_ratio = 0.4;
+    double p_ratio = 0.6;
+
+    double normalization_factor = 1.0; // Custom normalization factor
+
+    double custom_factor = capacity[0] - weights[0][index_item]; // Custom factor combining weight and capacity
+
+    if (custom_factor < 0) {
+        return 0.0;
+    }
+
+    return ((1 - w_ratio) * (max_effectiveness + normalization_factor)) + (w_ratio * p_ratio);
+}
+```

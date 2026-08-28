@@ -1,20 +1,22 @@
 #include "HBACO.h"
-double heuristic(int index_item, double weights[dimension][NBITEMS], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS], double profit[NBITEMS]) {
-    double h = 0;
-    double h_weights = 0;
+double heuristic_eval_300(int index_item, double weights[dimension][NBITEMS_300], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS_300], double profit[NBITEMS_300]) {
+    double h = 0.001; // Initialize a small non-zero value to prevent division by zero
 
     for (int j = 0; j < dimension; j++) {
-        h_weights += weights[j][index_item] / capacity[j];
+        if (capacity[j] <= 0) {
+            return 0; // Early termination if capacity is exhausted or invalid
+        }
+        h += weights[j][voisinage[index_item]] / capacity[j];
     }
 
-    if (h_weights == 0) {
-        return 0;
+    if (h <= 0.001) {
+        return 0; // Prevent division by very small h value
     }
+    
+    double ratio = profit[voisinage[index_item]] / h;
 
-    for (int k = 0; k < nb_voisinage; k++) {
-        double obj_score = (weights[0][voisinage[k]] / h_weights) + profit[voisinage[k]];
-        h += obj_score * obj_score * obj_score; // Applying a power transformation for fine-tuning
-    }
+    // Adjust the result based on combined factors
+    double adjusted_ratio = ratio * ratio; // Using square of the ratio as an adjustment
 
-    return h;
+    return adjusted_ratio;
 }

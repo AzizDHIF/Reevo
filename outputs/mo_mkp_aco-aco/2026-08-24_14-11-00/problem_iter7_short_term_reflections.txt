@@ -1,4 +1,0 @@
-Emphasize simplicity, avoid unnecessary terms, adjust factors carefully, prioritize critical calculations, and consider dynamic adjustments.
-Consider normalizing weights before division, adjusting factors, prioritizing heuristic_value over h, and avoiding unnecessary condition checks.
-Simplify calculations, adjust weight factors, prioritize heuristic value; experiment with factors for optimal performance.
-Ensure to handle division by zero, reject early, and focus on informative calculations for better heuristics.

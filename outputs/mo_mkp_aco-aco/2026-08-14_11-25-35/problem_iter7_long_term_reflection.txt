@@ -1,1 +1,0 @@
-Prioritize local properties, balance density and profit, and consider neighborhood effects and capacity constraints to design effective heuristics for MO-MKP.

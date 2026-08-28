@@ -1,1 +1,0 @@
-Prioritize impactful features, scale profit and weight, consider profit-to-weight ratios, and incorporate capacity constraints for efficient and effective item selection in MO-MKP heuristics.
