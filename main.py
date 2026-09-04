@@ -3,7 +3,7 @@ import logging
 import os
 from pathlib import Path
 import subprocess
-from utils.utils import init_client, print_hyperlink, plot_results, make_dictionnary_results
+from utils.utils import init_client, plot_results_boxplot, print_hyperlink, plot_results, make_dictionnary_results,make_dictionnary_results_by_algo
 import sys
 import yaml 
 import time
@@ -84,7 +84,9 @@ def main(cfg):
 if __name__ == "__main__":
     if sys.argv[1]=="plot_results":
         plot_results(make_dictionnary_results(sys.argv[2:]))
-        
+    if sys.argv[1]=="plot_results_box_plot":
+        print(make_dictionnary_results_by_algo([sys.argv[2], sys.argv[3], sys.argv[4], sys.argv[5], sys.argv[6]]))
+        plot_results_boxplot(make_dictionnary_results_by_algo([sys.argv[2], sys.argv[3], sys.argv[4], sys.argv[5], sys.argv[6]]))
     else:
         main()
     

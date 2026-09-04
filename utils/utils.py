@@ -186,8 +186,84 @@ def get_last_n_lines(file_path,nb_lines):
 import re
 import matplotlib.pyplot as plt
 
+def plot_results_boxplot(results_by_algo):
+    """
+    results_by_algo : dictionnaire
+        clé   = nom de l'algo (str)
+        valeur = liste de chaînes contenant les moyennes
+    """
 
+    dataset_labels = ["dataset_100 items", "dataset_300 items"]
 
+    def extract_values(lines):
+        hv_100 = hv_300 = eps_100 = eps_300 = None
+
+        for line in lines:
+
+            match = re.search(
+                r'Average for hypervolume for dataset (\d+) items:\s*([0-9.eE+-]+)',
+                line
+            )
+            if match:
+                items = int(match.group(1))
+                value = float(match.group(2))
+                if items == 100:
+                    hv_100 = value
+                elif items == 300:
+                    hv_300 = value
+
+            match = re.search(
+                r'Average for epsilon for dataset (\d+) items:\s*([0-9.eE+-]+)',
+                line
+            )
+            if match:
+                items = int(match.group(1))
+                value = float(match.group(2))
+                if items == 100:
+                    eps_100 = value
+                elif items == 300:
+                    eps_300 = value
+
+        return hv_100, hv_300, eps_100, eps_300
+
+    # Une couleur différente par algo
+    color_cycle = plt.rcParams['axes.prop_cycle'].by_key()['color']
+    colors = {
+        algo_name: color_cycle[i % len(color_cycle)]
+        for i, algo_name in enumerate(results_by_algo.keys())
+    }
+
+    def make_plot(metric, ylabel, title):
+        plt.figure(figsize=(10, 6))
+
+        for algo_name, lines in results_by_algo.items():
+            hv_100, hv_300, eps_100, eps_300 = extract_values(lines)
+
+            if metric == "hypervolume":
+                values = [hv_100, hv_300]
+            else:
+                values = [eps_100, eps_300]
+
+            plt.plot(
+                dataset_labels,
+                values,
+                marker="o",
+                linestyle="None",
+                color=colors[algo_name],
+                label=algo_name
+            )
+
+        plt.xlabel("Dataset")
+        plt.ylabel(ylabel)
+        plt.title(title)
+        plt.grid(True)
+
+        plt.legend(loc="center left", bbox_to_anchor=(1.02, 0.5))
+        plt.tight_layout()
+        plt.show()
+
+    make_plot("hypervolume", "Hypervolume", "Hypervolume par algo")
+    make_plot("epsilon", "Epsilon", "Epsilon par algo")
 def plot_results(results):
     """
     results : dictionnaire
@@ -284,7 +360,7 @@ def plot_results(results):
         marker="o"
     )
 
-    plt.xlabel("Nombre d'itérations")
+    plt.xlabel("Nombre maximal d'évaluations")
     plt.ylabel("Hypervolume")
     plt.title("Hypervolume - Dataset 100 items")
 
@@ -306,7 +382,7 @@ def plot_results(results):
         marker="o"
     )
 
-    plt.xlabel("Nombre d'itérations")
+    plt.xlabel("Nombre maximal d'évaluations")
     plt.ylabel("Hypervolume")
     plt.title("Hypervolume - Dataset 300 items")
 
@@ -328,7 +404,7 @@ def plot_results(results):
         marker="o"
     )
 
-    plt.xlabel("Nombre d'itérations")
+    plt.xlabel("Nombre maximal d'évaluations")
     plt.ylabel("Epsilon")
     plt.title("Epsilon - Dataset 100 items")
 
@@ -350,7 +426,7 @@ def plot_results(results):
         marker="o"
     )
 
-    plt.xlabel("Nombre d'itérations")
+    plt.xlabel("Nombre maximal d'évaluations")
     plt.ylabel("Epsilon")
     plt.title("Epsilon - Dataset 300 items")
 
@@ -371,4 +447,18 @@ def make_dictionnary_results(paths):
 
        
     return results
-    
+
+def make_dictionnary_results_by_algo(paths):
+    """
+    results_by_algo : dictionnaire
+        clé   = nom de l'algo (str)
+        valeur = dictionnaire results de cet algo
+                 clé   = nombre d'itérations (int)
+                 valeur = liste de chaînes contenant les moyennes
+    """
+    algo_names=["GW-ACO_classique", "reevo_25_func_evals", "reevo_50_func_evals", "reevo_75_func_evals", "reevo_100_func_evals"]
+    results_by_algo = {}
+    for path,algo_name in zip(paths, algo_names):
+        l=get_last_n_lines(path, 4)
+        results_by_algo[algo_name] = l
+    return results_by_algo
