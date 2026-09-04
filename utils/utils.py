@@ -186,7 +186,7 @@ def get_last_n_lines(file_path,nb_lines):
 import re
 import matplotlib.pyplot as plt
 
-def plot_results_boxplot(results_by_algo):
+def plot_results_different_algos(results_by_algo):
     """
     results_by_algo : dictionnaire
         clé   = nom de l'algo (str)
