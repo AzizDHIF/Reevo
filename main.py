@@ -83,10 +83,10 @@ def main(cfg):
     
 if __name__ == "__main__":
     if sys.argv[1]=="plot_results":
-        plot_results(make_dictionnary_results(sys.argv[2:]))
+        plot_results(make_dictionnary_results([r"outputs\mo_mkp_aco-aco\2026-08-27_18-01-41\best_code_overall_val_stdout.txt", r"outputs\mo_mkp_aco-aco\2026-08-27_18-58-14\best_code_overall_val_stdout.txt", r"outputs\mo_mkp_aco-aco\2026-08-27_20-05-05\best_code_overall_val_stdout.txt", r"outputs\mo_mkp_aco-aco\2026-08-27_21-33-29\best_code_overall_val_stdout.txt"]))
     if sys.argv[1]=="plot_results_different_algos":
-        print(make_dictionnary_results_by_algo([sys.argv[2], sys.argv[3], sys.argv[4], sys.argv[5], sys.argv[6]]))
-        plot_results_different_algos(make_dictionnary_results_by_algo([sys.argv[2], sys.argv[3], sys.argv[4], sys.argv[5], sys.argv[6]]))
+        
+        plot_results_different_algos(make_dictionnary_results_by_algo([r"problems\mo_mkp_aco\basic_heuristic_evaluation\metric_of_basic_heuristic.txt", r"outputs\mo_mkp_aco-aco\2026-08-27_18-01-41\best_code_overall_val_stdout.txt", r"outputs\mo_mkp_aco-aco\2026-08-27_18-58-14\best_code_overall_val_stdout.txt", r"outputs\mo_mkp_aco-aco\2026-08-27_20-05-05\best_code_overall_val_stdout.txt", r"outputs\mo_mkp_aco-aco\2026-08-27_21-33-29\best_code_overall_val_stdout.txt"]))
     else:
         main()
     
