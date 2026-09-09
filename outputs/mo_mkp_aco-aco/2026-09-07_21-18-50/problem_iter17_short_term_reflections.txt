@@ -1,0 +1,6 @@
+Consider excluding zero-weight dimensions in ratio calculation and adjusting smoothing for stability and sparsity.
+Focus on consistent handling of extreme cases, holistic evaluation, and avoiding unnecessary computations for efficient heuristics.
+Prioritize holistic evaluation, adjust factors by sum rather than simple division for better heuristics.
+Consider exploring diverse neighbor selection strategies and tuning balance factors for more robust heuristics.
+Consider robustness, handling edge cases, and holistic evaluation for better heuristic performance in MO-MKP.
+Utilize holistic evaluation with balanced factors and avoid unnecessary complexities for better heuristics design.

@@ -1,0 +1,7 @@
+Summarize item calculations before objective-based weight transformation. Optimize weight calculations and avoid repeated computations.
+Utilize neighboring item indices from 'voisinage' directly for better heuristic accuracy in MO-MKP.
+Consider balancing weight ratios, profit ratios, and capacity usage for more effective heuristics in MO-MKP.
+Leverage ratio relationships between objectives and capacities for effective heuristic design in MO-MKP.
+Prioritize simplicity, minimize redundant calculations, and ensure coherent use of variables for better heuristic design.
+1. Utilize relevant neighbors for computations efficiently.
+2. Focus on individual components rather than overly complex combined ratios.

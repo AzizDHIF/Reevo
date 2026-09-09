@@ -1,0 +1,27 @@
+```c
+double heuristic_v2(int index_item, double weights[dimension][NBITEMS], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS], double profit[NBITEMS])
+{
+    double weight_factor = 0;
+    double profit_factor = 0;
+
+    // Calculate average utilization for each dimension
+    double average_utilization = 0;
+    for (int j = 0; j < dimension; j++) {
+        average_utilization += weights[j][index_item] / capacity[j];
+    }
+    average_utilization /= dimension;
+
+    // Calculate weight factor based on neighboring item in voisinage
+    for (int j = 0; j < dimension; j++) {
+        weight_factor += weights[j][voisinage[index_item]] / capacity[j];
+    }
+
+    // Calculate profit factor
+    if (weight_factor == 0) {
+        return 0; // Set unpromising elements to zero
+    } else {
+        profit_factor = profit[voisinage[index_item]] / weight_factor;
+        return profit_factor / (average_utilization + 1);
+    }
+}
+```

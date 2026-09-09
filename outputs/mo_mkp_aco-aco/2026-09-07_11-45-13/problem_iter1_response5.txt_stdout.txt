@@ -1,0 +1,18 @@
+[*] Running ...
+[*] Mood: train
+[*] compiling ... 
+gpt.c:2:86: error: 'nb_voisinage' undeclared here (not in a function)
+    2 | double heuristic(int index_item, double weights[dimension][NBITEMS], double capacity[nb_voisinage], int nb_voisinage, int voisinage[NBITEMS], double profit[NBITEMS] ){
+      |                                                                                      ^~~~~~~~~~~~
+gpt.c: In function 'heuristic':
+gpt.c:8:18: error: 'weight_ratio_rev' undeclared (first use in this function); did you mean 'weight_ratio'?
+    8 |             h += weight_ratio_rev;
+      |                  ^~~~~~~~~~~~~~~~
+      |                  weight_ratio
+gpt.c:8:18: note: each undeclared identifier is reported only once for each function it appears in
+Traceback (most recent call last):
+  File "C:\Reevo/problems/mo_mkp_aco/eval.py", line 384, in <module>
+    compile("WeightACO_train_100items.c",f"WeightACO_train_100items_{id_response}.exe")
+  File "C:\Reevo/problems/mo_mkp_aco/eval.py", line 67, in compile
+    raise RuntimeError("Erreur de compilation")
+RuntimeError: Erreur de compilation

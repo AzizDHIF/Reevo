@@ -1,0 +1,22 @@
+```c
+double heuristic_v2(int index_item, double weights[dimension][NBITEMS], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS], double profit[NBITEMS]) {
+    double h = 0;
+    double max_weight = 0;
+    double max_profit = profit[voisinage[index_item]];
+
+    // Find the maximum weight directly without looping through dimensions
+    for (int i = 0; i < nb_voisinage; i++) {
+        double curr_weight = weights[0][voisinage[i]]; // Consider only the first dimension
+        if (curr_weight > max_weight) {
+            max_weight = curr_weight;
+        }
+    }
+
+    // Sparse heuristic calculation
+    if (max_weight > 0) {
+        h = max_profit / max_weight;
+    }
+
+    return h;
+}
+```

@@ -1,0 +1,9 @@
+1. Exploit neighbor information efficiently.
+2. Consider edge cases for robustness and performance.
+1. Favor accessing neighboring items directly.
+2. Improve efficiency by using precomputed neighbors.
+3. Optimize calculations utilizing precomputed values.
+Consolidate weight and capacity comparison, and normalize weight calculation for more efficient heuristics.
+"Better code simplifies ratios, avoiding unnecessary checks. Optimize by focusing on critical computations and avoiding redundancies."
+Consider directly incorporating the capacity into the heuristic calculation for better performance and accuracy.
+Emphasize normalized weights for all dimensions instead of separate checks for each dimension.

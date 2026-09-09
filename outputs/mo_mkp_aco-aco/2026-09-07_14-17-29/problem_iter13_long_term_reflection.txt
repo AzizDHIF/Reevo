@@ -1,0 +1,4 @@
+1. Generalize objective ratios efficiently for flexible heuristics.
+2. Explore full weight range, not just one dimension.
+3. Directly calculate objective values using max weight.
+4. Consider all weight dimensions for efficient computation.

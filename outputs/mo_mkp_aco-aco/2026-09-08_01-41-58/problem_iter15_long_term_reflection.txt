@@ -1,0 +1,4 @@
+1. Preprocess item data and optimize weight calculations for efficiency.
+2. Directly use neighboring item indices for accurate heuristic solutions.
+3. Balance weight and profit ratios, consider capacity usage for effective heuristics.
+4. Prioritize simplicity, minimize redundant calculations, leverage ratio relationships for optimal design.

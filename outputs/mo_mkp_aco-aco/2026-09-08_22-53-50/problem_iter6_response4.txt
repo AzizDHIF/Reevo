@@ -1,0 +1,19 @@
+```c
+double heuristic_v2(int index_item, double weights[dimension][NBITEMS], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS], double profit[NBITEMS])
+{
+    double weight_factor = 0.5;
+    double profit_factor = 0.5;
+    double total_weight = 0;
+
+    for (int j = 0; j < dimension; j++) {
+        total_weight += weights[j][voisinage[index_item]] / capacity[j];
+    }
+
+    // Promising items have non-zero weight contribution
+    if (total_weight == 0) {
+        return 0;
+    }
+
+    return (profit[voisinage[index_item]] * profit_factor) / (total_weight * weight_factor);
+}
+```

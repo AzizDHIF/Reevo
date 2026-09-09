@@ -1,0 +1,4 @@
+1. Generalize objective ratios across all dimensions for flexible heuristics.
+2. Efficiently calculate objective values using max weight and neighbor information.
+3. Prioritize high-profit-to-high-weight-ratio items using precomputed neighbor data.
+4. Focus on efficiency by leveraging neighborhood information for quick heuristic guidance.

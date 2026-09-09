@@ -1,0 +1,4 @@
+1. Optimize efficiency by precomputing item data and avoiding small divisions.
+2. Focus on relevant statistics from neighbors, separate computations per factor, and leverage ratio-based calculations.
+3. Reuse precomputed neighbor info, simplify formulae, and prioritize effective use of neighbor information.
+4. Minimize redundancy, balance weight-profit ratios, and consider multiple objectives concurrently.

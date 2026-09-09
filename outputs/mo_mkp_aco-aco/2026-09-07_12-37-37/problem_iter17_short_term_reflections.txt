@@ -1,0 +1,6 @@
+Avoid unnecessary conditions and operations, focus on directly relevant features, and optimize simplicity and computation.
+Consider using neighborhood information and avoiding potential division by zero for better heuristics.
+Consider direct summation and incremental update to avoid redundant calculations, focusing on relevant information.
+Normalized sum should use total sum, as in the better code, for better MO-MKP heuristics.
+Utilize relevant neighborhood information efficiently; prioritize computation based on neighbor indices.
+Normalize weights by capacity only once to reduce computations and improve heuristic efficiency.

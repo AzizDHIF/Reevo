@@ -1,0 +1,5 @@
+1. Prioritize diversity, utility, and density in heuristic design.
+2. Simplify calculations using division over squaring.
+3. Balance weight, profit, deviation, and sparsity.
+4. Use relevant features efficiently; avoid unnecessary computations.
+5. Focus on feature importance, sparsity, and neighbor influences without squaring weight-to-capacity ratios.

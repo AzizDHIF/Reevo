@@ -1,0 +1,6 @@
+Adjust weighting factors carefully and consider different threshold values for better heuristic design.
+Adjust weights, sparsify heuristics, fine-tune thresholds, leverage heuristics context; prioritize speed reliability accuracy.
+Refine heuristic balance: adjust weight and profit factors, pay attention to deviation.
+Balance factors carefully, tune sparsity thresholds, and simplify computations for better heuristic performance.
+Adjust weight_factor, profit_factor, deviation_factor balancing for better performance; fine-tune score thresholds empirically.
+Design heuristics with explicit dimension iteration for better performance and accuracy.

@@ -1,0 +1,20 @@
+[*] Running ...
+[*] Mood: train
+[*] compiling ... 
+gpt.c: In function 'heuristic':
+gpt.c:15:88: error: expected ')' before ';' token
+   15 |     return profit[index_item] / ((0.5 * h) + (0.3 * value_ratio) + (0.2 * weight_ratio);
+      |                                 ~                                                      ^
+      |                                                                                        )
+gpt.c:15:89: error: expected ';' before '}' token
+   15 |     return profit[index_item] / ((0.5 * h) + (0.3 * value_ratio) + (0.2 * weight_ratio);
+      |                                                                                         ^
+      |                                                                                         ;
+   16 | }
+      | ~                                                                                        
+Traceback (most recent call last):
+  File "C:\Reevo/problems/mo_mkp_aco/eval.py", line 384, in <module>
+    compile("WeightACO_train_100items.c",f"WeightACO_train_100items_{id_response}.exe")
+  File "C:\Reevo/problems/mo_mkp_aco/eval.py", line 67, in compile
+    raise RuntimeError("Erreur de compilation")
+RuntimeError: Erreur de compilation

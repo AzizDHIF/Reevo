@@ -1,0 +1,4 @@
+1. Emphasize neighbor relevance through adjusted weight influence.
+2. Utilize neighbor's weight and profit wisely.
+3. Consider precomputed valid neighbors efficiently.
+4. Normalize by neighbor's weight to tailor heuristics for MO-MKP.

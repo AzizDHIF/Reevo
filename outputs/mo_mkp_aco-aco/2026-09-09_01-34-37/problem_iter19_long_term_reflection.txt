@@ -1,0 +1,1 @@
+1. Emphasize neighbor influence, normalize weights, handle division by zero cases, balance weights and profits efficiently, prioritize simplicity, and reduce unnecessary computations for more effective MO-MKP heuristics.

@@ -1,0 +1,2 @@
+1. Normalize weights and capacities, prioritize efficient calculations, incorporate neighboring item information for sparse heuristic sampling in MO-MKP optimization.
+2. Focus on weight-profit ratios, trade-offs between weight utilization and profit, and efficient computation strategies to enhance heuristic performance in solving MO-MKP.

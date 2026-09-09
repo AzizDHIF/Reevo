@@ -1,0 +1,6 @@
+Use direct weight-to-capacity ratio computation for a more efficient and better heuristic for MO-MKP.
+Focus on accurately calculating item desirability to maximize objective function while considering constraints and neighbors efficiently.
+Normalize input variables before calculating heuristic values for better performance in optimization heuristics.
+Focus on simplifying calculations, leverage normalized values, and consider edge cases for more effective heuristic design.
+Ensure the heuristic uses relevant information efficiently, simplifying unnecessary calculations for improved performance.
+Better heuristics focus on item influence without unnecessary computations or adjustments for scale.

@@ -1,0 +1,3 @@
+1. Prioritize neighbor-based computations, handle edge cases efficiently.
+2. Utilize precomputed values, normalize contributions for streamlined heuristics.
+3. Avoid unnecessary checks and conditions, leverage neighbor information for improved efficiency.

@@ -1,0 +1,18 @@
+```c
+double heuristic_v2(int index_item, double weights[dimension][NBITEMS], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS], double profit[NBITEMS] );
+{
+    double sum_weight = 1e-6; // Smoothing for avoiding zero division
+    double sum_ratio = 1e-6; // Smoothing for avoiding zero division
+
+    // Calculate the sum of weights and sum of ratios for neighbouring items
+    for (int j = 0; j < dimension; j++) {
+        sum_weight += weights[j][voisinage[index_item]];
+        sum_ratio += weights[j][voisinage[index_item]] / capacity[j];
+    }
+
+    // Applying balanced factor combination for holistic evaluation
+    double heuristic_value = profit[voisinage[index_item]] / sum_weight * (1 / sum_ratio) * nb_voisinage;
+
+    return heuristic_value;
+}
+```

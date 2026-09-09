@@ -1,0 +1,18 @@
+```c
+double heuristic_v2(int index_item, double weights[dimension][NBITEMS], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS], double profit[NBITEMS]) {
+    double sum_weights = weights[0][voisinage[index_item]];  // Since all weights have the same constraint
+    double sum_capacity = capacity[0];  // Since all dimensions have the same capacity
+
+    if (sum_capacity == 0.0) {
+        return 0.0;
+    }
+
+    double h = sum_weights / sum_capacity;
+
+    if (h == 0.0) {
+        return 0.0;
+    }
+
+    return profit[voisinage[index_item]] / h;
+}
+```

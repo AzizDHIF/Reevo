@@ -1,0 +1,2 @@
+1. Emphasize neighbor influence by adjusting weight and profit contributions effectively.
+2. Normalize weights by capacity, prioritize feasibility checks, and simplify calculations for efficient MO-MKP heuristics.

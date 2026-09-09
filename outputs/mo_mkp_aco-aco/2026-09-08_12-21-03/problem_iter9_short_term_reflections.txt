@@ -1,0 +1,6 @@
+Minimize divisions, prioritize efficient math operations, avoid early stopping; consider overall impact, not just individual components.
+Avoid unnecessary computations, prioritize more informative features, balance promising and capacity factors effectively.
+Utilize neighborhood information efficiently and consider capacity usage in a balanced manner for better heuristics.
+Consider balancing promise and capacity, avoid early stopping, leverage scaled computation for MO-MKP heuristic.
+Focus on efficient parameter aggregation over multiple dimensions while considering constraints and objectives proportionally.
+Emphasize consistent influence and decision factors for robustness in heuristic design.

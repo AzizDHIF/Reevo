@@ -1,0 +1,6 @@
+Simplify and fine-tune heuristics by directly utilizing relevant factors efficiently, emphasizing score filtering.
+Adjust weight and profit factors, consider increasing promising score threshold for better heuristic performance.
+Balance weight, profit factors; set sparsity threshold optimally; aim for improved scalability, robustness in heuristics design.
+Consider incorporating different factors (e.g., weight, profit, deviation) and sparsifying unpromising elements for better heuristics.
+Emphasize balanced utility to weight ratio over direct weight normalization to improve heuristic performance.
+Adjust weight, profit, and deviation factors for better performance; set a higher threshold for unpromising elements.

@@ -1,0 +1,7 @@
+Prioritize direct computation over ratios; consider normalized sums for better MO-MKP solutions efficiency.
+Ensure uniform scaling of weights and capacity, avoid unnecessary divisions, and focus on summing individual weights efficiently.
+Consider holistic weight/capacity ratio rather than per-dimension ratios for better heuristics in MO-MKP.
+Prioritize calculations w.r.t. constraints before proceeding to more complex and context-specific computations for efficient heuristics.
+1. Use relevant context variables directly.
+2. Consider utilizing sum of weights and capacity efficiently.
+Focus on ratio computations, avoid premature zeroing, emphasize efficiency, and ensure divisor non-zero handling.

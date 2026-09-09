@@ -1,0 +1,2 @@
+1. Efficient neighbor evaluation, factor prioritization, and sparsification enhance heuristic performance in MO-MKP.
+2. Focus on direct calculations, utility optimization, and constraint handling for improved heuristics in multi-objective multiple knapsack problems.

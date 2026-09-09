@@ -1,0 +1,12 @@
+```c
+double heuristic_v2(int index_item, double weights[dimension][NBITEMS], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS], double profit[NBITEMS]){
+    double h = 0;
+    double max_profit = profit[voisinage[index_item]];
+
+    if(weights[0][voisinage[index_item]] > 0){ // prioritize weight dimension 0
+        h = max_profit / weights[0][voisinage[index_item]]; // normalize by weight
+    }
+
+    return h;
+}
+```

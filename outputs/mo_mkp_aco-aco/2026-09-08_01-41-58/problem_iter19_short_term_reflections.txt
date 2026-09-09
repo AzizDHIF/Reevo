@@ -1,0 +1,6 @@
+Use neighbors for quicker evaluations, consider normalized ratios, and handle weights properly for improved performance.
+Account for capacity constraints, balance diverse factors, and consider overall solution quality in heuristics.
+Focus on simplifying and consolidating computations based on problem specifics for improved heuristic efficiency in MO-MKP.
+Leverage neighbor information, simplify computations, and focus on relevant features for better heuristic design.
+Emphasize neighbor-related calculations, balance weight and capacity interactions, and utilize more inter-item comparisons.
+Utilize neighbor information efficiently, prioritize item neighbors, and balance objective factors effectively.

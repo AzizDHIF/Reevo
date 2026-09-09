@@ -1,0 +1,21 @@
+```c
+double heuristic_v2(int index_item, double weights[dimension][NBITEMS], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS], double profit[NBITEMS])
+{
+    double factor1 = 0.0, factor2 = 0.0;
+
+    for (int j = 0; j < dimension; j++) {
+        factor1 += weights[j][voisinage[index_item]] / capacity[j];
+    }
+
+    double efficiency = profit[voisinage[index_item]] / factor1;
+    double remaining_capacity_factor = (capacity[0] - weights[0][voisinage[index_item]]) * profit[voisinage[index_item]];
+    double secondary_weight_factor = weights[1][voisinage[index_item]] * profit[voisinage[index_item]];
+
+    // Sparsify heuristic based on factors and balance their impact
+    if (efficiency + remaining_capacity_factor + secondary_weight_factor > 0) {
+        return efficiency + remaining_capacity_factor + secondary_weight_factor;
+    } else {
+        return 0.0;
+    }
+}
+```

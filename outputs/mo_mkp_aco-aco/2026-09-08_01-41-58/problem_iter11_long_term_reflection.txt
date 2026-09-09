@@ -1,0 +1,1 @@
+Focus on simplicity, prioritize relevant factors, and streamline computations for efficient heuristic design. Incorporate key features (weights, profits, capacities) and normalize inputs for improved performance in MO-MKP.

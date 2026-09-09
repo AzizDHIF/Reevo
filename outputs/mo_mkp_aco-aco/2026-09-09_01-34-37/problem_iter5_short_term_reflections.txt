@@ -1,0 +1,7 @@
+1. Focus on direct relevance between item profit and current solution costs. 
+2. Minimize unnecessary calculations, prioritize simplicity and direct relevance.
+Consider simplicity, efficiency, and avoiding unnecessary calculations. Focus on direct relevant metrics for better heuristic design.
+Focus on simplicity, avoid unnecessary calculations, prioritize consistent decision-making rules, and consider multiple dimensions of the problem.
+Focus on simplicity, robustness, and ensuring a relevant heuristic value to improve efficiency and quality of solutions.
+Hint: Focus on simplicity, robustness, and avoiding unnecessary calculations to improve heuristic efficiency.
+Simplify calculations, prioritize sparsity, and focus on effective factor combinations for promising heuristics.

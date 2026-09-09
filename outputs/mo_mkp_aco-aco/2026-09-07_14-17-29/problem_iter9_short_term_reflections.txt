@@ -1,0 +1,6 @@
+Utilize precomputed information efficiently to avoid unnecessary computations and improve solution selection in heuristics.
+Utilize efficient pre-computation and sparse calculations to improve heuristics for MO-MKP.
+Prioritize neighbors with a more balanced weight distribution. Consider both total and maximum weight values.
+Leverage all relevant weight information and reward scalability over single dimension disparities for better heuristics.
+Consider efficiency, avoid unnecessary iterations, and leverage predefined variables for optimal heuristic design.
+Leverage precomputed values and avoid unnecessary loops to increase heuristic efficiency.

@@ -1,0 +1,31 @@
+```c
+double heuristic_v2(int index_item, double weights[dimension][NBITEMS], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS], double profit[NBITEMS]) {
+    double h = 0.001; // Smoothing factor to avoid division by zero
+    int max_cap_dim = 0;
+    double heaviest = weights[0][voisinage[index_item]];
+
+    for (int j = 0; j < dimension; j++) {
+        h += weights[j][voisinage[index_item]] / capacity[j];
+        if (weights[j][voisinage[index_item]] > heaviest) {
+            heaviest = weights[j][voisinage[index_item]];
+            max_cap_dim = j;
+        }
+    }
+
+    if (index_item % 2 == 0) { // Taking into account item index
+        h *= 2;
+    }
+
+    if (voisinage[index_item] > NBITEMS / 2) { // Penalizing high indices
+        return 0;
+    }
+
+    if (max_cap_dim == dimension - 1) { // Favoring an item taking mostly from the last dimension
+        h *= 1.5;
+    }
+
+    // Introduce domain-specific modifications here
+
+    return profit[voisinage[index_item]] / h;
+}
+```  

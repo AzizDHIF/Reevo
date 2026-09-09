@@ -1,0 +1,3 @@
+1. Balance simplicity and efficiency for robust MO-MKP heuristics.
+2. Normalize inputs, handle zero values, and incorporate sparsity checks.
+3. Emphasize non-zero weight contributions, scale appropriately, and include context-aware features for improved performance.

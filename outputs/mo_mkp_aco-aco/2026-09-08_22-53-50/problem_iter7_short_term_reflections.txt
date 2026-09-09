@@ -1,0 +1,6 @@
+1. Normalize weights and consider dimensionality for better heuristic performance.
+Utilize neighbors' weight contributions in heuristic calculations for improved performance in MO-MKP solutions.
+Prioritize efficient use of capacity and consider balanced utilization of weights for better heuristic performance.
+Emphasize relative importance of profitable items and efficiency; balance factors dynamically for better performance.
+Balance weight and profit factors, consider normalized weight per capacity, and ensure non-zero weight contribution.
+Consider balancing weight and profit factors dynamically, incorporate neighbor information effectively for better performance.

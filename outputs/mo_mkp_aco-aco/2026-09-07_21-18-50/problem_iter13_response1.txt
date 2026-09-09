@@ -1,0 +1,21 @@
+```c
+double heuristic_v2(int index_item, double weights[dimension][NBITEMS], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS], double profit[NBITEMS]) {
+    double sum_ratio = 0;
+
+    // Calculate the sum of ratios for neighbouring items
+    for (int j = 0; j < dimension; j++) {
+        double neighbour_weight = weights[j][voisinage[index_item]];
+        if (neighbour_weight > 0) {
+            sum_ratio += neighbour_weight / capacity[j];
+        }
+    }
+
+    // Normalize sum ratio to range [0, 1]
+    double normalized_ratio = sum_ratio / dimension;
+
+    // Apply smoothing factor and balanced feature selection
+    double heuristic_value = profit[voisinage[index_item]] / (sum_ratio + 1) * nb_voisinage * (1 - normalized_ratio);
+
+    return heuristic_value;
+}
+```

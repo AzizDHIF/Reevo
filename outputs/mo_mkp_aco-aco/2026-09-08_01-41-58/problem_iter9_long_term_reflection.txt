@@ -1,0 +1,2 @@
+1. Focus on simplicity, normalize features early, balance exploration-exploitation, utilize multiple factors in objective optimization.
+2. Emphasize key factors directly impacting objectives, prioritize valid neighbors, balance computation efficiently, avoid excessive penalties.

@@ -1,0 +1,7 @@
+Prioritize neighboring item in heuristic; account for case of unpromising items.
+Consider incorporating domain-specific knowledge, diversity, and non-linear interactions for improved heuristic performance.
+Consider incorporating diversity, dimension importance, and problem-specific features for improved heuristics in MO-MKP.
+Consider normalizing weights and using a promising factor accounting for worst-case improvements for better exploration-exploitation balance.
+1. Prioritize profit over weight ratio in heuristics for MO-MKP.
+2. Consider adjusting the profit-weight balancing factor dynamically.
+Consider relative neighboring values and handle zero cases strategically for better heuristic design.

@@ -1,0 +1,12 @@
+```c
+double heuristic_v2(int index_item, double weights[dimension][NBITEMS], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS], double profit[NBITEMS]) {
+    double h=0;
+    double divisor = 0.000001; // Use a small divisor to avoid division by zero
+
+    for(int j=0; j<dimension; j++) {
+        h += weights[j][voisinage[index_item]] / (capacity[j] + divisor); // Utilize division with a small divisor
+    }
+
+    return profit[voisinage[index_item]] / (h + divisor); // Adjust the division for better stability
+}
+```

@@ -1,0 +1,4 @@
+1. Prioritize sparsity and feature utilization for efficient MO-MKP heuristics.
+2. Separate calculations, leverage key metrics, and reduce complexity.
+3. Utilize precomputed data efficiently, prioritize balanced weight distribution in neighbors.
+4. Embrace scalable rewards and avoid unnecessary computations for optimal solutions.

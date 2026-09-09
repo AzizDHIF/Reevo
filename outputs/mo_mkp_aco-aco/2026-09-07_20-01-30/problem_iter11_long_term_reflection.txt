@@ -1,0 +1,3 @@
+1. Balance factors and sparsity for efficient heuristic design.
+2. Incorporate diverse item properties and adjust selection based on neighboring items.
+3. Prioritize relative factor importance and introduce relevant factors for improved performance in MO-MKP.

@@ -1,0 +1,4 @@
+1. Balance factors for robust, simple heuristics in MO-MKP.
+2. Consider sparsification and avoid redundancies for efficiency.
+3. Prioritize essential factors and simplify computations for improved performance.
+4. Normalize inputs, prevent division by zero, and emphasize absolute weights for effectiveness.

@@ -1,0 +1,6 @@
+Embrace normalization, leverage sparsity, and adapt to diverse objectives for robust heuristic design.
+Focus on neighbor benefit from adding the item, rather than raw item statistics, for more effective heuristics.
+Focus on utilizing remaining capacity effectively, considering item weights, and avoid redundant calculations.
+Consider utilizing normalized weights, leveraging sparsity, and incorporating constraints to improve heuristic design efficiently.
+1. Normalize weights and use sparsity for better performance in the heuristic function.
+Consider using normalized factors, weighting by capacity, and sparsifying to improve heuristics for MO-MKP.

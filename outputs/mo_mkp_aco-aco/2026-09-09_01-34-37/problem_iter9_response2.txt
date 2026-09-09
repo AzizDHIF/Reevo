@@ -1,0 +1,14 @@
+```c
+double heuristic_v2(int index_item, double weights[dimension][NBITEMS], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS], double profit[NBITEMS]) {
+    double h = 0;
+    
+    for (int j = 0; j < dimension; j++) {
+        if (weights[j][index_item] > capacity[j]) {
+            return 0; // Set unpromising element to zero
+        }
+        h += weights[j][index_item] / capacity[j]; // Utilize precomputed neighbors and diverse dimensions
+    }
+    
+    return profit[index_item] / h; // Combine factors to determine item selection
+}
+```

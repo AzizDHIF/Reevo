@@ -1,0 +1,1 @@
+Prioritize utilizing neighbors' weights directly, avoid zero divisions, and leverage valid neighbors for efficient and accurate calculation in MO-MKP heuristics.

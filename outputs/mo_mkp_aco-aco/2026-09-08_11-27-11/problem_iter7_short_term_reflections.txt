@@ -1,0 +1,7 @@
+Consider normalized weights, ensure non-zero denominator, and simplify calculations for better heuristic design.
+1. Consider feasibility checks before computations.
+2. Avoid unnecessary divisions in the heuristic calculation.
+Utilize neighbor indices optimally, check for special cases, and consider efficiency.
+Use precomputed data efficiently and avoid unnecessary computations for rapid heuristic evaluation in optimization.
+Prioritize neighbor selection over item-centric computations for improved heuristic efficiency in MO-MKP.
+Consider the impact of neighboring items on heuristics to enhance solution quality and exploration efficiency.

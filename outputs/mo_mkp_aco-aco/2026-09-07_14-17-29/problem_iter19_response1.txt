@@ -1,0 +1,20 @@
+```c
+double heuristic_v2(int index_item, double weights[dimension][NBITEMS], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS], double profit[NBITEMS]){
+    double h = 0;
+    double max_ratio = 0;
+    
+    // Find the item with the maximum profit-to-weight ratio among neighbors
+    for(int i = 0; i < nb_voisinage; i++){
+        int neighbor = voisinage[i];
+        double ratio = profit[neighbor] / weights[0][neighbor]; // Considering only the first dimension for weight
+        
+        if(ratio > max_ratio){
+            max_ratio = ratio;
+        }
+    }
+    
+    h = max_ratio;
+    
+    return h;
+}
+```

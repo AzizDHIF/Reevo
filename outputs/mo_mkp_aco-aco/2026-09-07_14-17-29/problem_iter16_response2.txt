@@ -1,0 +1,22 @@
+```c
+double heuristic_v2(int index_item, double weights[dimension][NBITEMS], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS], double profit[NBITEMS] ) {
+
+    double h = 0;
+    double max_weight_spread = 0;
+    double max_profit = profit[voisinage[index_item]];
+
+    // Calculate the maximum weight spread for the selected item
+    for (int i = 0; i < dimension; i++) {
+        double curr_weight = weights[i][voisinage[index_item]];
+        if (curr_weight > max_weight_spread) {
+            max_weight_spread = curr_weight;
+        }
+    }
+
+    if (max_weight_spread > 0) {
+        h = max_profit / max_weight_spread;
+    }
+
+    return h;
+}
+```

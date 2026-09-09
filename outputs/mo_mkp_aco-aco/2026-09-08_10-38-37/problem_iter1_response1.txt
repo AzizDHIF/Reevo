@@ -1,0 +1,32 @@
+```c
+double heuristic_v2(int index_item, double weights[dimension][NBITEMS], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS], double profit[NBITEMS]){
+    double h=0, w_sum=0, p_sum=0;
+    for(int j=0; j<dimension; j++){
+        h += weights[j][index_item] / capacity[j];
+    }
+
+    // Sparsify the heuristic based on dimension weights
+    for(int i=0;i<nb_voisinage;i++) {
+        int i_neighbor = voisinage[i];
+        w_sum = 0;
+        p_sum = 0;
+        if(i!=0){
+            for(int j=0;j<dimension;j++){
+                w_sum += weights[j][i_neighbor] / capacity[j]; 
+            }
+            if(w_sum<=h){
+                return 0;  // Set unpromising elements to zero
+            }
+        }
+        p_sum = 0;
+        for(int j=0;j<dimension;j++){
+            p_sum += profit[i_neighbor]*weights[j][i_neighbor] / capacity[j]; 
+        }
+        p_sum /= dimension; // consider the average profit per dimension
+        if (p_sum > 0) {
+            return profit[voisinage[i]] / h;  // Combine factors to determine promise in selection
+        }
+    }
+    return 0;
+}
+```

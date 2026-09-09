@@ -1,0 +1,1 @@
+Fine-tune weighting factors, include deviation consideration, optimize factor balance, prioritize simplicity, and efficient computations for superior MO-MKP heuristic performance.

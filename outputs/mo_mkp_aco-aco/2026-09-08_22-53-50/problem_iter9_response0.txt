@@ -1,0 +1,22 @@
+```c
+double heuristic_v2(int index_item, double weights[dimension][NBITEMS], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS], double profit[NBITEMS]) {
+    double h = 0.0;
+    
+    for(int j = 0; j < dimension; j++) {
+        h += weights[j][voisinage[index_item]] / (capacity[j] + 0.000001);
+    }
+
+    double promising_factor = 0.6 * profit[voisinage[index_item]] / h;
+    double weight_factor = 0.4 * (1.0 - h / dimension);
+
+    // Dynamic adjustment based on balance between promising factor and weight factor
+    double balance_factor = 0.5 * promising_factor + 0.5 * weight_factor;
+
+    // Sparisify the heuristic by zeroing out unpromising choices
+    if(balance_factor <= 0.1) {
+        return 0.0;
+    }
+
+    return balance_factor;
+}
+```

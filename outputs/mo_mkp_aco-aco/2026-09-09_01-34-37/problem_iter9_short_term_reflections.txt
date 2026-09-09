@@ -1,0 +1,6 @@
+Normalize and consider remaining capacity in calculations for better heuristic performance.
+Focus on directly using neighboring item information, avoid unnecessary calculations, and handle edge cases efficiently.
+Consider directly calculating load factor using neighbor index rather than item index for better heuristic efficiency.
+Emphasize neighbor's load, avoid division by capacity, incorporate neighbor's profit effectively for better heuristics in MO-MKP.
+Focus heuristic on neighboring items, adapt calculations directly. Prioritize efficient, direct calculations using precomputed neighbors for better performance.
+Utilize neighboring item's profit and weight directly with non-empty capacity, considering diverse dimensions for better performance.

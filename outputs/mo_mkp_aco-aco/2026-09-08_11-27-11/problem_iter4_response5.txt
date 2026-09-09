@@ -1,0 +1,24 @@
+```c
+double heuristic_v2(int index_item, double weights[dimension][NBITEMS], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS], double profit[NBITEMS])
+{
+    double h = 0;
+    double total_weight = 0;
+    
+    // Calculate total weight directly from neighbors
+    for (int j = 0; j < dimension; j++) {
+        total_weight += weights[j][voisinage[index_item]];
+    }
+
+    // Item is not promising if total weight exceeds capacity
+    if (total_weight > 1.0) {
+        return 0.0;
+    }
+
+    // Compute the heuristic v2 metric efficiently without unnecessary loops
+    for (int j = 0; j < dimension; j++) {
+        h += weights[j][voisinage[index_item]] / capacity[j];
+    }
+
+    return profit[voisinage[index_item]] / h;
+}
+```

@@ -1,0 +1,1 @@
+Focus on efficient use of precomputed neighbors' information, considering capacity constraints, normalized weights, and neighboring items' load, profit, and weight to improve heuristic performance in MO-MKP.

@@ -1,0 +1,8 @@
+Use simpler and more focused heuristic calculations like profit divided by total weight for efficient MO-MKP sampling.
+Emphasize simplicity and direct relevance to objectives. Balance factor impact wisely. Avoid unnecessary complexities for the best results.
+Normalize by individual weights, prioritize profit ratio, and avoid unnecessary combined factor calculations.
+Prioritize simple heuristics, avoid unnecessary complexity, and focus on balanced interplay between factors.
+- Focus on relative impact balancing between factors.
+- Avoid unnecessary product accumulation for stability.
+- Consider simple, effective mathematical formulations.
+Prioritize simplicity, avoid unnecessary multiplicative factors, focus on direct relevance of objective to item attributes.

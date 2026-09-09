@@ -1,0 +1,6 @@
+Utilize neighbor indices for weights, consider total capacity, normalize objective values.
+Hint: Leverage neighborhood information for better estimate, avoid division by zero, simplify calculations for efficiency.
+Avoid premature normalization and compute ratios meaningfully using all relevant parameters.
+Leverage precomputed neighbors for direct access, avoid redundant computations, and ensure meaningful ratio calculations for better heuristics.
+Compute sums efficiently with explicit loops, minimizing redundant operations.
+Leverage neighboring items and capacity balance for improved heuristic accuracy in MO-MKP algorithms.

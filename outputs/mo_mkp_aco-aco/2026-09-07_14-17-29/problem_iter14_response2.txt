@@ -1,0 +1,21 @@
+```c
+double heuristic_v2(int index_item, double weights[dimension][NBITEMS], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS], double profit[NBITEMS])
+{
+    double h = 0;
+    double max_profit_weight_ratio = 0;
+    
+    // Calculate the profit-to-weight ratio of the best neighbor
+    double best_neighbor_index = voisinage[index_item];
+    double best_neighbor_weight = 0;
+    for (int j = 0; j < dimension; j++) {
+        best_neighbor_weight += weights[j][best_neighbor_index];
+    }
+    if (best_neighbor_weight > 0) {
+        max_profit_weight_ratio = profit[best_neighbor_index] / best_neighbor_weight;
+    }
+    
+    h = max_profit_weight_ratio;
+    
+    return h;
+}
+```

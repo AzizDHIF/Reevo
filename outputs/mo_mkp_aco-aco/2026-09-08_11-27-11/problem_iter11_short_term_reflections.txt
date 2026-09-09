@@ -1,0 +1,6 @@
+Consider the potential influence of neighbors in the heuristics and address division by zero cases efficiently.
+Avoid unnecessary zero-checks and use a weighted average of profits-to-capacity for efficiency and effectiveness.
+Focus on handling edge cases efficiently and utilize inverse values for better heuristic performance.
+Avoid unnecessary conditions, utilize precomputed neighbors, normalize contributions for better heuristics.
+Consider utilizing neighbors' information for better heuristic values. Optimize computations for efficiency. Beware of division by zero.
+Leverage neighbor indices directly, avoid division by near zero, consider alternative weight normalization methods.

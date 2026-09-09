@@ -1,0 +1,2 @@
+1. Leverage neighbor data efficiently and normalize ratios for accurate weight handling.
+2. Streamline computations, prioritize features, and ensure consistent neighbor selection for precise heuristic performance.

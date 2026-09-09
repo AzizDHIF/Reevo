@@ -1,0 +1,6 @@
+Leverage valid neighbors directly, prioritize item's impact on objective.
+Leverage precomputed neighbors directly in the heuristic calculation for improved performance without extra computations.
+Leverage neighbour information efficiently for promisingness estimation. Minimize redundant computations for better performance.
+1. Utilize valid neighbors directly for calculations. 2. Handle division by zero cases wisely for robustness.
+Better heuristics focus on relevant neighbors and prioritize profit-weight ratio efficiently.
+Focus on relevant neighbors, avoid unnecessary computation, and ensure meaningful denominator in heuristic calculations.

@@ -1,0 +1,16 @@
+```c
+double heuristic_v2(int index_item, double weights[dimension][NBITEMS], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS], double profit[NBITEMS]) {
+    double weight_to_capacity_ratio = 0;
+    
+    // Calculate the weight-to-capacity ratio for the current item
+    for (int j = 0; j < dimension; j++) {
+        weight_to_capacity_ratio += weights[j][index_item] / capacity[j];
+    }
+    
+    // Normalize the weight-to-capacity ratio
+    weight_to_capacity_ratio /= dimension;
+    
+    // Compute the desirability based on profit and normalized weight-to-capacity ratio
+    return profit[index_item] * (1 / weight_to_capacity_ratio);
+}
+```  

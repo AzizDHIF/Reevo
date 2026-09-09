@@ -1,0 +1,15 @@
+```c
+double heuristic_v2(int index_item, double weights[dimension][NBITEMS], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS], double profit[NBITEMS])
+{
+    double total_weight = 0, total_capacity = 0, total_score = 0;
+
+    for (int j = 0; j < dimension; j++) {
+        total_weight += weights[j][index_item];
+        total_capacity += capacity[j];
+    }
+
+    total_score = total_weight > 0 ? profit[index_item] / total_weight + total_capacity : 0;
+
+    return total_score;
+}
+```

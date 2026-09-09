@@ -1,0 +1,6 @@
+Focus on simplicity, reduce unnecessary computations, and emphasize key factors impacting objective function directly.
+Normalize weights and capacities early, utilize distinct factors, balance computation, and consider objective interactions for better heuristics.
+Utilize multiple factors involving weights, capacity, and neighbors to improve heuristic performance in MO-MKP.
+Emphasize balance between factors, consider more problem-specific interactions, avoid penalizing excessively; optimize directly on objectives.
+Consider incorporating multiple factors that reflect different aspects of item inclusion for better performance.
+Avoid unnecessary computations and improve ratio calculations for more efficient heuristic evaluations.

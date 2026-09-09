@@ -1,0 +1,15 @@
+```c
+double heuristic_v2(int index_item, double weights[dimension][NBITEMS], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS], double profit[NBITEMS] ) {
+    double h = 0;
+    double weight_promising_factor = 0.7;
+    double profit_promising_factor = 1.3;
+    
+    for (int j = 0; j < dimension; j++) {
+        h += weights[j][voisinage[index_item]] / capacity[j];
+	}
+    
+    double promising_score = (weight_promising_factor * h) - (profit_promising_factor * profit[voisinage[index_item]]);
+    
+    return (promising_score > 0) ? promising_score : 0;
+}
+```

@@ -1,0 +1,26 @@
+```c
+#include <math.h>
+
+double heuristic_v2(int index_item, double weights[dimension][NBITEMS], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS], double profit[NBITEMS]) {
+    double h = 0;
+    double total_weight = 0;
+    
+    for (int j = 0; j < dimension; j++) {
+        h += weights[j][index_item] / capacity[j];
+        total_weight += weights[j][index_item];
+    }
+
+    if (h == 0) {
+        return 0.0; // Avoid division by zero
+    }
+
+    double combined_score = 1.0 / h - total_weight / dimension;
+    double novelty_factor = (double)nb_voisinage / NBITEMS;
+    
+    if (combined_score <= 0 || total_weight > capacity[0]) {
+        return 0.0; // Unpromising case
+    } else {
+        return profit[index_item] * combined_score * sqrt(novelty_factor) / log(1 + total_weight);
+    }
+}
+```

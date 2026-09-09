@@ -1,0 +1,7 @@
+1. Focus on efficient calculations directly related to item promise and capacity utilization.
+2. Minimize unnecessary conditional checks and intermediate variables for better performance.
+Use ratio-based calculations, minimize redundant computations, and prioritize updating values sequentially in heuristics design.
+Utilize direct computations involving weights and capacities for improved heuristic precision and performance.
+Focus on efficient utilization of available information and reduce unnecessary computations for better heuristic performance.
+- Focus on effective utilization of available capacity and neighbor relationships for better heuristics.
+Directly incorporate profit and update promising_factor, avoid unnecessary conditional checks, eliminate redundant computations.

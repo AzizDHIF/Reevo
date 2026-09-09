@@ -1,0 +1,2 @@
+1. Normalize weights, prioritize efficient capacity use, and simplify calculations for efficient and balanced MO-MKP heuristics.
+2. Consider dynamic adjustments, avoid redundancies, and balance weight and profit factors for improved heuristic performance.

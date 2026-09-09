@@ -1,0 +1,6 @@
+Focus on handling constraints and considering neighboring solutions to improve heuristic efficiency.
+Focus on normalized and balanced factors combining weight and profit heuristics for better performance.
+Focus on relative importance of item attributes, avoid unnecessary calculations, and utilize precomputed information efficiently for heuristics.
+Consider incorporating normalized values and importance weights to balance objectives for better heuristic performance.
+Focus on weighting factors, simplicity, and ensuring meaningful calculations for better heuristic design.
+Emphasize normalized weight and profit factors over divisive computations; consider feasibility constraints for better heuristics design.

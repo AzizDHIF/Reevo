@@ -1,0 +1,19 @@
+```c
+double heuristic_v2(int index_item, double weights[dimension][NBITEMS], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS], double profit[NBITEMS])
+{
+    double h = 0;
+    double den = 0;
+    double epsilon = 0.0001; // Small value to avoid division by zero
+
+    for (int j = 0; j < dimension; j++) {
+        if (weights[j][voisinage[index_item]] > epsilon) {
+            h += weights[j][voisinage[index_item]] / capacity[j];
+            den += weights[j][voisinage[index_item]] / NBITEMS; // Dynamic balance adjustment
+        }
+    }
+
+    double balance = den > epsilon ? h / den : 0; // Exploration-exploitation balance
+
+    return profit[voisinage[index_item]] * balance; // Combination of profit and balance for promising selection
+}
+```

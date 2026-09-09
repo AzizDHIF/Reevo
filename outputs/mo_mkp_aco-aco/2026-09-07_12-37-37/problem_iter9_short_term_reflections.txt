@@ -1,0 +1,6 @@
+Normalize weights globally in heuristics to avoid division by zero and ensure comparable results.
+Avoid unnecessary division and consider initializing variables appropriately for numerical stability in heuristics.
+Utilize smaller constant value addition instead of division by capacity for better heuristic performance.
+Avoid unnecessary divisions in heuristics to boost performance; initialize accumulators to prevent divisions by small numbers.
+Avoid dividing by capacities in heuristic computation and prefer accumulating weights before profit division.
+Normalize weights by dividing by capacity to improve heuristic accuracy and utilize promising factors effectively.

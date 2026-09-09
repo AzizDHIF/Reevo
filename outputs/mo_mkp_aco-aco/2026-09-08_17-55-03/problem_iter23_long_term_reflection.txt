@@ -1,0 +1,1 @@
+- Carefully balance weights and thresholds, fine-tune factors iteratively, and prioritize objective-dependent coefficients tuning for effective and efficient MO-MKP heuristics. Normalize utility calculation and sparsify elements for improved performance.

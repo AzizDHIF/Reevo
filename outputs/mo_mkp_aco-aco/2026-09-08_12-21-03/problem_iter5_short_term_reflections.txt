@@ -1,0 +1,8 @@
+1. Consider utilizing additional factors like capacity utilization for better heuristics efficiency.
+2. Aim to incorporate relevant dimensions directly to enhance heuristic effectiveness.
+Focus on computing promising and decision factors efficiently for better heuristics; avoid redundant calculations for scalability.
+Emphasize early stopping conditions and efficient value computations for better heuristic design.
+Increase coherence in heuristic design; prioritize consistency, simplicity, and efficiency for better performance in MO-MKP.
+Leverage precomputed values, reduce computations, consider long-term impact, and incorporate decision thresholds for better heuristic design.
+Focus on better estimating potential contribution and incorporating remaining capacity. Avoid redundant computations and balance exploration-exploitation trade-off efficiently.
+

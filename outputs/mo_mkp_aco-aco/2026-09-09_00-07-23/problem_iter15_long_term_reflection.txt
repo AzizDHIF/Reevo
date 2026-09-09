@@ -1,0 +1,2 @@
+1. Prioritize neighboring items for efficient comparisons, while avoiding zero divisions and compounding ratios in MO-MKP heuristics.
+2. Leverage neighbor information directly, utilizing valid indices and precomputed data for accurate estimations in multi-objective multiple knapsack problems.

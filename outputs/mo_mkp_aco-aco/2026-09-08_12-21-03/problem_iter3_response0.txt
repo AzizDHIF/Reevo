@@ -1,0 +1,23 @@
+```c
+double heuristic_v2(int index_item, double weights[dimension][NBITEMS], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS], double profit[NBITEMS]) {
+    double h = 0;
+    // Compute the sum of normalized weights for the neighbors of index_item
+    for(int j=0; j<dimension; j++) {
+        h += weights[j][voisinage[index_item]] / capacity[j];
+    }
+
+    // Calculate promising factor based on profit and normalized weights
+    double promising_factor = profit[voisinage[index_item]] / h;
+
+    // Compute the total remaining capacity if index_item is added to the solution
+    double capacity_filled = 0;
+    for(int j=0; j<dimension; j++) {
+        capacity_filled += capacity[j] - weights[j][index_item];
+    }
+
+    // Introduce sparsity threshold for decision factor calculation
+    double decision_factor = capacity_filled > 0 ? 1 / (1 + capacity_filled) : 0;
+
+    return promising_factor * decision_factor;
+}
+```

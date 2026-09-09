@@ -1,0 +1,6 @@
+Consider incorporating multiple relevant dimensions in heuristics, prioritize more complete information over simplistic calculations.
+Utilize all weight dimensions for informative neighbor selection; prefer sparse computations with impactful metrics.
+Leverage max values efficiently; focus on relevant dimensions, prevent division by zero, adjust profit analysis.
+Consider relative, rather than absolute, scores, prioritize essential comparisons, and leverage precomputed values efficiently.
+Leverage ratio metric directly for clear and sparse heuristics; avoid unnecessary loops and intermediate calculations.
+Consider all weight dimensions for better neighbor selection in MO-MKP heuristics.

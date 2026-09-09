@@ -1,0 +1,2 @@
+1. Prioritize sparsity and direct feature utilization for efficient heuristic design in MO-MKP.
+2. Separate calculation steps, leverage key metrics, and embrace reduced complexity for effective heuristics.

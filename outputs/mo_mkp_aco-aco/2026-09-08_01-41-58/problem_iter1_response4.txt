@@ -1,0 +1,16 @@
+```c
+double heuristic_v2(int index_item, double weights[dimension][NBITEMS], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS], double profit[NBITEMS] ){
+    double h1=0, h2=0, h=0, h_limited;
+    
+    for(int j=0;j<dimension;j++){
+        h1 += weights[j][voisinage[index_item]] / capacity[j]; 
+        h2 += weights[j][index_item] / capacity[j]; 
+    }
+    
+    h = h1 > h2 ? h1 : h2; // Select the maximum resource usage required
+    
+    h_limited = h == 0 ? 0 : profit[index_item] / h; // Limit h if zero, to avoid division by zero
+    
+    return h_limited;
+}
+```

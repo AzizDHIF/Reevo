@@ -1,0 +1,6 @@
+Avoid redundant variable declarations, unnecessary complexity, and improve readability for heuristic efficiency and performance.
+Focus on early rejection of unpromising items first to improve heuristic efficiency.
+Avoid unnecessary variable assignment and use simplified computations directly in return statement.
+Prioritize simplicity, avoid unnecessary checks, and aim for efficient weight normalization for better heuristic design.
+Normalize computations, avoid unnecessary variables, and use descriptive naming for clarity and efficiency.
+Use cumulative sum for weight calculations and early prune in the loop to improve heuristic performance.

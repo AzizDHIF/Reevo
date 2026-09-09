@@ -1,0 +1,6 @@
+Avoid unnecessary computations, focus on significant factors, and simplify calculations for better heuristics.
+Utilize relevant auxiliary information efficiently & reduce unnecessary calculations for better heuristic design.
+Simplify calculations, focus on key factors, avoid unnecessary computations, and prioritize critical features for improved performance.
+Leverage maximum weight and sum of weights efficiently for better heuristic performance.
+Simplify calculations, reduce unnecessary computations, focus on crucial features, and minimize complexity for better heuristic design.
+Leverage statistical information on weights for better heuristic performance; avoid unnecessary complex calculations and logic.

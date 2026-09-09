@@ -1,0 +1,1 @@
+1. Combine factors judiciously, aim for efficiency and coherence, prioritize simplicity, normalizing weights and ratios, optimize sparsity with expert-defined thresholds, leverage precomputed values, and focus on scalability and early stopping conditions for improved heuristic design in MO-MKP.

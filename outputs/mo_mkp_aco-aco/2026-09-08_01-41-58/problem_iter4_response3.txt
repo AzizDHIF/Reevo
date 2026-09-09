@@ -1,0 +1,16 @@
+```c
+double heuristic_v2(int index_item, double weights[dimension][NBITEMS], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS], double profit[NBITEMS])
+{
+    double exploration_factor = 0;
+    double objective_ratio = 0;
+    double capacity_factor = 0;
+
+    for (int j = 0; j < dimension; j++) {
+        exploration_factor += 1 / (1 + weights[j][voisinage[index_item]]);
+        objective_ratio += profit[voisinage[index_item]] / (weights[j][voisinage[index_item]] / capacity[j]);
+        capacity_factor += 1 / (1 + capacity[j]);
+    }
+
+    return exploration_factor * objective_ratio * capacity_factor;
+}
+```

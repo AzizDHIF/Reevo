@@ -1,0 +1,1 @@
+Design heuristics for MO-MKP by prioritizing simplicity, efficiency, and direct relevance to objectives. Focus on proportional weights/profits, avoid small divisions, use small non-zero initializations, and balance factor impact wisely. Normalize by individual weights, prioritize profit ratios, and minimize unnecessary complexities for optimal results.

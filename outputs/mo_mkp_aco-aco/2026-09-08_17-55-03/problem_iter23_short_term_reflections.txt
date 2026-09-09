@@ -1,0 +1,6 @@
+Adjust weights carefully, balance factors, and explore diverse promising score thresholds for improved heuristics in MO-MKP.
+Normalize utility calculation, dynamically adjust filtering threshold, fine-tune final score for better balance.
+Prioritize objective-dependent coefficients tuning over threshold-based filtering for effective heuristics in MO-MKP.
+Tune factors and filtering thresholds dynamically while ensuring a good balance and adjust iteratively for efficiency.
+Adjust weights carefully and sparsify heuristics by eliminating unpromising elements effectively to enhance performance.
+Use relative factors summing to 1, fewer magic numbers, and sparsifying unpromising elements for better heuristics.

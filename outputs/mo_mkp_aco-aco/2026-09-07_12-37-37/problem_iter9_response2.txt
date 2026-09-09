@@ -1,0 +1,11 @@
+```c
+double heuristic_v2(int index_item, double weights[dimension][NBITEMS], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS], double profit[NBITEMS]) {
+    double sum_weights = 0.00001; // Initialize to a small value to prevent division by zero
+    for (int j = 0; j < dimension; j++) {
+        sum_weights += weights[j][voisinage[index_item]]; // Accumulate the sum of weights without dividing by capacity
+    }
+    double promising_value = profit[voisinage[index_item]] / sum_weights; // Calculate profit divided by the sum of weights
+
+    return promising_value > 0 ? promising_value : 0; // Sparsify the heuristic by setting unpromising values to zero
+}
+```

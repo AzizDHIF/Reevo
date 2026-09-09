@@ -1,0 +1,3 @@
+1. Utilize neighbor indices and total capacity for improved estimates.
+2. Avoid premature normalization, compute meaningful ratios efficiently.
+3. Leverage precomputed neighbors for direct access and efficient calculations.

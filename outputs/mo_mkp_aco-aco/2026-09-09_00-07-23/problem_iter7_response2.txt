@@ -1,0 +1,18 @@
+```c
+double heuristic_v2(int index_item, double weights[dimension][NBITEMS], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS], double profit[NBITEMS]) {
+    double h = 0;
+    double norm_weights[dimension];
+
+    for (int j = 0; j < dimension; j++) {
+        norm_weights[j] = weights[j][index_item] / capacity[j];
+        if (norm_weights[j] < 0.1) {
+            norm_weights[j] = 0; // sparsity-aware normalization
+        }
+        h += norm_weights[j];
+    }
+
+    double norm_profit = profit[index_item] / h;
+
+    return norm_profit;
+}
+```

@@ -1,0 +1,1 @@
+Incorporate neighbor information directly with adjusted weight influence, consider neighboring item impact, utilize remaining capacity, check constraints on neighbors, prioritize item neighbors, normalize effectively, handle special cases efficiently for improved MO-MKP heuristics.

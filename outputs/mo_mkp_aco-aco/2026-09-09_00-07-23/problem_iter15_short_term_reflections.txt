@@ -1,0 +1,6 @@
+Utilize neighbor index directly, avoiding unnecessary item checks for better heuristics efficiency.
+Utilize valid neighbor index directly, considering weights and remaining capacity for more accurate heuristics.
+Avoid dividing by potentially zero values, favoring additive calculations over multiplicative for heuristic efficiency.
+Leverage neighbor information and remaining capacity directly for more accurate heuristic estimations in MO-MKP.
+Avoid compounding ratios in heuristics and focus on aggregating incremental contributions for more robust performance.
+Leverage precomputed neighbors for better heuristic accuracy in multi-objective multiple knapsack problems.

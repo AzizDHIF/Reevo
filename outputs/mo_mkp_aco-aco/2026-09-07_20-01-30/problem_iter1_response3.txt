@@ -1,0 +1,18 @@
+```c
+double heuristic_v2(int index_item, double weights[dimension][NBITEMS], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS], double profit[NBITEMS] ){
+    double h=0, remarquable_factor = 1.4;
+    int weight_factor = 2, profit_factor = 5;
+
+    for(int j=0;j<dimension;j++){
+        h += weights[j][voisinage[index_item]] / capacity[j];
+    }
+
+    double evaluation_score = profit[voisinage[index_item]] * profit_factor - h * weight_factor;
+
+    if (evaluation_score > 0) {
+        return evaluation_price / remarquable_factor;
+    } else {
+        return 0;
+    }
+}
+```

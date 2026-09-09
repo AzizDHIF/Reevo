@@ -1,0 +1,21 @@
+```c
+double heuristic_v2(int index_item, double weights[dimension][NBITEMS], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS], double profit[NBITEMS]) {
+    double weight_factor = 0.3;
+    double profit_factor = 0.4;
+    double deviation_factor = 0.3;
+
+    double utility = 0;
+    for (int j = 0; j < dimension; j++) {
+        utility += weights[j][voisinage[index_item]] / capacity[j];
+    }
+
+    // Set different threshold for filtering unpromising elements
+    if (profit[voisinage[index_item]] < 0.1 || utility > 0.9) {
+        return 0;
+    }
+
+    double promising_score = (profit[voisinage[index_item]] * profit_factor) / (utility * weight_factor) + deviation_factor;
+
+    return promising_score;
+}
+```

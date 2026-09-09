@@ -1,0 +1,6 @@
+Focus on relevant features, simplify calculations, and handle edge cases efficiently for better heuristics.
+Focus on the relative importance of profit and weight, avoid unnecessary computations, and simplify the heuristic calculation.
+Focus on item's own features, ensure proper normalization, leverage sparsity, and account for remaining capacity efficiently.
+Emphasize neighbor selection over capacity violation, consider multiple dimensions, and tune promotion value strategically.
+Avoid unnecessary computations, prioritize simplicity, consider context-aware calculations, and focus on values influencing solution quality efficiently.
+Focus on direct relevance of item to objectives, simplify calculations, avoid unnecessary computations.

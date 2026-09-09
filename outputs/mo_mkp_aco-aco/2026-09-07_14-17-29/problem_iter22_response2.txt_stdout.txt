@@ -1,0 +1,24 @@
+[*] Running ...
+[*] Mood: train
+Impossible de supprimer C:\Reevo\problems\mo_mkp_aco\results_individual_2\results_train_dataset_3.txt : [WinError 32] Le processus ne peut pas accéder au fichier car ce fichier est utilisé par un autre processus: 'C:\\Reevo\\problems\\mo_mkp_aco\\results_individual_2\\results_train_dataset_3.txt'
+[*] compiling ... 
+gpt.c: In function 'heuristic':
+gpt.c:14:22: error: implicit declaration of function 'fmax' [-Wimplicit-function-declaration]
+   14 |         max_weight = fmax(max_weight, neighbor_weight);
+      |                      ^~~~
+gpt.c:2:1: note: include '<math.h>' or provide a declaration of 'fmax'
+    1 | #include "HBACO.h"
+  +++ |+#include <math.h>
+    2 | double heuristic(int index_item, double weights[dimension][NBITEMS], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS], double profit[NBITEMS])
+gpt.c:14:22: warning: incompatible implicit declaration of built-in function 'fmax' [-Wbuiltin-declaration-mismatch]
+   14 |         max_weight = fmax(max_weight, neighbor_weight);
+      |                      ^~~~
+gpt.c:14:22: note: include '<math.h>' or provide a declaration of 'fmax'
+WARNING:root:Failed to delete results_individual_2 :  [WinError 32] Le processus ne peut pas accéder au fichier car ce fichier est utilisé par un autre processus: 'C:\\Reevo\\problems\\mo_mkp_aco\\results_individual_2\\results_train_dataset_3.txt'
+WARNING:root:Failed to delete WeightACO_train_100items_results_individual_2.exe: [WinError 5] Accès refusé: 'C:\\Reevo\\problems\\mo_mkp_aco\\WeightACO_train_100items_results_individual_2.exe'
+Traceback (most recent call last):
+  File "C:\Reevo/problems/mo_mkp_aco/eval.py", line 384, in <module>
+    compile("WeightACO_train_100items.c",f"WeightACO_train_100items_{id_response}.exe")
+  File "C:\Reevo/problems/mo_mkp_aco/eval.py", line 67, in compile
+    raise RuntimeError("Erreur de compilation")
+RuntimeError: Erreur de compilation

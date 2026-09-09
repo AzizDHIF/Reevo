@@ -1,0 +1,23 @@
+```c
+double heuristic_v2(int index_item, double weights[dimension][NBITEMS], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS], double profit[NBITEMS]) {
+    double sum_weights = 0;
+    double sum_capacity = 0;
+
+    for (int j = 0; j < dimension; j++) {
+        sum_weights += weights[j][voisinage[index_item]];
+        if (capacity[j] > 0) {
+            sum_capacity += capacity[j];
+        }
+    }
+
+    if (sum_capacity == 0) {
+        return 0; // Item cannot fit in any dimension
+    }
+
+    double normalization_factor = sqrt(sum_capacity);
+    double sparsity_factor = 1 / nb_voisinage; // Sparsify for neighbor benefits
+
+    double h = sum_weights / normalization_factor + sparsity_factor;
+    return profit[voisinage[index_item]] / h;
+}
+```

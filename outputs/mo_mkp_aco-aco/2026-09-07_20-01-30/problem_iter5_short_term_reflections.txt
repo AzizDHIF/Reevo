@@ -1,0 +1,7 @@
+Consider the impact of both weight and profit ratios for better heuristic design.
+Consider trade-off between weight utilization and profit, simplified formulas, and early stopping.
+
+Consider efficiency from exploiting existing computations, interpreting item interactions, and sparse selection for heuristics improvement.
+Utilize neighbor information and consider resource utilization for more effective heuristic sampling in MO-MKP.
+Prioritize neighbor selection over item itself to enhance heuristic performance in MO-MKP optimization.
+Focus on using relevant neighbor information, considering item properties, and simplifying factor calculations for improved heuristic performance.

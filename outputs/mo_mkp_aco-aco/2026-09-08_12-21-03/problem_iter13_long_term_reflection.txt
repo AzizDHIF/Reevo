@@ -1,0 +1,3 @@
+- Focus on direct relevance and efficient calculations for heuristic efficacy in MO-MKP.
+- Prioritize individual item performance and ratio-based calculations for accurate and scalable heuristics.
+- Minimize redundancies, exploit factors' interdependencies, and optimize capacity ratio utilization for improved performance.

@@ -1,0 +1,12 @@
+```c
+double heuristic_v2(int index_item, double weights[dimension][NBITEMS], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS], double profit[NBITEMS]) {
+    double max_profit = profit[voisinage[index_item]];
+    double max_weight = 0;
+
+    for (int j = 0; j < dimension; j++) {
+        max_weight = fmax(max_weight, weights[j][voisinage[index_item]]);
+    }
+
+    return (max_weight > 0) ? max_profit / max_weight : 0;
+}
+```

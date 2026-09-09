@@ -1,0 +1,4 @@
+1. Generalize and precompute objective ratios for efficient heuristics.
+2. Prioritize high-profit-to-weight items and spread weights optimally.
+3. Utilize precomputed data and local exploration for optimal solutions.
+4. Focus on efficient neighbor comparison using max values.

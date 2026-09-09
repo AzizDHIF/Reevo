@@ -1,0 +1,16 @@
+```c
+double heuristic_v2(int index_item, double weights[dimension][NBITEMS], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS], double profit[NBITEMS]){
+    double denominator = 0;
+    double norm_factor = 0;
+
+    for(int j = 0; j < dimension; j++){
+        denominator += weights[j][index_item] / capacity[j];
+        norm_factor += weights[j][index_item] * weights[j][index_item];
+    }
+
+    double sparsifying_factor = 0.3;
+    double normalized_factor = 1 / sqrt(norm_factor + 1);
+
+    return normalized_factor * (profit[index_item] / denominator) * sparsifying_factor * (capacity[0] > dimension);
+}
+```

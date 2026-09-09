@@ -1,0 +1,10 @@
+Emphasize relevance between item neighbors and current solution status.
+1. Consider neighbor's weight in better code. 
+2. Utilize neighbor's profit, not own. 
+3. Account for capacity wisely.
+1. Consider utilizing precomputed neighbor information efficiently.
+2. Optimize calculations by considering feasible neighbors only.
+- Reference valid neighbors directly
+- Normalize by neighbor's weight, not index's
+Consider incorporating neighbor influence and normalizing promises to weigh item selection in heuristics for MO-MKP.
+Focus on neighbors' weights, not item weights, and handle division by zero gracefully.

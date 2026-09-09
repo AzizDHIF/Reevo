@@ -1,0 +1,2 @@
+1. Prioritize direct utilization of relevant ratio-based values for item selection in MO-MKP.
+2. Focus on efficient resource and capacity utilization; simplify calculations and leverage mathematical relationships for enhanced performance.

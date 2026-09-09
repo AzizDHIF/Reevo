@@ -1,0 +1,6 @@
+Consider simplicity, stability, consistency, and adaptability to problem structure for effective heuristic design.
+Consider neighbor selection, objective relevance, and dimensionality when designing MO-MKP heuristics.
+Consider utilizing ratios, normalized values, and balancing factors for improved heuristic performance in MO-MKP.
+Focus on simplicity, balance exploration and exploitation, prioritize sparsity, avoid hard thresholds, and adapt to problem characteristics.
+Consider holistic view, incorporate more context, balance factors, and ensure computational efficiency for better heuristics.
+Use simpler and more focused calculations, emphasize relevant features, and avoid unnecessary complexity for better heuristics.

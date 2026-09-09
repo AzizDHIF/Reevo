@@ -1,0 +1,7 @@
+Adjust weighting factors for profit, weight, and deviation to achieve a more aggressive sparsification-based solution filtering.
+- Balance factors carefully for objective trade-offs.
+- Consider adjusting scoring based on exploration-exploitation to enhance performance.
+Adjust weight, profit, and deviation factors to balance multiple objectives iteratively for better results.
+Increase weight_factor and deviation_factor, tweak profit_factor for better performance in the heuristic function.
+Consider balancing weights carefully, incorporating exploration, and adjusting score thresholds for better performance.
+Balance weight and profit factors to adjust exploration-exploitation trade-off; consider incorporating deviation for better performance.

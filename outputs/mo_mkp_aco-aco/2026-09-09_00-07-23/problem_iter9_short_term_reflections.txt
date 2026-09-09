@@ -1,0 +1,7 @@
+Prioritize interaction with already evaluated neighbors for better heuristic efficiency in MO-MKP algorithms.
+1. Prioritize efficient loop operations over sparsity-aware normalization.
+2. Consider direct calculation on neighbors rather than item.
+Prioritize item selection based on non-zero weight and capacity ratios for improved heuristic performance.
+Normalize the weight sum before combining with profit and avoid unnecessary normalization factors for better heuristic efficiency.
+Normalize weights using remaining capacity, not total weight, to improve heuristic performance.
+Consider utilizing the remaining capacity and excluding zero-weight or full-capacity dimensions for better heuristics.

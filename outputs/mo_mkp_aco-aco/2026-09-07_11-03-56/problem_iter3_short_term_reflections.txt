@@ -1,0 +1,6 @@
+Simplify heuristics, favoring summation over multiplication, avoiding unnecessary complexity like exponentiation.
+Prioritize ratio calculations over individual values, consider neighboring item info, leverage ratios for robustness.
+Avoid unnecessary computations, reduce complexity, and focus on essential factors for better heuristic performance.
+Consider enhancing heuristic performance by incorporating normalized cumulative weight ratio and sparsity factor for item selection.
+Prioritize simplicity over complexity and focus on direct, relevant calculations for each sample in the heuristic.
+Consider efficiency by reducing operations per item, utilizing interactions with neighbors, and avoiding unnecessary calculations.

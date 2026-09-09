@@ -1,0 +1,6 @@
+Focus on adequately handling division by zero cases and consider the impact of dimensional constraints for better heuristics.
+Normalize the division order for robustness, focus on proportional impact of attributes for better evaluation efficiency.
+Focus on balancing weights and profits efficiently by properly considering influence and constraints. Minimize unnecessary computations for better performance.
+Prefer normalized weights and check for capacity utilization to improve heuristic efficiency.
+Consider efficient use of available information, handle edge cases gracefully, and prioritize simplicity for better heuristics.
+Consider efficiency by reducing unnecessary computations, handling edge cases, and ensuring meaningful heuristic values.

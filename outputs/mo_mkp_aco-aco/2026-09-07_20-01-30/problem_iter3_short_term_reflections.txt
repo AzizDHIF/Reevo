@@ -1,0 +1,8 @@
+1. Consider normalization of weights and capacities.
+2. Utilize additional factors and sparse selection wisely.
+Leverage the ratio between item properties and capacity for better heuristic decisions in MO-MKP.
+Consider incorporating more relevant information (neighbours, remaining capacity) in the heuristic calculation for improved performance.
+Prioritize efficient calculations, consider all dimensions, and discard unprofitable items early for optimization heuristics.
+1. Consider incorporating additional factors and conditions for a more accurate heuristic estimation.
+2. Optimize expression calculations to improve efficiency and accuracy in heuristic evaluations.
+Consider incorporating neighboring item information in the heuristic computation and applying sparse selection based on multiple factors.

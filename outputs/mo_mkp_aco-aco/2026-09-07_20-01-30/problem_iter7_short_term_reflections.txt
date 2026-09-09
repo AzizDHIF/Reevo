@@ -1,0 +1,6 @@
+Consider incorporating remaining weight capacity and profit in heuristic calculations for better performance.
+Leverage neighbors' information efficiently and consider sparse selection based on multiple factors for improved performance.
+Compute factors separately for distinct contributions before the final heuristic aggregation for better performance.
+Include diverse and relevant item and solution properties in heuristic calculations; prioritize effective feature combinations for better performance.
+Utilize neighborhood index to compute promising heuristics based on weight-profit ratio for better performance.
+Leverage neighbor's properties for heuristic calculation, prioritize efficiency and adaptability in heuristic design.

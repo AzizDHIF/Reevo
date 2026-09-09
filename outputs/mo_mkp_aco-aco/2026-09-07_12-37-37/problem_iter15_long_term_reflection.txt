@@ -1,0 +1,1 @@
+Prioritize simplicity, efficiency, and relevance in designing heuristics for MO-MKP. Balance feature strengths, avoid diminishing returns, normalize effectively, use division over multiplication, and minimize compounding errors for stable convergence and optimal performance.

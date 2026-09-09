@@ -1,0 +1,10 @@
+```c
+double heuristic_v2(int index_item, double weights[dimension][NBITEMS], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS], double profit[NBITEMS] )
+{
+    double h_inv = 0; // Inverted sum of weighted capacities
+    for(int j = 0; j < dimension; j++){
+        h_inv += 1.0 / (weights[j][voisinage[index_item]] / capacity[j]);
+    }
+    return h_inv != 0 ? profit[voisinage[index_item]] / h_inv : 0;
+}
+```  

@@ -1,0 +1,3 @@
+- Balance weight, profit, deviation; filter unpromising elements.
+- Use relevant features efficiently, prioritize critical elements.
+- Prioritize simplicity, sparsity, weighted factors for MO-MKP efficiency.

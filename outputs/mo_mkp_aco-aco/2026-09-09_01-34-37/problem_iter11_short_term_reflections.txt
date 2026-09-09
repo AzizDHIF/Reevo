@@ -1,0 +1,7 @@
+Consider incorporating capacity constraints and normalized weights when calculating heuristic value for better performance.
+Focus on neighbors' weights and capacities to check for constraints directly rather than through load factor computations.
+1. Utilize precomputed neighbors efficiently.
+2. Simplify calculations and access directly with neighbors.
+Focus on efficiency, reuse precomputed values, consider edge cases, and ensure meaningful calculations for better heuristics.
+Focus on using neighboring item's information efficiently to compute heuristic values for better performance.
+Consider focusing on relevant neighbors' information for better heuristic designs.

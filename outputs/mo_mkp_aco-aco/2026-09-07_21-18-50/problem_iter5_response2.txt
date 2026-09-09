@@ -1,0 +1,22 @@
+```c
+double heuristic_v2(int index_item, double weights[dimension][NBITEMS], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS], double profit[NBITEMS]) {
+    double sum_weight = 0;
+    double sum_ratio = 0;
+
+    for (int j = 0; j < dimension; j++) {
+        sum_weight += weights[j][voisinage[index_item]];
+        sum_ratio += weights[j][voisinage[index_item]] / capacity[j];
+    }
+
+    double normalized_sum_weight = sum_weight / dimension; // Normalize sum_weight
+    double balanced_factor = 1 + (1 / (sum_ratio + 1)); // Balance factors
+
+    double heuristic_value = profit[voisinage[index_item]] / (normalized_sum_weight + 1) * balanced_factor * nb_voisinage;
+
+    if (normalized_sum_weight == 0 || sum_ratio == 0) {
+        heuristic_value = 0;
+    }
+
+    return heuristic_value;
+}
+```

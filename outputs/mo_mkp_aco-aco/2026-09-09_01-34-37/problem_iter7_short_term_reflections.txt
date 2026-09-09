@@ -1,0 +1,7 @@
+Consider incorporating constraints directly into heuristics and leveraging neighboring item information for better performance.
+Consider the active neighbors and avoid division by capacity to enhance heuristic performance in MO-MKP.
+Consider factors that affect solution quality and avoid division by potentially small values for stability and efficiency.
+Consider efficiency, handle corner cases, use relevant neighbors, and prioritize objective relevance in heuristics design.
+Consider utilizing valid neighbors directly, avoiding unnecessary computations for each item.
+- Consider using neighbors for heuristic calculation.
+- Normalize values and incorporate profit for better performance.

@@ -1,0 +1,5 @@
+1. Balance item properties and neighbor structure; prioritize direct computations over ratios.
+2. Utilize problem-specific features and holistic ratios for efficiency in MO-MKP.
+3. Focus on relevant item interactions, efficient evaluations, and threshold checks for improved heuristics.
+4. Emphasize uniform scaling, normalized sums, and divisor non-zero handling.
+5. Optimize calculations with constraints first for efficient heuristic design.

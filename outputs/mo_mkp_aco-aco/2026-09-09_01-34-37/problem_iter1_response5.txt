@@ -1,0 +1,26 @@
+```c
+double heuristic_v2(int index_item, double weights[dimension][NBITEMS], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS], double profit[NBITEMS]){
+    double h = 0;
+    double w_factor = 0.3;
+    double c_factor = 0.5;
+    for(int j=0; j<dimension; j++){
+        h += weights[j][voisinage[index_item]] / capacity[j];
+    }
+
+    double promising_score = profit[voisinage[index_item]] / h;
+    
+    if (promising_score < 0.1) {
+        return 0; // Setting unpromising elements to zero
+    }
+    
+    double weight_ratio = h / capacity[0];
+    
+    if (weight_ratio > 0.8) {
+        promising_score *= w_factor;
+    } else if (weight_ratio < 0.2) {
+        promising_score *= c_factor;
+    }
+    
+    return promising_score;
+}
+```

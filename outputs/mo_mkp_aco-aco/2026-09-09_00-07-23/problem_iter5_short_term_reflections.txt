@@ -1,0 +1,6 @@
+Avoid unnecessary intermediate variables and prioritize direct computation for efficiency in heuristic design.
+Use relevant neighbors, normalize weights, consider capacity, and minimize trivial solutions for better heuristic performance.
+Consider proportionality and neighbor interaction to guide heuristic development for multi-objective optimization in few lines of code.
+Consider using normalized weights and capacity directly in heuristic calculation for MO-MKP.
+Utilize neighboring item index for weight-gain ratio computation to improve decision-making in heuristics.
+Utilize neighbor information and normalize by capacity for better heuristic guidance in MO-MKP.

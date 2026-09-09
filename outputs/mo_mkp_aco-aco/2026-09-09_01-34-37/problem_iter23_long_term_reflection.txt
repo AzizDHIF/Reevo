@@ -1,0 +1,4 @@
+1. Emphasize neighbor influence and efficient property utilization.
+2. Prioritize simplicity, avoid unnecessary calculations, handle edge cases.
+3. Normalize weights, avoid zero division, minimize variable initialization.
+4. Maintain consistent formatting and perform conditional checks for efficiency.

@@ -1,0 +1,6 @@
+Prevent division by small values; focus on item's weights and profits proportion.
+Use small non-zero initializations to avoid division by zero; prefer simplicity and avoid unnecessary divisions.
+Avoid unnecessary division operations and consider initializing with non-zero values for better heuristic design.
+Avoid potential division by zero, use small initial value, handle edge cases, and aim for simplicity.
+Prevent division by zero, reduce computations to essentials, and handle edge cases for better heuristics.
+Avoid division by variables that can be very small to prevent potential division by zero issues.

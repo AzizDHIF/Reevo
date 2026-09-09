@@ -1,0 +1,6 @@
+Avoid dividing by a small sum to prevent division by zero in heuristics for MO-MKP.
+Prioritize simplicity and avoid unnecessary conditional checks; emphasize direct, efficient computation for better performance.
+Initialize heuristics with small value if division by zero might occur; Use sum of weights effectively.
+Normalize weights before using, avoid unnecessary divisions, consider small initial values.
+Prioritize relevant factors, avoid unnecessary computations, favor straight calculations over conditional statements.
+Reduce complexity by prioritizing division over multiplication and ensuring relevance to capacity constraints.

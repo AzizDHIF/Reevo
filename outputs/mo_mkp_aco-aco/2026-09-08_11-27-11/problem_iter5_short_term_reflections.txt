@@ -1,0 +1,6 @@
+Use neighbors for computations, not the current item, to improve performance and decision accuracy in heuristics.
+Emphasize relevance by considering neighboring items directly rather than the current item for better performance.
+Minimize unnecessary calculations, prioritize relevant information, and simplify computations for improved heuristic efficiency.
+Leverage neighbor information efficiently, consider relative weights and profits, minimize division operations and handle edge cases carefully.
+Avoid unnecessary loops and computations, directly access required information, and consider simplified calculations for efficient heuristics.
+Access neighbors efficiently, avoid unnecessary computations, consider total weight, and balance heuristic components for promising solutions.

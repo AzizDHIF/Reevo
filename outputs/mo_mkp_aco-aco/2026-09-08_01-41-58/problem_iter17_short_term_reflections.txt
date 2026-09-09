@@ -1,0 +1,9 @@
+Avoid division by small values, prioritize neighbor calculations, and simplify computations for better heuristic design.
+Focus on computing relevant statistics directly from neighbors, optimizing operations in a succinct, efficient manner.
+Exploit neighbors efficiently and separate computations for each heuristic factor to improve performance.
+Reuse precomputed neighbor information for efficient heuristic computation.
+- Avoid redundant computations
+- Use neighbor information effectively
+- Consider objective/item relevance
+- Simplify calculation formulae
+Leverage ratio-based calculations and consider multiple factors simultaneously for better heuristic design in optimization.

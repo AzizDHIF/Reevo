@@ -1,0 +1,6 @@
+Simplify calculations by aggregating weights before profit division. Avoid premature complexity - favor clarity and efficiency.
+Simplify calculations by precalculating sums; utilize ratio of profits to weights efficiently.
+Focus on aggregating inputs efficiently and handle special cases explicitly for improved performance.
+Leverage item weights and capacities directly for more efficient heuristic calculations in MO-MKP.
+Use neighborhood information efficiently in heuristics to leverage local search and improve solution quality.
+Focus on aggregate computations and conditions for quick termination to improve heuristics' efficiency and performance.

@@ -1,0 +1,6 @@
+Avoid redundant calculations, prioritize dimension-wise operations, and balance influence factors for robust heuristics.
+Refactor to consider the impact of neighbor item on all dimensions and remaining capacity efficiently.
+Maintain fixed complexity and use efficient value computation and early stopping to improve heuristic performance.
+Encourage consideration of remaining capacity along with item weight distribution for more informed heuristic selection.
+Consider using a single pass, avoiding unnecessary calculations, focusing directly on relevancy of neighbor and capacity utilization.
+Focus on efficient value computation, avoid unnecessary conditions, and consider overall solution characteristics for better heuristic design.

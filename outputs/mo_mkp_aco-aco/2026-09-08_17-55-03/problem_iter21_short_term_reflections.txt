@@ -1,0 +1,7 @@
+Increase weight of profit_factor, decrease weight of weight_factor, and update deviation_factor judiciously for better heuristic performance.
+Adjust factor weights carefully to balance objectives; set meaningful thresholds for heuristic criteria.
+Balance factors dynamically, adjust filtering thresholds based on objective, and minimize unnecessary computations for optimal performance.
+1. Balance weights of factors based on problem characteristics.
+2. Dynamically adjust threshold values for better discrimination.
+Balance weight and profit factors, set a meaningful deviation factor and minimum promising score threshold.
+Consider adjusting factors and thresholds to balance and ensure better exploration and exploitation trade-offs.

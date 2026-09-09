@@ -1,0 +1,23 @@
+```c
+double heuristic_v2(int index_item, double weights[dimension][NBITEMS], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS], double profit[NBITEMS]) {
+    double h = 0;
+
+    for (int j = 0; j < dimension; j++) {
+        h += weights[j][voisinage[index_item]] / capacity[j];
+    }
+
+    if (h == 0) {
+        return 0.0;
+    }
+
+    double weight_profit_ratio = profit[voisinage[index_item]] / h;
+    double weight_residual_profit = (capacity[0] - weights[0][voisinage[index_item]]) * profit[voisinage[index_item]];
+
+    // Sparse selection based on factors
+    if (weight_profit_ratio > 0 && weight_residual_profit > 0) {
+        return weight_profit_ratio + weight_residual_profit;
+    } else {
+        return 0.0;
+    }
+}
+```

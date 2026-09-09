@@ -1,0 +1,1 @@
+Prioritize direct computation, sparsify with zero values, utilize normalized weights, consider neighboring interactions, and focus on item influence for efficient heuristics in MO-MKP.

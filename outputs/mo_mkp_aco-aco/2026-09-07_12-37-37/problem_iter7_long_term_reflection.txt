@@ -1,0 +1,4 @@
+1. Avoid division by small numbers in MO-MKP heuristics.
+2. Simplify computations, use small initial values.
+3. Normalize weights, prioritize relevant factors, minimize conditional checks.
+4. Emphasize efficiency, reduce unnecessary operations, ensure numerical stability.

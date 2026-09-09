@@ -1,0 +1,18 @@
+```c
+double heuristic_v2(int index_item, double weights[dimension][NBITEMS], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS], double profit[NBITEMS]) {
+
+    double h = 0;
+    for (int j = 0; j < dimension; j++) {
+        if (weights[j][voisinage[index_item]] > capacity[j]) {
+            return 0; // If adding the item violates the capacity constraint, return 0 immediately
+        }
+        h += weights[j][voisinage[index_item]]; // Calculate total weight for the neighbor item
+    }
+    
+    if (h == 0) {
+        return 0; // If total weight is 0, it means the item cannot be added, so return 0
+    }
+    
+    return profit[voisinage[index_item]] / h; // Return profit-to-weight ratio
+}
+```

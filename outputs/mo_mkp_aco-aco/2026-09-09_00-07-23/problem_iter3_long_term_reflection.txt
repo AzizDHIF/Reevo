@@ -1,0 +1,4 @@
+- Combine factors wisely, sparsify by setting unpromising elements to zero.
+- Use weight-to-capacity ratio directly, compute desirability accurately.
+- Normalize input variables, simplify calculations with relevant info.
+- Focus on item influence efficiently, consider edge cases for effectiveness.

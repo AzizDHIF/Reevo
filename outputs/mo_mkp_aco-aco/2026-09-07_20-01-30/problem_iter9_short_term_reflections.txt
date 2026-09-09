@@ -1,0 +1,6 @@
+Consider incorporating more diverse and relevant factors such as neighboring item properties in the heuristic function.
+Use neighbors directly for computing factors instead of updating and reusing it; combine meaningful factors efficiently for improved heuristic values.
+Consider incorporating multiple relevant factors and sparsifying the heuristic to focus on key parameters efficiently.
+Leverage neighbor information, consider multiple factors, and ensure positivity for better heuristic design.
+Account for additional item properties and dependencies to calculate promising selection in multi-objective scenarios efficiently.
+Focus on neighbor exploration, reward balance, and dimension utilization for improved heuristic performance.

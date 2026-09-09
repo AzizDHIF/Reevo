@@ -1,0 +1,14 @@
+```c
+double heuristic_v2(int index_item, double weights[dimension][NBITEMS], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS], double profit[NBITEMS]) {
+    double h = 0.00001; // Initialize to prevent division by zero
+    for (int j = 0; j < dimension; j++) {
+        h += weights[j][voisinage[index_item]]; // Accumulate the sum of weights without dividing by capacity
+    }
+    
+    if (h > 0.00001) {
+        return profit[voisinage[index_item]] / h; // Return profit divided by the sum of weights
+    } else {
+        return 0.0; // Return 0 if denominator is close to zero
+    }
+}
+```

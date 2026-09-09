@@ -1,0 +1,18 @@
+```c
+double heuristic_v2(int index_item, double weights[dimension][NBITEMS], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS], double profit[NBITEMS]) {
+    double total_weight_ratio = 0;
+    double total_profit = 0;
+
+    for (int j = 0; j < dimension; j++) {
+        total_weight_ratio += weights[j][voisinage[index_item]] / (capacity[j] + EPSILON);
+    }
+
+    total_profit = profit[voisinage[index_item]];
+
+    if (total_weight_ratio > 1.0) {
+        return 0.0; // Penalize items where weight exceeds capacity
+    }
+
+    return total_profit * (1.0 - total_weight_ratio);
+}
+```

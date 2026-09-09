@@ -1,0 +1,9 @@
+Utilize neighbor indices directly for calculations, consider information sharing between neighbors, and simplify computations for efficiency.
+Maximize signal-to-noise ratio, focus on relevant information, and simplify calculations where possible for improved heuristics.
+Consider incorporating multiple factors and normalizing weights differently for each dimension to improve accuracy in heuristic function.
+1. Use meaningful variable names.
+2. Compute intermediate values once.
+3. Consider the impact of values on the objective.
+Sample neighbours' properties directly; avoid aggregating all items in the current solution.
+Use weighted terms for better convergence.
+Consider impact of item's trade-offs.

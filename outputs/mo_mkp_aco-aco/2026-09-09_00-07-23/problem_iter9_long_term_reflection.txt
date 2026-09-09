@@ -1,0 +1,2 @@
+1. Prioritize efficient neighbor interactions, normalized weights, and feasible selections for effective heuristic design in MO-MKP.
+2. Consider direct neighbor calculations, non-zero ratios, and capacity-based normalizations to enhance heuristic efficiency and performance.

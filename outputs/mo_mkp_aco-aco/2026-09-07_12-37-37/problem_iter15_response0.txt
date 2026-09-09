@@ -1,0 +1,9 @@
+```c
+double heuristic_v2(int index_item, double weights[dimension][NBITEMS], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS], double profit[NBITEMS]) {
+    double sum_weight = 0.00001; // Initialize to a small value to prevent division by zero
+    for (int j = 0; j < dimension; j++) {
+        sum_weight += (j < nb_voisinage) ? weights[j][voisinage[j]] : 0.00001; // Limit the number of weights to sum by nb_voisinage
+    }
+    return profit[voisinage[index_item]] / sum_weight; // Return profit divided by the sum of limited weights
+}
+```

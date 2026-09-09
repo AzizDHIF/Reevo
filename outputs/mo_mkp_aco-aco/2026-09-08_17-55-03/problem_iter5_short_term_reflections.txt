@@ -1,0 +1,6 @@
+Consider balancing weight, profit, and deviation for a more effective heuristic design.
+Consider simplifying and focusing heuristic computation on critical elements only to improve efficiency and performance.
+Avoid unnecessary calculations, focus on direct relevance, minimize complexity, and ensure efficient use of available information.
+Prioritize directly computing relevant features over intermediate calculations for improved heuristic efficiency and accuracy.
+Prioritize consistent variable usage, avoid unnecessary computations, and emphasize clarity and simplicity for better heuristic design.
+Focus on relative weights and capacities in the neighborhood to improve heuristic efficiency and solution quality.

@@ -1,0 +1,6 @@
+Consider incorporating thresholds, context-specific adjustments, and sparse calculations for efficient and effective heuristics.
+Leverage neighbor's profit and weight ratio, and consider sparsity to improve heuristics' performance in MO-MKP.
+Consider focusing on efficient and direct computation of the heuristic value based on essential factors for better performance.
+Minimize unnecessary calculations, simplify formulas, and focus on essential factors for efficient heuristics.
+Consider balancing objective and constraint ratios, leveraging stability, termination conditions, and exploiting problem-specific insights for heuristics.
+Evaluate interacted factors separately, consider context-specific thresholds, and prioritize combination for MO-MKP.

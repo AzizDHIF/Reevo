@@ -1,0 +1,1 @@
+Normalize profits and weights considering remaining capacity. Focus on neighboring items' load, profit, and weight for efficient calculations. Utilize precomputed neighbors and diverse dimensions for improved heuristic performance in MO-MKP.

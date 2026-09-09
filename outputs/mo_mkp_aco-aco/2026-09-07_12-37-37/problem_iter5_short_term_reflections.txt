@@ -1,0 +1,6 @@
+Avoid unnecessary calculations, simplify expressions, and focus on direct relevance to objectives.
+Eliminate unnecessary calculations and checks for improved efficiency and simplicity in heuristic design.
+Avoid unnecessary computations; prioritize sparse checks for significant elements and simplify calculations.
+Better code simplifies calculations, avoids unnecessary complexity, and directly relates profit to weight distribution.
+Use efficient skip mechanisms for unpromising elements, prioritize division over sum for better heuristic value assessment.
+Simplify calculations, avoid unnecessary operations, focus on non-zero weights, and prioritize numerical stability.

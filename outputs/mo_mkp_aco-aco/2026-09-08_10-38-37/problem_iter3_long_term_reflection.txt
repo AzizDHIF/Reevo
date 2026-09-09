@@ -1,0 +1,1 @@
+Combine neighbor influence, sparsity, and feasibility checks for effective MO-MKP heuristics. Utilize inverted weighted sum, normalized weights, and direct relevant computations. Prioritize simplicity and efficiency in design for improved performance.

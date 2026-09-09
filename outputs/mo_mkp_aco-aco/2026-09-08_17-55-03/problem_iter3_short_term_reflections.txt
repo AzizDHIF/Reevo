@@ -1,0 +1,6 @@
+Consider prioritizing diversity, utility, and density over feasibility for better heuristic design in MO-MKP.
+Simplify by using division instead of squaring the sum. Opt for a more direct relationship calculation for better performance.
+Consider incorporating a balanced combination of weight, profit, deviation, and sparsity handling for better heuristics optimization.
+Use relevant features directly from the data and reduce unnecessary computations for efficient heuristic design.
+Focus on feature importance and sparsity; balance objective factors; consider the influencing neighbors effectively.
+Avoid squaring the ratio of weight to capacity for better heuristic performance in MO-MKP.

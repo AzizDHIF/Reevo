@@ -1,0 +1,4 @@
+1. Diversify and balance exploration-exploitation for effective MO-MKP heuristics.
+2. Incorporate constraint handling, optimize valid neighbors, balance objective weights.
+3. Normalize features, prioritize direct variables, focus on individual objective contributions.
+4. Emphasize weight-to-capacity proportionality, penalize excess weight to enhance heuristic performance.

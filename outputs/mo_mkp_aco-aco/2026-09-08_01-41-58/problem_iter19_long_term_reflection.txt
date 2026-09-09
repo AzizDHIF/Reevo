@@ -1,0 +1,2 @@
+1. Exploit neighbor data efficiently, normalize ratios, and handle weights accurately for enhanced performance in MO-MKP heuristics.
+2. Streamline computations, balance diverse factors, and optimize solution quality by prioritizing relevant features and inter-item comparisons.

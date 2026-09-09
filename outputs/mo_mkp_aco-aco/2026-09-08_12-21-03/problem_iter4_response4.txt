@@ -1,0 +1,17 @@
+```c
+double heuristic_v2(int index_item, double weights[dimension][NBITEMS], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS], double profit[NBITEMS])
+{
+    double promising_factor = profit[voisinage[index_item]];
+    double remaining_capacity = 0;
+
+    // Compute the total remaining capacity if index_item is added to the solution
+    for (int j = 0; j < dimension; j++) {
+        remaining_capacity += capacity[j] - weights[j][index_item];
+    }
+
+    // Introduce sparsity threshold for decision factor calculation
+    double decision_factor = remaining_capacity > 0 ? 1 / (1 + remaining_capacity) : 0;
+
+    return promising_factor * decision_factor;
+}
+```

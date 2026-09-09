@@ -1,0 +1,6 @@
+Prioritize finding max-weight neighbor over max-profit to enhance heuristic performance in MO-MKP problems.
+Leverage full item weight information in heuristics to improve performance; consider all dimensions for better estimates.
+Emphasize overall weight distribution and consider multiple dimensions for better heuristic selection.
+Consider incorporating multiple dimensions effectively, not just focusing on single dimension comparisons.
+Avoid unnecessary computations, focus on relevant variables; prioritize efficiency over complexity; simplify calculations to improve heuristic performance.
+Focus on neighbors' weight for better heuristic estimates. Aim for complex decisions in constant time.

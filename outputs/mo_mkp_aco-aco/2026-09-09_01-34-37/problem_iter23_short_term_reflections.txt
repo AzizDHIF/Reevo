@@ -1,0 +1,7 @@
+Avoid division by zero, prioritize efficiency, and consider handling edge cases for improved heuristic performance.
+Normalize and sum weights with capacity for better performance in heuristic design.
+Consider the impact of zero values on division and choose terms carefully to enhance heuristic effectiveness.
+1. Avoid unnecessary variable initialization.
+2. Maintain consistent code formatting for readability.
+Hint: Normalize the denominator in the heuristic calculation to avoid division by zero and improve efficiency.
+Use conditional checks to avoid division by zero and increase efficiency in heuristics for MO-MKP.

@@ -1,0 +1,3 @@
+1. Aggregate weights before profit division for simplicity and efficiency.
+2. Leverage item weights directly, use ratios efficiently.
+3. Focus on efficient aggregate computations and handling special cases explicitly for improved performance.

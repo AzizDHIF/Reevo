@@ -1,0 +1,1 @@
+Normalize weights, penalize excess weight, leverage ratios, stability in denominators, simplify calculations, balance factors, prioritize key parameters, utilize epsilon, direct relevance to objectives, focus on exploration and exploitation for efficiency in MO-MKP heuristics.

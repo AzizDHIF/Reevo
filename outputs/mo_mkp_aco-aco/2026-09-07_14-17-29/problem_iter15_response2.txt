@@ -1,0 +1,13 @@
+```c
+double heuristic_v2(int index_item, double weights[dimension][NBITEMS], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS], double profit[NBITEMS] ){
+    double h = 0;
+    double max_profit = profit[voisinage[index_item]];
+
+    // Calculate profit-to-weight ratio for the selected item
+    if (weights[dimension-1][voisinage[index_item]] > 0) {
+        h = max_profit / weights[dimension-1][voisinage[index_item]];
+    }
+
+    return h;
+}
+```

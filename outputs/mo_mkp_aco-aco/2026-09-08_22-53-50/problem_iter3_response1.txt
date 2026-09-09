@@ -1,0 +1,18 @@
+```c
+double heuristic_v2(int index_item, double weights[dimension][NBITEMS], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS], double profit[NBITEMS]) {
+    double promising_factor = 0.0;
+    double weight_factor = 0.0;
+
+    // Calculate promising factor
+    double total_weight = 0.0;
+    for (int j = 0; j < dimension; j++) {
+        total_weight += weights[j][index_item] / (capacity[j] + 0.000001);
+    }
+    promising_factor = 0.8 * profit[index_item] / total_weight;
+
+    // Calculate weight factor
+    weight_factor = 0.2 * (1.0 - total_weight / dimension);
+
+    return promising_factor + weight_factor;
+}
+```  

@@ -1,0 +1,6 @@
+Elicit strength of features effectively, avoid diminishing returns, and normalize for higher trajectory seeding.
+Consider task-specific normalization and avoid dividing by small values in heuristics.
+Avoid multiplying small numbers; use division over multiplication for stability and efficiency.
+Avoid compounding errors in heuristics; prefer direct metric accumulation for stable behavior and better convergence.
+Avoid multiplicative offset in heuristics; prefer divisive factors for better performance and stability.
+Consider efficiency and numerical stability; normalize weights by capacity for better performance.

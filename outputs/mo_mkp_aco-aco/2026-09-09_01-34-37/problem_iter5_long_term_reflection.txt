@@ -1,0 +1,2 @@
+1. Emphasize direct relevance between item profit and solution costs for efficient heuristic design.
+2. Prioritize simplicity, avoid unnecessary calculations, and focus on essential factors for effective and robust heuristics.

@@ -1,0 +1,2 @@
+1. Efficiently leverage neighbor data, normalize ratios, and handle weights accurately for improved MO-MKP heuristic performance.
+2. Streamline computations, prioritize relevant features, and emphasize consistency in neighbor selection for enhanced heuristic accuracy.

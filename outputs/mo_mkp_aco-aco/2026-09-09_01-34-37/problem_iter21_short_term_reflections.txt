@@ -1,0 +1,8 @@
+Focus on correctly modeling interactions between variables, carefully balancing computational cost and the heuristic's effectiveness.
+1. Focus on simplicity and efficiency by avoiding unnecessary calculations and conditional statements.
+
+2. Ensure consistent logic and handling of calculations for better performance and accuracy.
+Utilize conditional checks to prevent division by zero and consider non-zero weights for promising items.
+Focus on utilization and relevance of item properties, avoid unnecessary computations, prioritize efficiency over complexity.
+Utilize neighboring item information efficiently for better heuristic evaluation in MO-MKP.
+Consider the actual capacity utilization and diverse information sources for better heuristic performance in MO-MKP.

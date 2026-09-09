@@ -1,0 +1,7 @@
+Leverage key metrics directly without unnecessary calculations; prioritize sparsity and direct feature utilization for better heuristics.
+Separate calculation steps, prioritize efficient initialization, avoid unnecessary operations, and exploit sparse calculations.
+Consider incorporating multiple dimensions and considering both weight and profit distributions in the heuristic calculation.
+Consider utilizing additional information (e.g., multiple dimensions) and scaling factors to improve heuristic performance efficiently.
+Embrace reduced complexity and analyze dominant factors for more effective heuristics in MO-MKP.
+1. Utilize max values directly; avoid unnecessary calculations.
+2. Simplify and focus on key factors for efficiency.

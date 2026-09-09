@@ -1,0 +1,6 @@
+Use ratios instead of sums, normalize weights, prioritize division for sparsity, aim for simplicity and predictive power.
+Consider ratio and sum of item weights w.r.t. capacity, sparsifying/selectively updating promising factors with expert-defined thresholds for efficiency.
+Consider scaling by capacity properly, handle corner cases, and utilize more nuanced sparsification conditions effectively.
+Utilize single loop with cumulative variable and separate promising & decision factors for robust heuristics.
+Prioritize factors impacting decision, avoid redundant computation, normalize and balance terms efficiently.
+Emphasize feasibility and profit contribution over balance factor; consider normalized weight ratios.

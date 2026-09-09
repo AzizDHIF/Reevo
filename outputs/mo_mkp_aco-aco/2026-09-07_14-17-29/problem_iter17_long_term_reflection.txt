@@ -1,0 +1,4 @@
+1. Generalize objective ratios for flexible heuristics.
+2. Efficiently calculate objective values with max weight info.
+3. Prioritize high-profit-to-weight-ratio items with precomputed data.
+4. Leverage 'index_item' for efficient calculations and neighborhood guidance.

@@ -973,20 +973,11 @@ inter=k;
 
 	FILE *fpareto;
   
-  if(strcmp(argv[1],"dataset\\mood_val_dataset\\dataset_0_instance_500_items_3_objectifs.txt")==0){
-	fpareto = fopen( "results_val_dataset_0_500_items.txt", "a+" );}
+  if(strcmp(argv[1],"dataset\\mood_final_val_dataset\\500.2.txt")==0){
+	fpareto = fopen( "results_final_val_dataset_500_2.txt", "a+" );}
 
-  if(strcmp(argv[1],"dataset\\mood_val_dataset\\dataset_1_instance_500_items_3_objectifs.txt")==0){
-	fpareto = fopen( "results_val_dataset_1_500_items.txt", "a+" );}
-
-  if(strcmp(argv[1],"dataset\\mood_val_dataset\\dataset_2_instance_500_items_3_objectifs.txt")==0){
-	fpareto = fopen( "results_val_dataset_2_500_items.txt", "a+" );}
-
-  if(strcmp(argv[1],"dataset\\mood_val_dataset\\dataset_3_instance_500_items_3_objectifs.txt")==0){
-	fpareto = fopen( "results_val_dataset_3_500_items.txt", "a+" );}
-
-  if(strcmp(argv[1],"dataset\\mood_val_dataset\\dataset_4_instance_500_items_3_objectifs.txt")==0){
-	fpareto = fopen( "results_val_dataset_4_500_items.txt", "a+" );}
+  if(strcmp(argv[1],"dataset\\mood_final_val_dataset\\500.4.txt")==0){
+	fpareto = fopen( "results_final_val_dataset_500_4.txt", "a+" );}
   
 
 	fprintf(fpareto,"mcycle %d nbants %d alphat %d beta %lf rho %lf tmax %lf\n",maxcycle,nbants,alphat,beta,rhot,tmax);

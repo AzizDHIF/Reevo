@@ -1,0 +1,2 @@
+1. Balance factors, normalize inputs dynamically, consider infeasibility, and sparsify for efficient MO-MKP heuristics.
+2. Prioritize correct variable usage, simplify calculations, and ensure balanced parameter contributions to enhance heuristic performance.

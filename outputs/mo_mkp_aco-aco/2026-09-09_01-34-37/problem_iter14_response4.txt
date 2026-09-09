@@ -1,0 +1,19 @@
+```c
+double heuristic_v2(int index_item, double weights[dimension][NBITEMS], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS], double profit[NBITEMS]) {
+    double h = 0;
+
+    if (nb_voisinage == 0) {
+        return 0; // Handling special case when no valid neighbors
+    }
+
+    // Calculate weighted influence of neighbors on remaining capacity
+    for (int j = 0; j < dimension; j++) {
+        h += weights[j][voisinage[index_item]] / capacity[j];
+    }
+
+    // Calculate the normalized promise value considering neighbor influence
+    double normalized_profit = profit[voisinage[index_item]] / nb_voisinage;
+
+    return normalized_profit / h;
+}
+```

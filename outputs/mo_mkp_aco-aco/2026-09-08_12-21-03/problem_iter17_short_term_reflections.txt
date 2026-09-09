@@ -1,0 +1,7 @@
+Prioritize direct utilization of relevant values over conditional checks and calculations; adjust priorities strategically.
+Focus on resource utilization and simplify calculations to boost promising factors in heuristic design.
+Utilize direct mathematical relationships between variables, avoid unnecessary conditional checks, and prioritize computational efficiency.
+Precompute and reuse common calculations within loops for improved efficiency and readability.
+Consider efficiency by reducing redundant calculations, favoring direct computations over conditionals, and exploiting local variables for intermediate results.
+1. Consider incorporating the ratio of weight to capacity for better prioritization.
+2. Optimize by using remaining capacity effectively in calculations.

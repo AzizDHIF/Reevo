@@ -1,0 +1,22 @@
+```c
+double heuristic_v2(int index_item, double weights[dimension][NBITEMS], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS], double profit[NBITEMS]) {
+    double h = 0;
+    double influence = 0;
+    
+    for (int j = 0; j < dimension; j++) {
+        h += weights[j][voisinage[index_item]] / capacity[j];
+        
+        if (weights[j][index_item] > capacity[j]) {
+            return 0.0; // item is not feasible in this dimension
+        }
+        // Calculate the influence of the weight in this dimension
+        influence += weights[j][index_item] / capacity[j];
+    }
+    
+    if (influence == 0) {
+        return 0.0; // early rejection due to zero influence
+    }
+    
+    return profit[voisinage[index_item]] / h;
+}
+```

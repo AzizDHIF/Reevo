@@ -1,0 +1,1 @@
+Prioritize robustness with balanced factor combinations, handle edge cases with smoothing, and optimize weight calculations efficiently for effective heuristic design. Focus on consistent handling of extreme cases, holistic evaluation, and diverse neighbor selection strategies for robust and efficient heuristics in MO-MKP.

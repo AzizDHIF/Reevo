@@ -1,0 +1,27 @@
+```c
+double heuristic_v2(int index_item, double weights[dimension][NBITEMS], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS], double profit[NBITEMS] ){
+    double h=0, w_promising=1, p_promising=0;
+    
+    for(int j=0;j<dimension;j++){
+        h += weights[j][voisinage[index_item]] / capacity[j]; 
+    }
+    
+    // If fully packed knapsack in at least one dimension, do not consider the item
+    for(int j=0;j<dimension;j++){
+        if(capacity[j] <= 0){
+            return 0;
+        }
+    }
+    
+    w_promising = h>0 ? 1/h : 0;
+    
+    // If no gains expected in any dimension, do not consider the item
+    if(w_promising == 0){
+        return 0;
+    }
+    
+    p_promising = profit[voisinage[index_item]] > 0 ? 1 : 0;
+    
+    return w_promising * p_promising;
+}
+```

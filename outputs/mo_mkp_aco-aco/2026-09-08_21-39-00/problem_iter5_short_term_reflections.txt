@@ -1,0 +1,7 @@
+Consider prioritizing better parameter utilization, normalization, and handling edge cases for improved heuristics in MO-MKP.
+Consider using meaningful thresholds, avoiding unnecessary operations, and fine-tuning weight computations for better heuristics.
+1. Consider normalizing weights and using a promising factor to improve heuristic efficiency.
+1. Simplify calculations and avoid unnecessary terms for improved clarity and efficiency.  
+2. Use a small epsilon to handle potential division by zero issues.
+Avoid zero divisions and consider relative weight ratios for better heuristic design.
+Prioritize incorporating a promising factor to balance weight-profit tradeoff efficiently in the heuristic functions.

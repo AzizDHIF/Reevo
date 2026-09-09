@@ -1,0 +1,25 @@
+```c
+double heuristic_v2(int index_item, double weights[dimension][NBITEMS], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS], double profit[NBITEMS]) {
+
+    double h = 0;
+    double max_weight = weights[0][voisinage[index_item]];
+    double max_profit = profit[voisinage[index_item]];
+
+    // Find the maximum weight among neighbors
+    for (int j = 1; j < nb_voisinage; j++) {
+        double cur_weight = weights[0][voisinage[j]];
+        double cur_profit = profit[voisinage[j]];
+        if (cur_weight > max_weight || (cur_weight == max_weight && cur_profit > max_profit)) {
+            max_weight = cur_weight;
+            max_profit = cur_profit;
+        }
+    }
+
+    // Sparse heuristic calculation
+    if (max_weight > 0) {
+        h = max_profit / max_weight;
+    }
+
+    return h;
+}
+```

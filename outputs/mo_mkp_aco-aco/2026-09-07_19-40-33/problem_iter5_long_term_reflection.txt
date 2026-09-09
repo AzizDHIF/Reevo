@@ -1,0 +1,1 @@
+Prioritize normalization and sparsity, emphasize neighbor benefits over raw statistics, utilize remaining capacity efficiently, and incorporate diverse objectives strategically for robust MO-MKP heuristic design.

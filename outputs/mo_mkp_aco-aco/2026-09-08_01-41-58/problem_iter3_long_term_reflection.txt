@@ -1,0 +1,1 @@
+Focus on balancing objective components efficiently by normalizing weights, penalizing weight excess, and incorporating interactive objective-capacity relationships. Prioritize simplicity, use ratios and inverses effectively, and focus on key parameters for improved exploration and exploitation in MO-MKP heuristics.

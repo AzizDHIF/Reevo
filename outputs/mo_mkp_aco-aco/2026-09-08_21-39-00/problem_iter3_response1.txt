@@ -1,0 +1,29 @@
+```c
+double heuristic_v2(int index_item, double weights[dimension][NBITEMS], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS], double profit[NBITEMS])
+{
+    double h = 0;
+    double max_weight_contribution = 0;
+    
+    // Consider only first nb_voisinage items for calculation
+    for (int j = 0; j < dimension; j++) {
+        h += weights[j][voisinage[index_item]] / capacity[j];
+    }
+    
+    // Determine the maximum weight contribution among neighbors
+    for (int i = 0; i < nb_voisinage; i++) {
+        double weight_contribution = 0;
+        for (int j = 0; j < dimension; j++) {
+            weight_contribution += weights[j][voisinage[i]] / capacity[j];
+        }
+        if (weight_contribution > max_weight_contribution) {
+            max_weight_contribution = weight_contribution;
+        }
+    }
+    
+    // Incorporate diversity and importance of weights for exploration-exploitation trade-off
+    double diversity_factor = max_weight_contribution/h;
+    
+    // Normalize profit-weight balance and include worst-case improvement for selection
+    return profit[voisinage[index_item]] / (h * diversity_factor);
+}
+```

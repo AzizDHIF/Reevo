@@ -1,0 +1,17 @@
+```c
+double heuristic_v2(int index_item, double weights[dimension][NBITEMS], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS], double profit[NBITEMS]) {
+    double h = 0.0;
+    
+    // Calculate harmonic mean of weights for efficiency
+    double sum_inv_weight = 0.0;
+    for (int j = 0; j < dimension; j++) {
+        sum_inv_weight += 1 / (weights[j][voisinage[index_item]] + 0.000001);
+    }
+    h = dimension / sum_inv_weight;
+    
+    double promising_factor = 0.6 * profit[voisinage[index_item]] / h;
+    double weight_factor = 0.4 * (1.0 - h / dimension);
+    
+    return promising_factor + weight_factor;
+}
+```

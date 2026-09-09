@@ -1,0 +1,1 @@
+Fine-tune weighting factors for profit, weight, and deviation to balance trade-offs. Incorporate exploration-exploitation principles and adjust thresholds iteratively for efficient solution filtering in MO-MKP heuristics.

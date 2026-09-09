@@ -1,0 +1,3 @@
+- Prioritize efficiency by handling constraints and exploring neighboring solutions.
+- Balance weight and profit factors with normalization and relative importance.
+- Simplify calculations, utilize precomputed information, and emphasize relevant features and weights.

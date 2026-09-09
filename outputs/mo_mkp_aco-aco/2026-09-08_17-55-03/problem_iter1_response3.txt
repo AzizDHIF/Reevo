@@ -1,0 +1,25 @@
+```c
+double heuristic_v2(int index_item, double weights[dimension][NBITEMS], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS], double profit[NBITEMS]) {
+    double value = 0;
+    double h = 1;
+    
+    for (int j = 0; j < dimension; j++) {
+        h += weights[j][voisinage[index_item]] / capacity[j];
+    }
+    
+    double weight_heuristic = 1 / h; // Weight experience in neighborhood
+    
+    // Additional factor to consider
+    double density_value = profit[voisinage[index_item]] / h; // Density Influence
+    double slope_factor = 1 / (1 + density_value); // Click behavior Rate
+    
+    value += weight_heuristic * slope_factor;
+    
+    // Handling rare but picking-worthy point data
+    if (value <= 0.1) {
+        value = 0;
+    }
+    
+    return value;
+}
+```

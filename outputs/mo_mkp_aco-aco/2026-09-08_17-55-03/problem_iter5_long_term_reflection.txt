@@ -1,0 +1,5 @@
+- Emphasize diversity, utility, and density balancing in heuristic design.
+- Simplify calculations using division, prioritize relevant features efficiently.
+- Focus on weight, profit, deviation balance for effective heuristics.
+- Prioritize critical elements, avoid unnecessary computations, ensure efficiency.
+- Consistently use relevant features, focus on relative weights in the neighborhood.

@@ -1,0 +1,6 @@
+Consider utilizing all relevant information efficiently; focus on key characteristics for objective optimization.
+Utilize ratios directly for better heuristics; sparsify heuristic by filtering unpromising elements.
+Consider directly comparing relevant neighbor attributes for efficient heuristic computation in MO-MKP.
+Better heuristics avoid unnecessary computations and focus on key metrics for better objective evaluation.
+Consider maximizing information gain per dimension, explicitly accounting for objective weight trade-offs.
+Use more direct and efficient neighbor comparisons to leverage objective ratios and improve heuristic accuracy.

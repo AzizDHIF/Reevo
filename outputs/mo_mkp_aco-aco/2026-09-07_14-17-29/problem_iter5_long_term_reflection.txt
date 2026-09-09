@@ -1,0 +1,1 @@
+Balance factor importance, simplify calculations, leverage key features, and utilize statistical weights wisely for efficient heuristic design in MO-MKP.

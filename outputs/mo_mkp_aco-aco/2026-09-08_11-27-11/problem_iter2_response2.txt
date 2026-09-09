@@ -1,0 +1,18 @@
+```c
+double heuristic_v2(int index_item, double weights[dimension][NBITEMS], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS], double profit[NBITEMS]) {
+    double profit_to_weighted_utilization_ratio = 0;
+    double weighted_utilization = 0;
+
+    // Calculate weighted utilization for the neighboring items in voisinage
+    for(int j = 0; j < dimension; j++) {
+        weighted_utilization += weights[j][voisinage[index_item]] / capacity[j];
+    }
+
+    if(weighted_utilization == 0) {
+        return 0; // Set unpromising elements to zero
+    } else {
+        profit_to_weighted_utilization_ratio = profit[voisinage[index_item]] / weighted_utilization;
+        return profit_to_weighted_utilization_ratio;
+    }
+}
+```

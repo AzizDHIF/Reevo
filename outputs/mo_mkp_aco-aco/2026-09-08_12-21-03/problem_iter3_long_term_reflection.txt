@@ -1,0 +1,1 @@
+Combine promising factors judiciously using ratios, normalize weights, prioritize sparsity with expert-defined thresholds, focus on simplicity, predictive power, and efficiency. Emphasize feasibility and profit, normalize weights by capacity, optimize sparsification conditions, streamline computation, and aim for balance.

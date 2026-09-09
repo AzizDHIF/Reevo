@@ -1,0 +1,7 @@
+1. Exploit neighbors for better context.
+2. Use neighbors' properties wisely to compute heuristic.
+Consider utilizing information from neighbors to improve heuristic accuracy efficiently by avoiding unnecessary computations or loops.
+Leverage neighbor information efficiently for better heuristic guidance, and prioritize high-profit-to-high-weight-ratio items.
+Utilize precomputed neighbor information and focus on max profit-weight ratio.
+Prioritize efficiency over accuracy; leverage precomputed information for quick heuristic calculations.
+Leverage neighborhood information to estimate item contribution efficiently and use ratio measures for better insights.

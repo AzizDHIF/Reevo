@@ -1,0 +1,1 @@
+Focus on proportionality in weights and profits, avoid divisions by small values, use small non-zero initializations, prioritize efficiency, minimize unnecessary computations, handle edge cases, ensure numerical stability.

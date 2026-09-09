@@ -1,0 +1,6 @@
+Use neighboring items for comparisons and avoid divisions by potentially zero values.
+Consider neighbors for better heuristic in MO-MKP; focus on positive weight ratios rather than 0 checks.
+Leverage valid neighbors for more accurate heuristics; avoid zero division and utilize relevant neighboring information efficiently.
+Focus on non-zero weighted dimensions, normalize properly, and handle unpromising cases efficiently for better heuristics.
+Prioritize direct computation over intermediate variables. Consider the impact of the input values on computation efficiency.
+Use neighbor's index directly, avoiding re-computing capacity; focus on more relevant attributes for calculation efficiency.

@@ -1,0 +1,6 @@
+Consider utilizing neighboring item information and sparsity-aware normalization for better heuristic design in optimization.
+Prefer computing heuristics using relevant neighbors directly; avoid unnecessary zero-checks on individual item weights.
+Prioritize using valid neighbor data; normalize weights based on neighbors; account for capacity constraints effectively.
+Focus on neighboring items for computation efficiency and relevance. Normalize heuristic values appropriately for comparability across items.
+Leverage neighborhood information efficiently, avoid redundant computations, and ensure feasibility and diversity in the heuristic design.
+Normalize weights by capacity directly to leverage the significance of capacity for promoting promising item selections.

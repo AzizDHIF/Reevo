@@ -1,0 +1,1 @@
+Balance informative factor weighting, normalize weights, and focus on key factors for better heuristics. Consider objective importance, solution structure, and relevant neighbor characteristics to streamline calculations and optimize performance.

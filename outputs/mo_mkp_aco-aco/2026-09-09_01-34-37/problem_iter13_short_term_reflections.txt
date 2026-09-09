@@ -1,0 +1,7 @@
+Consider incorporating neighbor information directly and adjusting weight influence for better heuristic performance.
+Consider the impact of the neighboring item and normalize the heuristic calculation for better performance.
+Utilize neighboring item info and check remaining capacity for more efficient heuristics in MO-MKP.
+Consider checking capacity constraints directly on potential neighbors and use additive composition over multiplicative for heuristic calculations.
+- Consider item neighbors over item itself.
+- Divide by non-zero denominator for stability.
+Consider local information more than global, use effective normalization, and handle special cases efficiently for better heuristics.

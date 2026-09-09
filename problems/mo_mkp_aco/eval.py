@@ -91,7 +91,7 @@ def run_aco(executable, args=[]):
     if result.returncode != 0:
         print(f"Erreur à l'exécution (code {result.returncode})")
         sys.exit(1)
-def extraire_pareto_sets(fichier_entree, dossier_sortie):
+def extraire_pareto_sets(fichier_entree, dossier_sortie,n_dim):
     import os
 
     os.makedirs(dossier_sortie, exist_ok=True)
@@ -115,7 +115,7 @@ def extraire_pareto_sets(fichier_entree, dossier_sortie):
 
             # Écrire uniquement les lignes de points (3 flottants)
             parties = ligne.split()
-            if len(parties) == 3:
+            if len(parties) == n_dim:
                 try:
                     parties_negatives=[-1*float(x) for x in parties]
                     ligne_negative = "\t".join(str(v) for v in parties_negatives)
@@ -341,6 +341,27 @@ def copy_folder_to_run_dir(source_dir: str, dest_dir: Path, folder_name: str = N
     logging.info(f"Dossier copié: {print_hyperlink(dest_path)}")
     return dest_path
 
+def write_heuristic_on_txt(file_path):
+    with open(file_path, 'r', encoding='utf-8') as f:
+        content = f.read()
+
+    start_marker = "```c"
+    end_marker = "```"
+
+    start_index = content.find(start_marker)
+    if start_index == -1:
+        raise ValueError("Bloc de code C non trouvé (marqueur ```c manquant).")
+    start_index += len(start_marker)
+
+    end_index = content.find(end_marker, start_index)
+    if end_index == -1:
+        raise ValueError("Bloc de code C non fermé (marqueur ``` de fin manquant).")
+
+    c_code = content[start_index:end_index].strip()
+
+    with open("gpt.txt", "w", encoding='utf-8') as f:
+        f.write('#include "HBACO.h" \n')
+        f.write(c_code)
 
 if __name__ == "__main__":
     print("[*] Running ...")
@@ -393,7 +414,7 @@ if __name__ == "__main__":
 
             #extraire les sets de pareto à partir des résultats de l'ACO
             for (algo_result_file, pareto_output_dir) in aco_results:
-                extraire_pareto_sets(algo_result_file, pareto_output_dir)
+                extraire_pareto_sets(algo_result_file, pareto_output_dir,3)
             
             print("[*] Concatenating Pareto sets and filtering with nondominated.exe...")
             #concaténer les sets de pareto extraits pour chaque dataset
@@ -409,9 +430,9 @@ if __name__ == "__main__":
             ##epsilon
             mean_epsilon=calculate_meanEpsilon(pareto_set_files,pareto_ref_files)
 
-            print("[*] moyenne pour hypervolume :")
+            print("[*] moyenne pour epsilon :")
                     
-            print(mean_hypervolume)
+            print(mean_epsilon)
 
         finally:
             #Supprimer les dossiers de sets de pareto temporaire
@@ -436,8 +457,8 @@ if __name__ == "__main__":
 
 
    
-    #mood = val:
-    else:
+    
+    elif mood == 'val':
         try:
             logging.info(f"[*] Evaluating ...")
             os.makedirs(os.path.join(WORK_DIR,"pareto_set_val"), exist_ok=True)
@@ -490,7 +511,7 @@ if __name__ == "__main__":
 
             #extraire les sets de pareto à partir des résultats de l'ACO
             for (algo_result_file, pareto_output_dir) in val_aco_results:
-                extraire_pareto_sets(algo_result_file, pareto_output_dir)
+                extraire_pareto_sets(algo_result_file, pareto_output_dir,3)
 
             print("[*] Concatenating Pareto sets and filtering with nondominated.exe...")
             #concaténer les sets de pareto extraits pour chaque dataset
@@ -505,15 +526,7 @@ if __name__ == "__main__":
             ##hypervolume
             
             mean_hypervolume_100items =calculate_meanHypervolume(val_pareto_set_files_100items)
-            mean_hypervolume_300items =calculate_meanHypervolume(val_pareto_set_files_300items)
-            #mean_hypervolume_500items =calculate_meanHypervolume(val_pareto_set_files_500items)
-
-            ##epsilon
-            mean_epsilon_100items=calculate_meanEpsilon(val_pareto_set_files_100items,val_pareto_ref_files_100items)
-            mean_epsilon_300items=calculate_meanEpsilon(val_pareto_set_files_300items,val_pareto_ref_files_300items)
-            #mean_epsilon_500items=calculate_meanEpsilon(val_pareto_set_files_500items,val_pareto_ref_files_500items)
-
-
+       
             copy_folder_to_run_dir(
                 source_dir=os.path.join(WORK_DIR, "pareto_set_val"),
                 dest_dir=RUN_DIR
@@ -551,6 +564,100 @@ if __name__ == "__main__":
                
                 delete_folder(os.path.join(WORK_DIR,f"results_individual_{i}"))
                 delete_file(os.path.join(WORK_DIR,f"WeightACO_train_100items_results_individual_{i}.exe"))
+
+    #mood = final_val:
+    else:
+        try:
+            logging.info(f"[*] Fianl Evaluating ...")
+            os.makedirs(os.path.join(WORK_DIR,"pareto_set_final_val"), exist_ok=True)
+            from itertools import product
+            val_aco_results=[(os.path.join(WORK_DIR,"results_final_val_dataset_250_2.txt"), os.path.join(WORK_DIR,"pareto_set_final_val\\pareto_sets_dataset_250_2")),
+                             (os.path.join(WORK_DIR,"results_final_val_dataset_250_3.txt"), os.path.join(WORK_DIR,"pareto_set_final_val\\pareto_sets_dataset_250_3")),
+                             (os.path.join(WORK_DIR,"results_final_val_dataset_500_2.txt"), os.path.join(WORK_DIR,"pareto_set_final_val\\pareto_sets_dataset_500_2")),
+                             (os.path.join(WORK_DIR,"results_final_val_dataset_500_4.txt"), os.path.join(WORK_DIR,"pareto_set_final_val\\pareto_sets_dataset_500_4")),
+                             (os.path.join(WORK_DIR,"results_final_val_dataset_750_2.txt"), os.path.join(WORK_DIR,"pareto_set_final_val\\pareto_sets_dataset_750_2")),
+                             (os.path.join(WORK_DIR,"results_final_val_dataset_750_3.txt"), os.path.join(WORK_DIR,"pareto_set_final_val\\pareto_sets_dataset_750_3")),
+                             (os.path.join(WORK_DIR,"results_final_val_dataset_750_4.txt"), os.path.join(WORK_DIR,"pareto_set_final_val\\pareto_sets_dataset_750_4"))]
+                 
+            
+            val_pareto_ref_files=[os.path.join(WORK_DIR,"dataset\\mood_final_val_dataset\\pareto_final_result_250.2.txt_dat"),
+                                  os.path.join(WORK_DIR,"dataset\\mood_final_val_dataset\\pareto_final_result_250.3.txt_dat"),
+                                  os.path.join(WORK_DIR,"dataset\\mood_final_val_dataset\\pareto_final_result_500.2.txt_dat"),
+                                  os.path.join(WORK_DIR,"dataset\\mood_final_val_dataset\\pareto_final_result_500.4.txt_dat"),
+                                  os.path.join(WORK_DIR,"dataset\\mood_final_val_dataset\\pareto_final_result_750.2.txt_dat"),
+                                  os.path.join(WORK_DIR,"dataset\\mood_final_val_dataset\\pareto_final_result_750.3.txt_dat"),
+                                  os.path.join(WORK_DIR,"dataset\\mood_final_val_dataset\\pareto_final_result_750.4.txt_dat")]
+
+            
+            val_pareto_set_files=[os.path.join(p, "final_pareto.txt_dat") for _,p in val_aco_results]
+            print("[*] Running ACO on EVAL datasets...")
+
+            #lancer l'ACO sur les datasets du train
+
+
+            path_heuristic_code=sys.argv[2]     
+            write_heuristic_on_txt(path_heuristic_code)
+            for nb_items,dim in [(250,2),(250,3),(500,2),(500,4),(750,2),(750,3),(750,4)]:
+                
+                print("[*] Writing the C code into gpt.c...")
+                write_heuristic_eval(os.path.join(WORK_DIR,"gpt.txt"),os.path.join(WORK_DIR,"gpt.c"),f'{nb_items}')
         
+                
+                print(f"[*] Compiling WeightACO_eval_{nb_items}items.c")
+                compile(f"WeightACO_eval_{nb_items}items.c",f"WeightACO_eval_{nb_items}items.exe") 
+                run_aco(f"WeightACO_eval_{nb_items}items",args=[f"dataset\\mood_final_val_dataset\\{nb_items}.{dim}.txt"])
+            
 
 
+            print("[*] Extracting Pareto sets from ACO results...")
+            dimensions=[2,3,2,4,2,3,4]
+            #extraire les sets de pareto à partir des résultats de l'ACO
+            for ((algo_result_file, pareto_output_dir), n_dim) in zip(val_aco_results,dimensions):
+
+                extraire_pareto_sets(algo_result_file, pareto_output_dir,n_dim)
+
+            print("[*] Concatenating Pareto sets and filtering with nondominated.exe...")
+            #concaténer les sets de pareto extraits pour chaque dataset
+
+            for _,pareto_dir in val_aco_results:
+                concatenate_pareto_sets(pareto_dir,3)
+            
+            print("[*] Calculating  hypervolume and epsilon...")
+            #calcul des deux métriques epsilon et hypervolume
+            
+            
+            ##hypervolume
+            
+            for result_file in val_pareto_set_files:
+                print(f"[*]  Hypervolume for dataset {result_file}:")
+                mean_hypervolume=calculate_meanHypervolume(val_pareto_set_files)
+
+            for result_file,ref_pareto_file in zip(val_pareto_set_files,val_pareto_ref_files):
+                print(f"[*]  Epsilon for dataset {result_file}:")
+                mean_epsilon=calculate_meanEpsilon([result_file],[ref_pareto_file])
+
+            
+            copy_folder_to_run_dir(
+                source_dir=os.path.join(WORK_DIR, "pareto_set_final_val"),
+                dest_dir=RUN_DIR
+            )
+
+
+        
+        
+        finally:
+            delete_folder(os.path.join(WORK_DIR, "pareto_set_final_val"))
+            for result_file,_ in val_aco_results:
+                try: delete_file(result_file)
+                except Exception as e:
+                    logging.warning(f"Failed to delete {result_file}: {e}")
+
+            
+            for nb_items in [250,500,750]:
+                try:
+                    delete_file(os.path.join(WORK_DIR,f"WeightACO_eval_{nb_items}items.exe"))
+                except Exception as e:
+                    logging.warning(f"Failed to delete WeightACO_eval_{nb_items}items.exe: {e}")
+            
+          
+    

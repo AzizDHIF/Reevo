@@ -1,0 +1,1 @@
+Fine-tune weighting factors with deviation, balance exploration-exploitation, avoid aggressive filtering, sparsify using key factors, and set thresholds. Prioritize simplicity for efficient and robust MO-MKP heuristic design.

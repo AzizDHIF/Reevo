@@ -1,0 +1,20 @@
+```c
+double heuristic_v2(int index_item, double weights[dimension][NBITEMS], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS], double profit[NBITEMS]) {
+    double h = 0;
+    double w_ratio_sum = 0;
+
+    for(int j = 0; j < dimension; j++) {
+        double w_ratio = weights[j][voisinage[index_item]] / capacity[j];
+        w_ratio_sum += w_ratio;
+        if(w_ratio > 2.0) {
+            return 0; // Infeasible due to weight constraint violation
+        }
+    }
+
+    if(w_ratio_sum > 0) {
+        h = profit[voisinage[index_item]] / w_ratio_sum;
+    }
+
+    return h;
+}
+```

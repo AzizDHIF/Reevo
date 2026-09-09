@@ -1,0 +1,6 @@
+Balance factors equally, normalize dynamically, consider infeasibility, and sparsify for better heuristic design.
+Prioritize correct variable usage, simplify calculation order, consider fluctuation mitigation, ensure balanced parameter contribution, normalize appropriately.
+Normalize inputs before using them in heuristic computations to avoid numerical instability.
+Utilize dynamic adjustments based on objective functions' relationships for improved heuristic performance.
+Focus on simplifying and optimizing computation, avoid unnecessary variables, and enhance readability for better heuristic performance.
+Consider focusing on simplicity, directness, and efficiency in calculation to design more effective heuristics.

@@ -1,0 +1,2 @@
+1. Normalize weights, leverage neighbor information, optimize weight-profit ratio.
+2. Incorporate remaining capacity, diverse properties, efficient computations, and adaptability.

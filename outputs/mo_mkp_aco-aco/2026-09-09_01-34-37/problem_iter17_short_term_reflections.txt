@@ -1,0 +1,8 @@
+1. Consider the influence of neighbors' weights and profits.
+2. Adjust weight influence and profit contribution in heuristics.
+Normalize weights by capacity before considering profit and utilize the normalized weights efficiently in heuristics.
+1. Consider constraints in calculating heuristic values.
+2. Handle edge cases like division by zero gracefully.
+Focus on the relative importance of weight and profit, simplify calculations, and consider balanced contributions to objectives.
+Prioritize feasibility checks and avoid unnecessary computations to design more efficient heuristics for MO-MKP.
+Focus on neighbor influence, avoid irrelevant computations, and normalize promising values effectively for better MO-MKP performance.

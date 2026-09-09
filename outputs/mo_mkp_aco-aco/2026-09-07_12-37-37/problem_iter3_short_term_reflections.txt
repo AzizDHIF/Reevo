@@ -1,0 +1,6 @@
+Consider the impact of neighbors, use a small factor for significance, and sparsify unpromising elements to zero.
+Avoid unnecessary computations, focus on relevant variables, simplify calculations, prioritize efficient updates of heuristics.
+Prioritize neighbors over current item, simplify calculations, and avoid unnecessary conditional checks for efficiency improvement.
+Avoid premature pruning, consider interaction terms, and ensure stability against division-by-zero errors.
+Utilize neighboring item information instead of individual item data for better heuristic efficiency in MO-MKP.
+Leverage precomputed neighbors, prioritize neighbor access efficiency, and consider dimension interaction impact for better heuristics.

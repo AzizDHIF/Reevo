@@ -1,0 +1,7 @@
+Use more informative and balanced weighting in calculations for better performance in heuristics.
+Consider normalizing weights, preventing division by zero, and balancing promising and unpromising factors for better performance.
+Compute only necessary values, avoid unnecessary operations, and focus on key factors for better heuristic designs.
+1. Consider balancing objective importance and solution structure in heuristic design.
+Focus on identifying key neighbor characteristics directly relevant to the objective for efficient heuristic calculation.
+1. Reduce unnecessary calculations, focus on relevant factors.
+2. Simplify and optimize by leveraging key information.

@@ -1,0 +1,6 @@
+Leverage influence of neighbor items and remaining capacity for a more effective heuristic; avoid unnecessary computations.
+Use direct calculations for key factors, minimize redundant computations, balance factors based on objective importance.
+Emphasize direct relevance of item to objectives, inversely consider remaining capacity effectively.
+Optimize heuristic by separating calculations and using simpler, more direct computations for each factor.
+Prefer combining relevant factors directly over separate computations for efficient heuristics.
+Prioritize computation of promising factor, simplify expressions, and ensure minimal complexity for performance improvement in heuristics.

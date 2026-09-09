@@ -1,0 +1,6 @@
+Use neighbors' weights directly for calculation and consider additional constraints for more accurate heuristics.
+Consider direct calculation with neighbourhood information and non-zero checks for efficiency in heuristic design.
+Utilize valid neighbors directly to compute heuristic; prioritize neighbor values over current item's capabilities.
+Prioritize neighbors over item itself, minimize unnecessary computations, and ensure early termination conditions for efficiency and accuracy.
+Utilize neighbor information and avoid unnecessary checks to improve efficiency and accuracy of heuristics.
+Leverage neighbor information for better heuristics; prioritize non-zero weight items for improved performance.

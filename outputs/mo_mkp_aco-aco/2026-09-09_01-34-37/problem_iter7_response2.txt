@@ -1,0 +1,15 @@
+```c
+double heuristic_v2(int index_item, double weights[dimension][NBITEMS], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS], double profit[NBITEMS]) {
+    double h = 0;
+    
+    // Calculate relevance of the item based on profit-cost information and remaining capacity
+    for (int j = 0; j < dimension; j++) {
+        if (capacity[j] != 0) {
+            h += (weights[j][index_item] / capacity[j]);
+        }
+    }
+
+    // Return the normalized relevance incorporating profit
+    return (profit[index_item] / (1 + h));
+}
+```

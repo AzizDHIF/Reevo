@@ -1,0 +1,6 @@
+Normalize inputs, balance factors, and sparingly penalize unpromising elements.
+Simplify computations by focusing on essential information and relationships; avoid unnecessary normalization and complicated formulas.
+Prioritize simplicity and effectiveness, avoiding unnecessary calculations for better heuristic efficiency.
+Consider balancing different factors, sparsifying uninformative entries & using holistic evaluation for better heuristics.
+Normalize inputs, balance factors, and avoid unnecessary computations for efficient and effective heuristics design.
+Simplify the heuristic by focusing on key factors: profit, weight, and capacity utilization ratio.

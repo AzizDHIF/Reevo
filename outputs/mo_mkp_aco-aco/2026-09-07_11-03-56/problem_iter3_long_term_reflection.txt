@@ -1,0 +1,2 @@
+1. Simplify heuristics by favoring summation, prioritizing ratio calculations, and incorporating normalized weight ratios and sparsity factors for robustness.
+2. Focus on essential factors, reduce unnecessary computations, and enhance efficiency by minimizing operations and leveraging interactions with neighbors.

@@ -1,0 +1,3 @@
+1. Prioritize efficient neighbor-based computations in heuristic design.
+2. Optimize calculations by leveraging precomputed neighbors and values.
+3. Consolidate weight and capacity comparisons for streamlined heuristics.

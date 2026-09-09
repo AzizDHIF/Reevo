@@ -1,0 +1,4 @@
+1. Generalize objective ratios and use multi-dimensional weights efficiently.
+2. Prioritize comprehensive data over simple calculations.
+3. Utilize all weight dimensions for informed neighbor selection.
+4. Focus on relevant dimensions and prevent division by zero for efficient heuristic design.

@@ -1,0 +1,4 @@
+1. Normalize weights, optimize weight-profit ratio, exploit neighbor info.
+2. Integrate diverse, relevant factors directly; combine efficiently for heuristic value.
+3. Sparsify with key parameters, ensure positivity, reward balance for efficient multi-objective selection.
+4. Emphasize neighbor exploration, dimension utilization, and adaptability.

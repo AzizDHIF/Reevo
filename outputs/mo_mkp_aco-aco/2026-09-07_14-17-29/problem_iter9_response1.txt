@@ -1,0 +1,17 @@
+```c
+double heuristic_v2(int index_item, double weights[dimension][NBITEMS], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS], double profit[NBITEMS]) {
+    double h = 0;
+    double max_weight = 0;
+    double max_profit = profit[voisinage[index_item]];
+
+    // Utilize precomputed max weight directly
+    max_weight = weights[0][voisinage[index_item]];
+
+    // Simplified sparse heuristic calculation
+    if (max_weight > 0) {
+        h = max_profit / max_weight;
+    }
+
+    return h;
+}
+```

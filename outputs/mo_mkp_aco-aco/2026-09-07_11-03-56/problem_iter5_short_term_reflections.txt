@@ -1,0 +1,6 @@
+Replace the product with the sum for improved performance in heuristic functions for MO-MKP.
+Leverage local search structure by considering diverse ratios for each neighbor and selecting the most promising one.
+Focus on efficient feature combination and computation simplification to improve heuristic performance.
+Simplify heuristic calculations by directly incorporating relevant dimensions; avoid unnecessary computations or conditions.
+Consider all relevant factors separately and efficiently combine to assess item promise in MO-MKP.
+Prioritize direct neighbor selection and normalize promises to enhance heuristic efficiency and performance.

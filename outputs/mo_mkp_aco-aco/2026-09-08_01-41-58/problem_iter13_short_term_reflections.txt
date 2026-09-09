@@ -1,0 +1,6 @@
+Simplify heuristic calculations by removing unnecessary terms and considering overall balance and scaling factors for improved performance.
+Leverage neighboring item properties and related calculations for improved heuristic accuracy in MO-MKP optimization.
+Use neighboring item's properties, normalize early, and consider overall context in heuristic.
+Simplify calculations, reduce redundant operations, and focus on meaningful factors for better heuristic design.
+Utilize normalized weights, consider impact of denominator values, and adjust normalization constants carefully.
+Consider incorporating the impact of remaining capacity on heuristics for better performance.

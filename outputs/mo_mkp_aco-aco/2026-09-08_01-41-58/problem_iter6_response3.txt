@@ -1,0 +1,13 @@
+```c
+double heuristic_v2(int index_item, double weights[dimension][NBITEMS], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS], double profit[NBITEMS])
+{
+    double total_weight_ratio = 0;
+    double total_profit = profit[voisinage[index_item]];
+
+    for (int j = 0; j < dimension; j++) {
+        total_weight_ratio += weights[j][voisinage[index_item]] / capacity[j];
+    }
+
+    return total_profit * (1.0 - total_weight_ratio);
+}
+```

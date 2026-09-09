@@ -1,0 +1,5 @@
+1. Combine factors judiciously for item selection.
+2. Set unpromising elements to zero for sparsity.
+3. Incorporate thresholds and context-specific adjustments.
+4. Focus on essential factors for efficient computation.
+5. Balance objective and constraint ratios strategically.

@@ -1,0 +1,25 @@
+```c
+double heuristic_v2(int index_item, double weights[dimension][NBITEMS], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS], double profit[NBITEMS]){
+    double score = 0;
+	
+    // Calculate average utilization for each dimension
+    double average_utilization = 0;
+    for(int j=0; j<dimension; j++){
+        average_utilization += weights[j][index_item] / capacity[j];
+    }
+    average_utilization /= dimension;
+	
+    // Calculate a score based on multiple factors
+    score = profit[index_item] / (average_utilization + 1);
+
+    // Sparsify by setting the score to 0 if the item is already oversized on any dimension
+    for(int j=0; j<dimension; j++){
+        if(weights[j][voisinage[index_item]] >= capacity[j]){
+            score = 0;
+            break;
+        }
+    }
+	
+    return score;
+}
+```

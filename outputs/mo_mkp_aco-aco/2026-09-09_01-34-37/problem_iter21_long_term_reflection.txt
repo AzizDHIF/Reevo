@@ -1,0 +1,2 @@
+1. Emphasize neighbor influence and efficient item property utilization for balanced computational cost and improved MO-MKP heuristics.
+2. Prioritize simplicity, avoid unnecessary calculations, handle division by zero cases, and ensure consistent logic for effective heuristic design.

@@ -1,0 +1,29 @@
+```c
+double heuristic_v2(int index_item, double weights[dimension][NBITEMS], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS], double profit[NBITEMS] ){
+    double inv_weight_sum = 0;
+    double profit_sum = 0;
+    for(int j = 0; j < dimension; j++){
+        inv_weight_sum += 1 / (weights[j][voisinage[index_item]] + 0.0001); // Avoiding division by zero
+    }
+    
+    for(int k = 0; k < nb_voisinage; k++){
+        int neighbor = voisinage[k];
+        double inv_neighbor_weight_sum = 0;
+        double neighbor_profit_sum = 0;
+        for(int j = 0; j < dimension; j++){
+            inv_neighbor_weight_sum += 1 / (weights[j][neighbor] + 0.0001); // Avoiding division by zero
+        }
+        
+        for(int c = 0; c < dimension; c++){
+            if(capacity[c] - weights[c][neighbor] >= 0){
+                // If the neighbor can fit
+                neighbor_profit_sum += profit[neighbor];
+            }
+        }
+        
+        profit_sum += profit[neighbor] * inv_neighbor_weight_sum * neighbor_profit_sum;
+    }
+    
+    return inv_weight_sum * profit_sum;
+}
+```

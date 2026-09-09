@@ -1,0 +1,6 @@
+Leverage 'index_item' for direct neighbor access, avoid redundant computations, and focus on efficiency.
+Utilize item-specific information and avoid unnecessary loops for efficient heuristic design.
+Consider utilizing maximum weight spread rather than single weight dimension for more balanced heuristics.
+Utilize 'index_item' in calculations instead of hardcoded values for scalability and generality.
+Utilize precomputed values efficiently, favor simpler computations, and directly compute relevant parameters for improved heuristic efficiency.
+Calculate global item characteristics for efficient heuristics in MO-MKP.

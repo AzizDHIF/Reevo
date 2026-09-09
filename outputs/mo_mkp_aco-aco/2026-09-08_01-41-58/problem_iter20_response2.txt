@@ -1,0 +1,20 @@
+```c
+double heuristic_v2(int index_item, double weights[dimension][NBITEMS], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS], double profit[NBITEMS]) {
+    double sum_weight_ratio = 0, sum_inv_weight = 0, sum_capacity = 0;
+    
+    for (int j = 0; j < dimension; j++) {
+        double weight_ratio = weights[j][index_item] / capacity[j];
+        double weight_inv = 1 / weights[j][index_item];
+        
+        sum_weight_ratio += weight_ratio;
+        sum_inv_weight += weight_inv;
+        sum_capacity += capacity[j];
+    }
+    
+    double objective_ratio = profit[index_item] / (sum_weight_ratio + 1);
+    double neighbor_ratio = 1 / (sum_inv_weight + 1) / nb_voisinage;
+    double capacity_ratio = 1 / (sum_capacity + 1);
+    
+    return objective_ratio * neighbor_ratio * capacity_ratio;
+}
+```

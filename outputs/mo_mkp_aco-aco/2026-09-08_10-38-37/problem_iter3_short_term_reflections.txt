@@ -1,0 +1,6 @@
+Increase the influence of neighbors and consider sparsity in values to design more effective heuristics.
+1. Use inverted weighted sum for heuristic improvement.
+Leverage neighbor information and normalized weights to design promising heuristics for better MO-MKP performance.
+Emphasize feasibility-check in heuristics, avoid unnecessary computations, and prioritize directly relevant calculations for optimization.
+Leverage direct computation and sparsity checks to simplify heuristics for efficient MO-MKP solving.
+Utilize inverted weighted capacity sum for better heuristic performance in multiple objective, multiple knapsack problems.

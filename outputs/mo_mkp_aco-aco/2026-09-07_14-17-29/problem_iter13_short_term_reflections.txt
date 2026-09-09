@@ -1,0 +1,6 @@
+Avoid hardcoding specific dimensions; consider generalizing and efficiently computing objective ratios based on neighboring items.
+Consider exploring the entire range of weights rather than just focusing on one dimension for better heuristics.
+Leverage specific dimensions with direct calculations for better heuristic performance.
+Prefer directly calculating the objective value based on the maximum weight for better heuristic efficiency.
+Prioritize considering all weight dimensions for improved heuristic computation in MO-MKP.
+Avoid unnecessary calculations, prioritize simplicity, and directly focus on key variables for efficient heuristics.

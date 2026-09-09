@@ -1,0 +1,24 @@
+```c
+double heuristic_v2(int index_item, double weights[dimension][NBITEMS], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS], double profit[NBITEMS]) {
+    double h = 0.0;
+
+    for (int j = 0; j < dimension; j++) {
+        double normalized_capacity = capacity[j] > 0.0 ? capacity[j] : 0.000001; // Avoid division by zero
+        h += weights[j][voisinage[index_item]] / normalized_capacity;
+    }
+
+    double promising_factor = 0.6 * profit[voisinage[index_item]] / h;
+    double weight_factor = 0.4 * (1.0 - h / dimension);
+
+    // Penalize infeasible solutions by setting a lower bound threshold
+    if (promising_factor < 0.1 || weight_factor < 0.1) {
+        return 0.0;
+    }
+
+    // Dynamic adjustment using normalization to balance factors
+    double normalized_promising = promising_factor / 0.6;
+    double normalized_weight = weight_factor / 0.4;
+
+    return normalized_promising + normalized_weight;
+}
+```

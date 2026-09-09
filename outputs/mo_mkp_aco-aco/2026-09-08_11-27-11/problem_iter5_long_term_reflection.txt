@@ -1,0 +1,1 @@
+Focus on efficient neighbor evaluations and directly leverage neighbor information for computations to simplify and prioritize relevant factors. Minimize unnecessary calculations, optimize utility, handle constraints effectively, and balance heuristic components for better performance in MO-MKP.

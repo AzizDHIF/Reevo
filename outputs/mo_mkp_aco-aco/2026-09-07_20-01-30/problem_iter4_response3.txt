@@ -1,0 +1,18 @@
+```c
+double heuristic_v2(int index_item, double weights[dimension][NBITEMS], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS], double profit[NBITEMS]) {
+    double resource_utilization = 0.0;
+
+    for (int j = 0; j < dimension; j++) {
+        resource_utilization += weights[j][index_item] / capacity[j];
+    }
+
+    double selection_factor = profit[index_item] / resource_utilization;
+    double remaining_capacity_profit = (capacity[0] - weights[0][index_item]) * profit[index_item];
+
+    if (selection_factor > 0 && remaining_capacity_profit > 0) {
+        return selection_factor + remaining_capacity_profit;
+    } else {
+        return 0.0;
+    }
+}
+```

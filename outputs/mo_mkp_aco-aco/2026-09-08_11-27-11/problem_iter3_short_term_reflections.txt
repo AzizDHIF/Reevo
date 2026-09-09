@@ -1,0 +1,6 @@
+Prioritize efficient neighbor evaluation and utilize relevant factors for better heuristics.
+Focus on efficient utility calculation and avoid unnecessary loops to improve heuristic performance in MO-MKP.
+Leverage ratio of profit to weighted utilization over neighbors; avoid unnecessary loops and calculations.
+Utilize total weight check and direct calculation for improved heuristics (avoid unnecessary loops and computations).
+Leverage neighboring item weights directly and avoid averaging for better MO-MKP heuristics.
+Avoid unnecessary loops, precompute values, use direct calculations, prioritize relevant heuristics, and handle constraints explicitly.

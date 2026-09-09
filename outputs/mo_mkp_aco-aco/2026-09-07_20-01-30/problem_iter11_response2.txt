@@ -1,0 +1,29 @@
+```c
+double heuristic_v2(int index_item, double weights[dimension][NBITEMS], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS], double profit[NBITEMS]) {
+    double h = 0.0;
+    for (int j = 0; j < dimension; j++) {
+        h += weights[j][voisinage[index_item]] / capacity[j];
+    }
+
+    double factor1 = profit[voisinage[index_item]] / h;
+    double factor2 = (capacity[0] - weights[0][voisinage[index_item]]) * profit[voisinage[index_item]];
+    double factor3 = weights[1][voisinage[index_item]] * profit[voisinage[index_item]];
+    double factor4 = weights[2][voisinage[index_item]] / capacity[1];
+
+    // Introduce diversity and factor importance for MO-MKP heuristics
+    double diversity_factor = 0.0;
+    for (int i = 0; i < nb_voisinage; i++) {
+        diversity_factor += profit[voisinage[i]] * weights[0][voisinage[i]] / (capacity[0] - weights[0][voisinage[i]]);
+    }
+
+    // Adjust heuristic based on diverse factor importance
+    double heuristic_value = 0.7 * factor1 + 0.1 * factor2 + 0.1 * factor3 + 0.05 * factor4 + 0.05 * diversity_factor;
+
+    // Sparsify heuristic based on factors and item properties
+    if (heuristic_value > 0) {
+        return heuristic_value;
+    } else {
+        return 0.0;
+    }
+}
+```

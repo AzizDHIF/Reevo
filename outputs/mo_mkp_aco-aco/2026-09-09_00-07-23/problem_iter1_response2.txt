@@ -1,0 +1,18 @@
+```c
+double heuristic_v2(int index_item, double weights[dimension][NBITEMS], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS], double profit[NBITEMS] ){
+    double sum_weight_ratio = 0;
+    double sum_capacity_ratio = 0;
+    
+    for(int j=0;j<dimension;j++){
+        sum_weight_ratio += weights[j][voisinage[index_item]] / capacity[j];
+        sum_capacity_ratio += capacity[j];
+	}
+    
+    double selection_factor = profit[voisinage[index_item]] / sum_weight_ratio;
+    double capacity_factor = sum_capacity_ratio / (sum_capacity_ratio + sz_voisinage);
+    
+    double heuristic_score = selection_factor * capacity_factor;
+    
+    return (heuristic_score > 0) ? heuristic_score : 0;
+}
+```

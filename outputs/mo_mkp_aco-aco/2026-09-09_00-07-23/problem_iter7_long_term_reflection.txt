@@ -1,0 +1,4 @@
+1. Utilize neighboring item interactions and sparsity-aware normalization for efficient heuristic design in MO-MKP.
+2. Prioritize relevant neighbor computations, normalized weights, and accounting for capacity constraints for effective heuristics.
+3. Focus on neighboring items, leverage neighborhood information, and ensure feasibility and diversity in design.
+4. Normalize weights directly by capacity for promoting promising item selections.

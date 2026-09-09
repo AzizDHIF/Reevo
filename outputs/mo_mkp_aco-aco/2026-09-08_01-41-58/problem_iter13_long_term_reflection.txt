@@ -1,0 +1,2 @@
+1. Simplify calculations, leverage neighboring item properties, and normalize inputs early for efficient heuristic design in MO-MKP.
+2. Incorporate the impact of remaining capacity, focus on key factors, and streamline computations for improved performance.

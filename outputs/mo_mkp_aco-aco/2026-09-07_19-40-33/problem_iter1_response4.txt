@@ -1,0 +1,18 @@
+```c
+double heuristic_v2(int index_item, double weights[dimension][NBITEMS], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS], double profit[NBITEMS]) {
+    double promising_factor = 0.7;
+    double h = 0;
+
+    for (int j = 0; j < dimension; j++) {
+        if (weights[j][index_item] > capacity[j]) {
+            promising_factor = 0; // Encourage avoidance of items violating capacity constraint
+            break;
+        }
+        h += weights[j][index_item] / capacity[j];
+    }
+
+    double bonus = (1 / (1 + h)) * profit[index_item]; // Higher impact if h is low
+
+    return promising_factor * bonus;
+}
+```

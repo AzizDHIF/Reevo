@@ -1,0 +1,1 @@
+Focus on relevant features, simplify calculations, and prioritize neighbor selection for better MO-MKP heuristics. Emphasize item's own features, optimize normalization, and strategically tune promotion values. Avoid unnecessary computations, simplify calculations, and focus on key quality-influencing factors effectively.

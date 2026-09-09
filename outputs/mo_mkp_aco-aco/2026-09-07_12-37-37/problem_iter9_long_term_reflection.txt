@@ -1,0 +1,1 @@
+Normalize weights globally, avoid small number divisions, use small initial values, prioritize key factors, minimize conditional checks, emphasize efficiency, reduce unnecessary operations, ensure numerical stability.

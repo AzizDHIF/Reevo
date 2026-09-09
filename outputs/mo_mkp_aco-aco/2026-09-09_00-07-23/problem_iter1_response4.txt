@@ -1,0 +1,25 @@
+```c
+double heuristic_v2(int index_item, double weights[dimension][NBITEMS], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS], double profit[NBITEMS] ){
+    double h = 0;
+    int weight_sum = 0;
+    
+    // Calculate the total weight of the selected neighbor items
+    for(int i=0; i<nb_voisinage; i++){
+        if(i != index_item){
+            for(int j=0; j<dimension; j++){
+                weight_sum += weights[j][voisinage[i]];
+            }
+        }
+    }
+    
+    // Compute the heuristic by balancing between profit and weight
+    h = (profit[voisinage[index_item]] - weight_sum) / (1 + weight_sum);
+    
+    // Sparsify the heuristic to zero for non-promising cases
+    if(h < 0){
+        h = 0;
+    }
+    
+    return h;
+}
+```

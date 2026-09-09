@@ -1,0 +1,3 @@
+1. Normalize weights and prioritize feasibility checks for efficiency.
+2. Minimize divisions, leverage precomputed data, and prioritize neighbor-based computations.
+3. Emphasize neighbor indices, consider neighboring items' impact, and balance heuristic components effectively.

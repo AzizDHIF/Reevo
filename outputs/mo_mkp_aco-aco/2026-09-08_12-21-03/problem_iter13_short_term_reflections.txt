@@ -1,0 +1,6 @@
+Prioritize direct relevance calculations over complex computations for improved heuristic efficiency.
+Emphasize item's individual performance and normalize factors to improve heuristic accuracy and scalability.
+Leverage ratio-based calculations over item-wise loops for efficient heuristics in MO-MKP.
+Avoid redundant computations, exploit interdependencies, and focus on relevant factors for efficient heuristic design.
+Emphasize efficient use of capacity ratio and avoid unnecessary conditional checks for improved heuristic performance.
+Consider efficient element-wise operations, avoid redundant computations, and focus on relevant factors for better heuristics.

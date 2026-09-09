@@ -1,0 +1,3 @@
+1. Emphasize neighbor influence and remaining capacity, streamline calculations efficiently.
+2. Directly calculate key factors, avoid redundancies, balance based on objectives.
+3. Ensure direct item-objective relevance, consider capacity inversely for robust heuristics.

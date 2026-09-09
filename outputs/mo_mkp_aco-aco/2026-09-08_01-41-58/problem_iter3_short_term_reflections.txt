@@ -1,0 +1,9 @@
+Focus on balancing objective components, e.g., weight ratio, profit, and capacity interaction in heuristic calculations.
+Prioritize simplicity, avoid unnecessary formulas, and focus on key parameters for efficient MO-MKP heuristics.
+Better heuristics prioritize scaling weights and objective ratio for improved exploration and exploitation balance.
+Consider item's neighborhood, penalize weight excess, and balance profit-weight trade-off for better heuristics.
+1. Normalize weights by available capacity.
+2. Penalize items exceeding capacity directly.
+3. Consider objective and capacity relationships interactively.
+1. Consider utilizing ratios and inverses for better heuristic performance.
+2. Focus on incorporating multiple factors efficiently for improved evaluation.

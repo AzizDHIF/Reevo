@@ -1,0 +1,1 @@
+Focus on relevant features and efficient computations. Utilize neighborhood information effectively, prioritize simplicity, and normalize weights by capacity just once for stable convergence in MO-MKP heuristics.

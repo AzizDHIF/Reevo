@@ -1,0 +1,16 @@
+```c
+double heuristic_v2(int index_item, double weights[dimension][NBITEMS], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS], double profit[NBITEMS]) {
+    double h = 0;
+    for (int j = 0; j < dimension; j++) {
+        double w = weights[j][voisinage[index_item]];
+        if (w > 0) {  // Prioritize elements contributing positively
+            h += w / capacity[j];
+        }
+    }
+    if (h > 0) {  // If h is 0, return 0 to sparsify
+        return profit[voisinage[index_item]] / h;
+    } else {
+        return 0;
+    }
+}
+```

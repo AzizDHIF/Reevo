@@ -1,0 +1,4 @@
+1. Normalize weights and ratios for fair comparison.
+2. Regularize factor combinations for balance.
+3. Simplify calculations, focus on key factors, and handle special cases efficiently.
+4. Use holistic item evaluation with appropriate weights for efficiency and quality.

@@ -1,0 +1,1 @@
+Prioritize max-weight neighbors, leverage full item weight info, emphasize weight distribution, consider all dimensions, avoid unnecessary computations, simplify calculations, focus on efficiency over complexity, and make complex decisions in constant time for efficient MO-MKP heuristics.

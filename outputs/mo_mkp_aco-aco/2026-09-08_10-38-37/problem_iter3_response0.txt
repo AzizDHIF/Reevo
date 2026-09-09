@@ -1,0 +1,21 @@
+```c
+double heuristic_v2(int index_item, double weights[dimension][NBITEMS], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS], double profit[NBITEMS]) {
+    double h = 0;
+    int isPromising = 1;
+
+    for (int j = 0; j < dimension; j++) {
+        h += weights[j][voisinage[index_item]] / capacity[j];
+
+        if (weights[j][index_item] > capacity[j]) {
+            isPromising = 0;
+            break;
+        }
+    }
+
+    if (!isPromising) {
+        return 0.0;
+    }
+
+    return profit[voisinage[index_item]] / (1 + h); // Inverted Weighted Sum with Normalized Weights
+}
+```

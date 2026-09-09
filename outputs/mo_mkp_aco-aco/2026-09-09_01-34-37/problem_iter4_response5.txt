@@ -1,0 +1,20 @@
+```c
+double heuristic_v2(int index_item, double weights[dimension][NBITEMS], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS], double profit[NBITEMS]) {
+    double h = 0;
+
+    // Calculate combined factor based on different criteria
+    for (int j = 0; j < dimension; j++) {
+        h += weights[j][voisinage[index_item]] / capacity[j];
+    }
+
+    // Combine profit and weight factors to determine item promise
+    double promising_factor = profit[voisinage[index_item]] / h;
+
+    // Set unpromising items to zero for sparsity
+    if (promising_factor <= 0) {
+        return 0;
+    }
+
+    return promising_factor;
+}
+```

@@ -1,0 +1,26 @@
+```c
+double heuristic_v2(int index_item, double weights[dimension][NBITEMS], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS], double profit[NBITEMS]) {
+    double promising_factor = 0;
+
+    // Check if the item is within the neighborhood
+    if (index_item >= nb_voisinage) {
+        return 0;
+    }
+
+    for (int j = 0; j < dimension; j++) {
+        promising_factor += weights[j][voisinage[index_item]] / capacity[j];
+    }
+
+    promising_factor = profit[voisinage[index_item]] / promising_factor;
+
+    double capacity_filled = 0;
+
+    for (int j = 0; j < dimension; j++) {
+        capacity_filled += capacity[j] - weights[j][index_item];
+    }
+
+    double decision_factor = 1 / (1 + capacity_filled);
+
+    return promising_factor * decision_factor;
+}
+```

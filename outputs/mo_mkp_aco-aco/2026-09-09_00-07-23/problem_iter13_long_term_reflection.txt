@@ -1,0 +1,3 @@
+1. Consider neighboring items for efficient comparisons in MO-MKP heuristics, prioritizing non-zero weights and proper normalization.
+2. Focus on direct neighbor calculations, avoiding zero divisions and leveraging valid neighboring information for improved efficiency.
+3. Optimize weight utilization and computation efficiency by prioritizing relevant attributes and direct computation over intermediate variables.

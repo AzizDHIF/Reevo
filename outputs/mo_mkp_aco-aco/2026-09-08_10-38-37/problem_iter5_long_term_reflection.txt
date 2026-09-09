@@ -1,0 +1,1 @@
+Utilize neighbor influence, feasibility checks, and sparsity in MO-MKP heuristics. Prioritize simplicity, avoid redundancy, and focus on early rejection of unpromising items for improved efficiency. Normalize weights, simplify computations, and use clear naming for clarity and performance.

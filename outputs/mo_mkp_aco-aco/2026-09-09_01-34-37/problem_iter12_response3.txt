@@ -1,0 +1,27 @@
+```c
+double heuristic_v2(int index_item, double weights[dimension][NBITEMS], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS], double profit[NBITEMS])
+{
+    double h = 0;
+
+    for (int j = 0; j < dimension; j++)
+    {
+        double total_weight = 0;
+        for (int k = 0; k < nb_voisinage; k++)
+        {
+            total_weight += weights[j][voisinage[k]];
+        }
+        if (total_weight > capacity[j])
+        {
+            return 0; // Unpromising item due to capacity constraint
+        }
+        h += total_weight / capacity[j];
+    }
+
+    if (h == 0)
+    {
+        return 0; // Unpromising item due to capacity saturation
+    }
+
+    return profit[voisinage[index_item]] / h;
+}
+```
