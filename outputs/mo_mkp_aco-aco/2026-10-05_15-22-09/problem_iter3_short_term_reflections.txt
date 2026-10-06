@@ -1,0 +1,6 @@
+Consider direct computation of promising factor based on dimension weights, profits, and capacities for better heuristic performance.
+Consider interactions between weight, profit, and capacity; focus on effective weight-profit/capacity relationships for better heuristics.
+Prioritize direct impact on objectives, avoid unnecessary calculations, and ensure efficient use of available information.
+Utilize multi-factor evaluation, consider feasibility, prioritize important factors, and simplify computations for better heuristics.
+Consider incorporating multiple factors, such as feasibility and importance, for more robust heuristic design.
+Consider normalization and incorporating sparsity-awareness to balance objective contributions efficiently for better performance.

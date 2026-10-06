@@ -1,0 +1,29 @@
+```c
+double heuristic_v2(int index_item, double **weights, double *capacity, int nb_voisinage, int *voisinage, double *profit) {
+    double weight_sum = 0;
+    double balance_score = 0;
+
+    for (int j = 0; j < dimension; j++) {
+        double weight_item = weights[j][voisinage[index_item]];
+        if (weight_item > 0) {
+            weight_sum += weight_item / capacity[j];
+            balance_score += (capacity[j] - weight_item) / capacity[j];
+        }
+    }
+
+    double weight_factor = 0.6;   // Weight given to weight-related score
+    double balance_factor = 0.4;  // Weight given to balance-related score
+
+    double profit_normalized = profit[voisinage[index_item]] / (double)NBITEMS;
+    double weight_score = weight_factor / (1 + weight_sum);
+    double balance_score_norm = balance_factor / (1 + balance_score);
+
+    double heuristic_value = profit_normalized * weight_score + balance_score_norm;
+
+    if (weight_sum > 0.7 || balance_score < 0.3) {
+        heuristic_value = 0;
+    }
+
+    return heuristic_value;
+}
+```

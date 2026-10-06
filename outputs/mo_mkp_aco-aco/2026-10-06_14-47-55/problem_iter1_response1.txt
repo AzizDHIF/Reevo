@@ -1,0 +1,31 @@
+```c
+double heuristic_v2(int index_item, double **weights, double *capacity, int nb_voisinage, int *voisinage, double *profit){
+    double h=0;
+    double ratio = 0.0;
+    int num_factors = 0;
+    
+    for(int j = 0; j < dimension; j++){
+        h += weights[j][voisinage[index_item]] / capacity[j];
+    }
+    
+    if (h > 0) {
+        ratio = profit[voisinage[index_item]] / h;
+        num_factors++;
+    }
+    
+    // Consider more factors to estimate promise of the item
+    double weight_ratio = 1.0 - weight[voisinage[index_item]] / total_weight;
+    if(weight_ratio > 0) {
+       ratio += weight_ratio;
+       num_factors++;
+    }
+    
+    double benefit_cost_ratio = (total_profit - profit[voisinage[index_item]]) / (total_weight - weight[voisinage[index_item]]);
+    if(benefit_cost_ratio > 0) {
+       ratio += benefit_cost_ratio;
+       num_factors++;
+    }
+    
+    return (num_factors > 0) ? ratio / num_factors : 0;
+}
+```

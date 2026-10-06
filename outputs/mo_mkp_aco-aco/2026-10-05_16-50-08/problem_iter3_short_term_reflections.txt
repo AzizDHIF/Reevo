@@ -1,0 +1,7 @@
+1. Consider normalization and damping to adjust influence factors.
+2. Allow sparse elimination of unpromising elements.
+Consider item's weight versus capacity usage, handle zero weights, and balance objectives for better heuristics.
+Consider leveraging direct relevance to objectives, simplifying calculations, handling edge cases efficiently, and sparsifying judiciously.
+Avoid dividing by small values to prevent numerical instability; focus on relevant heuristics for better performance.
+Leverage combined normalized scores with sparsity handling for improved heuristic performance.
+Consider item feasibility, weight ratios, and objective sensitivity for better heuristic performance.

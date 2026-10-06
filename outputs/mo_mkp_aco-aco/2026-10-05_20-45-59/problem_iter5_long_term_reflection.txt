@@ -1,0 +1,3 @@
+1. Prioritize active dimensions, normalize weights and profits, utilize ratios for balance.
+2. Simplify calculations, focus on relevant features, streamline operations for clarity.
+3. Incorporate essential factors, prioritize efficiency, verify scaling properties for improved design.

@@ -1,0 +1,6 @@
+Consider incorporating both weight and profit factors, balancing benefit and feasibility efficiently for better performance.
+Consider using total weight and total capacity ratios for a more effective heuristic design. Avoid unnecessary computations.
+Consider normalization, additional factors, and avoiding division by zero for better heuristic design.
+Leverage weighted factors, avoid dividing by capacities, consider more comprehensive interactions.
+Focus on comprehensive features, avoid local measures, and balance weights and capacities for better heuristic design.
+Consider simplifying computations, leveraging ratio-based metrics, and utilizing all relevant input data effectively.

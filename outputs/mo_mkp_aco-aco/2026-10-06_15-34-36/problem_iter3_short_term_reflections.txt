@@ -1,0 +1,7 @@
+Emphasize unused capacity and neighborhood size; avoid unnecessary computations; balance objective influence.
+Focus on relevant factors, balance weights and capacities, prioritize feasible solutions, consider multiple objectives for better heuristics.
+Prioritize feasible solutions, consider item relevance over inverse weight sum, ensure efficient computation.
+Reduce complexity and focus on relevant information like profit-to-weight ratio for improved heuristic performance in MO-MKP.
+Consider efficiency by minimizing unnecessary computations, handling edge cases, and early stopping for better heuristics.
+1. Consider not ignoring capacity constraints in the heuristic.
+2. Ensure the heuristic considers the impact of all item weights efficiently.

@@ -3,15 +3,8 @@
 
 #include "Common.h"
 #include <stddef.h>
-
-
-#define dimension 3
-#define NBITEMS 100
-#define NBITEMS_100 100
-#define NBITEMS_250 250
-#define NBITEMS_300 300
-#define NBITEMS_500 500
-#define NBITEMS_750 750
+extern int dimension;
+extern int NBITEMS;
 
 /*typedef struct {
 int *items_nonpris;
@@ -48,10 +41,10 @@ void mutate(ind *x,mut *m);
 
 int max(int a, int b);
 
-double heuristic(int index_item, double weights[dimension][NBITEMS], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS], double profit[NBITEMS] );
-double heuristic_eval_100(int index_item, double weights[dimension][NBITEMS_100], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS_100], double profit[NBITEMS_100] );
-double heuristic_eval_250(int index_item, double weights[dimension][NBITEMS_250], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS_250], double profit[NBITEMS_250] );
-double heuristic_eval_300(int index_item, double weights[dimension][NBITEMS_300], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS_300], double profit[NBITEMS_300] );
-double heuristic_eval_500(int index_item, double weights[dimension][NBITEMS_500], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS_500], double profit[NBITEMS_500] );
-double heuristic_eval_750(int index_item, double weights[dimension][NBITEMS_750], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS_750], double profit[NBITEMS_750] );
+double heuristic(int index_item, double **weights, double *capacity, int nb_voisinage, int *voisinage, double *profit);
+double heuristic_eval_100(int index_item, double **weights, double *capacity, int nb_voisinage, int *voisinage, double *profit);
+double heuristic_eval_250(int index_item, double **weights, double *capacity, int nb_voisinage, int *voisinage, double *profit);
+double heuristic_eval_300(int index_item, double **weights, double *capacity, int nb_voisinage, int *voisinage, double *profit);
+double heuristic_eval_500(int index_item, double **weights, double *capacity, int nb_voisinage, int *voisinage, double *profit);
+double heuristic_eval_750(int index_item, double **weights, double *capacity, int nb_voisinage, int *voisinage, double *profit);
 #endif

@@ -1,0 +1,18 @@
+```c
+double heuristic_v2(int index_item, double **weights, double *capacity, int nb_voisinage, int *voisinage, double *profit){
+    double h=0;
+    for(int j=0;j<dimension;j++){
+        h += weights[j][voisinage[index_item]]/capacity[j]; 
+    }
+
+    double ratio_capacity_weights = 1.0 / h;
+    double weighted_profit = profit[voisinage[index_item]] * 0.7;
+    double item_weight = weights[0][voisinage[index_item]] + weights[1][voisinage[index_item]];
+
+    if (item_weight > capacity[0] * 0.8) {
+        return 0.0;   // Sparsifying by setting unpromising elements to zero
+    }
+    
+    return ratio_capacity_weights * weighted_profit;
+}
+```

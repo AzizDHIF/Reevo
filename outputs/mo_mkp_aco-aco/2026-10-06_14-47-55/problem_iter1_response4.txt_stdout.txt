@@ -1,0 +1,21 @@
+[*] Running ...
+[*] Mood: train
+[*] compiling ... 
+gpt.c: In function 'heuristic':
+gpt.c:9:18: error: implicit declaration of function 'fmin' [-Wimplicit-function-declaration]
+    9 |       min_cost = fmin(min_cost, weights[i][voisinage[index_item]]);
+      |                  ^~~~
+gpt.c:2:1: note: include '<math.h>' or provide a declaration of 'fmin'
+    1 | #include "HBACO.h"
+  +++ |+#include <math.h>
+    2 | double heuristic(int index_item, double **weights, double *capacity, int nb_voisinage, int *voisinage, double *profit){
+gpt.c:9:18: warning: incompatible implicit declaration of built-in function 'fmin' [-Wbuiltin-declaration-mismatch]
+    9 |       min_cost = fmin(min_cost, weights[i][voisinage[index_item]]);
+      |                  ^~~~
+gpt.c:9:18: note: include '<math.h>' or provide a declaration of 'fmin'
+Traceback (most recent call last):
+  File "C:\Reevo/problems/mo_mkp_aco/eval.py", line 418, in <module>
+    compile("WeightACO.c",f"WeightACO_train_100items_{id_response}.exe")
+  File "C:\Reevo/problems/mo_mkp_aco/eval.py", line 51, in compile
+    raise RuntimeError("Erreur de compilation")
+RuntimeError: Erreur de compilation

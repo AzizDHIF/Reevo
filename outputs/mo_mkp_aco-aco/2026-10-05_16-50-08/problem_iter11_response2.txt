@@ -1,0 +1,21 @@
+```c
+double heuristic_v2(int index_item, double **weights, double *capacity, int nb_voisinage, int *voisinage, double *profit) {
+    double weight_sum = 0;
+    double sparsity_factor = 0.8;
+    
+    for (int j = 0; j < dimension; j++) {
+        double weight_item = weights[j][voisinage[index_item]];
+        if (weight_item > 0) {
+            weight_sum += weight_item / capacity[j];
+        }
+    }
+    
+    double weight_score = 1 - sparsity_factor * weight_sum;  // Adjusted weight score
+    
+    double profit_normalized = profit[voisinage[index_item]] / (double)NBITEMS;
+    
+    double heuristic_value = profit_normalized * weight_score;
+    
+    return heuristic_value;
+}
+```

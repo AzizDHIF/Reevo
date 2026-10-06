@@ -1,0 +1,35 @@
+```c
+double heuristic_v2(int index_item, double **weights, double *capacity, int nb_voisinage, int *voisinage, double *profit) {
+    double importance_factor = 0.3;
+    double weight_factor = 0.5;
+    double capacity_factor = 0.2;
+    double h = 0;
+
+    // Calculate the total weight on different dimensions for the selected item in the neighborhood
+    for (int j = 0; j < dimension; j++) {
+        h = h + weights[j][voisinage[index_item]] / capacity[j];
+    }
+
+    // Determine the promising level considering multiple factors
+    double promising_level = 0;
+    if (h > 0) {
+        double feasibility_factor = 1;
+        for (int j = 0; j < dimension; j++) {
+            if (weights[j][voisinage[index_item]] > capacity[j]) {
+                feasibility_factor = 0;
+                break;
+            }
+        }
+        promising_level = importance_factor * profit[voisinage[index_item]] +
+                          weight_factor * h +
+                          capacity_factor * feasibility_factor;
+    }
+
+    // Set unpromising values to zero
+    if (promising_level < 0.001) {
+        promising_level = 0;
+    }
+
+    return promising_level;
+}
+```

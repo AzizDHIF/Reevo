@@ -1,0 +1,3 @@
+1. Incorporate normalization and damping for adjusting influence factors effectively.
+2. Utilize sparsity for eliminating unpromising elements.
+3. Balance weight versus capacity, handle zero weights, and consider item feasibility and objective sensitivity.

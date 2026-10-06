@@ -1,0 +1,28 @@
+```c
+double heuristic_v2(int index_item, double **weights, double *capacity, int nb_voisinage, int *voisinage, double *profit) {
+    double sum_ratio = 0;
+    double sum_distance = 0;
+    
+    for(int j=0; j<dimension; j++) {
+        // Calculate the ratio of weight to remaining capacity for each dimension
+        sum_ratio += weights[j][voisinage[index_item]] / capacity[j];
+        
+        // Calculate the distance from the item to the nearest capacity limit for each dimension
+        double distance_to_capacity = capacity[j] - weights[j][voisinage[index_item]];
+        if(distance_to_capacity < 0){
+            distance_to_capacity = 0;
+        }
+        sum_distance += distance_to_capacity;
+    }
+
+    // Combine the ratios and distances to determine the overall promising value
+    double promising_value = profit[voisinage[index_item]] / (sum_ratio + sum_distance + 1); // Adding 1 to avoid division by zero
+    
+    // Set promising value to zero if the item is unpromising
+    if(acpt[voisinage[index_item]] < acpt_borne_bas) {
+        promising_value = 0;
+    }
+    
+    return promising_value;
+}
+```

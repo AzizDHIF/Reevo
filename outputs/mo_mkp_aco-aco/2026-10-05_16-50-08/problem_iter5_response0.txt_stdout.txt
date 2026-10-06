@@ -1,0 +1,21 @@
+[*] Running ...
+[*] Mood: train
+[*] compiling ... 
+gpt.c: In function 'heuristic':
+gpt.c:8:25: error: implicit declaration of function 'fmax' [-Wimplicit-function-declaration]
+    8 |         distance_sum += fmax(0, weights[j][voisinage[index_item]] - capacity[j]);
+      |                         ^~~~
+gpt.c:2:1: note: include '<math.h>' or provide a declaration of 'fmax'
+    1 | #include "HBACO.h"
+  +++ |+#include <math.h>
+    2 | double heuristic(int index_item, double **weights, double *capacity, int nb_voisinage, int *voisinage, double *profit) {
+gpt.c:8:25: warning: incompatible implicit declaration of built-in function 'fmax' [-Wbuiltin-declaration-mismatch]
+    8 |         distance_sum += fmax(0, weights[j][voisinage[index_item]] - capacity[j]);
+      |                         ^~~~
+gpt.c:8:25: note: include '<math.h>' or provide a declaration of 'fmax'
+Traceback (most recent call last):
+  File "C:\Reevo/problems/mo_mkp_aco/eval.py", line 433, in <module>
+    compile("WeightACO_train_100items.c",f"WeightACO_train_100items_{id_response}.exe")
+  File "C:\Reevo/problems/mo_mkp_aco/eval.py", line 67, in compile
+    raise RuntimeError("Erreur de compilation")
+RuntimeError: Erreur de compilation

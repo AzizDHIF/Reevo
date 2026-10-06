@@ -1,0 +1,21 @@
+```c
+double heuristic_v2(int index_item, double **weights, double *capacity, int nb_voisinage, int *voisinage, double *profit) {
+    double total_weight = 0;
+    double weight_ratio = 0;
+    double sensitivity = 0;
+    
+    for (int j = 0; j < dimension; j++) {
+        total_weight += weights[j][voisinage[index_item]];
+        if (weights[j][voisinage[index_item]] > capacity[j]) {
+            return 0; // Set unpromising elements to zero
+        }
+        weight_ratio += weights[j][voisinage[index_item]] / capacity[j];
+        
+        if (weights[j][voisinage[index_item]] <= 0) {
+            sensitivity += 0.1; // Penalize items with zero weight for sensitivity
+        }
+    }
+    
+    return profit[voisinage[index_item]] / (total_weight * weight_ratio + sensitivity);
+}
+```  

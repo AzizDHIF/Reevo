@@ -1,0 +1,19 @@
+```c
+double heuristic_v2(int index_item, double **weights, double *capacity, int nb_voisinage, int *voisinage, double *profit){
+    double weight_sum = 0;
+    double weight_dividend = 1e-6; // Value to avoid division by 0
+    double weight_divisor = 1e-6;
+
+    for(int j = 0; j < dimension; j++){
+        weight_sum += weights[j][voisinage[index_item]];
+        weight_dividend *= weights[j][index_item] + 1; // Adding 1 to prevent potential multi-dim weight = 0
+        weight_divisor *= capacity[j] + 1; // Taking capacity into account
+    }
+
+    if(weight_sum > weight_divisor){ // Unpromising element, set to 0
+        return 0;
+    }
+
+    return profit[voisinage[index_item]] * weight_dividend / weight_divisor;
+}
+```

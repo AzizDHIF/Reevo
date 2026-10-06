@@ -1,0 +1,17 @@
+```c
+double heuristic_v2(int index_item, double **weights, double *capacity, int nb_voisinage, int *voisinage, double *profit){
+    double h=0, ratio=0, sparsity_threshold=0.2; // adjust sparsity_threshold based on problem characteristics
+
+    for(int j=0;j<dimension;j++){
+			h += weights[j][voisinage[index_item]] / capacity[j];
+	}
+    
+    ratio = profit[voisinage[index_item]] / h;
+
+    if(ratio < sparsity_threshold){
+        return 0; // set unpromising elements to zero
+    }
+
+    return ratio;
+}
+```

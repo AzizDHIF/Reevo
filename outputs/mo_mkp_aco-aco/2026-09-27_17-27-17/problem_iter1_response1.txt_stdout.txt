@@ -1,0 +1,17 @@
+[*] Running ...
+[*] Mood: train
+[*] compiling ... 
+gpt.c: In function 'heuristic':
+gpt.c:9:5: error: 'double_profit_ratio' undeclared (first use in this function)
+    9 |     double_profit_ratio = profit[voisinage[index_item]] / profit[index_item];
+      |     ^~~~~~~~~~~~~~~~~~~
+gpt.c:9:5: note: each undeclared identifier is reported only once for each function it appears in
+gpt.c:11:27: error: 'profit_ratio' undeclared (first use in this function)
+   11 |     return weight_ratio + profit_ratio;
+      |                           ^~~~~~~~~~~~
+Traceback (most recent call last):
+  File "C:\Reevo/problems/mo_mkp_aco/eval.py", line 433, in <module>
+    compile("WeightACO_train_100items.c",f"WeightACO_train_100items_{id_response}.exe")
+  File "C:\Reevo/problems/mo_mkp_aco/eval.py", line 67, in compile
+    raise RuntimeError("Erreur de compilation")
+RuntimeError: Erreur de compilation

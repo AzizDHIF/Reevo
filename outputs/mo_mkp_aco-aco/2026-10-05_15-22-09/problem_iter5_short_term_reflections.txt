@@ -1,0 +1,6 @@
+Focus on direct interactions between weights, profits, and capacities for efficient heuristic computation and improved performance.
+Emphasize effective item selection by focusing on weight-profit interactions and normalizing ratios.
+Focus on direct interactions between weights, profit, and capacity for better heuristic performance.
+Emphasize feasibility and optimize balancing between weights, profits, and capacities for better heuristic design.
+Consider direct relevance and interaction of item attributes to objectives. Emphasize profit, weights, and capacities effectively.
+Consider directly incorporating profit, weight, and capacity into a single promising factor for better heuristic efficiency.

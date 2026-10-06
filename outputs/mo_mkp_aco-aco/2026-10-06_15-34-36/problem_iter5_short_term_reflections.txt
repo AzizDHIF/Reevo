@@ -1,0 +1,6 @@
+Simplify heuristic calculation by directly computing item promise relative to remaining capacity and objectives.
+Check for division by zero, optimize computations by avoiding unnecessary operations, and consider impact on objective values.
+Consider handling edge cases, avoid unnecessary calculations, and ensure numerical stability for better heuristic design.
+Consider normalizing weights, profit by max value. Prioritize capacity fullness check for efficiency.
+Utilize a simpler and more direct calculation of weighted sum for better heuristic performance in MO-MKP.
+Consider normalized ratio metrics, use non-zero capacity checks, and adaptively handle zero denominators for better heuristic performance.

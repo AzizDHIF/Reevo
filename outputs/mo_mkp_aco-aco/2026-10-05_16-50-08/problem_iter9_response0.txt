@@ -1,0 +1,26 @@
+```c
+double heuristic_v2(int index_item, double **weights, double *capacity, int nb_voisinage, int *voisinage, double *profit) {
+    double weight_sum = 0;
+    double profit_sum = 0;
+
+    for (int j = 0; j < dimension; j++) {
+        weight_sum += weights[j][voisinage[index_item]] / capacity[j];
+    }
+
+    // Incorporating balanced scoring with normalized factors for weight and profit
+    double weight_factor = 0.6;
+    double profit_factor = 0.4;
+    double damping_factor = 0.1;
+
+    // Comprehensive feature engineering and dynamic scoring factors for MO-MKP
+    double heuristic_value = (profit[voisinage[index_item]] / (double)NBITEMS) * profit_factor / (1 + profit_sum) +
+                              weight_factor / (1 + weight_sum) - damping_factor;
+
+    // Penalizing zero weights and adjusting regularization for improved performance
+    if (weight_sum < 0.1) {
+        heuristic_value *= 0.7;
+    }
+
+    return heuristic_value;
+}
+```

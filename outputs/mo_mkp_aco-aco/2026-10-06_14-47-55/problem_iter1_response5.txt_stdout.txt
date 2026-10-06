@@ -1,0 +1,17 @@
+[*] Running ...
+[*] Mood: train
+[*] compiling ... 
+gpt.c: In function 'heuristic':
+gpt.c:8:13: error: 'max_dist' undeclared (first use in this function)
+    8 |         if (max_dist < weights[j][voisinage[index_item]]) {
+      |             ^~~~~~~~
+gpt.c:8:13: note: each undeclared identifier is reported only once for each function it appears in
+gpt.c:16:71: error: 'radius' undeclared (first use in this function)
+   16 |     return (profit[voisinage[index_item]] + weight_ratio_avg * 0.2) * radius;
+      |                                                                       ^~~~~~
+Traceback (most recent call last):
+  File "C:\Reevo/problems/mo_mkp_aco/eval.py", line 418, in <module>
+    compile("WeightACO.c",f"WeightACO_train_100items_{id_response}.exe")
+  File "C:\Reevo/problems/mo_mkp_aco/eval.py", line 51, in compile
+    raise RuntimeError("Erreur de compilation")
+RuntimeError: Erreur de compilation

@@ -1,0 +1,15 @@
+[*] Running ...
+[*] Mood: train
+[*] compiling ... 
+gpt.c: In function 'heuristic':
+gpt.c:13:32: error: 'attractor' undeclared (first use in this function); did you mean 'attraction'?
+   13 |     double adjustment = exp(-2*attractor); // Penalize low attraction items
+      |                                ^~~~~~~~~
+      |                                attraction
+gpt.c:13:32: note: each undeclared identifier is reported only once for each function it appears in
+Traceback (most recent call last):
+  File "C:\Reevo/problems/mo_mkp_aco/eval.py", line 418, in <module>
+    compile("WeightACO.c",f"WeightACO_train_100items_{id_response}.exe")
+  File "C:\Reevo/problems/mo_mkp_aco/eval.py", line 51, in compile
+    raise RuntimeError("Erreur de compilation")
+RuntimeError: Erreur de compilation

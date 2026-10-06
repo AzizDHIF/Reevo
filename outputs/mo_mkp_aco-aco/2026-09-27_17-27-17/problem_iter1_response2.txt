@@ -1,0 +1,17 @@
+```c
+double heuristic_v2(int index_item, double **weights, double *capacity, int nb_voisinage, int *voisinage, double *profit){
+    double sum_weight_ratios = 0;
+    double sum_profits = 0;
+
+    for(int j=0;j<dimension;j++){
+        sum_weight_ratios += weights[j][voisinage[index_item]] / capacity[j];
+    }
+
+    // Additional factor - sum of profits among neighbors
+    for(int i=0;i<nb_voisinage;i++){
+        sum_profits += profit[voisinage[i]];
+    }
+
+    return (0.5 * ((profit[voisinage[index_item]] + sum_profits) / (1.0 + sum_weight_ratios))) + 0.5;
+}
+```

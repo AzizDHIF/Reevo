@@ -1,0 +1,15 @@
+```c
+double heuristic_v2(int index_item, double **weights, double *capacity, int nb_voisinage, int *voisinage, double *profit)
+{
+    double promising_factor = 0;
+    
+    // Compute promising factor based on weights, profit, and capacity interactions
+    for (int j = 0; j < dimension; j++) {
+        if (capacity[j] > 0 && weights[j][index_item] > 0) {
+            promising_factor += weights[j][index_item] * profit[index_item] / capacity[j];
+        }
+    }
+    
+    return promising_factor;
+}
+```

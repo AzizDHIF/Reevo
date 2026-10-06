@@ -1,0 +1,1 @@
+Balance factor weights, adapt sparsity cautiously, and consider problem-specific dynamics to optimize MO-MKP heuristics. Emphasize utility by combining multiple factors, penalizing low-weight, low-profit items, and filtering unpromising elements for improved performance.

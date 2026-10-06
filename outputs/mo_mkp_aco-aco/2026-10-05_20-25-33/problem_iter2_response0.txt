@@ -1,0 +1,14 @@
+```c
+double heuristic_v2(int index_item, double **weights, double *capacity, int nb_voisinage, int *voisinage, double *profit) {
+    double normalized_weights_sum = 0.0;
+    double promising_factor = 0.0;
+
+    for(int j = 0; j < dimension; j++) {
+        normalized_weights_sum += weights[j][voisinage[index_item]] / 2.0; // Normalizing weights
+    }
+
+    promising_factor = 1.0 / (1.0 + normalized_weights_sum / nb_voisinage);
+
+    return promising_factor * profit[voisinage[index_item]];
+}
+```

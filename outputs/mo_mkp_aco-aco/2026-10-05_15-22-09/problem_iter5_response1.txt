@@ -1,0 +1,27 @@
+```c
+double heuristic_v2(int index_item, double **weights, double *capacity, int nb_voisinage, int *voisinage, double *profit) {
+    double promising_factor = 0;
+    
+    // Compute balance factor based on weights, profit and capacity interactions
+    double weight_capacity_ratio = 0;
+    for (int j = 0; j < dimension; j++) {
+        if (capacity[j] > 0 && weights[j][index_item] > 0) {
+            weight_capacity_ratio += weights[j][index_item] / capacity[j];
+        }
+    }
+    
+    if (weight_capacity_ratio > 0) {
+        // Compute sparsity factor based on number of objectives
+        double sparsity_factor = 0;
+        for (int i = 0; i < nb_voisinage; i++) {
+            if (voisinage[i] != index_item) {
+                sparsity_factor += profit[voisinage[i]];
+            }
+        }
+        
+        promising_factor = weight_capacity_ratio * sparsity_factor;
+    }
+
+    return promising_factor;
+}
+```

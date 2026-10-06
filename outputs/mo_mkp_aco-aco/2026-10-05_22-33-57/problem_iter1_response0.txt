@@ -1,0 +1,13 @@
+```c
+double heuristic_v2(int index_item, double **weights, double *capacity, int nb_voisinage, int *voisinage, double *profit){
+    double factor_pos = 0.8;
+    double factor_neg = 0.2;
+    double h=0;
+    for(int j=0;j<dimension;j++){
+        h += weights[j][voisinage[index_item]]/capacity[j]; 
+    }
+    h = h/dimension; // Normalize heuristic entry for each dimension
+    
+    return (factor_pos*profit[voisinage[index_item]] - factor_neg*h);
+}
+```

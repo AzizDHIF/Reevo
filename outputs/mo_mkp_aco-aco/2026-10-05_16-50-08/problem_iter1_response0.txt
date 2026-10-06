@@ -1,0 +1,15 @@
+```c
+#include <stdio.h>
+
+double heuristic_v2(int index_item, double **weights, double *capacity, int nb_voisinage, int *voisinage, double *profit){
+    double h=0;
+    int scale = nb_voisinage;
+    for(int j=0; j<dimension; j++){
+        h += weights[j][voisinage[index_item]] / capacity[j]; 
+    }
+    double promising_factor_1 = profit[voisinage[index_item]] / h;
+    double promising_factor_2 = 1.0 / scale; // Ensure the scale is inversely related to the promising factor
+    
+    return promising_factor_1 * promising_factor_2;
+}
+```

@@ -1,0 +1,24 @@
+```c
+double heuristic_v2(int index_item, double **weights, double *capacity, int nb_voisinage, int *voisinage, double *profit){
+    double h=0, factor1=0, factor2=0, factor3=0;
+
+    for(int j=0; j<dimension; j++){
+        h += weights[j][voisinage[index_item]] / capacity[j]; 
+    }
+
+    factor1 = profit[voisinage[index_item]] / (h * dimension);
+
+    for(int i=0; i<nb_voisinage; i++){
+        factor2 += profit[voisinage[i]];
+    }
+
+    factor2 = factor2 / nb_voisinage;
+
+    factor3 = capacity[0]; // Considering only the first dimension for sparsification
+    if(capacity[0] > 0.5){ // Example condition for identifying unpromising elements
+        factor3 = 0;
+    }
+
+    return factor1 + factor2 + factor3;
+}
+```

@@ -1,4 +1,4 @@
-double heuristic(int index_item, double weights[dimension][NBITEMS], double capacity[dimension], int nb_voisinage, int voisinage[NBITEMS], double profit[NBITEMS] ){
+double heuristic(int index_item, double **weights, double *capacity, int nb_voisinage, int *voisinage, double *profit){
     double h=0;
     for(int j=0;j<dimension;j++){
 			h=h+weights[j][voisinage[index_item]]/capacity[j]; 

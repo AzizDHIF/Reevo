@@ -1,0 +1,26 @@
+```c
+double heuristic_v2(int index_item, double **weights, double *capacity, int nb_voisinage, int *voisinage, double *profit) {
+    double weight_sum = 0;
+    double profit_sum = 0;
+
+    for (int j = 0; j < dimension; j++) {
+        double weight_item = weights[j][voisinage[index_item]];
+        if (weight_item > 0) {
+            weight_sum += weight_item / capacity[j];
+        }
+    }
+
+    // Normalize profit using log function to emphasize differences
+    double profit_normalized = log(1 + profit[voisinage[index_item]]);
+
+    // Penalize items with zero weight and low profit
+    if (weight_sum < 0.1 || profit_normalized < 0.1) {
+        return 0;
+    }
+
+    // Compute a combined score based on weight sum and profit
+    double score = weight_sum + profit_normalized;
+
+    return score;
+}
+```

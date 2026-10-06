@@ -1,0 +1,6 @@
+- problem=mo_mkp_aco
+- llm_client=openai
+- init_pop_size=6
+- pop_size=6
+- max_fe=75
+- timeout=300

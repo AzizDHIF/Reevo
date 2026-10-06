@@ -61,7 +61,7 @@ class ReEvo:
         logging.info("Function name: " + self.func_name)
         
         self.prompt_dir = f"{self.root_dir}/prompts"
-        self.output_file = f"{self.root_dir}/problems/{self.problem}/gpt.txt"
+        self.output_file = f"{self.root_dir}/problems/{self.problem}/gpt.c"
         
         # Loading all text prompts
         # Problem-specific prompt components
@@ -217,7 +217,11 @@ class ReEvo:
             # Store objective value for each individual
             if traceback_msg == '': # If execution has no error
                 try:
-                    individual["obj"] = float(stdout_str.split('\n')[-2]) 
+                    if self.cfg.metric=="epsilon":
+                       individual["obj"] = float(stdout_str.split('\n')[-2]) 
+                    else:
+                       individual["obj"] = -float(stdout_str.split('\n')[-2]) 
+                    
                     individual["exec_success"] = True
                 except:
                     population[response_id] = self.mark_invalid_individual(population[response_id], "Invalid std out / objective value!")
@@ -235,12 +239,12 @@ class ReEvo:
         logging.debug(f"Iteration {self.iteration}: Processing Code Run {response_id}")
         
         with open(self.output_file, 'w',encoding="utf-8",errors="replace") as file:
-            file.writelines(individual["code"] + '\n')
+            file.writelines(extract_c_code_from_generator(individual["code"]) + '\n')
 
         # Execute the python file with flags
         with open(individual["stdout_filepath"], 'w',encoding="utf-8",errors="replace") as f:
             eval_file_path = f'{self.root_dir}/problems/{self.problem}/eval.py' if self.problem_type != "black_box" else f'{self.root_dir}/problems/{self.problem}/eval_black_box.py' 
-            process = subprocess.Popen([sys.executable, '-u', eval_file_path, str(response_id), "train"],
+            process = subprocess.Popen([sys.executable, '-u', eval_file_path, str(response_id), "train",self.cfg.metric],
                             stdout=f, stderr=f)
 
         block_until_running(individual["stdout_filepath"], log_status=True, iter_num=self.iteration, response_id=response_id)

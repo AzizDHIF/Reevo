@@ -3,6 +3,8 @@ import re
 import inspect
 import hydra
 import os
+possible_func_names = ["heuristic", "heuristic_v1", "heuristic_v2", "heuristic_v3"]
+
 HEADER_RULES = {
     'math.h': [
         'sqrt', 'pow', 'fabs', 'ceil', 'floor', 'fmod', 'exp', 'log',
@@ -30,6 +32,22 @@ HEADER_RULES = {
         'int32_t', 'uint32_t', 'int64_t', 'uint64_t', 'int8_t', 'uint8_t',
     ],
 }
+def rename_heuristic(content: str) -> str:
+    
+
+    # Pattern qui matche n'importe quel nom de la liste
+    pattern = r'\b(' + '|'.join(re.escape(name) for name in possible_func_names) + r')\b'
+
+    new_content, count = re.subn(pattern, 'heuristic', content)
+    if count == 0:
+        raise ValueError(
+            f"Aucun nom de fonction parmi {possible_func_names} trouvé dans le contenu fourni"
+        )
+
+    if '#include "HBACO.h"\n' not in new_content:
+        new_content = '#include "HBACO.h"\n' + new_content
+
+    return new_content
 def init_client(cfg):
     global client
     if cfg.get("model", None): # for compatibility
@@ -115,7 +133,7 @@ def extract_c_code_from_generator(content):
     pattern_code = r'```c(.*?)```'
     code_string = re.search(pattern_code, content, re.DOTALL)
     code_string = code_string.group(1).strip() if code_string is not None else None
-
+    code_string = rename_heuristic(code_string) if code_string is not None else None
     if code_string is None:
         # 2. Cherche la signature de la fonction directement dans le contenu
         lines = content.split('\n')
@@ -151,7 +169,10 @@ def extract_c_code_from_generator(content):
                 break  # un seul symbole trouvé suffit pour ajouter ce header
 
     includes = '\n'.join(f'#include <{h}>' for h in needed_headers)
-    code_string = '#include "HBACO.h"\n' + (includes + '\n' if includes else '') + code_string
+    code_string =  (includes + '\n' if includes else '') + code_string
+    
+    if '#include "HBACO.h"\n' not in code_string:
+        code_string = '#include "HBACO.h"\n' + code_string
     return code_string
 
 def filter_code(code_string):
@@ -186,6 +207,10 @@ def get_last_n_lines(file_path,nb_lines):
 import re
 import matplotlib.pyplot as plt
 
+import re
+import numpy as np
+import matplotlib.pyplot as plt
+
 def plot_results_different_algos(results_by_algo):
     """
     results_by_algo : dictionnaire
@@ -199,7 +224,6 @@ def plot_results_different_algos(results_by_algo):
         hv_100 = hv_300 = eps_100 = eps_300 = None
 
         for line in lines:
-
             match = re.search(
                 r'Average for hypervolume for dataset (\d+) items:\s*([0-9.eE+-]+)',
                 line
@@ -236,7 +260,11 @@ def plot_results_different_algos(results_by_algo):
     def make_plot(metric, ylabel, title):
         plt.figure(figsize=(10, 6))
 
-        for algo_name, lines in results_by_algo.items():
+        n_algos = len(results_by_algo)
+        x = np.arange(len(dataset_labels))      # positions des groupes
+        bar_width = 0.8 / n_algos               # largeur d'une barre
+
+        for i, (algo_name, lines) in enumerate(results_by_algo.items()):
             hv_100, hv_300, eps_100, eps_300 = extract_values(lines)
 
             if metric == "hypervolume":
@@ -244,26 +272,33 @@ def plot_results_different_algos(results_by_algo):
             else:
                 values = [eps_100, eps_300]
 
-            plt.plot(
-                dataset_labels,
+            # None -> NaN pour ne pas faire planter plt.bar si une valeur manque
+            values = [np.nan if v is None else v for v in values]
+
+            # Décalage pour centrer le groupe de barres sur chaque dataset
+            offset = (i - (n_algos - 1) / 2) * bar_width
+
+            plt.bar(
+                x + offset,
                 values,
-                marker="o",
-                linestyle="None",
+                width=bar_width,
                 color=colors[algo_name],
                 label=algo_name
             )
 
+        plt.xticks(x, dataset_labels)
         plt.xlabel("Dataset")
         plt.ylabel(ylabel)
         plt.title(title)
-        plt.grid(True)
+        plt.grid(True, axis="y", alpha=0.3)
+        plt.gca().set_axisbelow(True)
 
         plt.legend(loc="center left", bbox_to_anchor=(1.02, 0.5))
         plt.tight_layout()
         plt.show()
 
-    make_plot("hypervolume", "Hypervolume", "Hypervolume par algo")
-    make_plot("epsilon", "Epsilon", "Epsilon par algo")
+    make_plot("hypervolume", "Hypervolume", "Hypervolume across algorithms")
+    make_plot("epsilon", "Epsilon", "Epsilon across algorithms")
 def plot_results(results):
     """
     results : dictionnaire
@@ -436,6 +471,108 @@ def plot_results(results):
     plt.tight_layout()
     plt.show()
 
+
+
+
+def plot_results_big_dataset_version(results):
+    """
+    results : dictionnaire
+        clé    = nombre d'itérations (int)
+        valeur = liste de chaînes contenant les métriques Hypervolume/Epsilon
+    """
+
+    # Regex : capture le type de métrique, le chemin du dataset, et la valeur
+    pattern = re.compile(
+        r'^\[\*\]\s*(Hypervolume|Epsilon)\s*for\s*dataset\s+(.+):\s+'
+        r'([-+]?\d+(?:\.\d+)?(?:[eE][-+]?\d+)?)\s*$'
+    )
+
+    # Regex pour extraire un nom court de dataset depuis le chemin
+    # ex: ...pareto_sets_dataset_250_2\final_pareto.txt_dat -> "250_2"
+    dataset_name_pattern = re.compile(r'pareto_sets_dataset_([^\\]+)\\')
+
+    iterations = sorted(results.keys())
+
+    # data[dataset_name][metric] = liste de valeurs (alignée sur `iterations`)
+    data = {}
+
+    for iteration in iterations:
+        lines = results[iteration]
+
+        # valeurs trouvées pour cette itération : {(dataset, metric): value}
+        current = {}
+
+        for line in lines:
+            match = pattern.match(line)
+            if not match:
+                continue
+
+            metric, path, value_str = match.groups()
+            value = float(value_str)
+
+            name_match = dataset_name_pattern.search(path)
+            dataset_name = name_match.group(1) if name_match else path
+
+            current[(dataset_name, metric)] = value
+
+        # on met à jour data en gardant l'alignement avec `iterations`
+        # (None si la valeur est absente pour cette itération)
+        all_keys = {k for k in current.keys()}
+        for dataset_name, metric in all_keys:
+            data.setdefault(dataset_name, {}).setdefault(metric, [])
+
+        # s'assurer que toutes les séries existantes reçoivent une valeur
+        # (même None) à cette itération, pour rester alignées
+        for dataset_name, metrics in data.items():
+            for metric, series in metrics.items():
+                series.append(current.get((dataset_name, metric)))
+
+    # --------------------------------------------------
+    # Fonction pour régler automatiquement l'axe Y
+    # --------------------------------------------------
+
+    def set_y_scale(values):
+        valid_values = [v for v in values if v is not None]
+
+        if not valid_values:
+            return
+
+        min_value = min(valid_values)
+        max_value = max(valid_values)
+
+        if min_value == max_value:
+            margin = abs(min_value) * 0.1
+            if margin == 0:
+                margin = 1
+        else:
+            margin = (max_value - min_value) * 0.1
+
+        plt.ylim(min_value - margin, max_value + margin)
+
+    # --------------------------------------------------
+    # Un plot par (dataset, métrique)
+    # --------------------------------------------------
+
+    dataset_names = sorted(data.keys())
+
+    for dataset_name in dataset_names:
+        for metric in ("Hypervolume", "Epsilon"):
+            series = data[dataset_name].get(metric)
+            if series is None:
+                continue
+
+            plt.figure(figsize=(10, 6))
+            plt.plot(iterations, series, marker="o")
+
+            plt.xlabel("Nombre maximal d'évaluations")
+            plt.ylabel(metric)
+            plt.title(f"{metric} - Dataset {dataset_name}")
+
+            set_y_scale(series)
+
+            plt.grid(True)
+            plt.tight_layout()
+            plt.show()
 def make_dictionnary_results(paths):
   
 
@@ -444,11 +581,42 @@ def make_dictionnary_results(paths):
     for path,iter in zip(paths, iterations):
         l=get_last_n_lines(path, 4)
         results[iter] = l
-
+    print(results)
        
     return results
 
-def make_dictionnary_results_by_algo(paths):
+
+
+def get_lines_with_metrics(path):
+
+    pattern = re.compile(
+
+    r'^\[\*\]\s+(?:Epsilon|Hypervolume)\s+for dataset\s+.+:\s+[-+]?\d+(?:\.\d+)?(?:[eE][-+]?\d+)?\s*$'
+    )
+
+    matching_lines = []
+    with open(path, 'r', encoding="cp1252") as f:
+        for line in f:
+            line = line.rstrip('\n')
+            if pattern.match(line):
+                matching_lines.append(line)
+   
+    return matching_lines
+
+
+def make_dictionnary_results_big_dataset_version(paths):
+  
+
+    results = {}
+    iterations = [25, 50, 75, 100]
+    for path,iter in zip(paths, iterations):
+        l=get_lines_with_metrics(path)
+        results[iter] = l
+    
+       
+    return results
+
+def make_dictionnary_results_by_algo(paths,algo_names):
     """
     results_by_algo : dictionnaire
         clé   = nom de l'algo (str)
@@ -456,9 +624,46 @@ def make_dictionnary_results_by_algo(paths):
                  clé   = nombre d'itérations (int)
                  valeur = liste de chaînes contenant les moyennes
     """
-    algo_names=["GW-ACO_classique", "reevo_25_func_evals", "reevo_50_func_evals", "reevo_75_func_evals", "reevo_100_func_evals"]
+    
     results_by_algo = {}
     for path,algo_name in zip(paths, algo_names):
         l=get_last_n_lines(path, 4)
         results_by_algo[algo_name] = l
     return results_by_algo
+
+def get_code_path(execution_directory):
+    log_file=os.path.join(execution_directory,"mo_mkp_aco-aco.log")
+    
+    with open(log_file, "r", encoding="utf-8", errors="ignore") as f:
+     text = f.read()
+
+    m = re.search(r"Best Code Path Overall:.*?file://(.+?\.txt)", text)
+
+    if m:
+        best_code_path = m.group(1)
+        return best_code_path
+        # C:\Reevo\outputs\mo_mkp_aco-aco\2026-09-07_11-03-56\problem_iter3_response1.txt
+    else:
+        best_code_path = None
+        print("Chemin non trouvé dans le fichier.")
+
+
+if __name__ == "__main__":
+    # Test de la fonction extract_c_code_from_generator
+    test_strings = """```c
+double heuristic_v2(int index_item, double **weights, double *capacity, int nb_voisinage, int *voisinage, double *profit) {
+    double h=0;
+    double variance = 0;
+    for(int j=0; j<dimension;j++) {
+        h = h + weights[j][voisinage[index_item]]/capacity[j]; 
+        variance += weights[j][voisinage[index_item]]*weights[j][voisinage[index_item]];
+    }
+    
+    double diversity_factor = sqrt(variance / dimension);
+    
+    return diversity_factor > 0 ? profit[voisinage[index_item]]/h : 0;
+}
+```
+"""
+    print("=== Test de la fonction extract_c_code_from_generator ===")
+    print(extract_c_code_from_generator(test_strings))

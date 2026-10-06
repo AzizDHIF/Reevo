@@ -1,0 +1,4 @@
+1. Simplify calculations by assessing item promise relative to remaining capacity and objectives.
+2. Address zero division, optimize computations, handle edge cases, and ensure numerical stability.
+3. Normalize weights and profits, prioritize capacity fullness check, and simplify weighted sum calculation.
+4. Utilize normalized ratios, handle non-zero capacities adaptively, and prioritize efficient computations.

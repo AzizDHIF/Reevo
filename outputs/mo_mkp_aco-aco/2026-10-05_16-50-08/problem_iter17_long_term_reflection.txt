@@ -1,0 +1,1 @@
+Prioritize weight impact and balance in capacity handling for effective MO-MKP heuristics. Adjust weights, thresholds, and factor interactions carefully to enhance performance and solution diversity.

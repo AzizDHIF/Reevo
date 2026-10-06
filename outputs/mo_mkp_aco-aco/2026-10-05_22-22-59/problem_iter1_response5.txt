@@ -1,0 +1,19 @@
+```c
+double heuristic_v2(int index_item, double **weights, double *capacity, int nb_voisinage, int *voisinage, double *profit){
+    double h=0, total_capacity=0, total_weights=0;
+    for(int j=0;j<dimension;j++){
+        total_capacity += capacity[j];
+        total_weights += weights[j][voisinage[index_item]];
+    }
+
+    // Calculate overall desirability based on weight proximity and profit
+    if(total_weights <= total_capacity){
+        for(int j=0;j<dimension;j++){
+            h += weights[j][voisinage[index_item]]/capacity[j]; 
+        }
+        return profit[voisinage[index_item]]/h;
+    }
+    
+    return 0; // Mark unpromising item as zero
+}
+```

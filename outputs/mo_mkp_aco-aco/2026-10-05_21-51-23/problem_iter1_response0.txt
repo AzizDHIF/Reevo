@@ -1,0 +1,21 @@
+```c
+double heuristic_v2(int index_item, double **weights, double *capacity, int nb_voisinage, int *voisinage, double *profit){
+    double h_total = 0;
+    for(int j=0; j<dimension; j++) {
+        h_total += weights[j][voisinage[index_item]]/capacity[j]; 
+    }
+    
+    double promise_factor = profit[voisinage[index_item]] / h_total;
+    
+    int max_weight_dim = 0;
+    for(int j=1; j<dimension; j++) {
+        if(weights[j][voisinage[index_item]] > weights[max_weight_dim][voisinage[index_item]]) {
+            max_weight_dim = j;
+        }
+    }
+    
+    double sparse_factor = (weights[max_weight_dim][voisinage[index_item]] > 0.5*capacity[max_weight_dim]) ? promise_factor : 0;
+    
+    return sparse_factor;
+}
+```

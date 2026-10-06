@@ -1,0 +1,2 @@
+1. Balance factor weights and adjust sparsity cautiously for optimal exploration in MO-MKP heuristics.
+2. Normalize features, penalize zero weights efficiently, and tailor factors to problem dynamics for improved performance.

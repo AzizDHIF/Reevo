@@ -1,0 +1,21 @@
+[*] Running ...
+[*] Mood: train
+[*] compiling ... 
+gpt.c: In function 'heuristic':
+gpt.c:17:33: error: 'weight' undeclared (first use in this function); did you mean 'weights'?
+   17 |     double weight_ratio = 1.0 - weight[voisinage[index_item]] / total_weight;
+      |                                 ^~~~~~
+      |                                 weights
+gpt.c:17:33: note: each undeclared identifier is reported only once for each function it appears in
+gpt.c:17:65: error: 'total_weight' undeclared (first use in this function)
+   17 |     double weight_ratio = 1.0 - weight[voisinage[index_item]] / total_weight;
+      |                                                                 ^~~~~~~~~~~~
+gpt.c:23:34: error: 'total_profit' undeclared (first use in this function)
+   23 |     double benefit_cost_ratio = (total_profit - profit[voisinage[index_item]]) / (total_weight - weight[voisinage[index_item]]);
+      |                                  ^~~~~~~~~~~~
+Traceback (most recent call last):
+  File "C:\Reevo/problems/mo_mkp_aco/eval.py", line 418, in <module>
+    compile("WeightACO.c",f"WeightACO_train_100items_{id_response}.exe")
+  File "C:\Reevo/problems/mo_mkp_aco/eval.py", line 51, in compile
+    raise RuntimeError("Erreur de compilation")
+RuntimeError: Erreur de compilation

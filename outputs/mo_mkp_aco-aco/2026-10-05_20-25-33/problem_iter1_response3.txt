@@ -1,0 +1,31 @@
+```c
+double heuristic_v2(int index_item, double **weights, double *capacity, int nb_voisinage, int *voisinage, double *profit){
+    double h=0, combined_factor=0;
+    double weights_sum = 0, capacity_sum = 0;
+    
+    // Calculate sum total weights of the item across dimensions
+    for(int j=0; j<dimension; j++){
+        weights_sum += weights[j][voisinage[index_item]];
+    }
+    
+    // Calculate sum of remaining capacities across dimensions
+    for(int j=0; j<dimension; j++){
+        capacity_sum += capacity[j];
+    }
+    
+    // Ensure not dividing by zero
+    if(capacity_sum != 0){
+        h = weights_sum / capacity_sum;
+    }
+    
+    // Combing different factors based on objectives and weights constraint
+    combined_factor = 0.8 * (profit[voisinage[index_item]] / (h + 1)) + 0.2 * (capacity[0] / (weights[0][voisinage[index_item]] + 1));
+    
+    // Sparsifying the heuristic function by setting unpromising elements to zero
+    if(combined_factor < 0.5){
+        return 0;
+    }
+    
+    return combined_factor;
+}
+```

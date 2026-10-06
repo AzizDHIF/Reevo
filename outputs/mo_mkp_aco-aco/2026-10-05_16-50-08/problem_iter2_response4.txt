@@ -1,0 +1,21 @@
+```c
+double heuristic_v2(int index_item, double **weights, double *capacity, int nb_voisinage, int *voisinage, double *profit) {
+    double h = 0;
+    double damping_factor = 0.5;
+
+    for(int j = 0; j < dimension; j++){
+        h += weights[j][voisinage[index_item]] / capacity[j];
+    }
+
+    double weight_score = 1.0 / h;
+    double profit_score = profit[voisinage[index_item]] / (h + damping_factor);
+
+    double combined_score = weight_score * profit_score;
+
+    if (weight_score < 0.001 || profit_score < 0.001) {
+        return 0; // Sparisfy by setting unpromising elements to zero
+    }
+
+    return combined_score;
+}
+```

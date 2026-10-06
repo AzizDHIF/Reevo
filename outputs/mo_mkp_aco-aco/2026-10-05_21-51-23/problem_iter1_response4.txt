@@ -1,0 +1,18 @@
+```c
+double heuristic_v2(int index_item, double **weights, double *capacity, int nb_voisinage, int *voisinage, double *profit){
+    double h=0;
+    double factor1 = 0.5;
+    double factor2 = 0.5;
+    double min_weight = 999999; // Initialize with a large value
+    for(int j=0;j<dimension;j++){
+        h = h + weights[j][voisinage[index_item]] / capacity[j]; 
+        if(weights[j][voisinage[index_item]] < min_weight){
+            min_weight = weights[j][voisinage[index_item]];
+        }
+    }
+    // Set unpromising elements to zero
+    if(h == 0) return 0;
+    
+    return factor1 * profit[voisinage[index_item]] / h + factor2 * 1/min_weight;
+}
+```

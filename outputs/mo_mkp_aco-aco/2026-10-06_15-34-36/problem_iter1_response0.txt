@@ -1,0 +1,24 @@
+```c
+double heuristic_v2(int index_item, double **weights, double *capacity, int nb_voisinage, int *voisinage, double *profit) {
+    double h = 0;
+    double sum_weight_inverses = 0;
+    double min_weight_ratio = 1;
+    
+    for (int j = 0; j < dimension; j++) {
+        sum_weight_inverses += 1 / weights[j][voisinage[index_item]];
+        if (weights[j][voisinage[index_item]] < min_weight_ratio) {
+            min_weight_ratio = weights[j][voisinage[index_item]];
+        }
+    }
+    
+    for (int j = 0; j < dimension; j++) {
+        h += (1 / weights[j][voisinage[index_item]]) / sum_weight_inverses; 
+    }
+    
+    if (min_weight_ratio > 0.5) {
+        return 0;
+    }
+    
+    return profit[voisinage[index_item]] / h;
+}
+```

@@ -1,0 +1,15 @@
+```c
+double heuristic_v2(int index_item, double **weights, double *capacity, int nb_voisinage, int *voisinage, double *profit){
+    double weight_sum = 0;
+    double attraction = 0;
+
+    for(int j=0; j<dimension; j++){
+        weight_sum += weights[j][voisinage[index_item]] / capacity[j];
+        attraction += weights[j][index_item] < capacity[j] ? weights[j][voisinage[index_item]] : 0; // Look for high gain items
+    }
+
+    double density = profit[voisinage[index_item]] / weight_sum;
+    double adjustment = exp(-2*attractor); // Penalize low attraction items
+    return density * adjustment;
+}
+```

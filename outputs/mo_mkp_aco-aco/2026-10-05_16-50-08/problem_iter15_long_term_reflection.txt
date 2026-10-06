@@ -1,0 +1,1 @@
+Prioritize proximity-to-capacity, balance objectives, and adapt sparsity wisely in MO-MKP heuristics. Emphasize weight impact, diverse solution aspects, and code simplicity for improved performance.

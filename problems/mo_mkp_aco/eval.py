@@ -4,6 +4,7 @@ import os
 import logging
 from pathlib import Path
 import shutil
+
 RUN_DIR = Path(os.getcwd())  # dossier créé par Hydra pour cette exécution
 WORK_DIR = os.path.dirname(os.path.abspath(__file__))
 
@@ -20,7 +21,7 @@ def print_hyperlink(path, text=None):
     full_path = f"file://{os.path.abspath(path)}"
     return f"\033]8;;{full_path}\033\\{text}\033]8;;\033\\"
 
-def write_heuristic_train(input_txt_path: str, output_c_path: str) -> None:
+def write_heuristic(input_txt_path: str, output_c_path: str) -> None:
    
     with open(input_txt_path, 'r', encoding='utf-8') as f:
         content = f.read()
@@ -29,34 +30,18 @@ def write_heuristic_train(input_txt_path: str, output_c_path: str) -> None:
     pattern = r'\b(' + '|'.join(re.escape(name) for name in possible_func_names) + r')\b'
 
     new_content, count = re.subn(pattern, 'heuristic', content)
-
     if count == 0:
         raise ValueError(
             f"Aucun nom de fonction parmi {possible_func_names} trouvé dans '{input_txt_path}'"
         )
-
+    if '#include "HBACO.h"\n' not in new_content:
+            new_content = '#include "HBACO.h"\n' + new_content
+    
     with open(output_c_path, 'w', encoding='utf-8') as f:
         f.write(new_content)
 
 
-def write_heuristic_eval(input_txt_path: str, output_c_path: str,nbitems: str) -> None:
-   
-    with open(input_txt_path, 'r', encoding='utf-8') as f:
-        content = f.read()
 
-    # Construit un pattern qui matche n'importe quel nom de la liste
-    pattern = r'\b(' + '|'.join(re.escape(name) for name in possible_func_names) + r')\b'
-    pattern_2= 'NBITEMS'
-    new_content, count = re.subn(pattern, f'heuristic_eval_{nbitems}', content)
-
-    if count == 0:
-        raise ValueError(
-            f"Aucun nom de fonction parmi {possible_func_names} trouvé dans '{input_txt_path}'"
-        )
-        
-    new_content,count=re.subn(pattern_2,f'NBITEMS_{nbitems}',new_content)
-    with open(output_c_path, 'w', encoding='utf-8') as f:
-        f.write(new_content)
 
 def compile(c_file_name,exe_file_name):
     run_cmd = ["gcc", c_file_name, "gpt.c", "-o", exe_file_name]
@@ -340,7 +325,6 @@ def copy_folder_to_run_dir(source_dir: str, dest_dir: Path, folder_name: str = N
     shutil.copytree(source_dir, dest_path, dirs_exist_ok=True)
     logging.info(f"Dossier copié: {print_hyperlink(dest_path)}")
     return dest_path
-
 def write_heuristic_on_txt(file_path):
     with open(file_path, 'r', encoding='utf-8') as f:
         content = f.read()
@@ -359,10 +343,39 @@ def write_heuristic_on_txt(file_path):
 
     c_code = content[start_index:end_index].strip()
 
-    with open("gpt.txt", "w", encoding='utf-8') as f:
+    c_code = normalize_heuristic_signature(c_code)
+
+    with open(os.path.join(WORK_DIR, "gpt.txt"), "w", encoding='utf-8') as f:
         f.write('#include "HBACO.h" \n')
         f.write(c_code)
 
+
+def normalize_heuristic_signature(c_code: str) -> str:
+    """
+    Force la signature de la fonction heuristique générée à utiliser
+    des pointeurs (double**, double*, int*) plutôt que des tableaux
+    à taille fixe (double[dimension][NBITEMS], etc.), quel que soit
+    le format produit par le LLM. Le corps de la fonction n'est pas
+    modifié, seule la ligne de signature l'est.
+    """
+    pattern = r'double\s+(' + '|'.join(re.escape(name) for name in possible_func_names) + r')\s*\(.*?\)\s*\{'
+
+    def replace_signature(match):
+        func_name = match.group(1)
+        return (
+            f'double {func_name}(int index_item, double **weights, double *capacity, '
+            f'int nb_voisinage, int *voisinage, double *profit) {{'
+        )
+
+    new_code, count = re.subn(pattern, replace_signature, c_code, count=1, flags=re.DOTALL)
+
+    if count == 0:
+        raise ValueError(
+            f"Signature de fonction heuristique introuvable ou non conforme parmi {possible_func_names} "
+            "pour normalisation."
+        )
+
+    return new_code
 if __name__ == "__main__":
     print("[*] Running ...")
     mood = sys.argv[2]
@@ -377,7 +390,7 @@ if __name__ == "__main__":
     
     
     print(f"[*] Mood: {mood}")
-    assert mood in ["train", "val"]
+    assert mood in ["train", "val","final_val"]
 
 
     if mood == 'train':
@@ -400,9 +413,10 @@ if __name__ == "__main__":
 
             print("[*] compiling ... ")
             
-            write_heuristic_train(os.path.join(WORK_DIR,"gpt.txt"),os.path.join(WORK_DIR,"gpt.c"))
+            
+            write_heuristic(os.path.join(WORK_DIR,"gpt.c"),os.path.join(WORK_DIR,"gpt.c"))
 
-            compile("WeightACO_train_100items.c",f"WeightACO_train_100items_{id_response}.exe")
+            compile("WeightACO.c",f"WeightACO_train_100items_{id_response}.exe")
 
             #lancer l'ACO sur les datasets du train
             print("[*] Running ACO on training datasets...")
@@ -429,10 +443,16 @@ if __name__ == "__main__":
             mean_hypervolume=calculate_meanHypervolume(pareto_set_files)
             ##epsilon
             mean_epsilon=calculate_meanEpsilon(pareto_set_files,pareto_ref_files)
-
-            print("[*] moyenne pour epsilon :")
-                    
-            print(mean_epsilon)
+            metric=sys.argv[3]
+            assert metric in ["hypervolume","epsilon"]
+            if metric=="hypervolume":
+                print("[*] moyenne pour hypervolume :")
+                
+                print(mean_hypervolume)
+            else:
+                print("[*] moyenne pour epsilon :")
+                        
+                print(mean_epsilon)
 
         finally:
             #Supprimer les dossiers de sets de pareto temporaire
@@ -498,11 +518,13 @@ if __name__ == "__main__":
             for nb_items in [100,300]:
                 
                 print("[*] Writing the C code into gpt.c...")
-                write_heuristic_eval(os.path.join(WORK_DIR,"gpt.txt"),os.path.join(WORK_DIR,"gpt.c"),f'{nb_items}')
+                
         
                 for i in range(5):
-                    print(f"[*] Compiling WeightACO_eval_{nb_items}items.c")
-                    compile(f"WeightACO_eval_{nb_items}items.c",f"WeightACO_eval_{nb_items}items.exe") 
+                    print(f"[*] Compiling WeightACO.c")
+                    write_heuristic(os.path.join(WORK_DIR,"gpt.c"),os.path.join(WORK_DIR,"gpt.c"))
+
+                    compile(f"WeightACO.c",f"WeightACO_eval_{nb_items}items.exe") 
                     run_aco(f"WeightACO_eval_{nb_items}items",args=[f"dataset\\mood_val_dataset\\dataset_{i}_instance_{nb_items}_items_3_objectifs.txt"])
                 
 
@@ -526,7 +548,11 @@ if __name__ == "__main__":
             ##hypervolume
             
             mean_hypervolume_100items =calculate_meanHypervolume(val_pareto_set_files_100items)
-       
+            mean_hypervolume_300items =calculate_meanHypervolume(val_pareto_set_files_300items)
+            #mean_hypervolume_500items =calculate_meanHypervolume(val_pareto_set_files_500items)
+            mean_epsilon_100items =calculate_meanEpsilon(val_pareto_set_files_100items,val_pareto_ref_files_100items)
+            mean_epsilon_300items =calculate_meanEpsilon(val_pareto_set_files_300items,val_pareto_ref_files_300items)
+            #mean_epsilon_500items =calculate_meanEpsilon(val_pareto_set_files_500items,val_pareto_ref_files_500items)
             copy_folder_to_run_dir(
                 source_dir=os.path.join(WORK_DIR, "pareto_set_val"),
                 dest_dir=RUN_DIR
@@ -568,7 +594,10 @@ if __name__ == "__main__":
     #mood = final_val:
     else:
         try:
-            logging.info(f"[*] Fianl Evaluating ...")
+            
+            run_directory=sys.argv[4]
+            
+            logging.info(f"[*] Final Evaluating for execution ")
             os.makedirs(os.path.join(WORK_DIR,"pareto_set_final_val"), exist_ok=True)
             from itertools import product
             val_aco_results=[(os.path.join(WORK_DIR,"results_final_val_dataset_250_2.txt"), os.path.join(WORK_DIR,"pareto_set_final_val\\pareto_sets_dataset_250_2")),
@@ -594,17 +623,20 @@ if __name__ == "__main__":
 
             #lancer l'ACO sur les datasets du train
 
-
-            path_heuristic_code=sys.argv[2]     
+     
+            path_heuristic_code=sys.argv[3]
+            
+            print(f"[*] Writing the heuristic code from {path_heuristic_code} into gpt.txt...")     
             write_heuristic_on_txt(path_heuristic_code)
             for nb_items,dim in [(250,2),(250,3),(500,2),(500,4),(750,2),(750,3),(750,4)]:
                 
                 print("[*] Writing the C code into gpt.c...")
-                write_heuristic_eval(os.path.join(WORK_DIR,"gpt.txt"),os.path.join(WORK_DIR,"gpt.c"),f'{nb_items}')
-        
                 
-                print(f"[*] Compiling WeightACO_eval_{nb_items}items.c")
-                compile(f"WeightACO_eval_{nb_items}items.c",f"WeightACO_eval_{nb_items}items.exe") 
+        
+                write_heuristic(os.path.join(WORK_DIR,"gpt.c"),os.path.join(WORK_DIR,"gpt.c"))
+
+                print(f"[*] Compiling WeightACO.c")
+                compile(f"WeightACO.c",f"WeightACO_eval_{nb_items}items.exe") 
                 run_aco(f"WeightACO_eval_{nb_items}items",args=[f"dataset\\mood_final_val_dataset\\{nb_items}.{dim}.txt"])
             
 
@@ -631,17 +663,19 @@ if __name__ == "__main__":
             for result_file in val_pareto_set_files:
                 print(f"[*]  Hypervolume for dataset {result_file}:")
                 mean_hypervolume=calculate_meanHypervolume(val_pareto_set_files)
+                print(f"[*]  Hypervolume for dataset {result_file}: {mean_hypervolume}")
 
             for result_file,ref_pareto_file in zip(val_pareto_set_files,val_pareto_ref_files):
                 print(f"[*]  Epsilon for dataset {result_file}:")
                 mean_epsilon=calculate_meanEpsilon([result_file],[ref_pareto_file])
+                print(f"[*]  Epsilon for dataset {result_file}: {mean_epsilon}")
 
             
             copy_folder_to_run_dir(
                 source_dir=os.path.join(WORK_DIR, "pareto_set_final_val"),
-                dest_dir=RUN_DIR
+                dest_dir=Path(run_directory)
             )
-
+            
 
         
         

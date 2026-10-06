@@ -1,0 +1,21 @@
+```c
+double heuristic_v2(int index_item, double **weights, double *capacity, int nb_voisinage, int *voisinage, double *profit) {
+    double weight_sum = 0;
+    double distance_sum = 0;
+
+    for (int j = 0; j < dimension; j++) {
+        weight_sum += weights[j][voisinage[index_item]] / (capacity[j] + 1); // Incorporating normalization and damping
+        distance_sum += fmax(0, weights[j][voisinage[index_item]] - capacity[j]); // Handling zero weights and balancing weight vs capacity
+    }
+
+    // Utilizing a combination of factors with adjusted influence factors
+    double heuristic_value = profit[voisinage[index_item]] / (weight_sum + 0.1 * distance_sum); // Adjusting influence factors effectively
+
+    // Sparsifying the heuristic by setting unpromising elements to zero based on item feasibility and objective sensitivity
+    if (weight_sum > 0.8) {
+        heuristic_value = 0;
+    }
+
+    return heuristic_value;
+}
+```

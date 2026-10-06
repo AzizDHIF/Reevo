@@ -1,0 +1,4 @@
+1. Combine dimension weights, profits, and capacities for item selection.
+2. Focus on weight-profit/capacity interactions for effective heuristics.
+3. Prioritize direct impact on objectives, simplify calculations, and consider feasibility.
+4. Utilize multi-factor evaluation, normalize inputs, and incorporate sparsity awareness.

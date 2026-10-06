@@ -1,0 +1,21 @@
+```c
+double heuristic_v2(int index_item, double **weights, double *capacity, int nb_voisinage, int *voisinage, double *profit) {
+    double h = 0;
+    double regularization_factor = 0.001;
+
+    for (int j = 0; j < dimension; j++) {
+        h += weights[j][voisinage[index_item]] / capacity[j];
+    }
+
+    double weight_score = 1.0 / (h + regularization_factor);
+    double profit_score = profit[voisinage[index_item]] / (h + regularization_factor);
+
+    double combined_score = weight_score * profit_score;
+
+    if (weight_score < regularization_factor || profit_score < regularization_factor) {
+        return 0; // Sparisfy by setting unpromising elements to zero
+    }
+
+    return combined_score;
+}
+```

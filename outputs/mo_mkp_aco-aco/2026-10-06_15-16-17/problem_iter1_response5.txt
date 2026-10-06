@@ -1,0 +1,13 @@
+```c
+double heuristic_v2(int index_item, double **weights, double *capacity, int nb_voisinage, int *voisinage, double *profit){
+    double relevance = 0.5;
+    double h=0, weighted_sum = 0;
+    
+    for(int j=0; j<dimension; j++){
+        h += weights[j][voisinage[index_item]] / (capacity[j] + 0.01); // Adding a small value to avoid division by zero
+        weighted_sum += weights[j][voisinage[index_item]] * (j + 1);   // Reflecting the different dimensions
+    }
+    
+    return relevance * profit[voisinage[index_item]] / h + (1 - relevance) * (1 / (1 + exp(-weighted_sum)) );  // Combining two factors
+}
+```

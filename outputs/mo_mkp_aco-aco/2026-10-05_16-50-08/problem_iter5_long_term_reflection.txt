@@ -1,0 +1,3 @@
+- Normalize weights and capacities, penalize zero weights, balance influence factors.
+- Regularize scores, simplify calculations, penalize unfavorable characteristics effectively.
+- Prioritize total weight, optimize ratio calculation, handle zero weights strategically.

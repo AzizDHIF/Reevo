@@ -1,0 +1,25 @@
+```c
+double heuristic_v2(int index_item, double **weights, double *capacity, int nb_voisinage, int *voisinage, double *profit){
+    double h=0;
+    double density = 0.0;
+
+    for(int j=0;j<dimension;j++){
+        h += weights[j][voisinage[index_item]] / capacity[j]; 
+    }
+
+    for(int i = 0; i < dimension; i++) {
+        if(weight[i][index_item] > capacity[i])
+            return 0.0;
+    }
+    
+    if(h > 0){
+        density = profit[voisinage[index_item]] / h;
+    }
+
+    if(density < 0.1) {
+        return 0.0;
+    } else {
+        return density;
+    }
+}
+```

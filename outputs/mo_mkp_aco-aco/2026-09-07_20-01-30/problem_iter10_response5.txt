@@ -7,9 +7,13 @@ double heuristic_v2(int index_item, double weights[dimension][NBITEMS], double c
 
     double factor1 = profit[voisinage[index_item]] / h;
     double factor2 = (capacity[0] - weights[0][voisinage[index_item]]) * profit[voisinage[index_item]];
-    double factor3 = weights[1][voisinage[index_item]] * profit[voisinage[index_item]];
 
-    double factor4 = weights[2][voisinage[index_item]] / capacity[1];
+    double factor3 = weights[1][voisinage[index_item]] * profit[voisinage[index_item]];
+    double factor4=0;
+    if (dimension>2){
+         factor4 = weights[2][voisinage[index_item]] / capacity[1];
+    }
+   
 
     // Sparsify heuristic based on factors and item properties
     if (factor1 + factor2 + factor3 + factor4 > 0) {

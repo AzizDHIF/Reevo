@@ -1,0 +1,2 @@
+1. Emphasize efficiency by prioritizing relevant factors and sparsifying computations.
+2. Balance capacities, objective influence, and item relevance for optimal heuristic performance in MO-MKP.

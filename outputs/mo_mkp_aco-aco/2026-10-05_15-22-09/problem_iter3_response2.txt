@@ -1,0 +1,18 @@
+```c
+double heuristic_v2(int index_item, double **weights, double *capacity, int nb_voisinage, int *voisinage, double *profit) {
+    double promising_factor = 0;
+    
+    // Combine weights, profit, and capacity for item selection evaluation
+    for (int j = 0; j < dimension; j++) {
+        if (capacity[j] > 0 && weights[j][voisinage[index_item]] > 0) {
+            // Consider the weight-profit/capacity interactions
+            double weight_profit_ratio = weights[j][voisinage[index_item]] * profit[voisinage[index_item]] / capacity[j];
+            
+            // Normalize the weight-profit ratio to emphasize effective item selection
+            promising_factor += weight_profit_ratio;
+        }
+    }
+    
+    return promising_factor;
+}
+```

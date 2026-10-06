@@ -1,0 +1,26 @@
+```c
+double heuristic_v2(int index_item, double **weights, double *capacity, int nb_voisinage, int *voisinage, double *profit){
+    // Calculate the minimum of the remaining capacity
+    double min_capacity = capacity[0];
+    for(int j=1;j<dimension;j++){
+        if(capacity[j] < min_capacity) {
+            min_capacity = capacity[j];
+        }
+    }
+    
+    // Calculate the sum of all neighbour weights
+    double sum_weights = 0;
+    for(int j=0;j<dimension;j++){
+        sum_weights += weights[j][voisinage[index_item]];
+    }
+    
+    // Combine various factors and sparsify the heuristic
+    double h = 0;
+    if(sum_weights > 0 && min_capacity > 0) {
+        h = sum_weights / min_capacity;
+        return profit[voisinage[index_item]] / h;
+    } else {
+        return 0.0;
+    }
+}
+```  

@@ -1,0 +1,12 @@
+```c
+double heuristic_v2(int index_item, double **weights, double *capacity, int nb_voisinage, int *voisinage, double *profit) {
+    double h = 0;
+    for (int j = 0; j < dimension; j++) {
+        if (capacity[j] == 0) {
+            return 0; // Return 0 if capacity is already full in any dimension
+        }
+        h += weights[j][voisinage[index_item]] / capacity[j];
+    }
+    return profit[voisinage[index_item]] / h;
+}
+```

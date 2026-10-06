@@ -178,3 +178,4 @@ api_key.yaml
 results*.txt
 *results/
 Weight*.exe
+plot_generator

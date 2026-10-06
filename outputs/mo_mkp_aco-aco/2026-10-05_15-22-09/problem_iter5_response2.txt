@@ -1,0 +1,24 @@
+```c
+double heuristic_v2(int index_item, double **weights, double *capacity, int nb_voisinage, int *voisinage, double *profit) {
+    double promising_factor = 0;
+    double total_weight = 0;
+    
+    // Compute total weight of selected neighbours
+    for (int i = 0; i < nb_voisinage; i++) {
+        for (int j = 0; j < dimension; j++) {
+            if (weights[j][voisinage[i]] > 0) {
+                total_weight += weights[j][voisinage[i]];
+            }
+        }
+    }
+    
+    // Compute promising factor based on weights, profit, and capacity interactions
+    for (int j = 0; j < dimension; j++) {
+        if (capacity[j] >= total_weight && weights[j][index_item] > 0) {
+            promising_factor += weights[j][index_item] * profit[index_item] / (total_weight + 1);
+        }
+    }
+    
+    return promising_factor;
+}
+```

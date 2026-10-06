@@ -1,0 +1,13 @@
+```c
+double heuristic_v2(int index_item, double **weights, double *capacity, int nb_voisinage, int *voisinage, double *profit){
+    double h=0;
+    double total_weight = 0;
+    double min_cost = 9999;
+    for(int i=0; i<dimension; i++){
+			h += weights[i][voisinage[index_item]] / capacity[i]; 
+      total_weight += weights[i][voisinage[index_item]];
+      min_cost = fmin(min_cost, weights[i][voisinage[index_item]]);
+	}
+    return (profit[voisinage[index_item]] + total_weight - min_cost) / (h + total_weight) ;
+}
+```

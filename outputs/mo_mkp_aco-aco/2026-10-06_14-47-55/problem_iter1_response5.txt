@@ -1,0 +1,18 @@
+```c
+double heuristic_v2(int index_item, double **weights, double *capacity, int nb_voisinage, int *voisinage, double *profit){
+    double h=0;
+    int max_weight_dim = -1;
+    
+    for(int j=0;j<dimension;j++){
+        h += weights[j][voisinage[index_item]] / capacity[j];
+        if (max_dist < weights[j][voisinage[index_item]]) {
+            max_weight_dim = j;
+        }
+    }
+    
+    double weight_ratio_avg = h / dimension;
+    int feasibility_score = (max_weight_dim >= 0) ? 1 : 0;
+    
+    return (profit[voisinage[index_item]] + weight_ratio_avg * 0.2) * radius;
+}
+```

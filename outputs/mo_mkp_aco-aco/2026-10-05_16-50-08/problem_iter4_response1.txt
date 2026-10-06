@@ -1,0 +1,31 @@
+```c
+double heuristic_v2(int index_item, double **weights, double *capacity, int nb_voisinage, int *voisinage, double *profit) {
+    double added_weight = 0;
+    double weight_ratio = 0;
+    double promising_factor = 0;
+    double damping_factor = 0.5;
+
+    for (int j = 0; j < dimension; j++) {
+        added_weight += weights[j][voisinage[index_item]];
+        if (weights[j][voisinage[index_item]] > capacity[j]) {
+            return 0; // Set unpromising elements to zero
+        }
+        weight_ratio += weights[j][voisinage[index_item]] / capacity[j];
+    }
+
+    double normalized_added_weight = added_weight / (dimension * NBITEMS);
+    double normalized_weight_ratio = weight_ratio / dimension;
+
+    double weight_penalty = 1.0;
+    for (int j = 0; j < dimension; j++) {
+        if (weights[j][voisinage[index_item]] <= 0) {
+            weight_penalty = 0.5; // Penalize items with zero weight
+            break;
+        }
+    }
+
+    promising_factor = profit[voisinage[index_item]] * weight_penalty / (normalized_added_weight * normalized_weight_ratio + damping_factor);
+
+    return promising_factor;
+}
+```

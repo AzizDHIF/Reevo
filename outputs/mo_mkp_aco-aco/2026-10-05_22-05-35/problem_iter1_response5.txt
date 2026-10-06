@@ -1,0 +1,14 @@
+```c
+double heuristic_v2(int index_item, double **weights, double *capacity, int nb_voisinage, int *voisinage, double *profit){
+    double weight_ratio = 0;
+    double profit_density = 0;
+	
+    // Calculate the weight ratio and profit density value for the item based on selected neighbours
+    for(int j=0; j<dimension; j++){
+        weight_ratio += weights[j][voisinage[index_item]] / capacity[j];
+    }
+    profit_density = profit[voisinage[index_item]] / (weight_ratio > 0.001 ? weight_ratio : 0.001);
+  
+    return profit_density;
+}
+```

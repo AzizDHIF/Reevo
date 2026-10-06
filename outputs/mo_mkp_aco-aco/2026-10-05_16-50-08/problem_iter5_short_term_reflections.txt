@@ -1,0 +1,7 @@
+Consider incorporating penalization for zero weights, avoid division by zeros, and prioritize total weight consideration.
+1. Consider normalized weights and capacities for better heuristic accuracy. 
+2. Penalize unfavorable item characteristics effectively to guide selection.
+Focus on balancing influence factors, utilizing normalization, and incorporating damping for improved heuristic performance.
+Simplify calculations, focus on relevant factors, regularize scores, and consider when to set unpromising values to zero.
+Consider efficient use of weights, capacity, and profit with penalty factors for improved heuristic performance efficiency.
+Consider incorporating penalty terms for unfavorable cases, optimize ratio calculation, and differentiate handling of zero weights.

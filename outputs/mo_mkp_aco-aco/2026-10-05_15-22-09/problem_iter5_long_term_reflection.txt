@@ -1,0 +1,4 @@
+1. Focus on direct weight-profit-capacity interactions for efficient heuristic computation.
+2. Emphasize balance and feasibility in item selection.
+3. Normalize ratios for improved performance and simplify calculations.
+4. Incorporate multi-factor evaluation for enhanced sparsity awareness.

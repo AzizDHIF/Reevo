@@ -1,0 +1,26 @@
+```c
+double heuristic_v2(int index_item, double **weights, double *capacity, int nb_voisinage, int *voisinage, double *profit) {
+    double weight_sum = 0;
+    double distance_sum = 0;
+
+    for (int j = 0; j < dimension; j++) {
+        weight_sum += weights[j][voisinage[index_item]] / capacity[j];
+        distance_sum += fmax(0, weights[j][voisinage[index_item]] - capacity[j]);
+    }
+
+    double weight_factor = 0.6;
+    double distance_factor = 0.4;
+
+    double normalized_profit = profit[voisinage[index_item]] / (double)NBITEMS;
+    double weight_term = weight_factor / (1 + weight_sum);
+    double distance_term = distance_factor / (1 + distance_sum);
+
+    double heuristic_value = normalized_profit * weight_term + distance_term;
+
+    if (weight_sum > 0.8 || distance_sum > 0.6) {
+        heuristic_value = 0;
+    }
+
+    return heuristic_value;
+}
+```
