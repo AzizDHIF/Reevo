@@ -1,0 +1,6 @@
+Avoid unnecessary calculations, focus on critical factors, and set appropriate thresholds for efficiency and effectiveness.
+Consider utilizing additional information or features for improved heuristic accuracy and robustness in optimization problems.
+Focus on simplicity, efficiency, and meaningful calculations. Normalize weights before use, prioritize objective calculations, set clear thresholds.
+Leverage simple, explicit heuristics with direct dependency on input data for better performance.
+Focus on efficient metrics directly related to objectives, avoiding unnecessary computations and ensuring relevant threshold checks.
+Avoid redundant calculations, prioritize relevant features, and balance objectives for efficient heuristic design.

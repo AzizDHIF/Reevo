@@ -1,0 +1,29 @@
+```c
+double heuristic_v2(int index_item, double **weights, double *capacity, int nb_voisinage, int *voisinage, double *profit) {
+    double h = 0, score = 0;
+    
+    // Factor 1: Normalized sum of weights relative to capacity
+    for(int j = 0; j < dimension; j++) {
+        if (capacity[j] > 0) {
+            h += weights[j][voisinage[index_item]] / capacity[j];
+        }
+    }
+    
+    // Factor 2: Profit to weight ratio
+    double pw_ratio = profit[voisinage[index_item]] / h;
+    
+    // Factor 3: Distance from capacity
+    double dist = 0;
+    for(int j = 0; j < dimension; j++) {
+        double diff = capacity[j] - weights[j][voisinage[index_item]];
+        dist += (diff > 0) ? diff : 0; // Only consider positive capacity deviations
+    }
+    
+    // Combined score calculation
+    if (h > 0) { // Avoid division by zero
+        score = pw_ratio + exp(-dist) - exp(-h); // Combining factors while considering scale
+    }
+    
+    return score;
+}
+```

@@ -1,0 +1,29 @@
+```c
+#include <stdio.h>
+
+double heuristic_v2(int index_item, double **weights, double *capacity, int nb_voisinage, int *voisinage, double *profit){
+    double h=0, score=0;
+    
+    // Factor 1: Weighted sum of weights
+    for(int j=0;j<dimension;j++){
+        h += weights[j][voisinage[index_item]] / capacity[j]; 
+    }
+    
+    // Factor 2: Profit to weight ratio
+    double pw_ratio = profit[voisinage[index_item]] / h;
+    
+    // Factor 3: Distance from capacity
+    double dist = 0;
+    for(int j=0;j<dimension;j++){
+        double diff = (capacity[j] - weights[j][voisinage[index_item]]);
+        dist += (diff < 0) ? 0 : diff; // Handling negative capacity deviation
+    }
+    
+    // Combined score calculation
+    if(h > 0){ // Avoid division by zero
+        score = pw_ratio + (1/dist) + exp(-h); // Combining factors with different scales
+    }
+    
+    return score;
+}
+```

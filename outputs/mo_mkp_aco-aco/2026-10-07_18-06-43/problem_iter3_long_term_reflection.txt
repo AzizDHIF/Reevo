@@ -1,0 +1,2 @@
+1. Integrate critical factors effectively and sparsify to enhance item selection.
+2. Highlight capacity utilization, profit relevance, and neighborhood patterns in heuristic design for MO-MKP, simplifying calculations for efficiency.

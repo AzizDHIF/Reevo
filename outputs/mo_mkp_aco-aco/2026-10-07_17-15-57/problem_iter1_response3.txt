@@ -1,0 +1,23 @@
+```c
+#include <math.h>
+
+double heuristic_v2(int index_item, double **weights, double *capacity, int nb_voisinage, int *voisinage, double *profit){
+    double sum_weights = 0, sum_capacity = 0;
+    
+    for(int j=0;j<dimension;j++)
+    {
+        sum_weights += weights[j][voisinage[index_item]];
+        sum_capacity += capacity[j];
+    }
+    
+    if(sum_capacity == 0 || sum_weights == 0)
+    {
+        return 0;
+    }
+
+    double density = sum_weights / sum_capacity;
+    double ratio_capacity = sum_weights / sum_weights;
+    
+    return profit[voisinage[index_item]] * density / sqrt(ratio_capacity);
+}
+```

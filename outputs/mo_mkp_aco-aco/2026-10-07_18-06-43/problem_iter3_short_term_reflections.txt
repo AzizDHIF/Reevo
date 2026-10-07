@@ -1,0 +1,7 @@
+Focus on explicit and meaningful factors, leverage existing computations efficiently, balance factors based on problem characteristics.
+Consider factors contributing to the solution quality, such as capacity utilization, profit importance, and neighborhood structure for better heuristics.
+Prioritize capacity utilization, profit importance, and neighborhood structure for better heuristic design in MO-MKP.
+Simplify heuristic calculations by focusing on essential factors, avoiding unnecessary complexity and redundancy.
+Emphasize diverse factors affecting solution quality and relationship to capacity without excessive multiplication operations.
+1. Simplify calculations to focus on key factors.
+2. Ensure consistency in objective optimization.

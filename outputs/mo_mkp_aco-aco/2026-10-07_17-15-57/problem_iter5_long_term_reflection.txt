@@ -1,0 +1,2 @@
+1. Prioritize constraint checking, balance conflicting objectives, and leverage relevant features for efficient and balanced heuristics.
+2. Combine critical factors effectively, utilize all information wisely, and simplify calculations for optimized performance in MO-MKP.

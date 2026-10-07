@@ -1,0 +1,6 @@
+Consider using normalized weight instead of inverse weight sum for improved performance.
+Incorporate capacity constraints directly into heuristic calculation for better performance in MO-MKP stochastically sampled solutions.
+Consider the impact of neighborhood structure and ensure a balanced combination of all factors.
+Utilize multiple factors considering capacity utilization, item profit importance, and neighborhood structure for better heuristics.
+Simplify heuristics, focusing on profit-to-weight ratio and avoiding unnecessary calculations for efficiency.
+Prioritize feasible neighbors; ensure dimension compatibility; consider relative weights; evaluate trade-offs.

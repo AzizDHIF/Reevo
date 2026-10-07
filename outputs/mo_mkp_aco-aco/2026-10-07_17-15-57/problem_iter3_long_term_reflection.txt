@@ -1,0 +1,5 @@
+- Combine critical factors effectively.
+- Sparse heuristic for efficiency.
+- Utilize relevant features wisely.
+- Prioritize objective calculations.
+- Simplify, normalize weights, set clear thresholds.

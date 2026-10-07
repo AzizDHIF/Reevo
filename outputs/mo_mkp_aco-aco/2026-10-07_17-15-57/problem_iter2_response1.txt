@@ -1,0 +1,25 @@
+```c
+double heuristic_v2(int index_item, double **weights, double *capacity, int nb_voisinage, int *voisinage, double *profit) {
+    double h = 0;
+    double sum_weights = 0;
+    double max_profit = 0;
+
+    for (int j = 0; j < dimension; j++) {
+        h += weights[j][voisinage[index_item]] / capacity[j];
+        sum_weights += weights[j][index_item];
+    }
+
+    for(int i = 0; i < nb_voisinage; i++) {
+        double current_profit = profit[voisinage[i]];
+        if (current_profit > max_profit) {
+            max_profit = current_profit;
+        }
+    }
+
+    double f1 = profit[voisinage[index_item]] / h;
+    double f2 = sum_weights;
+    double f3 = max_profit;
+
+    return f1 * 0.5 + f2 * 0.3 + f3 * 0.2; // Combine profit, sum of weights and max profit among neighbors
+}
+```

@@ -1,0 +1,20 @@
+```c
+double heuristic_v2(int index_item, double **weights, double *capacity, int nb_voisinage, int *voisinage, double *profit)
+{
+    double sum_weights = 0;
+    
+    for(int j = 0; j < nb_voisinage; j++){
+        double h = 0;
+        for(int k = 0; k < dimension; k++){
+            h += weights[k][voisinage[j]] / capacity[k];
+        }
+        sum_weights += weights[j][index_item];
+        double f1 = profit[voisinage[j]] / h;
+        if (f1 < 0.01) {
+            return 0; // Mark as unpromising
+        }
+    }
+    
+    return sum_weights; // Use sum of weights as the heuristic
+}
+```

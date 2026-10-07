@@ -1,0 +1,23 @@
+```c
+double heuristic_v2(int index_item, double **weights, double *capacity, int nb_voisinage, int *voisinage, double *profit) {
+    double h = 0;
+    double density = 0;
+    
+    // Calculate the total normalized weight that the item would contribute to all dimensions
+    for(int j = 0; j < NBITEMS; j++) {
+        for(int k = 0; k < dimension; k++) {
+            h += weights[k][voisinage[index_item]] / capacity[k];
+        }
+    }
+    
+     // Calculate item density in terms of profit to normalized weight
+    density = profit[voisinage[index_item]] / h;
+
+    // Sparsify by setting unpromising elements to zero
+    if(density < 0.5) {
+        return 0;
+    }
+  
+    return density;
+}
+```

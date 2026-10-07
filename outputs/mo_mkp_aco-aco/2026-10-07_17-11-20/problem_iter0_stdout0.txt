@@ -1,0 +1,8 @@
+[*] Running ...
+[*] Mood: train
+[*] compiling ... 
+Traceback (most recent call last):
+  File "C:\Reevo/problems/mo_mkp_aco/eval.py", line 400, in <module>
+    write_heuristic(os.path.join(WORK_DIR,"gpt.c"),os.path.join(WORK_DIR,"gpt.c"))
+    ^^^^^^^^^^^^^^^
+NameError: name 'write_heuristic' is not defined

@@ -69,7 +69,10 @@ class ReEvo:
         problem_prompt_path = f'{self.prompt_dir}/{self.problem}{prompt_path_suffix}'
         self.seed_func = file_to_string(f'{problem_prompt_path}/seed_func.txt')
         self.func_signature = file_to_string(f'{problem_prompt_path}/func_signature.txt')
-        self.func_desc = file_to_string(f'{problem_prompt_path}/func_desc.txt')
+        if not self.cfg.heuristic_restriction:
+           self.func_desc = file_to_string(f'{problem_prompt_path}/func_desc.txt')
+        else:
+              self.func_desc = file_to_string(f'{problem_prompt_path}/func_desc_restricted.txt')
         if os.path.exists(f'{problem_prompt_path}/external_knowledge.txt'):
             self.external_knowledge = file_to_string(f'{problem_prompt_path}/external_knowledge.txt')
             self.long_term_reflection_str = self.external_knowledge

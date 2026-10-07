@@ -1,0 +1,5 @@
+1. Normalize weights for better performance.
+2. Directly incorporate capacity constraints.
+3. Balance multiple factors for optimal solutions.
+4. Simplify calculations focusing on profit-to-weight ratio.
+5. Prioritize feasible neighbors for efficiency.
