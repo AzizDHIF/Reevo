@@ -989,36 +989,50 @@ inter=k;
   if (argc > 2 && argv[2] != NULL && argv[2][0] != '\0') {
    	fpareto = fopen(argv[2],"a+");}
 
-  if(strcmp(argv[1],"dataset\\mood_val_dataset\\dataset_0_instance_100_items_3_objectifs.txt")==0){
+  if(strcmp(argv[1],"dataset\\mood_val_dataset\\dataset_0_instance_100_items_2_objectifs.txt")==0){
 	fpareto = fopen( "results_val_dataset_0_100_items.txt", "a+" );}
 
-  if(strcmp(argv[1],"dataset\\mood_val_dataset\\dataset_1_instance_100_items_3_objectifs.txt")==0){
+  if(strcmp(argv[1],"dataset\\mood_val_dataset\\dataset_1_instance_100_items_2_objectifs.txt")==0){
 	fpareto = fopen( "results_val_dataset_1_100_items.txt", "a+" );}
 
-  if(strcmp(argv[1],"dataset\\mood_val_dataset\\dataset_2_instance_100_items_3_objectifs.txt")==0){
+  if(strcmp(argv[1],"dataset\\mood_val_dataset\\dataset_2_instance_100_items_2_objectifs.txt")==0){
 	fpareto = fopen( "results_val_dataset_2_100_items.txt", "a+" );}
 
-  if(strcmp(argv[1],"dataset\\mood_val_dataset\\dataset_3_instance_100_items_3_objectifs.txt")==0){
+  if(strcmp(argv[1],"dataset\\mood_val_dataset\\dataset_3_instance_100_items_2_objectifs.txt")==0){
 	fpareto = fopen( "results_val_dataset_3_100_items.txt", "a+" );}
 
-  if(strcmp(argv[1],"dataset\\mood_val_dataset\\dataset_4_instance_100_items_3_objectifs.txt")==0){
+  if(strcmp(argv[1],"dataset\\mood_val_dataset\\dataset_4_instance_100_items_2_objectifs.txt")==0){
 	fpareto = fopen( "results_val_dataset_4_100_items.txt", "a+" );}
 
-    if(strcmp(argv[1],"dataset\\mood_val_dataset\\dataset_0_instance_300_items_3_objectifs.txt")==0){
+    if(strcmp(argv[1],"dataset\\mood_val_dataset\\dataset_0_instance_300_items_2_objectifs.txt")==0){
 	fpareto = fopen( "results_val_dataset_0_300_items.txt", "a+" );}
 
-  if(strcmp(argv[1],"dataset\\mood_val_dataset\\dataset_1_instance_300_items_3_objectifs.txt")==0){
+  if(strcmp(argv[1],"dataset\\mood_val_dataset\\dataset_1_instance_300_items_2_objectifs.txt")==0){
 	fpareto = fopen( "results_val_dataset_1_300_items.txt", "a+" );}
 
-  if(strcmp(argv[1],"dataset\\mood_val_dataset\\dataset_2_instance_300_items_3_objectifs.txt")==0){
+  if(strcmp(argv[1],"dataset\\mood_val_dataset\\dataset_2_instance_300_items_2_objectifs.txt")==0){
 	fpareto = fopen( "results_val_dataset_2_300_items.txt", "a+" );}
 
-  if(strcmp(argv[1],"dataset\\mood_val_dataset\\dataset_3_instance_300_items_3_objectifs.txt")==0){
+  if(strcmp(argv[1],"dataset\\mood_val_dataset\\dataset_3_instance_300_items_2_objectifs.txt")==0){
 	fpareto = fopen( "results_val_dataset_3_300_items.txt", "a+" );}
 
-  if(strcmp(argv[1],"dataset\\mood_val_dataset\\dataset_4_instance_300_items_3_objectifs.txt")==0){
+  if(strcmp(argv[1],"dataset\\mood_val_dataset\\dataset_4_instance_300_items_2_objectifs.txt")==0){
 	fpareto = fopen( "results_val_dataset_4_300_items.txt", "a+" );}
   
+   if(strcmp(argv[1],"pymoo\\dataset\\mood_val_dataset\\dataset_0_instance_300_items_2_objectifs.txt")==0){
+	fpareto = fopen( "results_val_dataset_0_500_items.txt", "a+" );}
+
+  if(strcmp(argv[1],"pymoo\\dataset\\mood_val_dataset\\dataset_1_instance_300_items_2_objectifs.txt")==0){
+	fpareto = fopen( "results_val_dataset_1_500_items.txt", "a+" );}
+
+  if(strcmp(argv[1],"pymoo\\dataset\\mood_val_dataset\\dataset_2_instance_300_items_2_objectifs.txt")==0){
+	fpareto = fopen( "results_val_dataset_2_500_items.txt", "a+" );}
+
+  if(strcmp(argv[1],"pymoo\\dataset\\mood_val_dataset\\dataset_3_instance_300_items_2_objectifs.txt")==0){
+	fpareto = fopen( "results_val_dataset_3_500_items.txt", "a+" );}
+
+  if(strcmp(argv[1],"pymoo\\dataset\\mood_val_dataset\\dataset_4_instance_300_items_2_objectifs.txt")==0){
+	fpareto = fopen( "results_val_dataset_4_500_items.txt", "a+" );}
 	fprintf(fpareto,"mcycle %d nbants %d alphat %d beta %lf rho %lf tmax %lf\n",maxcycle,nbants,alphat,beta,rhot,tmax);
 	fflush(stdout);
 

@@ -1,0 +1,5 @@
+[*] Average for hypervolume and epsilon:
+[*] Average for hypervolume for dataset 100 items: 36.760714805078685
+[*] Average for epsilon for dataset 100 items: 0.39353320000000147
+[*] Average for hypervolume for dataset 300 items: 216.48080063356983
+[*] Average for epsilon for dataset 300 items: 0.217701600000001

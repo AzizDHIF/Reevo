@@ -42,9 +42,4 @@ void mutate(ind *x,mut *m);
 int max(int a, int b);
 
 double heuristic(int index_item, double **weights, double *capacity, int nb_voisinage, int *voisinage, double *profit);
-double heuristic_eval_100(int index_item, double **weights, double *capacity, int nb_voisinage, int *voisinage, double *profit);
-double heuristic_eval_250(int index_item, double **weights, double *capacity, int nb_voisinage, int *voisinage, double *profit);
-double heuristic_eval_300(int index_item, double **weights, double *capacity, int nb_voisinage, int *voisinage, double *profit);
-double heuristic_eval_500(int index_item, double **weights, double *capacity, int nb_voisinage, int *voisinage, double *profit);
-double heuristic_eval_750(int index_item, double **weights, double *capacity, int nb_voisinage, int *voisinage, double *profit);
 #endif
