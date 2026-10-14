@@ -1,0 +1,16 @@
+[*] Running ...
+[*] Mood: train
+[*] compiling ... 
+gpt.c:2:8: error: conflicting types for 'heuristic'; have 'double(int,  double **, double *, double *)'
+    2 | double heuristic(int index_item, double **weights, double *capacity, double *profit)
+      |        ^~~~~~~~~
+In file included from gpt.c:1:
+HBACO.h:44:8: note: previous declaration of 'heuristic' with type 'double(int,  double **, double *, int,  int *, double *)'
+   44 | double heuristic(int index_item, double **weights, double *capacity, int nb_voisinage, int *voisinage, double *profit);
+      |        ^~~~~~~~~
+Traceback (most recent call last):
+  File "C:\Reevo/problems/bi_mkp_aco/eval.py", line 62, in <module>
+    compile(WORK_DIR,"WeightACO.c",f"WeightACO_train_100items_{id_response}.exe")
+  File "C:\Reevo\utils\utils.py", line 101, in compile
+    raise RuntimeError("Erreur de compilation")
+RuntimeError: Erreur de compilation

@@ -1,0 +1,6 @@
+Focus on quickly discarding unpromising solutions and reduce unnecessary computations for better heuristics.
+Utilize normalized weighted ratios over dimensions for more robust heuristic sampling in MO-MKP problems.
+Utilize the sum of reciprocal capacities for better weight balancing in MO-MKP heuristics.
+Hint: Emphasize proportional relationship between item weights and capacities for better performance.
+Avoid division by zero, consider the impact of capacity constraints, and optimize the use of valid weights.
+Prioritize feasible neighbors, avoid unnecessary computations, and consider weight-to-capacity ratio in the heuristic.

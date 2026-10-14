@@ -1,0 +1,21 @@
+```c
+double heuristic_v2(int index_item, double **weights, double *capacity, int nb_voisinage, int *voisinage, double *profit){
+    double h=0;
+    for(int j=0;j<dimension;j++){
+        h += weights[j][voisinage[index_item]] / capacity[j]; 
+    }
+    
+    double ratio_profit_weight = profit[voisinage[index_item]] / h;
+    double normalized_differences = 0;
+    for(int i=0;i<nb_voisinage;i++){
+        double h_neighbor=0;
+        for(int j=0;j<dimension;j++){
+            h_neighbor += weights[j][voisinage[i]] / capacity[j]; 
+        }
+        double ratio_profit_weight_neighbor = profit[voisinage[i]] / h_neighbor;
+        normalized_differences += fabs(ratio_profit_weight_neighbor - ratio_profit_weight);
+    }
+    
+    return normalized_differences > 0.5 ? 0 : ratio_profit_weight;
+}
+```

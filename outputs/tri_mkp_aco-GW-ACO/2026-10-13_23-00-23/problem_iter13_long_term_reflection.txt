@@ -1,0 +1,3 @@
+1. Simplify calculations, prioritize efficiency, and balance objectives by using weighted factors.
+2. Utilize capacity efficiently and avoid unnecessary division for improved performance in MO-MKP.
+3. Focus on relevant factors, avoid complexity, and emphasize simplicity for effective heuristic design.

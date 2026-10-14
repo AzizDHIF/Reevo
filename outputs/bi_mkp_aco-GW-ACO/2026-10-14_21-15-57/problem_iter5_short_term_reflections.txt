@@ -1,0 +1,6 @@
+Focus on proportional promise and efficient computation for promising neighbors to improve heuristic performance.
+Consider total weight, profit density, dimensionality scaling, and neighbour index adjustment for better heuristics.
+Utilize normalized weights rather than raw weights for more accurate heuristic sampling in sparse regions.
+Prioritize normalized features over raw sums; incorporate multiple factors leveraging problem-specific insights for better performance.
+Leverage balance and weight factors for better heuristic design in MO-MKP: sparsity, diversity, and objective alignment.
+Use precomputed values effectively, simplify computations, consider ratios over absolute values, and avoid unnecessary checks.

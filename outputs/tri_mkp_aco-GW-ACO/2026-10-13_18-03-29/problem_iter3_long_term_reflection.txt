@@ -1,0 +1,1 @@
+Design efficient and coherent heuristics for MO-MKP by combining relevant factors with proper weighting, leveraging capacity utilization and diversity in a single loop, and focusing on simplicity and meaningful calculations while avoiding unnecessary complexity. Prioritize simplicity, balance, and efficiency in computation for improved performance.

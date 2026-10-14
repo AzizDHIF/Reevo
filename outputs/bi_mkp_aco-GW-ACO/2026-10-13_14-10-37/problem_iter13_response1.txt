@@ -1,0 +1,22 @@
+```c
+double heuristic_v2(int index_item, double **weights, double *capacity, int nb_voisinage, int *voisinage, double *profit) {
+    double h = 0;
+
+    for (int j = 0; j < dimension; j++) {
+        double weight_ratio = weights[j][voisinage[index_item]] / capacity[j];
+        h += weight_ratio * weight_ratio; // Square the weight ratio
+    }
+
+    double norm_factor = 0;
+    for (int i = 0; i < nb_voisinage; i++) {
+        double sum_squared_weight_ratios = 0;
+        for (int k = 0; k < dimension; k++) {
+            double wr = weights[k][voisinage[i]] / capacity[k];
+            sum_squared_weight_ratios += wr * wr; // Sum of squared weight ratios
+        }
+        norm_factor = fmax(norm_factor, sum_squared_weight_ratios); // Keep track of maximum sum of squared weight ratios
+    }
+
+    return profit[voisinage[index_item]] / sqrt(h / norm_factor); // Normalize by dividing by the maximum sum of squared weight ratios
+}
+```

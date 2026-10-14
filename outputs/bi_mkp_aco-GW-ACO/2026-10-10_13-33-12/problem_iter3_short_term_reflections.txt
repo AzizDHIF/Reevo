@@ -1,0 +1,6 @@
+Consider incorporating item weight differences and variation in heuristics for Multi-Objective Multiple Knapsack Problems.
+Directly incorporate item comparison with current solution, consider diverse factors, and simplify calculations for efficiency.
+Focus on efficiency by minimizing unnecessary computations and simplifying the heuristic calculation.
+Prioritize simplicity, reduce computations, leverage harmonic mean, avoid squaring terms excessively for better heuristics.
+Prioritize simplicity, favoring efficient filtering and direct calculation over complex intermediate computations.
+Focus on balancing weight and profit factors and use more information like geometric mean effectively.

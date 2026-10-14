@@ -1,0 +1,14 @@
+[*] Running ...
+[*] Mood: train
+[*] compiling ... 
+gpt.c: In function 'heuristic':
+gpt.c:5:19: error: 'epsilon' undeclared (first use in this function)
+    5 | if (capacity[j] > epsilon) {
+      |                   ^~~~~~~
+gpt.c:5:19: note: each undeclared identifier is reported only once for each function it appears in
+Traceback (most recent call last):
+  File "C:\Reevo/problems/bi_mkp_aco/eval.py", line 62, in <module>
+    compile(WORK_DIR,"WeightACO.c",f"WeightACO_train_100items_{id_response}.exe")
+  File "C:\Reevo\utils\utils.py", line 101, in compile
+    raise RuntimeError("Erreur de compilation")
+RuntimeError: Erreur de compilation

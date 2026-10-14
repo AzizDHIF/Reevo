@@ -1,0 +1,22 @@
+```c
+#include <math.h>
+
+double heuristic_v2(int index_item, double **weights, double *capacity, int nb_voisinage, int *voisinage, double *profit){
+    double h=0, sum_weights = 0, sum_capacity = 0, prom;
+    
+    // Calculate total sum of weights for the item
+    for(int j=0;j<dimension;j++){
+        sum_weights += weights[j][voisinage[index_item]];
+        sum_capacity += capacity[j];
+    }
+    
+    // Calculate promise based on ratio of weights to capacities
+    if(sum_capacity > 0){
+        prom = sum_weights / sum_capacity;
+    } else {
+        prom = 0; // Set unpromising cases to 0
+    }
+
+    return profit[voisinage[index_item]] / prom;
+}
+```

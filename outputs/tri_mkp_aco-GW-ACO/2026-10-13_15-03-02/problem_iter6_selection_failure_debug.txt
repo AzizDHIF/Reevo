@@ -1,0 +1,149 @@
+[0] response_id=0 exec_success=True obj=-272.14821065932983 code_path=problem_iter0_code0.c
+----------------------------------------
+#include "HBACO.h"
+double heuristic(int index_item, double **weights, double *capacity, int nb_voisinage, int *voisinage, double *profit){
+double h=0;
+for(int j=0;j<dimension;j++){
+h=h+weights[j][voisinage[index_item]]/capacity[j];
+}
+return profit[voisinage[index_item]]/h;}
+========================================
+[1] response_id=0 exec_success=True obj=-272.14821065932983 code_path=problem_iter4_code0.c
+----------------------------------------
+#include "HBACO.h"
+double heuristic(int index_item, double **weights, double *capacity, int nb_voisinage, int *voisinage, double *profit) {
+    double h = 0;
+    for (int j = 0; j < dimension; j++) {
+        if (weights[j][voisinage[index_item]] <= capacity[j]) {
+            h += weights[j][voisinage[index_item]] / capacity[j];
+        } else {
+            return 0.0; // Set unpromising elements to zero
+        }
+    }
+    return profit[voisinage[index_item]] / h;
+}
+========================================
+[2] response_id=1 exec_success=True obj=-272.14821065932983 code_path=problem_iter4_code1.c
+----------------------------------------
+#include "HBACO.h"
+double heuristic(int index_item, double **weights, double *capacity, int nb_voisinage, int *voisinage, double *profit) {
+    double h = 0;
+    
+    for (int j = 0; j < dimension; j++) {
+        h += weights[j][voisinage[index_item]] / capacity[j];
+    }
+
+    if (h == 0) {
+        return 0;
+    }
+
+    return profit[voisinage[index_item]] / h;
+}
+========================================
+[3] response_id=2 exec_success=True obj=-272.14821065932983 code_path=problem_iter4_code2.c
+----------------------------------------
+#include "HBACO.h"
+double heuristic(int index_item, double **weights, double *capacity, int nb_voisinage, int *voisinage, double *profit) {
+    double sum_weight_ratio = 0.0;
+    
+    for (int j = 0; j < dimension; j++) {
+        if (weights[j][voisinage[index_item]] > capacity[j]) {
+            return 0.0; // Skip if adding the item violates capacity in any dimension
+        }
+        sum_weight_ratio += weights[j][voisinage[index_item]] / capacity[j];
+    }
+    
+    return profit[voisinage[index_item]] / sum_weight_ratio;
+}
+========================================
+[4] response_id=3 exec_success=True obj=-272.14821065932983 code_path=problem_iter4_code3.c
+----------------------------------------
+#include "HBACO.h"
+double heuristic(int index_item, double **weights, double *capacity, int nb_voisinage, int *voisinage, double *profit)
+{
+    double h = 0.0;
+
+    for (int j = 0; j < dimension; j++) {
+        h += weights[j][voisinage[index_item]] / capacity[j];
+    }
+
+    return h > 0.0 ? profit[voisinage[index_item]] / h : 0.0;
+}
+========================================
+[5] response_id=4 exec_success=True obj=-272.14821065932983 code_path=problem_iter4_code4.c
+----------------------------------------
+#include "HBACO.h"
+double heuristic(int index_item, double **weights, double *capacity, int nb_voisinage, int *voisinage, double *profit) {
+    double h = 0;
+    for (int j = 0; j < dimension; j++) {
+        if (weights[j][voisinage[index_item]] > capacity[j]) {
+            return 0.0; // Return 0 if item violates capacity constraint
+        }
+        h += weights[j][voisinage[index_item]] / capacity[j];
+    }
+    
+    return profit[voisinage[index_item]] / h;
+}
+========================================
+[6] response_id=5 exec_success=True obj=-272.14821065932983 code_path=problem_iter4_code5.c
+----------------------------------------
+#include "HBACO.h"
+double heuristic(int index_item, double **weights, double *capacity, int nb_voisinage, int *voisinage, double *profit) {
+    double h = 0.0;
+    
+    for (int j = 0; j < dimension; j++) {
+        h += weights[j][voisinage[index_item]] / capacity[j];
+    }
+    
+    return profit[voisinage[index_item]] / h;
+}
+========================================
+[7] response_id=0 exec_success=True obj=-272.14821065932983 code_path=problem_iter5_code0.c
+----------------------------------------
+#include "HBACO.h"
+double heuristic(int index_item, double **weights, double *capacity, int nb_voisinage, int *voisinage, double *profit) {
+    double h = 0.0;
+    
+    for (int j = 0; j < dimension; j++) {
+        double w = weights[j][voisinage[index_item]] / capacity[j];
+        h += w;
+        
+        if (w >= 1.0) {
+            return 0.0; // Set to zero if weight constraint violated
+        }
+    }
+    
+    return profit[voisinage[index_item]] / h;
+}
+========================================
+[8] response_id=1 exec_success=True obj=-272.14821065932983 code_path=problem_iter5_code1.c
+----------------------------------------
+#include "HBACO.h"
+double heuristic(int index_item, double **weights, double *capacity, int nb_voisinage, int *voisinage, double *profit) {
+    double h = 0.0;
+    for (int j = 0; j < dimension; j++) {
+        if (capacity[j] != 0) {
+            h += weights[j][voisinage[index_item]] / capacity[j];
+        }
+    }
+    
+    if (h == 0.0) {
+        return 0.0;
+    }
+    
+    return profit[voisinage[index_item]] / h;
+}
+========================================
+[9] response_id=2 exec_success=True obj=-272.14821065932983 code_path=problem_iter5_code2.c
+----------------------------------------
+#include "HBACO.h"
+double heuristic(int index_item, double **weights, double *capacity, int nb_voisinage, int *voisinage, double *profit) {
+    double h = 0;
+    for (int j = 0; j < dimension; j++) {
+        if (capacity[j] != 0) {
+            h += weights[j][voisinage[index_item]] / capacity[j];
+        }
+    }
+    return h == 0 ? 0 : profit[voisinage[index_item]] / h;
+}
+========================================

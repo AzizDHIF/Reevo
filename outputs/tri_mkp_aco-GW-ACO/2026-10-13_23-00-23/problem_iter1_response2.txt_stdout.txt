@@ -1,0 +1,13 @@
+[*] Running ...
+[*] Mood: train
+[*] compiling ... 
+gpt.c: In function 'heuristic':
+gpt.c:10:62: error: implicit declaration of function 'power_diff' [-Wimplicit-function-declaration]
+   10 | double promising_score = profit[voisinage[index_item]] / h + power_diff(profit[voisinage[index_item]], h);
+      |                                                              ^~~~~~~~~~
+Traceback (most recent call last):
+  File "C:\Reevo/problems/tri_mkp_aco/eval.py", line 420, in <module>
+    compile("WeightACO.c",f"WeightACO_train_100items_{id_response}.exe")
+  File "C:\Reevo/problems/tri_mkp_aco/eval.py", line 52, in compile
+    raise RuntimeError("Erreur de compilation")
+RuntimeError: Erreur de compilation

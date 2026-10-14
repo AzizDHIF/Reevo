@@ -1,0 +1,6 @@
+Focus on relative weight ratios rather than absolute values for better heuristic performance in MO-MKP.
+Square weight ratios before summing for better heuristic performance.
+Normalize weight ratios for improved sensitivity to capacity constraints and objective values.
+Leverage squared weight ratios for better heuristic performance in MO-MKP.
+Use normalized sum of squared weight ratios for better heuristic accuracy and effectiveness in MO-MKP.
+Prioritize squared weight ratios over proportional weight ratios for better heuristic performance.

@@ -1,0 +1,24 @@
+```c
+double heuristic_v2(int index_item, double **weights, double *capacity, int nb_voisinage, int *voisinage, double *profit){
+    double inventory_docs_sum=0, remaining_capacity_sum=0, promising_score=0, heuristic_value=0;
+    
+    // Sum of weights already in the inventory & sum of remaining capacity
+    for(int j=0; j<dimension; j++){
+        inventory_docs_sum += weights[j][index_item];
+        remaining_capacity_sum += capacity[j];
+    }
+    
+    // Promising score, high when the item is within knapsack limits
+    promising_score = 1 - (remaining_capacity_sum/inventory_docs_sum);
+    
+    // Set unpromising elements to 0
+    if(promising_score <= 0.5){
+        return 0;
+    }
+    
+    // Heuristic combining promising_score with profit/h weight
+    heuristic_value = (promising_score * profit[index_item]) / (inventory_docs_sum + 1);
+    
+    return heuristic_value;
+}
+```

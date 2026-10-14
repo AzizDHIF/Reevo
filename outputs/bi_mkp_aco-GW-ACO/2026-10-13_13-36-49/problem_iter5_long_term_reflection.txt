@@ -1,0 +1,4 @@
+1. Simplify calculations and avoid unnecessary conditions for efficiency.
+2. Prioritize direct, relevant computations to improve heuristic performance.
+3. Normalize weights by capacity and handle zero weights effectively.
+4. Incorporate density measure for better heuristic design in MO-MKP.

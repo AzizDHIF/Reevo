@@ -1,0 +1,1 @@
+To design better heuristics for MO-MKP, prioritize efficient computation of promising scores, leverage weight ratios, sparsify by setting unpromising elements to zero, and focus on simplicity and direct relationships for clarity and efficiency.

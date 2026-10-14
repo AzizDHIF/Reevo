@@ -1,0 +1,1 @@
+1. Design heuristics for MO-MKP by balancing weight and profit contributions uniformly, sparsifying unpromising elements, normalizing metrics, and focusing on immediate constraints and efficiency for better performance.

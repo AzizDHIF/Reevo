@@ -1,0 +1,19 @@
+```c
+double heuristic_v2(int index_item, double **weights, double *capacity, int nb_voisinage, int *voisinage, double *profit){
+    double h=0;
+    double epsilon = 1e-6; // Small constant to avoid division by zero
+    int weighted_profit = 1; // Weighting factor for profit
+    int weighted_capacity = 1; // Weighting factor for capacity
+    for(int j=0;j<dimension;j++){
+        if (capacity[j] > epsilon) {
+            h = h + weights[j][voisinage[index_item]] / (capacity[j]+epsilon);
+        }
+    }
+    
+    if (h < epsilon) {
+        return 0;
+    }
+    
+    return weighted_profit * profit[voisinage[index_item]] / (weighted_capacity * h);
+}
+```  

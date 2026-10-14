@@ -1,0 +1,6 @@
+Emphasize simplicity, avoid unnecessary calculations, prioritize efficiency over complexity, and consider edge cases carefully.
+Focus on relevant information; remove unnecessary computations for improved heuristic accuracy and efficiency.
+Use direct ratio computation based on item weight and remaining capacity to improve heuristic efficiency in MO-MKP.
+Ensure to normalize by the remaining capacity for more efficient and robust heuristics.
+Emphasize item value density over simplistic weight/capacity ratio for improved heuristic performance.
+Weighted sum inspired approaches can underperform. Prioritize simpler, direct calculations like profit density for better performance.

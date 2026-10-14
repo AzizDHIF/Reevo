@@ -1,0 +1,12 @@
+```c
+double heuristic_v2(int index_item, double **weights, double *capacity, int nb_voisinage, int *voisinage, double *profit){
+    double h=0, weight_sum = 0, distance_sq = 0, variation = 0;
+    for(int j=0;j<dimension;j++){
+         weight_sum += weights[j][voisinage[index_item]] / capacity[j];
+	     distance_sq += (weights[j][voisinage[index_item]] - weights[j][index_item])*(weights[j][voisinage[index_item]] - weights[j][index_item]);
+         variation += (weights[j][voisinage[index_item]] - weights[j][index_item])/(weights[j][index_item]+1.0);
+	}
+	
+    return (profit[voisinage[index_item]] + distance_sq + 1/(variation+1)) / (h+1);
+}
+```

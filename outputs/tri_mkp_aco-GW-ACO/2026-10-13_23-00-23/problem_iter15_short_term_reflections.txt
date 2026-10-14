@@ -1,0 +1,6 @@
+Calculate individual contribution per unit of capacity, accounting for dimensionality to improve heuristic efficiency.
+Emphasize proportional contribution and dimension-based normalization for better heuristic performance.
+Prioritize direct usage of constraints and profits over intermediate calculations to improve heuristic efficiency in MO-MKP.
+Consider impact of capacity on item selection, leverage non-zero weights efficiently, ensure division by non-zero divisor.
+Avoid redundant computations, prioritize direct impactful calculations, and normalize contributions efficiently for better heuristic design.
+Emphasize feasibility and avoid redundant calculations. Optimize using fixed values over dynamic values locally.

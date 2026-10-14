@@ -1,0 +1,26 @@
+```c
+#include <stdio.h>
+
+double heuristic_v2(int index_item, double **weights, double *capacity, int nb_voisinage, int *voisinage, double *profit){
+    
+    // Define weight factors
+    double alpha = 0.5;
+    double beta = 0.3;
+    
+    // Initialize heuristic value
+    double h = 0;
+    
+    // Compute factor based on weight ratio and profit
+    for(int j=0; j<dimension; j++){
+        h += alpha * (weights[j][voisinage[index_item]]/capacity[j]) + beta;
+    }
+    
+    // Assign undesired elements zero value
+    if(h > 10) {
+        return 0;
+    }
+    
+    // Calculate the heuristic score
+    return profit[voisinage[index_item]] / h;
+}
+```

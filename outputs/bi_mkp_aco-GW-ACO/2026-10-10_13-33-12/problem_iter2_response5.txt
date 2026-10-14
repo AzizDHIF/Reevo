@@ -1,0 +1,25 @@
+```c
+double heuristic_v2(int index_item, double **weights, double *capacity, int nb_voisinage, int *voisinage, double *profit)
+{
+    // implied bound complexity: O(dimension) only
+
+    double h = 0;
+    double geometric_mean = 1.0;
+    double sum_weight_profit_ratio = 0.0;
+
+    for (int j = 0; j < dimension; j++) {
+        h += weights[j][voisinage[index_item]] / capacity[j];
+        geometric_mean *= weights[j][voisinage[index_item]] / capacity[j];
+        sum_weight_profit_ratio += weights[j][voisinage[index_item]] / profit[voisinage[index_item] + 1];
+    }
+
+    double final_heuristic = profit[voisinage[index_item]] / (geometric_mean + sum_weight_profit_ratio);
+
+    // Sparsifying elements that are minimally contributing
+    if (final_heuristic < 0.001) {
+        return 0.0;
+    }
+
+    return final_heuristic;
+}
+```

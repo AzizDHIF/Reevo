@@ -1,0 +1,2 @@
+1. Normalize weight ratios, prioritize objective-specific computation, and balance exploration/exploitation for efficient trade-offs.
+2. Focus on profit-density ratio, adjust weighting factors, and consolidate calculations with simplicity in mind for improved MO-MKP heuristic performance.

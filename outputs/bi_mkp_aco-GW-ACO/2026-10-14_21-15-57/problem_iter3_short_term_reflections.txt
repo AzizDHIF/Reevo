@@ -1,0 +1,6 @@
+Consider incorporating domain knowledge, sparsification, and weighted calculations for better heuristic design in MO-MKP.
+Prioritize scalable, informative heuristics over arbitrary weight combinations. Focus on direct promise assessment with minimal complexity.
+Prioritize importance-aware weighted factors over simple ratios; incite heuristic innovations like sparsification for better performance.
+Prioritize simplicity and direct relevance to the problem; leverage existing parameters intelligently for efficient computation.
+Compute 'h' directly without intermediate variables and use it directly to calculate the heuristic value.
+Emphasize balance and weight distribution; Include sparsity check for unpromising solutions.

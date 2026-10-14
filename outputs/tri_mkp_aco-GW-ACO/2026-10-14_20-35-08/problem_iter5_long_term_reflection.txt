@@ -1,0 +1,1 @@
+Focus on prioritizing high-profit items efficiently, minimizing unnecessary complexity and computations, and streamlining calculations by avoiding divisions and unnecessary conditionals. Optimize heuristic efficiency through clear variable usage and early filtering of non-contributing factors.

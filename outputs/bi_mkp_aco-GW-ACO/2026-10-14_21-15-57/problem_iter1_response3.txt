@@ -1,0 +1,26 @@
+```c
+double heuristic_v2(int index_item, double **weights, double *capacity, int nb_voisinage, int *voisinage, double *profit){
+    double sum_weights = 1e-6; // Smoothing factor to avoid division by zero
+    double wn_ratio = 0.0;
+    double profit_density = 0.0;
+   
+    // Calculate sum of weights
+    for(int j=0; j<dimension; j++){
+        sum_weights += weights[j][voisinage[index_item]] / capacity[j];
+    }
+
+	// Calculate weight-to-number ratio and profit density
+	wn_ratio = sum_weights / (double) nb_voisinage;
+	profit_density = profit[voisinage[index_item]];
+
+	// Combine factors to determine promise
+	double v = (1.0 / (wn_ratio + 1.0)) * profit_density;
+	
+	// Make non-promising elements zero
+	if(wn_ratio > 0.75) {
+		v = 0.0;
+	}
+
+	return v;
+}
+```

@@ -1,0 +1,27 @@
+[*] Running ...
+[*] Mood: train
+Impossible de supprimer C:\Reevo\problems\bi_mkp_aco\results_individual_0\results_train_dataset_0.txt : [WinError 32] Le processus ne peut pas accéder au fichier car ce fichier est utilisé par un autre processus: 'C:\\Reevo\\problems\\bi_mkp_aco\\results_individual_0\\results_train_dataset_0.txt'
+[*] compiling ... 
+gpt.c:10:1: error: expected identifier or '(' before numeric constant
+   10 | .0 / capacity[j];
+      | ^~
+gpt.c:11:1: error: expected identifier or '(' before '}' token
+   11 | }
+      | ^
+gpt.c:13:1: error: expected identifier or '(' before 'if'
+   13 | if (inverse_capacity_sum != 0.0) {
+      | ^~
+gpt.c:15:3: error: expected identifier or '(' before 'else'
+   15 | } else {
+      |   ^~~~
+gpt.c:18:1: error: expected identifier or '(' before '}' token
+   18 | }
+      | ^
+WARNING:root:Failed to delete results_individual_0 :  [WinError 32] Le processus ne peut pas accéder au fichier car ce fichier est utilisé par un autre processus: 'C:\\Reevo\\problems\\bi_mkp_aco\\results_individual_0\\results_train_dataset_0.txt'
+WARNING:root:Failed to delete WeightACO_train_100items_results_individual_0.exe: [WinError 5] Accès refusé: 'C:\\Reevo\\problems\\bi_mkp_aco\\WeightACO_train_100items_results_individual_0.exe'
+Traceback (most recent call last):
+  File "C:\Reevo/problems/bi_mkp_aco/eval.py", line 418, in <module>
+    compile("WeightACO.c",f"WeightACO_train_100items_{id_response}.exe")
+  File "C:\Reevo/problems/bi_mkp_aco/eval.py", line 51, in compile
+    raise RuntimeError("Erreur de compilation")
+RuntimeError: Erreur de compilation

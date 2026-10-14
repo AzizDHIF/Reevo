@@ -1,0 +1,17 @@
+```c
+double heuristic_v2(int index_item, double **weights, double *capacity, int nb_voisinage, int *voisinage, double *profit) {
+    double diff_weight = 0;
+    double combined_factor = 0;
+    
+    for (int j = 0; j < dimension; j++) {
+        diff_weight += weights[j][voisinage[index_item]] - capacity[j];
+        combined_factor += weights[j][voisinage[index_item]] * capacity[j];
+    }
+    
+    if (diff_weight <= 0) {
+        return profit[voisinage[index_item]] / (1 + combined_factor);
+    } else {
+        return 0;
+    }
+}
+```

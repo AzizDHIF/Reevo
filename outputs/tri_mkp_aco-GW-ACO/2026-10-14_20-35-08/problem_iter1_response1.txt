@@ -1,0 +1,22 @@
+```c
+double heuristic_v2(int index_item, double **weights, double *capacity, int nb_voisinage, int *voisinage, double *profit){
+    double h=0;
+    double max_weight_ratio = 0;
+    double profit_density = profit[voisinage[index_item]] / NBITEMS; 
+    
+    for(int j=0;j<dimension;j++){
+        double item_weight_ratio = weights[j][voisinage[index_item]] / capacity[j];
+        h += item_weight_ratio;
+        
+        if(item_weight_ratio > max_weight_ratio){
+            max_weight_ratio = item_weight_ratio;
+        }
+    }
+
+    if(h == 0){
+        return 0.0;
+    }
+
+    return profit_density * max_weight_ratio / h;
+}
+```

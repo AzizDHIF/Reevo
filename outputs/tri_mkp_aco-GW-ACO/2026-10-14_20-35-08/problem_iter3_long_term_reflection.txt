@@ -1,0 +1,4 @@
+- Streamline computations by prioritizing relevant item properties.
+- Emphasize simplification and efficiency in heuristic calculations.
+- Focus on high-profit items efficiently within capacity constraints.
+- Optimize heuristics by reducing unnecessary complexity and computations.

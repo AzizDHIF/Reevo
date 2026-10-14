@@ -1,0 +1,22 @@
+```c
+double heuristic_v2(int index_item, double **weights, double *capacity, int nb_voisinage, int *voisinage, double *profit) {
+
+    double exploration_factor = 0.5; // Balance between exploration and exploitation
+    double h = 0;
+
+    for (int j = 0; j < dimension; j++) {
+        double weight_ratio = weights[j][voisinage[index_item]] / capacity[j];
+        h += weight_ratio * weight_ratio; // Use squared weight ratio
+    }
+
+    double geometric_mean = 1.0;
+    for (int j = 0; j < dimension; j++) {
+        double weight_ratio = weights[j][voisinage[index_item]] / capacity[j];
+        geometric_mean *= weight_ratio;
+    }
+
+    double promise = profit[voisinage[index_item]] / pow(geometric_mean, 1.0 / dimension); // Normalize using geometric mean
+
+    return exploration_factor * promise + (1 - exploration_factor) * sqrt(h);
+}
+```

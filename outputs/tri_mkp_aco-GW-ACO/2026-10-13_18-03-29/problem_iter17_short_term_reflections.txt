@@ -1,0 +1,6 @@
+Normalize shared computations, adjust weightings based on objective importance, and prioritize capturing key trade-offs efficiently.
+Normalize weights by capacity in profit density calculation for better heuristic performance.
+Emphasize weight ratio more significantly in the heuristic calculation for better performance in MO-MKP.
+Adjust weighting factors based on problem characteristics for better performance.
+Balance trade-offs by tuning weighting factors for different components based on empirical testing and problem characteristics.
+Emphasize critical factors more distinctly; balance profit with weight ratios effectively for better performance.

@@ -1,0 +1,5 @@
+1. Utilize nonzero weights and relative capacity ratio for objective evaluation.
+2. Incorporate constraints directly into heuristic calculations.
+3. Leverage weight-to-capacity ratio efficiently.
+4. Normalize weighted sum with a single division operation.
+5. Use reciprocal ratios and proportional weights for improved performance.

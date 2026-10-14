@@ -1,0 +1,18 @@
+```c
+#include <math.h>
+
+double heuristic_v2(int index_item, double **weights, double *capacity, int nb_voisinage, int *voisinage, double *profit){
+    double h1 = 0, h2 = 0;
+    
+    for(int j = 0; j < dimension; j++){
+        h1 += weights[j][voisinage[index_item]] / capacity[j]; 
+        h2 += fabs(weights[j][voisinage[index_item]] - capacity[j]);
+    }
+    h1 = h1 != 0 ? h1 : 1; // Avoid division by zero
+    
+    double ratio_obj1 = profit[voisinage[index_item]] / h1;
+    double ratio_obj2 = profit[voisinage[index_item]] / (1 + h2); // sparsifying heuristic by setting h2 impact to give very small increment
+    
+    return fmax(ratio_obj1, 0) * fmax(ratio_obj2, 0);
+}
+```

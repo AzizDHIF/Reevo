@@ -1,0 +1,6 @@
+Avoid unnecessary divisions to improve efficiency in the heuristic design for MO-MKP problems.
+Utilize intermediate variables for clarity and efficiency; avoid unnecessary calculations and conditionals for improved performance.
+Consider filtering out non-contributing factors early and minimizing unnecessary calculations for efficiency.
+Minimize arithmetic operations, avoid conditional statements, and ensure computations align directly with the objective ratios.
+Emphasize high-profit item inclusion more directly by simplifying calculations and avoiding unnecessary divisions.
+Utilize single loop and conditional checks for efficient heuristic calculation: consider overall ratio impact on objectives.

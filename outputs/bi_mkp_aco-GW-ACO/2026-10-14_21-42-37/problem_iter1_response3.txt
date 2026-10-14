@@ -1,0 +1,14 @@
+```c
+double heuristic_v2(int index_item, double **weights, double *capacity, int nb_voisinage, int *voisinage, double *profit){
+    double sum_weights = 0;
+    for(int j=0;j<dimension;j++){
+        sum_weights += weights[j][voisinage[index_item]];
+    }
+    
+    double complexity_factor = sum_weights > 0 ? 1/sum_weights : 0;
+    
+    double profit_density = sum_weights > 0 ? profit[voisinage[index_item]] / sum_weights : 0;
+    
+    return complexity_factor * profit_density;
+}
+```

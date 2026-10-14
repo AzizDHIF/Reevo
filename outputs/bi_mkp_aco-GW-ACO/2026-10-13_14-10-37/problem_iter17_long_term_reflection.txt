@@ -1,0 +1,1 @@
+Prioritize simplicity, utilize geometric mean for weight ratios, leverage square root normalization, and balance exploration/exploitation for efficient and effective MO-MKP heuristic design.

@@ -1,0 +1,6 @@
+Use geometric mean for weight ratios, normalize with square root for better heuristic performance.
+Consider geometric mean for independent weight ratios and normalize efficiently for better heuristic performance.
+Use square root instead of normalization for better heuristic efficiency and performance.
+Use squared weight ratios instead of geometric mean for better heuristic performance in MO-MKP.
+Use geometric mean instead of squared weight ratios for better heuristic performance in MO-MKP.
+Use geometric mean instead of squared ratios for stability; divide by square root for better normalization.

@@ -1,0 +1,3 @@
+- Incorporate domain knowledge, sparsify heuristics, and use weighted calculations for MO-MKP.
+- Prioritize scalable, informative heuristics with direct promise assessment.
+- Focus on importance-aware factors, simplicity, and balance while leveraging existing parameters for efficient computation.

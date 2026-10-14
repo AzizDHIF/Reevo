@@ -1,0 +1,11 @@
+```c
+double heuristic_v2(int index_item, double **weights, double *capacity, int nb_voisinage, int *voisinage, double *profit) {
+    double h = 0;
+    for (int j = 0; j < dimension; j++) {
+        double weight_to_cap_ratio = weights[j][voisinage[index_item]] / capacity[j];
+        double reciprocal_ratio = (weight_to_cap_ratio != 0) ? 1 / weight_to_cap_ratio : 0;
+        h += reciprocal_ratio;
+    }
+    return profit[voisinage[index_item]] * h / dimension;
+}
+```

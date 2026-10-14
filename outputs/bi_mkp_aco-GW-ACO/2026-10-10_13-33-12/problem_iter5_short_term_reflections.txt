@@ -1,0 +1,6 @@
+Focus on incorporating item proximity and relative differences for better heuristic design in MO-MKP.
+Simplify calculations, focus on essential features, and avoid unnecessary complexity for better heuristics.
+Utilize direct, concise calculations over iterative approaches for efficient heuristic designs in optimization problems.
+Simplify heuristics by focusing on key aspects and reducing unnecessary calculations for efficiency.
+Consider incorporating item similarities and explicit profit-weight dependencies for enhanced heuristic performance.
+Focus on relevant data only; simplify calculations; avoid unnecessary operations; ensure efficient use of available information.

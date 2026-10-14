@@ -1,0 +1,19 @@
+```c
+double heuristic_v2(int index_item, double **weights, double *capacity, int nb_voisinage, int *voisinage, double *profit){
+    double h=0;
+    double score = 0;
+    for(int j=0;j<dimension;j++){
+        h += weights[j][voisinage[index_item]]/capacity[j];
+    }
+
+    // Heuristic combining different factors such as weights, profit, and capacity
+    score = (2*h)/(1+profit[voisinage[index_item]]);
+
+    // Handling unpromising elements by setting a threshold
+    if(score <= 0.5){
+        return 0;
+    }
+
+    return score;
+}
+```

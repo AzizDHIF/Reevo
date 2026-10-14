@@ -1,0 +1,1 @@
+Combine promising factors efficiently by prioritizing non-zero weights, sparsity, and dimensionality insights. Use a weighted sum of factors for balancing objectives, simplify calculations, and focus on essentials for improved MO-MKP heuristic performance.

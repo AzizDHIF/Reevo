@@ -1,0 +1,18 @@
+```c
+double heuristic_v2(int index_item, double **weights, double *capacity, int nb_voisinage, int *voisinage, double *profit) {
+    double h = 0;
+    
+    for(int j = 0; j < dimension; j++) {
+        double weight_ratio = weights[j][voisinage[index_item]] / capacity[j];
+        h += weight_ratio * weight_ratio; // Use squared weight ratio
+    }
+    
+    double weight_geometric_mean = 1;
+    for(int j = 0; j < dimension; j++) {
+        weight_geometric_mean *= weights[j][voisinage[index_item]] / capacity[j];
+    }
+    weight_geometric_mean = pow(weight_geometric_mean, 1.0 / dimension); // Calculate the geometric mean of weight ratios
+    
+    return profit[voisinage[index_item]] * weight_geometric_mean; // Utilize geometric mean for weight ratios
+}
+```

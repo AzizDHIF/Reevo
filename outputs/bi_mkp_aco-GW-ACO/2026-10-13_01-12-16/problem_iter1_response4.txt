@@ -1,0 +1,22 @@
+```c
+// Required Complexity Bound: O(dimension) only, no loops over NBITEMS, no sorting, no dynamic allocation, no recursion
+
+double heuristic_v2(int index_item, double **weights, double *capacity, int nb_voisinage, int *voisinage, double *profit){
+    double combined_factor = 0;
+    double sparsified_factor = 0;
+    
+    for(int j=0;j<dimension;j++){
+			combined_factor += weights[j][voisinage[index_item]] / capacity[j]; 
+	}
+	
+    double profit_factor = profit[voisinage[index_item]] / combined_factor;
+    double weight_factor = 1 / combined_factor; // Assuming minimizing total weight is desirable
+
+    // Sparsifying the heuristic
+    if(combined_factor > threshold){
+        sparsified_factor = profit_factor * weight_factor; // Only consider promising elements
+    }
+    
+    return sparsified_factor;
+}
+```

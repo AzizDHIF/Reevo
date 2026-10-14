@@ -1,0 +1,21 @@
+```c
+double heuristic_v2(int index_item, double **weights, double *capacity, int nb_voisinage, int *voisinage, double *profit) {
+    double density = 0.0;
+    double total_weight = 0.0;
+
+    for (int j = 0; j < dimension; j++) {
+        density += weights[j][voisinage[index_item]] / capacity[j];
+        total_weight += weights[j][voisinage[index_item]];
+    }
+
+    if (total_weight > capacity[0]) {
+        return 0.0;
+    }
+
+    double promise = profit[voisinage[index_item]] / density;
+    promise *= dimension;
+    promise *= (1.0 + (double)index_item / NBITEMS);
+
+    return promise;
+}
+```

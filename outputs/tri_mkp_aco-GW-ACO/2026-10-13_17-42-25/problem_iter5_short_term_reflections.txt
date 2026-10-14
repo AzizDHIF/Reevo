@@ -1,0 +1,6 @@
+Focus on simplicity and direct computation; avoid unnecessary conditions and intermediate calculations.
+Consider leveraging all dimensions and penalizing larger weights for better performance in MO-MKP heuristics.
+Focus on relative differences over absolute values. Minimize unnecessary calculations and simplify computations for efficiency.
+Avoid unnecessary computations, focus on relevant information like promise, and use simpler calculations efficiently.
+Use direct calculations (e.g., ratio) without unnecessary intermediate computations to improve heuristic efficiency.
+Sum all item weights and capacities efficiently for balanced promise calculation.

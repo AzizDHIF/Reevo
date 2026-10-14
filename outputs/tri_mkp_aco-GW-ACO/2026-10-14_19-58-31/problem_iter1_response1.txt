@@ -1,0 +1,24 @@
+```c
+double heuristic_v2(int index_item, double **weights, double *capacity, int nb_voisinage, int *voisinage, double *profit){
+	double h=0;
+	double score=0;
+	double profit_factor = 0.7; // Weight of profit factor in the calculation
+	double weight_factor = 0.3; // Weight of weight factor in the calculation
+    
+	// Combine weights and capacity across dimensions
+	for(int j=0; j<dimension; j++){
+		h += weights[j][voisinage[index_item]] / capacity[j];
+	}
+    
+	// Calculate combined score based on profit and weight factors
+	score = (profit[voisinage[index_item]] / h) * profit_factor - ((h / dimension) * weight_factor);
+    
+	// Set elements that are not part of the valid voisins to zero 
+	for(int k=nb_voisinage; k<NBITEMS; k++){
+		if(voisinage[k] == voisinage[index_item]) {
+			return score;
+		}
+	}
+	return 0;
+}
+```

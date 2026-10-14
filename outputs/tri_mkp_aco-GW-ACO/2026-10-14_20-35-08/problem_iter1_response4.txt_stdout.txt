@@ -1,0 +1,13 @@
+[*] Running ...
+[*] Mood: train
+[*] compiling ... 
+gpt.c: In function 'heuristic':
+gpt.c:21:8: error: expected expression before 'case'
+   21 | return case development towards a better solution
+      |        ^~~~
+Traceback (most recent call last):
+  File "C:\Reevo/problems/tri_mkp_aco/eval.py", line 66, in <module>
+    compile(WORK_DIR,"WeightACO.c",f"WeightACO_train_100items_{id_response}.exe")
+  File "C:\Reevo\utils\utils.py", line 101, in compile
+    raise RuntimeError("Erreur de compilation")
+RuntimeError: Erreur de compilation

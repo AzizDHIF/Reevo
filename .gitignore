@@ -179,3 +179,4 @@ results*.txt
 *results/
 Weight*.exe
 plot_generator
+brouillon.py

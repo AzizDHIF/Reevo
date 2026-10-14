@@ -1,0 +1,1 @@
+Design heuristics for MO-MKP by emphasizing relative weight ratios, squaring them before summing, normalizing for sensitivity to capacities, and prioritizing squared ratios for better performance. Normalize the sum of squared weight ratios to enhance accuracy and efficacy.

@@ -1,0 +1,29 @@
+```c
+double heuristic_v2(int index_item, double **weights, double *capacity, int nb_voisinage, int *voisinage, double *profit){
+    double h=0;
+    double weighted_capacity = 0;
+    double weighted_profit = 0;
+    
+    for(int j=0;j<dimension;j++){
+        h = h + weights[j][voisinage[index_item]]/capacity[j];
+        
+        // Alternatively, we can introduce weights for each dimension
+        // weighted_capacity = weighted_capacity + weights[j][voisinage[index_item]]/capacity[j] * weight_for_dimension[j];
+    }
+    
+    // Alternatively, calculate weighted profit based on objectives importance
+    // weighted_profit = profit[voisinage[index_item]] * objective_importance[index_item];
+    
+    // In heuristic_v2, your inventive enhancement:
+    
+    // Sparsification: If the combined weight exceeds capacity, item is unlikely to be selected
+    if(h > dimension){
+        return 0;
+    }
+    
+    // Alternatively, use different strategies such as considering percentile of weights rather than individual
+    // or weighing the importance of a delivery based on profit
+    
+    return profit[voisinage[index_item]]/h;
+}
+``` 

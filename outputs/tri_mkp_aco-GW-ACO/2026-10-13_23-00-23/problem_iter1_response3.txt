@@ -1,0 +1,23 @@
+```c
+double heuristic_v2(int index_item, double **weights, double *capacity, int nb_voisinage, int *voisinage, double *profit){
+    double h=0;
+    int count_nonzero = 0;
+
+    for(int j=0; j<dimension; j++){
+        h += weights[j][voisinage[index_item]] / capacity[j];
+        if(weights[j][voisinage[index_item]] != 0 && capacity[j] != 0){
+           count_nonzero++;
+        }
+    }
+
+    double promising_factor = 0.6;
+    double sparse_factor = 0.35;
+
+    if(count_nonzero == dimension){
+        return profit[voisinage[index_item]] / h;
+    }
+    else{
+        return promising_factor * profit[voisinage[index_item]] / h + sparse_factor;
+    }
+}
+```

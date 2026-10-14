@@ -1,0 +1,14 @@
+[*] Running ...
+[*] Mood: train
+[*] compiling ... 
+gpt.c: In function 'heuristic':
+gpt.c:13:36: error: 'MIN_PROFIT_THRESHOLD' undeclared (first use in this function)
+   13 | if(profit[voisinage[index_item]] < MIN_PROFIT_THRESHOLD){
+      |                                    ^~~~~~~~~~~~~~~~~~~~
+gpt.c:13:36: note: each undeclared identifier is reported only once for each function it appears in
+Traceback (most recent call last):
+  File "C:\Reevo/problems/tri_mkp_aco/eval.py", line 420, in <module>
+    compile("WeightACO.c",f"WeightACO_train_100items_{id_response}.exe")
+  File "C:\Reevo/problems/tri_mkp_aco/eval.py", line 52, in compile
+    raise RuntimeError("Erreur de compilation")
+RuntimeError: Erreur de compilation

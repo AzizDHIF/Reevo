@@ -1,0 +1,6 @@
+Normalize total_weight_ratio before computing profit_density to improve heuristic performance.
+Combine relevant features directly for succinct heuristics that capture relationships efficiently.
+Focus on directly relevant features, simplify calculations, tune weighting factors, and avoid unnecessary complexity or sparse adjustments.
+Weighted combination of relevant features can improve heuristic efficiency in multi-objective optimization problems.
+Focus on simplicity and clarity; adjust weighting factors based on problem characteristics for better performance.
+Consider incorporating a constraint check and adapt weights dynamically for improved heuristic robustness and performance.

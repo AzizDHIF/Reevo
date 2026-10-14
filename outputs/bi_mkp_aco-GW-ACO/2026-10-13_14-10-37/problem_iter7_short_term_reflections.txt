@@ -1,0 +1,7 @@
+Avoid unnecessary computations, prioritize non-zero weights, and handle division by zero cases explicitly for better heuristics.
+Emphasize weight-to-capacity ratios over capacity-to-weight ratios for better heuristic performance in MO-MKP.
+Leverage efficient element-wise computations and avoid unnecessary operations for improved heuristics in MO-MKP.
+Simplify computation by directly optimizing without storing and using the sum of inverse capacities.
+
+Prioritize efficiency by minimizing conditional checks and reducing unnecessary computations.
+Simplify calculations, prioritize efficiency, and avoid unnecessary loops for heuristic optimization in MO-MKP algorithms.

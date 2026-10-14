@@ -1,0 +1,1 @@
+double heuristic(int index_item, double **weights, double *capacity, int nb_voisinage, int *voisinage, double *profit);

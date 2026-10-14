@@ -1,0 +1,6 @@
+1. Avoid unnecessary computation and simplification to reduce complexity and improve performance.
+Focus on relevant item properties, avoid unnecessary computations, and consider overall impact on objectives efficiently.
+Utilize simpler and computationally efficient calculations while emphasizing high-profit items within the capacity.
+Reduce unnecessary computations, focus on essential calculations, and simplify expressions for improved heuristic efficiency.
+Maximize clarity by reducing variable usage and simplifying calculations to focus on essential heuristics.
+Simplify heuristics by focusing on essential calculations like profit-to-weight ratio and avoid unnecessary computations for efficiency.

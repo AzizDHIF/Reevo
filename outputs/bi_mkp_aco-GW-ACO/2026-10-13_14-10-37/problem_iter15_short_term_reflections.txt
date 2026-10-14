@@ -1,0 +1,6 @@
+Prioritize low-complexity operations; consider geometric mean for better performance in heuristic design.
+Prioritize stability, avoid overemphasis on individual dimensions, and use normalized sum in heuristic calculations.
+Balance exploration and exploitation; use sqrt(h) for better convergence and non-linear normalization.
+Utilize square root for normalizing heuristic values to improve performance in MO-MKP heuristics.
+Prioritize balancing objectives & normalize with sqrt() for better heuristic efficiency in multi-objective optimization.
+Normalize squared weight ratios and consider better balancing profit in heuristic calculations.

@@ -1,0 +1,1 @@
+Prioritize non-zero weights, balance objectives with weighted factors, simplify calculations, avoid unnecessary operations, handle extremes efficiently, normalize weights individually, and focus on essential heuristics for efficient MO-MKP performance.

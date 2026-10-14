@@ -1,0 +1,6 @@
+Use a weighted sum of normalized weights and profits, consider weight-profit ratio, limit high weight impact on heuristic.
+Avoid unnecessary multiplication and division, replace with addition and check for division by zero.
+Focus on essential calculations, simplify and avoid unnecessary adjustments for improved heuristic performance.
+Avoid unnecessary conditional checks and compute ratio directly to improve heuristic efficiency.
+Avoid unnecessary conditional checks and accumulate weights directly proportional to capacity; simplify calculations and reduce branches.
+Leverage weighted sum of normalized weights and profits, consider balance in objectives, and handle extreme cases cautiously.

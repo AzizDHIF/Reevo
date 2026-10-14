@@ -1,0 +1,19 @@
+```c
+double heuristic_v2(int index_item, double **weights, double *capacity, int nb_voisinage, int *voisinage, double *profit) {
+    double h = 0;
+    double weight_ratio = 0.4;
+    double profit_ratio = 0.6;
+    double dimension_penalty = 0.5;
+
+    for (int j = 0; j < dimension; j++) {
+        if (capacity[j] != 0) {
+            h += weights[j][voisinage[index_item]] / capacity[j];
+        }
+    }
+
+    double weight_penalization = (1.0 - weight_ratio) * h / dimension;
+    double profit_influence = profit[voisinage[index_item]] / (profit[voisinage[index_item]] + profit_ratio * dimension_penalty * weight_penalization);
+
+    return profit_influence;
+}
+```

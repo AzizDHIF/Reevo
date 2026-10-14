@@ -1,0 +1,22 @@
+```c
+#include <math.h>
+
+#define MIN_PROFIT_THRESHOLD 0.0001
+
+double heuristic_v2(int index_item, double **weights, double *capacity, int nb_voisinage, int *voisinage, double *profit){
+    double capacity_ratio = 0;
+    for(int j=0; j<dimension; j++){
+        capacity_ratio += weights[j][voisinage[index_item]] / capacity[j];
+    }
+    
+    double profit_contribution = profit[voisinage[index_item]] / (1 + capacity_ratio);
+    double weight_contribution = 1 + 1.0 / (1 + exp(-capacity_ratio));
+    
+    // Sparsifying by setting unpromising elements to zero
+    if(profit[voisinage[index_item]] < MIN_PROFIT_THRESHOLD){
+        return 0.0;
+    }
+    
+    return profit_contribution * weight_contribution;
+}
+```

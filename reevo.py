@@ -8,7 +8,9 @@ import sys
 from utils.utils import *
 from utils.llm_client.base import BaseClient
 
-
+env = os.environ.copy()
+env["PYTHONUTF8"] = "1"
+env["PYTHONIOENCODING"] = "utf-8:replace"
 class ReEvo:
     def __init__(
         self, 
@@ -208,6 +210,10 @@ class ReEvo:
                 logging.info(f"Error for response_id {response_id}: {e}")
                 population[response_id] = self.mark_invalid_individual(population[response_id], str(e))
                 inner_run.kill()
+                subprocess.run(["taskkill", "/F", "/T", "/PID", str(inner_run.pid)],
+                capture_output=True)
+                cleanup_individual(work_dir=f"{self.root_dir}/problems/{self.problem}", response_id=response_id)
+                
                 continue
 
             individual = population[response_id]
@@ -248,7 +254,7 @@ class ReEvo:
         with open(individual["stdout_filepath"], 'w',encoding="utf-8",errors="replace") as f:
             eval_file_path = f'{self.root_dir}/problems/{self.problem}/eval.py' if self.problem_type != "black_box" else f'{self.root_dir}/problems/{self.problem}/eval_black_box.py' 
             process = subprocess.Popen([sys.executable, '-u', eval_file_path, str(response_id), "train",self.cfg.metric],
-                            stdout=f, stderr=f)
+                            stdout=f, stderr=f,env=env)
 
         block_until_running(individual["stdout_filepath"], log_status=True, iter_num=self.iteration, response_id=response_id)
         return process

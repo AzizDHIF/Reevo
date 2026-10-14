@@ -1,0 +1,2 @@
+1. Dynamically adjust weights based on problem characteristics and heuristic performance for efficient trade-off optimization.
+2. Simplify calculations by combining weight ratio and profit density directly for improved performance in MO-MKP heuristics.

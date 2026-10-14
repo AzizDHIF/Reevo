@@ -1,0 +1,3 @@
+1. Simplify calculations using weighted factors and normalize contributions efficiently.
+2. Prioritize direct usage of constraints and profits, avoid redundancy with efficient normalization.
+3. Emphasize efficiency by minimizing redundant computation, simplifying calculations, and focusing on essential factors.

@@ -1,0 +1,6 @@
+Focus on efficient calculations eliminating redundant operations & directly computing the promise metric for better heuristic performance.
+1. Consider using relative differences in constraints and weights for better heuristic efficiency.
+Use direct ratio computation instead of division in a loop for efficiency and simplicity in heuristics design.
+Emphasize efficiency and relevance of computations in heuristics to improve performance and accuracy.
+Reduce redundant calculations, prioritize capacity constraints, consider proportions, simplify computations, and avoid unnecessary conditions.
+Focus on relevant constraints, avoid unnecessary computations, and simplify calculations for efficient heuristics design.

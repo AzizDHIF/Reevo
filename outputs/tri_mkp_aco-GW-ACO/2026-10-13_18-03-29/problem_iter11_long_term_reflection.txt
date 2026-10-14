@@ -1,0 +1,1 @@
+Normalize weight ratios, optimize weighting factors, prioritize relative weight usage, simplify calculations, and adjust factors based on empirical performance and problem characteristics for effective MO-MKP heuristics.

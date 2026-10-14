@@ -1,0 +1,6 @@
+Focus on coherence, simplicity, and efficient computation for better heuristics in optimization.
+Combine relevant factors efficiently, balancing weight ratios and profit densities with proper weighting.
+Combine capacity utilization and diversity in a single loop, use ratios, minimize operations.
+Focus on using simple, consistent, and meaningful calculations; prioritize relevant factors over complex computations for better heuristics.
+Leverage weight sum normalization, spareness, and utility alignment to improve the stochastic heuristic performance efficiently.
+Focus on simplicity, balance weight ratios and profit densities, avoid unnecessary complexity, and tune weights wisely.

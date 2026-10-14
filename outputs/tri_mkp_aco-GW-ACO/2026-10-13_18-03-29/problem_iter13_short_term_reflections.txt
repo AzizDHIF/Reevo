@@ -1,0 +1,6 @@
+Consider alternative combinations of weight and profit factors for better performance in heuristics.
+Normalize objective values before combining them to ensure fair weighting for better heuristic performance.
+Adjust weight factors in heuristic combination carefully based on exploration and exploitation trade-off for better performance.
+Reconsider weighting factors to favor the more impactful metric for enhanced heuristic performance.
+Emphasize weight ratio over profit density for better performance in MO-MKP heuristic functions.
+Emphasize critical factors for scalability; balance weight ratios and profit densities effectively.

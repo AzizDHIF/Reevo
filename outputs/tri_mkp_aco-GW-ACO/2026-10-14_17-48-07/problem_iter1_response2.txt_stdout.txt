@@ -1,0 +1,21 @@
+[*] Running ...
+[*] Mood: train
+[*] compiling ... 
+gpt.c:3:8: error: conflicting types for 'heuristic'; have 'double(int,  double **, double *, int,  int *, double *, double *)'
+    3 | double heuristic(int INDX_ITEM, double **wo1, double *capacity, int NB_VOISN, int *voisinage, double *prof, double *wo2)
+      |        ^~~~~~~~~
+In file included from gpt.c:1:
+HBACO.h:44:8: note: previous declaration of 'heuristic' with type 'double(int,  double **, double *, int,  int *, double *)'
+   44 | double heuristic(int index_item, double **weights, double *capacity, int nb_voisinage, int *voisinage, double *profit);
+      |        ^~~~~~~~~
+gpt.c: In function 'heuristic':
+gpt.c:49:13: error: 'assets' undeclared (first use in this function)
+   49 | return 30 * assets[voisinage[INDX_ITEM]][3];
+      |             ^~~~~~
+gpt.c:49:13: note: each undeclared identifier is reported only once for each function it appears in
+Traceback (most recent call last):
+  File "C:\Reevo/problems/tri_mkp_aco/eval.py", line 430, in <module>
+    compile("WeightACO.c",f"WeightACO_train_100items_{id_response}.exe")
+  File "C:\Reevo/problems/tri_mkp_aco/eval.py", line 58, in compile
+    raise RuntimeError("Erreur de compilation")
+RuntimeError: Erreur de compilation

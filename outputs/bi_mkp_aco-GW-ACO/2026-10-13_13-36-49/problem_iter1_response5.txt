@@ -1,0 +1,21 @@
+```c
+double heuristic_v2(int index_item, double **weights, double *capacity, int nb_voisinage, int *voisinage, double *profit){
+    double h=0;
+    double ratio = 0;
+    
+    for(int j=0;j<dimension;j++){
+        // Consider only non-zero weight elements
+        if(weights[j][voisinage[index_item]] > 0) {
+            h += weights[j][voisinage[index_item]] / capacity[j];
+            // Calculate a combined ratio based on weight to capacity ratio and profit
+            ratio += (capacity[j] * profit[voisinage[index_item]]) / weights[j][voisinage[index_item]];
+        }
+    }
+    
+    // Spare representations of unpromising elements
+    if(h == 0) {
+        return 0;
+    }
+    return ratio / h;
+}
+```

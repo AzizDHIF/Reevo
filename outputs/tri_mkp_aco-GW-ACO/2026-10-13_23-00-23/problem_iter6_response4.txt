@@ -1,0 +1,20 @@
+```c
+double heuristic_v2(int index_item, double **weights, double *capacity, int nb_voisinage, int *voisinage, double *profit) {
+    double h = 0;
+    
+    // Check if the item is invalid based on zero weights
+    if (weights[0][voisinage[index_item]] == 0) {
+        return 0;
+    }
+    
+    // Calculate a balanced heuristic value
+    for (int j = 0; j < dimension; j++) {
+        if (capacity[j] != 0) {
+            h += weights[j][voisinage[index_item]] / capacity[j];
+        }
+    }
+    
+    // Weight the profit with the heuristic value
+    return h != 0 ? profit[voisinage[index_item]] / h : 0;
+}
+```

@@ -1,0 +1,6 @@
+Avoid multiplying capacity ratios and handle weight ratios separately for improved performance and stability.
+Utilize a single loop, minimize divisions and use ratio handling for more efficient heuristics.
+Avoid excessive multiplication, use simpler combined metrics based on division and summation for better heuristic performance.
+Normalize weights by capacity, prioritize balanced weights-profit trade-off, consider interactions between metrics for better heuristics.
+Emphasize on the relationship between profit and contribution, incorporate a threshold for impactful heuristics.
+Focus on meaningful utility calculation and incorporate sparsity considerations for better heuristic function design.

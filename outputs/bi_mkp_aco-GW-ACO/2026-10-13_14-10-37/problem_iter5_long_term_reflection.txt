@@ -1,0 +1,4 @@
+1. Focus on direct computations and minimize divisions.
+2. Emphasize feasibility handling and diversity measures.
+3. Prioritize efficiency, robustness, and exploration-exploitation balance.
+4. Leverage sparsity and efficient data traversal.

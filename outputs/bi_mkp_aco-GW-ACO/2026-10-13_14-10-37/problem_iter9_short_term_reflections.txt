@@ -1,0 +1,6 @@
+Consider utilizing nonzero weights and relative capacity ratio for more effective objective evaluation in heuristics.
+Prioritize incorporating constraints directly into heuristic calculations for better performance.
+Leverage weight-to-capacity ratio for better heuristic efficiency in MO-MKP.
+Weighted sum should be normalized with capacity. Avoid multiple computation; use single division operation.
+Hint: Minimize divisions, prioritize direct calculations, and consider reciprocal ratios for better heuristic efficiency.
+Consider normalized weights, proportional to remaining capacity, over fixed weights for improved performance in heuristics.

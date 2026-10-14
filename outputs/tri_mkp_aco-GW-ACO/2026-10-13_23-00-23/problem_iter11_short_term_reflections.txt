@@ -1,0 +1,6 @@
+Consider incorporating weighted factors for weights and profits, limit weight dominance, and balance objectives optimally.
+Prioritize efficiency over complexity, simplify calculations, and focus on relevant features for decision-making.
+Balance weight and profit dependencies efficiently; avoid unnecessary calculations for improved heuristic accuracy and performance.
+Consider optimizing calculations by aggregating values once, reducing redundant computations.
+Focus on simple and direct calculations, avoid unnecessary complexity, and prioritize proportionality between weights and profits.
+Simplify and prioritize weight and profit terms sensibly to improve heuristic efficiency and effectiveness.

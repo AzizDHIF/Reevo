@@ -1,0 +1,1 @@
+Prioritize non-zero weights, balance objectives with weighted factors, and simplify calculations for efficient MO-MKP heuristic design. Focus on key factors, handle extremes wisely, and optimize for essential computations to enhance performance.

@@ -1,0 +1,2 @@
+1. Simplify computations and prioritize efficiency by utilizing direct ratio calculations based on item weight and remaining capacity.
+2. Focus on relevant information, prioritize profit density, and normalize by remaining capacity for improved heuristic accuracy and performance in MO-MKP.

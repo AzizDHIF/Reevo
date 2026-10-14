@@ -1,0 +1,1 @@
+Emphasize proportional weights and capacities, prioritize feasible solutions, leverage normalized ratios, and utilize reciprocal capacities for efficient MO-MKP heuristic design.

@@ -1,0 +1,7 @@
+- Use a weighted sum of normalized weights and profits, considering balance between weight and profit impact.
+Consider weighting factors carefully, prioritize key factors, and handle extreme cases efficiently for better heuristics.
+Focus on objective relation, reduce complexity to essential computations, and avoid unnecessary calculations for better heuristics.
+Prioritize simplicity and direct relevance to objectives; avoid unnecessary computations or complex calculations.
+Use conditional statements sparingly, avoid unnecessary operations, and prioritize simplicity for clarity and optimization.
+
+Simplify heuristic calculations by avoiding unnecessary operations and improving robustness against edge cases for better performance.

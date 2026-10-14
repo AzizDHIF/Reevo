@@ -1,0 +1,1 @@
+Normalize total weight ratio before calculating profit density. Combine features directly for efficient heuristics. Simplify calculations, tune weights, and avoid complexity. Adapt weights dynamically based on constraints for robustness.

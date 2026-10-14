@@ -1,0 +1,27 @@
+```c
+double heuristic_v2(int index_item, double **weights, double *capacity, int nb_voisinage, int *voisinage, double *profit){
+    double h = 0, weight_sum = 0, weight_capacity_prod = 1, profit_sum = 0;
+
+	// Calculate total weight of all neighbors
+    for(int j=0; j < dimension; j++){
+			weight_sum += weights[j][voisinage[index_item]];
+		}
+
+	// Calculate product of weight and capacity within each dimension
+    weight_capacity_prod = 1;
+    for(int j=0; j<dimension; j++){
+			weight_capacity_prod *= (capacity[j] - weights[j][voisinage[index_item]]) / capacity[j];
+		}
+
+	// Calculate total profit of all neighbors
+    profit_sum = 0;
+    for(int i=0; i<nb_voisinage; i++){
+			profit_sum += profit[voisinage[i]];
+		}
+
+	// Combining factors to determine the heuristic value
+    h = (weight_sum > 0) ? ((profit[voisinage[index_item]] + profit_sum) / weight_sum) * weight_capacity_prod : 0;
+    
+    return h;
+}
+```

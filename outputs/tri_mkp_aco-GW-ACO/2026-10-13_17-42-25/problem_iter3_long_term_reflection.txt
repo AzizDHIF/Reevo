@@ -1,0 +1,3 @@
+1. Design a promise metric combining factors efficiently for item selection.
+2. Utilize relative differences and direct ratio computation for better efficiency.
+3. Focus on relevant constraints, sparsify heuristic, and eliminate redundant operations for improved performance.

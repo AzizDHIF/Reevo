@@ -1,0 +1,6 @@
+Use efficient computation of the promising score and focus on the impact of total weight in the better code.
+Leverage the ratios directly from capacity and weights for better heuristic performance.
+Leverage ratio of weights to capacity to adjust contribution importance based on remaining capacity efficiently.
+Avoid costly operations like division and compute promising candidates efficiently based on dynamic factors.
+Consider directly incorporating the promising factor into the promising criteria calculation for improved efficiency and accuracy.
+Focus on simplicity, reduce unnecessary calculations, and prioritize direct relationships between variables for efficiency and clarity.

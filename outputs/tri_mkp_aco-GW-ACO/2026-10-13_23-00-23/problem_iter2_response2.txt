@@ -1,0 +1,28 @@
+```c
+double heuristic_v2(int index_item, double **weights, double *capacity, int nb_voisinage, int *voisinage, double *profit) {
+    double h = 0;
+    double w_factor = 0.6;
+    double p_factor = 0.4;
+
+    // Calculate the weighted sum of weights for the neighbor item
+    for (int j = 0; j < dimension; j++) {
+        h += weights[j][voisinage[index_item]] * w_factor / capacity[j];
+    }
+
+    // Calculate heuristic value based on combined factors taking maximum profit as reference
+    double max_profit = 0;
+    for (int i = 0; i < nb_voisinage; i++) {
+        if (profit[voisinage[i]] > max_profit) {
+            max_profit = profit[voisinage[i]];
+        }
+    }
+    double h_value = profit[voisinage[index_item]] / max_profit * p_factor / h;
+
+    // Set heuristic value to 0 and return if high weight compared to profit
+    if (h > 2 * w_factor * dimension) {
+        return 0;
+    }
+
+    return h_value;
+}
+```

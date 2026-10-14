@@ -1,0 +1,6 @@
+Consider efficiency by reducing unnecessary computations, favoring simplicity, and prioritizing relevant features for decision-making in heuristics.
+Emphasize early pruning of unpromising elements; Consider only necessary computations for efficiency.
+Focus on essential factors like capacity and profit, without unnecessary calculations or conditional checks.
+Prioritize simple, focused calculations and consider the potential for division by zero in heuristic design.
+Simplify calculations, emphasize profitable items, and adjust weight and profit factors for better heuristics.
+Utilize early termination, prioritize efficiency, focus on key heuristics, and avoid unnecessary calculations.

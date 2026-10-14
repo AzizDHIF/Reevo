@@ -1,0 +1,1 @@
+Prioritize essential factors for efficient heuristics. Focus on early pruning, simplified calculations, and relevant features. Emphasize profitability, capacity, and simplicity while avoiding unnecessary computations and conditional checks.

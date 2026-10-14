@@ -1,0 +1,25 @@
+```c
+double heuristic_v2(int index_item, double **weights, double *capacity, int nb_voisinage, int *voisinage, double *profit){
+    double w_sum = 0, c_sum = 0, p_sum = 0;
+    
+    for(int j=0;j<dimension;j++){
+        w_sum += weights[j][voisinage[index_item]];
+        c_sum += capacity[j];
+    }
+
+    if(c_sum == 0) return 0;
+
+    for(int i=0; i<nb_voisinage; i++){
+        int neighbor_index = voisinage[i];
+        double w_neighbor_sum = 0, c_neighbor_sum = 0;
+        for(int j=0;j<dimension;j++){
+            w_neighbor_sum += weights[j][neighbor_index];
+            c_neighbor_sum += capacity[j];
+        }
+        if(c_neighbor_sum == 0) continue;
+        p_sum += profit[neighbor_index] * (1 - ((w_neighbor_sum + w_sum) / (c_neighbor_sum + c_sum)));
+    }
+
+    return p_sum / nb_voisinage;
+}
+```

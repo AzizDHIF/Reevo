@@ -1,0 +1,20 @@
+```c
+double heuristic_v2(int index_item, double **weights, double *capacity, int nb_voisinage, int *voisinage, double *profit) {
+    double weight_ratio = 0.0;
+    int non_zero = 0;
+
+    for (int j = 0; j < dimension; j++) {
+        double item_weight = weights[j][voisinage[index_item]];
+        if (item_weight > 0) {
+            weight_ratio += item_weight / capacity[j];
+            non_zero++;
+        }
+    }
+
+    if (non_zero == 0) {
+        return 0.0;
+    }
+
+    return (profit[voisinage[index_item]] / weight_ratio) * (1.0 / non_zero);
+}
+```

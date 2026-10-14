@@ -1,0 +1,17 @@
+```c
+double heuristic_v2(int index_item, double **weights, double *capacity, int nb_voisinage, int *voisinage, double *profit){
+    double h=0, weight_sum=0, weight_mean=0;
+	
+    for(int j=0; j<dimension; j++){
+        weight_sum += weights[j][voisinage[index_item]];
+        if(weights[j][voisinage[index_item]] != 0){ // Striving to sparsify the heuristic
+            weight_mean += weights[j][voisinage[index_item]]/capacity[j];
+            h +=  weights[j][voisinage[index_item]] * capacity[j];
+        }
+    }
+	
+    if(weight_mean == 0) return 0; 
+	
+    return (profit[voisinage[index_item]] * weight_sum) / h; // Combining factors to determine item's promise
+}
+```

@@ -1,0 +1,23 @@
+```c
+double power_diff(int ai, int bi){
+    double d2 = (ai-bi)*(ai-bi);
+    return (double)d2;
+}
+
+double heuristic_v2(int index_item, double **weights, double *capacity, int nb_voisinage, int *voisinage, double *profit){
+    double h = 0;
+    for(int j = 0; j < dimension; j++){
+        h += weights[j][voisinage[index_item]] / capacity[j];
+    }
+
+    // Combine various factors
+    double promising_score = profit[voisinage[index_item]] / h + power_diff(profit[voisinage[index_item]], h);
+
+    // Sparsify the heuristic
+    if (pow(profit[voisinage[index_item]], 2) + pow(h, 2) < pow(0.01, 2)){
+        return 0.0;
+    }
+
+    return promising_score;
+}
+```

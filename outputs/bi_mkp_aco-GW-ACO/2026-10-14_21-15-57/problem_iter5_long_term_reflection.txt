@@ -1,0 +1,3 @@
+1. Incorporate domain knowledge, normalize weights, and prioritize efficiency for heuristic design in MO-MKP.
+2. Focus on proportional promise, profit density, and balanced factors to improve performance and sampling quality efficiently.
+3. Leverage sparsity, diversity, and objective alignment with simple computations for scalable heuristics in multi-objective optimization.

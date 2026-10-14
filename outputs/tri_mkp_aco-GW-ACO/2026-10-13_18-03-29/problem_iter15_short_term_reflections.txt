@@ -1,0 +1,6 @@
+Prioritize the dominant objective in the combination with weights > 0.5; balance objectives using complementary weights.
+Balance between weight ratio and profit density with carefully selected weighting factors for better performance.
+Emphasize key metrics more effectively; tune weighting factors based on problem characteristics and performance analysis.
+Consider adjusting weighting factors for features, prioritizing essential aspects like weight ratio.
+Adjust weighting factors to reflect objective priorities for improved heuristic performance in MO-MKP.
+Balance the weighting factors based on problem characteristics and data distribution to improve heuristic performance.

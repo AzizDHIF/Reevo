@@ -1,0 +1,24 @@
+```c
+double heuristic_v2(int index_item, double **weights, double *capacity, int interstice, double *expect, int nb_voisinage, int *voisinage, double *profit){
+    double h=0, scale_min = 1, scale_max = 10;
+    int k;
+    
+    for(int j=0; j<dimension; j++){
+        h += weights[j][voisinage[index_item]] / capacity[j]; 
+    }
+    
+    if(h == 0) {
+        return 0;
+    }
+    
+    double ratio_profit = profit[voisinage[index_item]] / h;
+    
+    for(k=0; k<interstice; k++){
+        if(ratio_profit > expect[k]) {
+            return scale_max * ratio_profit;
+        }
+    }
+    
+    return scale_min * ratio_profit;
+}
+```

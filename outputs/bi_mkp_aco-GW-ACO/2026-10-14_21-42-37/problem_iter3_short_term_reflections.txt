@@ -1,0 +1,6 @@
+Balance weight and profit influences appropriately using simplified computations; reduce unnecessary parameters and operations for efficiency.
+Emphasize consistency and simplicity; leverage compact calculations over normalized data for effective heuristics design.
+Focus on simpler, direct calculations over complex, iterative computations for improved heuristic performance.
+Prioritize simplicity, minimize unnecessary calculations, and consider impact of each variable on objective function.
+Prioritize handling edge cases, adjust weight influencing profit, and include dimension-specific penalties for enhanced estimations.
+Avoid division by potentially zero values, simplify calculations, leverage existing precomputed parameters.

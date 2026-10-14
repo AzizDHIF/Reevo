@@ -1,0 +1,21 @@
+[*] Running ...
+[*] Mood: train
+[*] compiling ... 
+gpt.c: In function 'heuristic':
+gpt.c:10:40: error: implicit declaration of function 'cbrt' [-Wimplicit-function-declaration]
+   10 | return profit[voisinage[index_item]] / cbrt(h); // Normalize by taking cubic root of geometric mean of weight ratios
+      |                                        ^~~~
+gpt.c:2:1: note: include '<math.h>' or provide a declaration of 'cbrt'
+    1 | #include "HBACO.h"
+  +++ |+#include <math.h>
+    2 | double heuristic(int index_item, double **weights, double *capacity, int nb_voisinage, int *voisinage, double *profit) {
+gpt.c:10:40: warning: incompatible implicit declaration of built-in function 'cbrt' [-Wbuiltin-declaration-mismatch]
+   10 | return profit[voisinage[index_item]] / cbrt(h); // Normalize by taking cubic root of geometric mean of weight ratios
+      |                                        ^~~~
+gpt.c:10:40: note: include '<math.h>' or provide a declaration of 'cbrt'
+Traceback (most recent call last):
+  File "C:\Reevo/problems/bi_mkp_aco/eval.py", line 419, in <module>
+    compile("WeightACO.c",f"WeightACO_train_100items_{id_response}.exe")
+  File "C:\Reevo/problems/bi_mkp_aco/eval.py", line 51, in compile
+    raise RuntimeError("Erreur de compilation")
+RuntimeError: Erreur de compilation

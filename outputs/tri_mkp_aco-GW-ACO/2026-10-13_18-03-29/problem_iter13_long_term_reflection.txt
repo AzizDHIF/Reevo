@@ -1,0 +1,1 @@
+Design better MO-MKP heuristics by normalizing weights, optimizing weighting factors, prioritizing impactful metrics, emphasizing weight ratios, and carefully adjusting factors based on trade-offs and scalability.

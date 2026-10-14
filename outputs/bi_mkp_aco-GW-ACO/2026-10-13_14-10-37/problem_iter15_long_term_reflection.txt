@@ -1,0 +1,1 @@
+Prioritize low-complexity operations, use geometric mean, balance exploration & exploitation, normalize with sqrt(), and focus on balancing objectives for efficient MO-MKP heuristic design.

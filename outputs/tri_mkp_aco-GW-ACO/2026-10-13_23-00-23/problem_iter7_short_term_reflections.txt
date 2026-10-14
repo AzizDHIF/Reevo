@@ -1,0 +1,6 @@
+Consider incorporating a weighted combination of normalized weights and profits, and check for imbalanced weight-profit ratios.
+Avoid unnecessary variable declarations, eliminate redundant operations, prioritize division after summing weights in heuristics.
+Utilize conditional checks for efficiency, avoid unnecessary computations, and simplify calculations for better heuristic design.
+Focus on simplicity and direct relevance to the problem; avoid unnecessary computations and complex weighting schemes.
+Avoid unnecessary computations, handle edge cases efficiently, and focus on meaningful heuristics calculations for better performance.
+Normalize weights individually, avoid redundant calculations, focus on weights foremost, weight-profit ratio ensures effective heuristic.

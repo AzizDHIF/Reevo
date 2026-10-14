@@ -1,0 +1,7 @@
+[*] Running ...
+[*] Mood: train
+[*] compiling ... 
+Traceback (most recent call last):
+  File "C:\Reevo/problems/tri_mkp_aco/eval.py", line 64, in <module>
+    write_heuristic(WORK_DIR,os.path.join(WORK_DIR,"gpt.c"),os.path.join(WORK_DIR,"gpt.c"))
+TypeError: write_heuristic() takes 2 positional arguments but 3 were given

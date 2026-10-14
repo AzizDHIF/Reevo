@@ -1,0 +1,33 @@
+```c
+double heuristic_v2(int index_item, double **weights, double *capacity, int nb_voisinage, int *voisinage, double *profit){
+    double sum_weight_ratio = 0;
+	double sum_binomial_ratio = 0;
+	double sum_profit_ratio = 0;
+    
+	for(int j=0; j<dimension; j++){
+		sum_weight_ratio += weights[j][voisinage[index_item]] / capacity[j]; 
+	}
+    
+    for(int i=0; i<nb_voisinage; i++) {
+        int neighbour = voisinage[i];
+        
+        // Weight prioritization
+        double weight_ratio = 0;
+        for(int j=0; j<dimension; j++){
+            weight_ratio += weights[j][neighbour] / capacity[j]; 
+        }
+        
+        // Binomial distribution between neighbour and current item
+        double binomial_ratio = abs(index_item - neighbour); // Simplified binomial dist = abs(index_diff)
+        
+        sum_binomial_ratio += binomial_ratio;
+        
+        // Profit preference
+        sum_profit_ratio += profit[neighbour] / (1 + abs(index_item - neighbour)); // Penalize items further away
+    }
+    
+    double weighting = 0.4; // Fine-tune if needed
+    
+    return (1-weighting) * (1/(sum_weight_ratio))+ weighting * ((sum_binomial_ratio + sum_profit_ratio) / nb_voisinage);
+}
+```

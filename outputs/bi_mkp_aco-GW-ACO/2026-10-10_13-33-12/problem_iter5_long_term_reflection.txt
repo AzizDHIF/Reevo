@@ -1,0 +1,3 @@
+1. Emphasize item proximity and relative differences for enhanced heuristic performance in MO-MKP.
+2. Prioritize simplicity and efficiency by using direct calculations and essential features over iterative approaches.
+3. Incorporate item similarities and profit-weight dependencies for effective heuristic design in optimization problems.

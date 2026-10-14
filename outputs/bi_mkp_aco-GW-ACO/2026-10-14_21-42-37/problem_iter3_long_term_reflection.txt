@@ -1,0 +1,4 @@
+- Balance weight and profit influences using simplified computations.
+- Emphasize consistency and simplicity in heuristics design.
+- Prioritize simpler, direct calculations over complex iterations.
+- Minimize unnecessary parameters and operations for efficiency.

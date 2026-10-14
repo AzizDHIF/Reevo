@@ -1,0 +1,21 @@
+```c
+double heuristic_v2(int index_item, double **weights, double *capacity, int nb_voisinage, int *voisinage, double *profit){
+    double denom = 0;
+    double weights_sum = 0;
+    double cap_diff_sum = 0;
+
+    for(int j=0; j<dimension; j++){
+        weights_sum += weights[j][voisinage[index_item]];
+        if(weights[j][index_item] > weights[j][voisinage[index_item]]) {
+            cap_diff_sum += weights[j][index_item] - weights[j][voisinage[index_item]];
+        }
+    }
+  
+    if(cap_diff_sum == 0 || weights_sum == 0){
+        return 0;
+    }
+    denom = 1 + cap_diff_sum/weights_sum;
+  
+    return profit[voisinage[index_item]]/denom;
+}
+```

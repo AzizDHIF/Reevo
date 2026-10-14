@@ -1,0 +1,1 @@
+Prioritize non-zero weights, balance objectives with weight-profit ratio, simplify calculations, avoid unnecessary operations, handle extremes efficiently, and focus on essential heuristics. Avoid unnecessary multiplication, division, and conditional checks; leverage weighted sum of normalized weights and profits for efficient MO-MKP performance.

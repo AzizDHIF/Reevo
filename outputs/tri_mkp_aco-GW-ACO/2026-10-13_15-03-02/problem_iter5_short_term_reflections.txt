@@ -1,0 +1,6 @@
+Prioritize constraints handling over complex combination factors for better heuristic efficiency.
+Simplify heuristics by removing unnecessary terms and computations, focusing on essential ratios for better performance.
+Prioritize feasible solutions, avoid unnecessary calculations, and ensure constraint satisfaction for enhanced heuristic performance.
+Avoid unnecessary conditions and calculations; simplify computations for better performance.
+Simplify calculations, prioritize weight constraints, and avoid unnecessary complexity; prioritize feasibility over combination factors.
+Avoid unnecessary variables and conditions, prioritize efficient calculations, and directly use the variable for the final heuristic value.

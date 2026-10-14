@@ -1,0 +1,6 @@
+Emphasize weight ratio over relying entirely on profit density for better heuristic performance.
+Normalize weights by capacity, consider division edge cases, optimize weighting factors for key values.
+Prioritize relative weight usage over normalized weight in MO-MKP heuristics for better performance.
+Avoid overly complex weightings, focus on improving key aspects like profit density directly or through dimensions.
+Adjust weighting factors based on empirical performance to enhance heuristic accuracy.
+Avoid "sparsification" unless clearly beneficial; adjust weighting factors based on problem characteristics for effective heuristics.

@@ -1,0 +1,20 @@
+```c
+double heuristic_v2(int index_item, double **weights, double *capacity, int nb_voisinage, int *voisinage, double *profit)
+{
+    double total_weight = 0, total_capacity = 0, ratio_weight_capacity, promise_metric;
+
+    // Calculate total weight and remaining capacity of the partial solution
+    for (int j = 0; j < dimension; j++) {
+        total_weight += weights[j][voisinage[index_item]];
+        total_capacity += capacity[j];
+    }
+
+    // Calculate promise metric based on the ratio of total weight to total remaining capacity
+    ratio_weight_capacity = total_capacity > 0 ? (total_weight / total_capacity) : 0;
+    
+    // Penalize larger weights to make the promise metric efficient
+    promise_metric = profit[voisinage[index_item]] / (1 + 0.01 * total_weight) / (1 + 0.01 * ratio_weight_capacity);
+
+    return promise_metric;
+}
+```

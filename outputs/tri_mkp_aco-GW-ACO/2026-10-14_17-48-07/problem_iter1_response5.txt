@@ -1,0 +1,21 @@
+```c
+double heuristic_v2(int index_item, double **weights, double *capacity, int nb_voisinage, int *voisinage, double *profit) {
+    double combined_factor = 0;
+    double sparse_threshold = 0.1;
+    
+    for (int j = 0; j < dimension; j++) {
+        double weight_factor = weights[j][voisinage[index_item]] / capacity[j];
+        combined_factor += weight_factor;
+        
+        if (weight_factor < sparse_threshold) {
+            return 0;
+        }
+    }
+    
+    if (combined_factor < sparse_threshold) {
+        return 0;
+    }
+    
+    return profit[voisinage[index_item]] / combined_factor;
+}
+```

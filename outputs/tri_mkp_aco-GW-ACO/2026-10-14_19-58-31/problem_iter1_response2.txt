@@ -1,0 +1,11 @@
+```c
+double stack_heuristic(int index_item, double **weights, double *capacity, int nb_voisinage, int *voisinage, double *profit){
+    double h=0;
+    int improve_factor = 2;
+    double non_zero_threshold = 0.01;
+    for(int j=0;j<dimension;j++){
+			h=h+weights[j][voisinage[index_item]]/capacity[j]; 
+			}
+    return (h > non_zero_threshold) ? (profit[voisinage[index_item]]/(h*improve_factor)) : 0;
+}
+```

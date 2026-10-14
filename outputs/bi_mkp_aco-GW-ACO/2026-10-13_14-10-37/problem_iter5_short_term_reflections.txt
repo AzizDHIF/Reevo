@@ -1,0 +1,6 @@
+1. Avoid unnecessary divisions and check for division by zero.
+Emphasize direct computation over divisions in the key calculation steps; minimize conditional statements for efficiency.
+Consider efficient traversal of relevant data points, exploit sparsity, account for division by zero.
+Prioritize feasibility and constraint handling, incorporate diversity measures, balance between exploration and exploitation.
+Prioritize divisions over sums for better heuristics in multi-dimensional problems.
+Consider efficiency and robustness: Avoid unnecessary computations; handle edge cases.

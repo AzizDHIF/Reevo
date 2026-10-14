@@ -5,19 +5,23 @@ import logging
 import os
 from pathlib import Path
 import subprocess
-from utils.utils import extract_c_code_from_generator, make_dictionnary_results_big_dataset_version,get_code_path, init_client, plot_results_big_dataset_version, plot_results_different_algos, print_hyperlink, plot_results, make_dictionnary_results,make_dictionnary_results_by_algo
+from utils.utils import sweep, extract_c_code_from_generator, make_dictionnary_results_big_dataset_version,get_code_path, init_client, plot_results_big_dataset_version, plot_results_different_algos, print_hyperlink, plot_results, make_dictionnary_results,make_dictionnary_results_by_algo
 import sys
 import yaml 
 import time
 ROOT_DIR = os.getcwd()
 logging.basicConfig(level=logging.INFO)
+env = os.environ.copy()
+env["PYTHONUTF8"] = "1"
+env["PYTHONIOENCODING"] = "utf-8:replace"
 
 @hydra.main(version_base=None, config_path="cfg", config_name="config")
 def main(cfg):
+    
     start_time = time.perf_counter()  # <-- début du chrono
     workspace_dir = Path.cwd()
     ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
-
+    sweep(f"{ROOT_DIR}/problems/{cfg.problem.problem_name}")
     #Initialisation de la clé api si le llm_client est groq
     api_key_path=os.path.join(ROOT_DIR, "api_key.yaml")
     os.environ["GROQ_API_KEY"] = yaml.safe_load(open(api_key_path, "r"))[f"api_0"]
@@ -59,28 +63,28 @@ def main(cfg):
     logging.info(f"Best Code Path Overall: {print_hyperlink(best_path, best_code_path_overall)}")
     
     # Run validation and redirect stdout to a file "best_code_overall_stdout.txt"
-    with open(f"{ROOT_DIR}/problems/{cfg.problem.problem_name}/gpt.c", 'w', encoding="utf-8") as file:
+    with open(f"{ROOT_DIR}/problems/{cfg.problem.problem_name}/gpt.c", 'w', encoding="utf-8", errors="replace") as file:
         file.writelines(extract_c_code_from_generator(best_code_overall) + '\n')
     test_script = f"{ROOT_DIR}/problems/{cfg.problem.problem_name}/eval.py"
     test_script_stdout = "best_code_overall_val_stdout.txt"
     logging.info(f"Running validation script...: {print_hyperlink(test_script)}")
     start_time_eval = time.perf_counter() 
 
-    with open(test_script_stdout, 'w', encoding="utf-8") as stdout:
-        subprocess.run([sys.executable, test_script, "-1", "val"], stdout=stdout)
+    with open(test_script_stdout, 'w', encoding="utf-8", errors="replace") as stdout:
+        subprocess.run([sys.executable, test_script, "-1", "val"], stdout=stdout, env=env)
     elapsed_eval = time.perf_counter() - start_time_eval  # <-- fin du chrono
     logging.info(f"execution time for evaluation : {elapsed_eval:.2f} seconds ({elapsed_eval/60:.2f} minutes)")
     logging.info(f"Validation script finished. Results are saved in {print_hyperlink(test_script_stdout)}.")
     
     # Print the results
-    with open(test_script_stdout, 'r', encoding="cp1252") as file:
+    with open(test_script_stdout, 'r', encoding="utf-8", errors="replace") as file:
         for line in file.readlines():
             logging.info(line.strip())
     
     elapsed = time.perf_counter() - start_time  # <-- fin du chrono
     logging.info(f"Total execution time: {elapsed:.2f} seconds ({elapsed/60:.2f} minutes)")
 
-
+    sweep(f"{ROOT_DIR}/problems/{cfg.problem.problem_name}")
 
     
 if __name__ == "__main__":
@@ -127,8 +131,8 @@ if __name__ == "__main__":
                 logging.info(f"Running final validation script...: {print_hyperlink(test_script)}")
                 start_time_eval = time.perf_counter() 
             
-                with open(test_script_stdout, 'w', encoding="utf-8") as stdout:
-                    result=subprocess.run([sys.executable, test_script, "-1", "final_val",best_code_path,directory_path ], stdout=stdout,stderr=subprocess.PIPE,text=True,check=False )
+                with open(test_script_stdout, 'w', encoding="utf-8", errors="replace") as stdout:
+                    result=subprocess.run([sys.executable, test_script, "-1", "final_val",best_code_path,directory_path ], stdout=stdout,stderr=subprocess.PIPE,text=True,check=False, env=env,encoding="utf-8",errors="replace")
                 elapsed_eval = time.perf_counter() - start_time_eval  # <-- fin du chrono
                 logging.info(f"execution time for evaluation of {directory_path} : {elapsed_eval:.2f} seconds ({elapsed_eval/60:.2f} minutes)")
 
@@ -147,12 +151,14 @@ if __name__ == "__main__":
 
                 
                 # Print the results
-                with open(test_script_stdout, 'r', encoding="cp1252") as file:
+                with open(test_script_stdout, 'r', encoding="utf-8", errors="replace") as file:
                     for line in file.readlines():
                         logging.info(line.strip())
                     
             
 
     else:
+        
         main()
+        
     

@@ -1,0 +1,30 @@
+```c
+double heuristic_v2(int index_item, double **weights, double *capacity, int nb_voisinage, int *voisinage, double *profit){
+    double h = 0;
+    double sum_weight = 0, sum_profit = 0, weight_ratio = 0, profit_ratio = 0;
+    
+    for(int j = 0; j < dimension; j++){
+        sum_weight += weights[j][voisinage[index_item]];
+        if(capacity[j] > 0){
+            h += weights[j][voisinage[index_item]] / capacity[j];
+            weight_ratio += weights[j][voisinage[index_item]];
+        }
+    }
+    
+    for(int k = 0; k < nb_voisinage; k++){
+        sum_profit += profit[voisinage[k]];
+    }
+    
+    profit_ratio = profit[voisinage[index_item]] / sum_profit;
+    weight_ratio /= sum_weight;
+    
+    return case development towards a better solution
+            resist looking extremely locally
+            restrain strong focus
+            taking cues in different directions;
+            }
+
+	h = h == 0 ? VERY SMALL_NUMBER :h;
+    return profit_ratio * weight_ratio / h; 
+}
+```

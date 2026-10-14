@@ -1,0 +1,3 @@
+1. Simplify calculations with weighted factors for efficient MO-MKP heuristic design.
+2. Prioritize direct usage of constraints and profits; consider proportional contribution and capacity impact.
+3. Normalize contributions efficiently, avoid redundancy, and focus on feasibility for effective heuristic performance.

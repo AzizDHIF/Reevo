@@ -1,0 +1,26 @@
+```c
+double heuristic_v2(int index_item, double **weights, double *capacity, int nb_voisinage, int *voisinage, double *profit){
+    double h_count = 0;
+    double h_total_weight = 0;
+    
+    for(int j=0; j<dimension; j++){
+        // Consider potential weight increase based on neighboring item pos
+        h_count += weights[j][voisinage[index_item]] > 0 ? 1 : 0;
+        // Approximate how well balanced the solution is for each dimension
+        h_total_weight += weights[j][voisinage[index_item]];
+    }
+    
+    double balance_factor = h_count / dimension;
+    double weight_factor = h_total_weight / dimension;
+    
+    // Determine final heuristic based on combination of factors
+    double h = (0.6 * balance_factor) + (0.4 * weight_factor);
+    
+    // Sparsify the heuristic if it's not considered promising
+    if(balance_factor < 0.5){
+        h = 0;
+    }
+    
+    return h * profit[voisinage[index_item]];
+}
+```

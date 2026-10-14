@@ -1,0 +1,18 @@
+```c
+double heuristic_v2(int index_item, double **weights, double *capacity, int nb_voisinage, int *voisinage, double *profit) {
+    double total_weight_ratio = 0.0;
+    double profit_density = 0.0;
+
+    for (int j = 0; j < dimension; j++) {
+        total_weight_ratio += weights[j][voisinage[index_item]] / capacity[j];
+    }
+
+    // Adjusted weights based on problem characteristics and heuristic performance
+    total_weight_ratio = 0.8 * total_weight_ratio + 0.2;
+
+    profit_density = profit[voisinage[index_item]] / (1 + total_weight_ratio);
+
+    // Combined weight ratio and profit density with adjusted weighting factors
+    return 0.6 * total_weight_ratio + 0.4 * profit_density;
+}
+```

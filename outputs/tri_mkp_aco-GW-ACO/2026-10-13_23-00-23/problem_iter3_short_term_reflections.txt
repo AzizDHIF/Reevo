@@ -1,0 +1,6 @@
+Leverage sparsity and dimensionality insights; exploit non-zero weights and capacity for efficiency gains.
+Prioritize non-zero weights and capacities, use sparse factor, and avoid unnecessary computations.
+Focus on relative importance of dimensions, balance promises, leverage constant costs, and consider scalability and complexity.
+Prioritize computational efficiency, use compact mathematical formulas, and avoid unnecessary computations.
+Simplify calculations, focus on essential factors, avoid unnecessary complexity, and remove irrelevant features for better heuristic performance.
+Utilize weighted sum of weights and factors to balance objectives and avoid redundant computations.

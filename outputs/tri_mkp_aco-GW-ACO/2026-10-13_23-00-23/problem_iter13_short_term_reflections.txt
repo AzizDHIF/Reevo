@@ -1,0 +1,6 @@
+Consider simplicity, avoiding unnecessary calculations, and focusing on relevant factors for better heuristic design.
+Utilize capacity and avoid division by total weight to improve heuristic efficiency.
+Focus on efficient use of existing information, such as capacity, for better heuristic design in MO-MKP.
+Reduce complexity, focus on relevant factors, balance objectives directly; avoid unnecessary calculations and conditions.
+Consider normalization, relative impact, and weighted averaging for effective heuristic design in MO-MKP.
+Emphasize simplicity and avoid unnecessary calculations for efficient heuristic design in MO-MKP.

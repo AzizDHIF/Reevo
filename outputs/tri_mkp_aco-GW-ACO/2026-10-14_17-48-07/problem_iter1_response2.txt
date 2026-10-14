@@ -1,0 +1,55 @@
+```c
+#include <math.h>
+
+double heuristic_v2(int INDX_ITEM, double **wo1, double *capacity, int NB_VOISN, int *voisinage, double *prof, double *wo2)
+{
+	int i, j;
+	double wsum1 = 0, wsum2 = 0, h = 0;
+	double max_ratio = -INFINITY;
+
+	for (i = 0; i < dimension; i++)
+	{
+		wsum1 += wo1[i][voisinage[INDX_ITEM]] / capacity[i];
+		wsum2 += wo2[voisinage[INDX_ITEM]] / capacity[i];
+	}
+
+	for (j = 0; j < NB_VOISN; j++)
+	{
+		if (voisinage[j] != -1 && j != INDX_ITEM)
+		{
+			double bi = 0, wjsum1 = 0, wjsum2 = 0;
+			
+			for (i = 0; i < dimension; i++)
+			{
+				wjsum1 += wo1[i][voisinage[j]] / capacity[i];
+				wjsum2 += wo2[voisinage[j]] / capacity[i];
+			}
+			
+			if ((wo1[0][voisinage[j]]+wo1[1][voisinage[j]]+wo1[2][voisinage[j]]) >= wsum1)
+			continue;
+			if ((wo2[voisinage[j]]+wo2[voisinage[j]]+wo2[voisinage[j]]) < wsum2)
+			continue;
+
+          	bi=fabs(2*((wsum1/wo1[2][voisinage[INDX_ITEM]])-(wsum2/wo2[INDX_ITEM])));
+		                
+			if (bi > 0)
+			{
+				double htemp = prof[voisinage[j]] / bi;
+								
+				if (htemp > h)
+				{
+					h = htemp;
+					max_ratio = bi;
+				}
+			}
+		}
+	}
+
+	if (max_ratio != -INFINITY)
+	{
+	return 30 * assets[voisinage[INDX_ITEM]][3];
+	}
+		
+	else return 0; 	// unpromising element
+}
+```

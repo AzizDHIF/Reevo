@@ -1,0 +1,15 @@
+```c
+double heuristic_v2(int index_item, double **weights, double *capacity, int nb_voisinage, int *voisinage, double *profit) {
+    double total_weight_ratio = 0.0;
+    double profit_density = 0.0;
+
+    for (int j = 0; j < dimension; j++) {
+        total_weight_ratio += weights[j][voisinage[index_item]] / capacity[j];
+    }
+
+    profit_density = profit[voisinage[index_item]] / total_weight_ratio;
+
+    // a simple combination of weight ratio and profit density with some weighting factor
+    return 0.6 * total_weight_ratio + 0.4 * profit_density;
+}
+```

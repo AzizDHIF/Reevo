@@ -1,0 +1,20 @@
+```c
+double heuristic_v2(int index_item, double **weights, double *capacity, int nb_voisinage, int *voisinage, double *profit) {
+    double h_denom = 0, h_numer = 0, dim_factor, inv_weight_factor, is_promising;
+
+    for (int j = 0; j < dimension; j++) {
+        h_denom += weights[j][voisinage[index_item]] / capacity[j];
+    }
+
+    dim_factor = dimension / (1.0 + h_denom);  // Adjust based on the number of dimensions
+
+    for (int j = 0; j < dimension; j++) {
+        inv_weight_factor = 1.0 - weights[j][voisinage[index_item]] / capacity[j];
+        h_numer += inv_weight_factor > 0 ? 1.0 / inv_weight_factor : 0;
+    }
+
+    is_promising = h_denom == 0 ? 0 : dim_factor / h_denom - h_numer;
+
+    return is_promising > 0 ? profit[voisinage[index_item]] : 0;
+}
+```

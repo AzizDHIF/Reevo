@@ -1,0 +1,21 @@
+```c
+double heuristic_v2(int index_item, double **weights, double *capacity, int nb_voisinage, int *voisinage, double *profit){
+    double h1=0, h2=0;
+    for(int j=0;j<dimension;j++){
+        h1 += weights[j][voisinage[index_item]] / capacity[j];
+        h2 += capacity[j];
+    }
+    double contribution = profit[voisinage[index_item]] / h1;
+    double penalty = h2; 
+    
+    // Penalize by a factor inversely proportional to the total capacity
+    double heuristic_value = contribution - 0.5 * penalty;
+    
+    // Eliminate unpromising components
+    if(penalty > 1.5){
+        return 0.0;
+    }
+
+    return heuristic_value;
+}
+```

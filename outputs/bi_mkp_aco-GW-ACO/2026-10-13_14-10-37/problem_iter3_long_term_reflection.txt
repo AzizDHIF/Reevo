@@ -1,0 +1,1 @@
+Combine promising factors, prioritize non-zero weights, focus on dimension ratios, reduce redundancy, leverage sparsity, add relevant factors like normalization and feasibility checks for efficient heuristic design.

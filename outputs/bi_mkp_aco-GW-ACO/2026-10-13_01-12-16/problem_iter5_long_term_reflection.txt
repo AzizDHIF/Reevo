@@ -1,0 +1,5 @@
+1. Separate weight and profit considerations for stability.
+2. Minimize divisions, handle ratios separately, and use combined metrics efficiently.
+3. Normalize weights, prioritize balance, and consider metric interactions.
+4. Incorporate profit-contribution relationships with thresholds for impact.
+5. Emphasize utility and sparsity for robust heuristic function design.
