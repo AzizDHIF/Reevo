@@ -1,0 +1,35 @@
+```c
+double heuristic_v2(int index_item, double **weights, double *capacity, int nb_voisinage, int *voisinage, double *profit) {
+    double value = 0;
+    
+    // Factor 1: profit to weight ratio with emphasis on potential
+    double weight_sum = 0;
+    for (int j = 0; j < dimension; j++) {
+        weight_sum += weights[j][voisinage[index_item]];
+    }
+    double ratio1 = profit[voisinage[index_item]] / weight_sum;
+    
+    // Factor 2: inclusion potential based on remaining capacity and weights
+    double remaining_capacity_ratio = 1;
+    double weight_capacity_ratio = 0;
+    for (int j = 0; j < dimension; j++) {
+        remaining_capacity_ratio *= (capacity[j] - weights[j][voisinage[index_item]]) / capacity[j];
+        weight_capacity_ratio += weights[j][voisinage[index_item]] / capacity[j];
+    }
+    
+    // Sparsifying: setting less promising elements to zero
+    if (nb_voisinage <= 5) {
+        if (ratio1 < 0.4 || remaining_capacity_ratio < 0.9 || weight_capacity_ratio > 0.8) {
+            return 0;
+        }
+    } else {
+        if (ratio1 < 0.3 || remaining_capacity_ratio < 0.8 || weight_capacity_ratio > 0.6) {
+            return 0;
+        }
+    }
+    
+    value = 0.6 * ratio1 + 0.4 * (1 - remaining_capacity_ratio);
+    
+    return value;
+}
+```

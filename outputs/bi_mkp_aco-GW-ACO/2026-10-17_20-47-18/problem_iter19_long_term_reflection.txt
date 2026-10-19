@@ -1,0 +1,1 @@
+- Prioritize division over multiplication; adjust weight impact strategically; focus on simplicity, relevant features, and efficient normalization for effective MO-MKP heuristics.

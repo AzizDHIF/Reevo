@@ -1,0 +1,3 @@
+1. Strategically adjust weight impact and normalize early to enhance heuristic performance efficiently.
+2. Emphasize capacity checks, balance weight impact, and minimize unnecessary calculations for improved efficiency.
+3. Prioritize direct weight-to-capacity ratio and consider domain knowledge for heuristic refinement.

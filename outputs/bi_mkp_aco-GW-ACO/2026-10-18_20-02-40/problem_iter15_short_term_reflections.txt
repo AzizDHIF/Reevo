@@ -1,0 +1,6 @@
+Consider incorporating a diversity of factors related to constraints, objectives, and promisingness for better balance and performance.
+Utilize multiple factors like feasibility, resource usage, and objective ratios for a more comprehensive heuristic evaluation.
+Focus on normalized weight, diversity, and profit ratio for better heuristics in MO-MKP.
+Focus on efficient computation and direct utilization of relevant features; balance promising factors for accurate prioritization of solutions.
+Use fewer variables and duplicated calculations, streamline computations, and include more relevant factors in the heuristic.
+Consider reducing complex calculations, normalizing values, and incorporating promising factors for better heuristics efficiency.

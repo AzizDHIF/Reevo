@@ -1,0 +1,1 @@
+Combine key factors efficiently, prioritize objective-based computations, balance weight and profit, avoid unnecessary division, sparsify with zero checks for improved clarity and performance in MO-MKP heuristics.

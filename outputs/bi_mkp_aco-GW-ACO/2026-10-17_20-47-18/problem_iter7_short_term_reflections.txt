@@ -1,0 +1,6 @@
+Leverage early termination and direct weight-capacity combination for efficient heuristic design.
+Emphasize stable computation without division by zero and avoid unnecessary diminishing modifiers for better heuristic efficiency.
+Include small non-zero initialization, avoid redundant computations, and handle division by zero carefully for effective heuristics.
+Prioritize preventing division by zero and directly combining weights and capacities efficiently to improve heuristic performance.
+Utilize pre-checks for division by zero, directly combine weight and capacity, and initialize appropriately for better heuristics.
+Emphasize utilization of available capacity efficiently and reduce bias towards highly weighted dimensions for better heuristics.

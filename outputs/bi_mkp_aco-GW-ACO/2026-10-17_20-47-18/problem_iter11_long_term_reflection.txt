@@ -1,0 +1,7 @@
+- Balance weight and capacity influences efficiently.
+- Adjust weight impact strategically.
+- Normalize early and precisely.
+- Simplify calculations (LLM: O(dimension)).
+- Optimize variable naming and initialization.
+- Prioritize direct weight-to-capacity ratio.
+- Minimize intermediate calculations for efficiency.

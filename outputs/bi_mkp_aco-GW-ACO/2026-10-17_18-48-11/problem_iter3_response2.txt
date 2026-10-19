@@ -1,0 +1,26 @@
+```c
+double heuristic_v2(int index_item, double **weights, double *capacity, int nb_voisinage, int *voisinage, double *profit) {
+    double h = 0;
+    double max_ratio = 0;
+
+    // Calculate the maximum weight-to-capacity ratio for the item among its neighbors
+    for (int j = 0; j < dimension; j++) {
+        if (weights[j][voisinage[index_item]] > 0 && capacity[j] > 0) {
+            double ratio = weights[j][voisinage[index_item]] / capacity[j];
+            if (ratio > max_ratio) {
+                max_ratio = ratio;
+            }
+        }
+    }
+
+    // Check if the item violates any dimension's capacity constraint
+    for (int j = 0; j < dimension; j++) {
+        if (weights[j][voisinage[index_item]] > capacity[j]) {
+            return 0;  // Return 0 heuristic value if capacity is violated
+        }
+    }
+
+    // Calculate the heuristic value as profit-to-max_ratio ratio
+    return profit[voisinage[index_item]] / (1 + max_ratio);
+}
+```

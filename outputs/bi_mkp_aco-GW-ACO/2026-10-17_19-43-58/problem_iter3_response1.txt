@@ -1,0 +1,20 @@
+```c
+double heuristic_v2(int index_item, double **weights, double *capacity, int nb_voisinage, int *voisinage, double *profit) {
+    double weight_sum = 0, profit_sum = 0;
+
+    // Calculate sum of weights and profits for the neighbor item
+    for (int j = 0; j < dimension; j++) {
+        weight_sum += weights[j][voisinage[index_item]];
+        profit_sum += profit[voisinage[index_item]];
+    }
+
+    // Calculate the normalized values
+    double weight_norm = weight_sum / dimension;
+    double profit_norm = profit_sum / dimension;
+
+    // Combine factors to determine the promise of selecting the item
+    double combined_factor = weight_norm + profit_norm;
+
+    return profit_norm / (1 + combined_factor);
+}
+```

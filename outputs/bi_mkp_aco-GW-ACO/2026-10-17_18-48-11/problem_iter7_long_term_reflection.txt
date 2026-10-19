@@ -1,0 +1,4 @@
+1. Simplify calculations, focus on key factors and dynamic thresholds.
+2. Emphasize item value-to-weight ratio, leverage dimension-based scaling.
+3. Standardize variable naming, prioritize simplicity and relevance to objectives.
+4. Avoid unnecessary computations, sparsify unlikely promising elements.

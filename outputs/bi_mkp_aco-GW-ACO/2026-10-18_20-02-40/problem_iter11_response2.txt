@@ -1,0 +1,13 @@
+```c
+double heuristic_v2(int index_item, double **weights, double *capacity, int nb_voisinage, int *voisinage, double *profit) {
+    double h = 0;
+    double promising_factor = 0.5;
+    
+    for (int j = 0; j < dimension; j++) {
+        double remaining_capacity_ratio = (capacity[j] - weights[j][voisinage[index_item]]) / capacity[j];
+        h += remaining_capacity_ratio > 0 ? (weights[j][voisinage[index_item]] / capacity[j]) : 0;
+    }
+    
+    return promising_factor * (profit[voisinage[index_item]] / h);
+}
+```

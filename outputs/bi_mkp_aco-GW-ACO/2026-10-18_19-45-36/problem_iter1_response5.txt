@@ -1,0 +1,38 @@
+```c
+double heuristic_v2(int index_item, double **weights, double *capacity, int nb_voisinage, int *voisinage, double *profit){
+    double sum_weight = 0;
+    for (int j = 0; j < dimension; j++) {
+        sum_weight += weights[j][voisinage[index_item]];
+    }
+    
+    if (sum_weight == 0) {
+        return 0; // Heuristic value is unpromising
+    }
+    
+    double h1 = 0, h2 = 0;
+    for (int j = 0; j < dimension; j++) {
+        h1 += weights[j][voisinage[index_item]] / capacity[j];
+    }
+
+    for (int i = 0; i < nb_voisinage; i++) {
+        if (voisinage[i] == index_item) {
+            continue;
+        }
+
+        double curr_sum_weight = 0;
+        for (int j = 0; j < dimension; j++) {
+            curr_sum_weight += weights[j][voisinage[i]];
+        }
+        
+        if(curr_sum_weight > 0){
+            double curr_h = 0;
+            for (int j = 0; j < dimension; j++) {
+                curr_h += weights[j][voisinage[i]] / capacity[j];
+            }
+            h2 += (profit[voisinage[i]] / curr_h) / nb_voisinage;
+        }
+       
+    }
+    return (profit[voisinage[index_item]] / h1) * h1 * h1 * h2; // Combining factors
+}
+```

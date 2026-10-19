@@ -1,0 +1,6 @@
+Emphasize efficiency and simplicity, prioritize direct metric calculation over indirect calculations and unnecessary complexity.
+Consider incorporating a broader perspective on item feasibility and its impact on objective values for better results.
+Emphasize balancing constraints and objectives, consider different factors affecting promisingness, exploit problem structure efficiently.
+Use realistic termination conditions, avoid unnecessary computations, and prioritize stability and efficiency in heuristic design.
+Simplify heuristics by focusing on essential features, like profit-to-weight ratio, to improve performance and readability.
+Leverage all available information efficiently to guide heuristic search and consider interactions among objectives for better performance.

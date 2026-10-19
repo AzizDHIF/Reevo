@@ -1,0 +1,3 @@
+1. Prioritize direct weight-capacity interactions and simple normalization strategies for effective MO-MKP heuristics.
+2. Emphasize strategic weight adjustments, leverage context-specific information, and judiciously adjust weight ratios for optimized performance.
+3. Focus on direct computations, strategically adjusting weights, and leveraging key constraints for efficient and effective heuristic design.

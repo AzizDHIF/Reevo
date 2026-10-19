@@ -1,0 +1,17 @@
+```c
+double heuristic_v2(int index_item, double **weights, double *capacity, int nb_voisinage, int *voisinage, double *profit) {
+    double promising_factor = 0.5;
+    double sum_weight_ratio = 0.0;
+    double sum_remaining_weight_ratio = 0.0;
+    double constraint_satisfaction = 0.0;
+
+    for (int j = 0; j < dimension; j++) {
+        double weight_ratio = weights[j][voisinage[index_item]] / capacity[j];
+        sum_weight_ratio += weight_ratio;
+        sum_remaining_weight_ratio += (1 - weight_ratio);
+        constraint_satisfaction += (weights[j][voisinage[index_item]] <= capacity[j]) ? 1 : 0;
+    }
+
+    return promising_factor * (profit[voisinage[index_item]] / sum_weight_ratio) * sum_remaining_weight_ratio * constraint_satisfaction;
+}
+```

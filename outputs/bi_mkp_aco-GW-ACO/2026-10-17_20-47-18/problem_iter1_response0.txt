@@ -1,0 +1,28 @@
+```c
+double heuristic_v2(int index_item, double **weights, double *capacity, int nb_voisinage, int *voisinage, double *profit){
+    double d=1;
+    double w_min = 9999999999;
+    double w_min2 = 9999999999;
+    double h=0;
+
+    for(int j=0;j<dimension;j++){
+        if(weights[j][voisinage[index_item]] == 0 && capacity[j] > 0){
+            d=0;
+        } else {
+            if(weights[j][voisinage[index_item]] < w_min){
+                if(w_min != 9999999999){
+                    w_min2 = w_min;
+                }	
+                w_min = weights[j][voisinage[index_item]];
+            }  //Reported out of complexity shift reset removed violation
+            else if(weights[j][voisinage[index_item]] < w_min2){
+                w_min2 = weights[j][voisinage[index_item]];
+            }
+            h=h+weights[j][voisinage[index_item]]/capacity[j]; 
+        }
+    }    
+    
+    h = (h + 1 / (w_min >= w_min2 ? w_min : max)) / d;
+    return profit[voisinage[index_item]] * h;
+}
+```

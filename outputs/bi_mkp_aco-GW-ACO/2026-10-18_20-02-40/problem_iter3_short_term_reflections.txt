@@ -1,0 +1,6 @@
+Simplify calculations, focus on key factors, and reduce complexity for more efficient heuristics.
+Focus on simplicity, balance computation, prioritize essential variables, avoid unnecessary calculations, and consider all objective constraints equally.
+Prioritize consistent and efficient computation over excessive variable declarations for better heuristic performance.
+Use direct calculations for efficiency in heuristic design, focus on simplicity, and eliminate unnecessary branching or complex computations.
+Leverage more relevant features and introduce a promising factor to enhance heuristic accuracy and efficiency.
+Combine relevant features into a simplified formula for better heuristic efficiency.

@@ -1,0 +1,26 @@
+```c
+#include <math.h>
+
+double heuristic_v2(int index_item, double **weights, double *capacity, int nb_voisinage, int *voisinage, double *profit){
+    double promising_factor = 0.8;
+    double infeasible_penalty = 100.0;
+    double h = 0.0;
+    for(int j=0; j<dimension; j++){
+        h += weights[j][voisinage[index_item]] / capacity[j];
+    }
+    
+    if(h <= 1.0){
+        return 0.0;
+    }
+    
+    double promising_value = profit[voisinage[index_item]] / h;
+    double feasibility_value = 1.0;
+    
+    for(int j=0; j<dimension; j++){
+        double remaining_capacity_ratio = capacity[j] - weights[j][voisinage[index_item]] > 0 ? 1 : infeasible_penalty;
+        feasibility_value *= remaining_capacity_ratio;
+    }
+    
+    return fmax(0.0, promising_factor * promising_value * feasibility_value);
+}
+```

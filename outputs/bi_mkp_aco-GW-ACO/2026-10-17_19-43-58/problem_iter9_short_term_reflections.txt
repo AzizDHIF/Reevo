@@ -1,0 +1,6 @@
+Focus on normalized weight and profit sums, utilize unnormalized weight sum for more informative heuristic values.
+Consider incorporating the capacity constraint directly into the heuristic calculation to improve performance in MO-MKP.
+Focus on efficient partial sums, reduce redundant computations, and prioritize direct variable usage for better performance.
+Emphasize utilization of capacity for improved heuristic efficiency in MO-MKP with multi-dimensional constraints.
+Avoid redundant calculations by reusing intermediate results and consider the impact of weights on the heuristic function.
+Balance weights, profits, and capacities proportionally for better heuristic performance in MO-MKP problems.

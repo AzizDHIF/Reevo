@@ -1,0 +1,1 @@
+Focus on explicit feasibility handling, normalize inputs, prioritize diversity, avoid unnecessary computations, and use early termination strategically for efficient and effective heuristics in MO-MKP.

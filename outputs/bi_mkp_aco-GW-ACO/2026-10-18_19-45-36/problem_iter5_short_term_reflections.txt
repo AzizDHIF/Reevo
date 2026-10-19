@@ -1,0 +1,6 @@
+Avoid redundant calculations, prioritize direct relevance to objective, and calculate efficiency for better heuristics.
+Leverage precomputed neighbor index, avoid redundant computations, and focus on immediate heuristics for improved performance.
+Prioritize direct calculation of objective-specific ratios instead of indirectly related computations for better performance.
+Avoid unnecessary loops and calculations, focusing on direct relevant information for improved simplicity and efficiency.
+Avoid redundant computations, prioritize simplicity, use neighbors efficiently, and focus on key objectives directly.
+Blend weights and capacities directly without intermediate sums for efficient heuristic designing.

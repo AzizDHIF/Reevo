@@ -1,0 +1,20 @@
+```c
+double heuristic_v2(int index_item, double **weights, double *capacity, int nb_voisinage, int *voisinage, double *profit) {
+    double total_weight_div_capacity = 0.0;
+    double remaining_capacity_div_capacity = 0.0;
+    double feasible_items = 0.0;
+    double promising_factor = 0.5;
+
+    for (int j = 0; j < dimension; j++) {
+        total_weight_div_capacity += weights[j][voisinage[index_item]] / capacity[j];
+        remaining_capacity_div_capacity += (capacity[j] - weights[j][voisinage[index_item]]) / capacity[j];
+        feasible_items += (weights[j][voisinage[index_item]] <= capacity[j]) ? 1.0 : 0.0;
+    }
+
+    if (total_weight_div_capacity == 0 || remaining_capacity_div_capacity == 0) {
+        return 0.0;
+    }
+
+    return promising_factor * (profit[voisinage[index_item]] / total_weight_div_capacity) * remaining_capacity_div_capacity * feasible_items;
+}
+```

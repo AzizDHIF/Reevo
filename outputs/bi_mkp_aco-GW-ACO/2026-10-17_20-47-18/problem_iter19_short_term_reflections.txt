@@ -1,0 +1,7 @@
+Prioritize division over multiplication, normalize early, handle division by zero, and adjust weight impact strategically for better heuristics.
+Adjust weight impact strategically, focus on simplicity, and consider avoiding unnecessary calculations for better heuristics.
+Emphasize dimension weights strategically, optimize normalization, reduce emphasis on high weights.
+Emphasize direct and strategic normalization early; combine weights and capacity efficiently.
+1. Precisely tune weight impact and normalization for better heuristic performance.
+2. Consider the interactions between weight impact factors and normalization carefully.
+Use simpler, more direct calculations; avoid unnecessary operations; consider impact of each parameter carefully for efficiency.

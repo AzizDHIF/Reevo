@@ -1,0 +1,6 @@
+Adapt heuristic thresholds dynamically based on problem complexity; prioritize sparsifying less promising solutions consistently across heuristics.
+Balance ratios of objectives appropriately, exploit available context, favor simplicity over complex thresholds, consider multi-dimensional impact.
+Consider combining multiple objective-related factors dynamically for better decision-making in heuristic functions.
+Normalize weights by capacity before calculations for better heuristic selection efficiency.
+Focus on multiple factors, balance trade-offs, and integrate sparsifying conditions for efficient heuristics in MO-MKP.
+Utilize aggregated weights and thresholds carefully based on dynamic limits for improved heuristic performance.

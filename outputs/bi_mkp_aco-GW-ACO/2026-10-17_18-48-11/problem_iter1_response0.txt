@@ -1,0 +1,24 @@
+```c
+double heuristic_v2(int index_item, double **weights, double *capacity, int nb_voisinage, int *voisinage, double *profit){
+    double h = 1;
+	double inf = 999999;
+	
+	for(int j = 0; j < dimension; j++){
+		if(weights[j][voisinage[index_item]] > capacity[j]){
+		    h = inf;
+			break;
+		}
+		h += weights[j][voisinage[index_item]] / capacity[j]; 
+	}
+	
+	if(h == inf){
+		return 0;
+	}
+	
+	double promising_factor = profit[voisinage[index_item]] / h;
+	double proximity_factor = (double)nb_voisinage / (voisinage[index_item] + 1);
+	double combined_factor = promising_factor * proximity_factor;
+	
+	return combined_factor;
+}
+```

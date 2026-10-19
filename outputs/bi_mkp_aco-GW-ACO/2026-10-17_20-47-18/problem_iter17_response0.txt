@@ -1,0 +1,24 @@
+```c
+double heuristic_v2(int index_item, double **weights, double *capacity, int nb_voisinage, int *voisinage, double *profit) {
+    double alpha = 0.5; // Adjust weight impact strategically
+    double beta = 0.3; // Tuning parameter to control feature relevance
+    double h = 1e-6; // Initialize h with a small value to avoid division by zero
+    double promising_score = 0.0;
+
+    // Calculate the combined effect considering weights and capacities
+    for (int j = 0; j < dimension; j++) {
+        if (capacity[j] > 0) {
+            h += weights[j][voisinage[index_item]] * (1.0 / capacity[j]); // Combine weight and capacity directly
+        }
+    }
+
+    // Normalize the profit by the combined effect
+    double normalized_profit = profit[voisinage[index_item]] / h;
+
+    // Evaluate the promising score by combining different factors
+    promising_score = normalized_profit * (1.0 - alpha * alpha * alpha * weights[0][voisinage[index_item]]);
+    promising_score *= beta; // Adjust the impact of factors
+
+    return promising_score;
+}
+```

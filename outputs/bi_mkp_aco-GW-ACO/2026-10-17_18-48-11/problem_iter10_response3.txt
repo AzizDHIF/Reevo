@@ -1,0 +1,27 @@
+```c
+double heuristic_v2(int index_item, double **weights, double *capacity, int nb_voisinage, int *voisinage, double *profit) {
+    double value = 0;
+
+    // Factor 1: ratio of profit to sum of weights
+    double weight_sum = 0;
+    for (int j = 0; j < dimension; j++) {
+        weight_sum += weights[j][voisinage[index_item]];
+    }
+    double ratio1 = profit[voisinage[index_item]] / weight_sum;
+
+    // Factor 2: sum of weights ratio to capacity
+    double sum_weight_ratio = 0;
+    for (int j = 0; j < dimension; j++) {
+        sum_weight_ratio += weights[j][voisinage[index_item]] / capacity[j];
+    }
+
+    // Sparsifying based on combined factors
+    if (ratio1 < 0.7 || sum_weight_ratio > 1.2) {
+        return 0;
+    }
+
+    value = 0.8 * ratio1 + 0.2 * sum_weight_ratio;
+
+    return value;
+}
+```

@@ -1,0 +1,1 @@
+Combine weighted factors for item selection, efficiently normalize metrics, prioritize objective relevance, simplify computations, and explicitly account for constraints to enhance heuristics for MO-MKP.

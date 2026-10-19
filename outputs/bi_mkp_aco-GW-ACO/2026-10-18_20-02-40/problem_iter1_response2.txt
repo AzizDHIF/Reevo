@@ -1,0 +1,6 @@
+```c
+double heuristic_v2(int index_item, double **weights, double *capacity, int nb_voisinage, int *voisinage, double *profit){
+    double h=0.1 * weights[0][voisinage[index_item]] + 0.2 * weights[1][voisinage[index_item]]; 
+    return h > 0 ? profit[voisinage[index_item]] / h : 0;
+}
+```

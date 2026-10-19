@@ -1,0 +1,6 @@
+Emphasize direct weight-capacity combination, normalize earlier, strategically adjust weight impact, and simplify calculations.
+- Consider direct weight-capacity interactions and strategic weight adjustments for better performance.
+Emphasize direct usage of relevant neighbors, normalize strategically, and adjust weights judiciously.
+Consider incorporating more context-specific information and adjusting weight ratios to improve heuristic performance.
+Prioritize direct computation over intermediate variables; strategically adjust weights and emphasize important factors wisely.
+Leverage conditional computations based on key constraints for improved heuristic performance.

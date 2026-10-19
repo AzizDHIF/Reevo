@@ -1,0 +1,20 @@
+```c
+double heuristic_v2(int index_item, double **weights, double *capacity, int nb_voisinage, int *voisinage, double *profit) {
+    double total_weight = 0, total_profit = 0, promising_ratio = 0;
+
+    for (int dim = 0; dim < dimension; dim++) {
+        double item_weight = weights[dim][voisinage[index_item]];
+        total_weight += item_weight;
+        total_profit += profit[voisinage[index_item]];
+        
+        if (capacity[dim] > 0) {
+            promising_ratio += item_weight / capacity[dim];
+        }
+    }
+
+    double weight_normalized = total_weight / dimension;
+    double profit_normalized = total_profit / dimension;
+
+    return (profit_normalized - weight_normalized) * (1 + promising_ratio);
+}
+```

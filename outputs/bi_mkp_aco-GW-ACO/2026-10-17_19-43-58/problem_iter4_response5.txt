@@ -1,0 +1,29 @@
+```c
+double heuristic_v2(int index_item, double **weights, double *capacity, int nb_voisinage, int *voisinage, double *profit) {
+    double promising_factor = 0;
+    double weight_sum = 0;
+
+    // Calculate sum of weights for the neighbor item
+    for (int j = 0; j < dimension; j++) {
+        weight_sum += weights[j][voisinage[index_item]];
+    }
+
+    // Check if adding the item violates the capacity constraints
+    int can_add = 1;
+    for (int j = 0; j < dimension; j++) {
+        if (weight_sum > capacity[j]) {
+            can_add = 0;
+            break;
+        }
+    }
+
+    // Calculate the promising factor based on profit and weight
+    if (can_add) {
+        promising_factor = profit[voisinage[index_item]] * (1.0 - weight_sum / (double)dimension);
+    } else {
+        promising_factor = 0;
+    }
+
+    return promising_factor;
+}
+```

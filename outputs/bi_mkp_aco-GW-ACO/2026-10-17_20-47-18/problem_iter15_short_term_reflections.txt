@@ -1,0 +1,6 @@
+Emphasize strategic weighting adjustments and early normalization for better heuristic performance.
+Emphasize normalization, strategic combination of factors, and reducing heavy-weighted dimension impact for better heuristics.
+Simplify computations, reduce loops, balance weight and capacity impact efficiently for better heuristic performance in MO-MKP.
+Simplify calculations, prioritize efficient normalization, and avoid unnecessary operations for better heuristic design.
+Emphasize normalization, avoid unnecessary computations, and adjust weight impact strategically for better heuristics.
+Emphasize effective normalization and strategic factor combination for better heuristic performance.

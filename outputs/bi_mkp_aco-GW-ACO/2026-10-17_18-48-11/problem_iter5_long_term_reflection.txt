@@ -1,0 +1,2 @@
+1. Simplify calculations, prioritize item potential, leverage ratios and weights for efficient and accurate MO-MKP heuristics.
+2. Emphasize simplicity, relevance to objectives, avoid rigid thresholds, and dynamically adapt thresholds for balanced multi-objective optimization.

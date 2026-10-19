@@ -1,0 +1,6 @@
+Normalize calculations per item; leverage ratio over sum for better scalability and accurate promising measure.
+Better heuristic designs focus on relevant ratios and only compute promising factors for non-zero capacities.
+Ensure heuristic rewards high-value solutions and penalizes heavy ones effectively using promising factors.
+Leverage capacity constraints effectively to enhance heuristic quality: consider weight-to-capacity ratios in promising_factor calculation.
+Prioritize minimizing variables' complexity, avoiding unnecessary summing and favoring clarity in code structure and logic.
+Emphasize weight capacity ratio directly for better heuristic, avoid extra calculations, and leverage promising factors.

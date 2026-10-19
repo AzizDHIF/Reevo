@@ -1,0 +1,25 @@
+```c
+double calculate_metric(double *weights, double *capacity, int dimension, int index_item) {
+    double total_weight = 0;
+    for(int j = 0; j < dimension; j++) {
+        total_weight += weights[index_item * dimension + j] / capacity[j];
+    }
+    return total_weight;
+}
+
+double heuristic_v2(int index_item, double *weights, double *capacity, double *profits, int nb_voisinage, int *voisinage) {
+    double metric_score = 0;
+    const double EPSILON = 1e-6;
+    
+    for(int i = 0; i < nb_voisinage; i++) {
+        // Calculate a composed score as a combination of weight and profit factors
+        double weight_metric = calculate_metric(weights, capacity, dimension, voisinage[i]);
+		// Handling edge cases for division by zero
+        double weight_score = weight_metric > EPSILON ? 1.0 / weight_metric : 0.0;
+        double profit_score = profits[voisinage[i]];
+        
+        metric_score += weight_score * profit_score;
+    }
+    return metric_score;
+}
+```

@@ -1,0 +1,6 @@
+- Simplify calculations, reduce loops, and use multiplication for efficiency.
+Consider combining weight and profit metrics more efficiently with variable normalization.
+Prioritize relevant metrics, efficiently compute utility, and consider constraints' impact in heuristic design for MO-MKP.
+Focus on simplicity and direct relevance to objectives; avoid unnecessary calculations and complex ratios.
+Favor compact computations over separate ratios; prioritize compatible objectives, penalize unprofitable items.
+Focus on relevant features, prioritize efficient computations, and consider constraints explicitly to improve heuristics for MO-MKP.

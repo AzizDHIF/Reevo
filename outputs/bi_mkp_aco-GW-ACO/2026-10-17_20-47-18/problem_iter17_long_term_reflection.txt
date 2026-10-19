@@ -1,0 +1,2 @@
+1. Simplify weight adjustments strategically, normalize early, and focus on relevant features for improved performance in MO-MKP.
+2. Separate variables for distinct computations, reduce redundancy, and minimize unnecessary complexity for effective heuristic design.

@@ -1,0 +1,26 @@
+```c
+double heuristic_v2(int index_item, double **weights, double *capacity, int nb_voisinage, int *voisinage, double *profit){
+    double sum_weight = 0;
+    double max_weight = 0;
+    double min_profit = __DBL_MAX__;
+    
+    for(int j=0;j<dimension;j++){
+        sum_weight += weights[j][voisinage[index_item]] / capacity[j];
+        if(weights[j][voisinage[index_item]] > max_weight){
+            max_weight = weights[j][voisinage[index_item]];
+        }
+    }
+
+    for(int i=0;i<nb_voisinage;i++){
+        if(profit[voisinage[i]] < min_profit){
+            min_profit = profit[voisinage[i]];
+        }
+    }
+
+    if(sum_weight == 0){
+        return 0;
+    }
+    
+    return min_profit / (max_weight / sum_weight);
+}
+```

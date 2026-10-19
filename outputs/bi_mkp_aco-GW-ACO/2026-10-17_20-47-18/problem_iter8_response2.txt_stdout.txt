@@ -1,0 +1,10 @@
+[*] Running ...
+[*] Mood: train
+[*] compiling ... 
+Traceback (most recent call last):
+  File "C:\Reevo/problems/bi_mkp_aco/eval.py", line 60, in <module>
+    write_heuristic(os.path.join(WORK_DIR,"gpt.c"),os.path.join(WORK_DIR,"gpt.c"))
+  File "C:\Reevo\utils\utils.py", line 89, in write_heuristic
+    with open(output_c_path, 'w', encoding='utf-8') as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [Errno 13] Permission denied: 'C:\\Reevo\\problems\\bi_mkp_aco\\gpt.c'

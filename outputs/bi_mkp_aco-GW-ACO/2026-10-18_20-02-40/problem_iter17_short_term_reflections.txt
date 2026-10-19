@@ -1,0 +1,6 @@
+Emphasize relative ratios over absolute values in heuristic calculations for MO-MKP.
+Consider incorporating both feasibility and resource usage ratios for more effective heuristics.
+Emphasize both profit and resource usage ratios to improve heuristic accuracy and diversity in sampling solutions.
+Consider incorporating both item weight and remaining capacity in heuristic calculations for improved performance.
+Consider incorporating feasibility in heuristic, normalize weights, and use profit ratio for better decisions.
+Consider incorporating diversity and utilizing both capacity and weight ratios for more informative and effective heuristics.

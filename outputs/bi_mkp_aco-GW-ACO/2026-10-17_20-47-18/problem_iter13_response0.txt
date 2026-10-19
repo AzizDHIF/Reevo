@@ -1,0 +1,21 @@
+```c
+double heuristic_v2(int index_item, double **weights, double *capacity, int nb_voisinage, int *voisinage, double *profit) {
+    double alpha = 0.5; // Adjust weight impact strategically
+    double h = 1e-6; // Initialize h with a small value to avoid division by zero
+    double weight_cap_ratio = 0.0;
+
+    for (int j = 0; j < dimension; j++) {
+        if (capacity[j] > 0) {
+            weight_cap_ratio = weights[j][voisinage[index_item]] / capacity[j]; // Calculate weight-to-capacity ratio directly
+            h += weight_cap_ratio; // Consider weight-to-capacity ratio for efficiency
+        }
+    }
+
+    double normalized_profit = profit[voisinage[index_item]] / h;
+
+    // Normalize profit based on weight impact and balance weight and capacity impact efficiently
+    normalized_profit *= (1.0 - alpha * alpha * alpha * weight_cap_ratio); // Combining factors strategically
+
+    return normalized_profit;
+}
+```

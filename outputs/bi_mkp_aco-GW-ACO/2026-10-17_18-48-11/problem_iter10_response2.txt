@@ -1,0 +1,14 @@
+```c
+double heuristic_v2(int index_item, double **weights, double *capacity, int nb_voisinage, int *voisinage, double *profit) {
+    const double weight_sum = weights[0][voisinage[index_item]] + weights[1][voisinage[index_item]];
+    const double ratio1 = profit[voisinage[index_item]] / weight_sum;
+    
+    double sum_weight_ratio = (weights[0][voisinage[index_item]] / capacity[0]) + (weights[1][voisinage[index_item]] / capacity[1]);
+    
+    if (ratio1 < 0.5 || sum_weight_ratio > 1.5) {
+        return 0;
+    }
+    
+    return 0.7 * ratio1 + 0.3 * sum_weight_ratio;
+}
+```

@@ -1,0 +1,6 @@
+Avoid redundant calculations, normalize weights by capacity, and prioritize item potential over current solution metrics.
+Emphasize simplicity, direct relevance to objectives, and avoid unnecessary thresholds or conditions for better heuristics.
+Simplify computation, focus on relevance, avoid rigid thresholds, optimize by direct formula utilization, and consider capacity constraints.
+Focus on balancing multiple factors, adapt thresholds dynamically, and consider different weightings for objectives.
+Focus on key factors, sparsify unpromising elements, balance objectives with weighted metrics for better heuristic performance.
+Simplify calculations by aggregating computations and avoiding unnecessary divisions or iterations.

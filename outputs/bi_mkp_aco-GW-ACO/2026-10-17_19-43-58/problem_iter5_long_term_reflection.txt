@@ -1,0 +1,1 @@
+Combine weighted factors, normalize inputs efficiently, prioritize profits, penalize unprofitable items, and explicitly consider constraints for enhanced MO-MKP heuristic design.

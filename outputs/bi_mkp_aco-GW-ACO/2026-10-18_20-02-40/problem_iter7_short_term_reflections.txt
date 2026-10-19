@@ -1,0 +1,6 @@
+Prioritize avoiding division by zero and incorporating constraints explicitly for better heuristic design.
+Focus on the most influential features for decision-making and simplify calculations for better performance.
+Avoid unnecessary multiplication and use direct ratios; simplify calculations and reduce number of variables.
+Incorporate total weight and feasibility checks to better assess item inclusion feasibility and impact.
+Use multiple dimensions efficiently and check capacity constraints for improved heuristic quality in MO-MKP.
+Emphasize feasibility and diversification in heuristic design for MO-MKP.

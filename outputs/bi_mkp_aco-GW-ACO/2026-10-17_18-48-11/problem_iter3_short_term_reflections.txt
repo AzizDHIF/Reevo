@@ -1,0 +1,6 @@
+Minimize unnecessary calculations, consider constraints early, and simplify formulas for efficiency.
+Prioritize simplicity, focus on relevant factors, avoid unnecessary computations, and adapt heuristics to problem characteristics.
+Prioritize constraints handling over profit multiplication, simplify calculations, avoid global variables, and improve readability.
+Consider sparsifying: set unlikely promising elements to 0 to efficiently focus on relevant neighbors.
+Consider leveraging sparsifying conditions based on ratios and weights for better heuristic performance.
+Avoid unnecessary computations, leverage direct profit-to-capacity ratio, handle constraints explicitly.

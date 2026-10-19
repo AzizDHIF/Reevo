@@ -1,0 +1,14 @@
+[*] Running ...
+[*] Mood: train
+[*] compiling ... 
+gpt.c: In function 'heuristic':
+gpt.c:15:85: error: expected ']' before ')' token
+   15 | normalized_profit *= (1.0 - alpha * alpha * alpha * weights[0][voisinage[index_item]);
+      |                                                                                     ^
+      |                                                                                     ]
+Traceback (most recent call last):
+  File "C:\Reevo/problems/bi_mkp_aco/eval.py", line 62, in <module>
+    compile(WORK_DIR,"WeightACO.c",f"WeightACO_train_100items_{id_response}.exe")
+  File "C:\Reevo\utils\utils.py", line 101, in compile
+    raise RuntimeError("Erreur de compilation")
+RuntimeError: Erreur de compilation

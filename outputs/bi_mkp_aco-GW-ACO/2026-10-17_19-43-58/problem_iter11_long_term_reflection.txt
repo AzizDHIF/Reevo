@@ -1,0 +1,4 @@
+1. Harmonize weights and profits, integrate capacity constraints.
+2. Focus on trade-offs, incorporate capacity constraints directly.
+3. Balance objectives, simplify calculations, prioritize critical components.
+4. Use consistent ratios, optimize weight-to-capacity ratio efficiently.

@@ -1,0 +1,5 @@
+1. Streamline calculations, prioritize simplicity and efficiency.
+2. Focus on item feasibility impact, balance constraints and objectives.
+3. Optimize termination conditions, emphasize stability and realism.
+4. Simplify by prioritizing essential features like profit-to-weight ratio.
+5. Utilize all information wisely, explore objective interactions effectively.

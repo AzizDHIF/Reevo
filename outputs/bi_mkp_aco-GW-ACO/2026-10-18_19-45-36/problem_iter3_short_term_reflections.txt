@@ -1,0 +1,7 @@
+Avoid unnecessary operations, focus on relevant metrics, and ensure direct relevance to objectives.
+Consolidate calculations, simplify expression, and avoid unnecessary divisions for better heuristic design.
+Avoid unnecessary calculations such as division by weight and small values; focus on relevant variables directly for efficient computation.
+1. Avoid unnecessary calculations, prioritize simplicity, and focus on key factors.
+2. Streamline computations by removing redundant variables and operations.
+Prioritize direct computations over intermediate variables; avoid excessive operations for better efficiency and simplicity.
+Better heuristics focus on ratio patterns, direct calculations, and minimal noisy adjustments for stability.

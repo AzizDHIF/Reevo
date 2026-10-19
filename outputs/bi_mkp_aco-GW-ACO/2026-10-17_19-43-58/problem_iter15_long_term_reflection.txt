@@ -1,0 +1,1 @@
+Normalize inputs, prioritize impactful ratios, and update promising factor calculation efficiently for better MO-MKP heuristics. Emphasize simplicity in logic, leverage capacity constraints effectively, and avoid redundant computations for improved performance.

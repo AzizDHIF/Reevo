@@ -1,0 +1,19 @@
+```c
+double heuristic_v2(int index_item, double **weights, double *capacity, int nb_voisinage, int *voisinage, double *profit) {
+    double alpha = 0.5; // Adjust weight impact strategically
+    double h = 1e-6; // Initialize h with a small value to avoid division by zero
+
+    for (int j = 0; j < dimension; j++) {
+        if (capacity[j] > 0) {
+            h += weights[j][voisinage[index_item]] * (1.0 / capacity[j]); // Combine weight and capacity directly
+        }
+    }
+
+    double normalized_profit = profit[voisinage[index_item]] / h;
+
+    // Reduce emphasis on highly weighted dimensions and normalize early and precisely
+    normalized_profit *= (1.0 - alpha * alpha * alpha * weights[0][voisinage[index_item]]); // Combining factors strategically
+
+    return normalized_profit;
+}
+```

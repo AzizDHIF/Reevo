@@ -1,7 +1,15 @@
 #include "HBACO.h"
-double heuristic(int index_item, double **weights, double *capacity, int nb_voisinage, int *voisinage, double *profit){
-double h=0;
-for(int j=0;j<dimension;j++){
-h=h+weights[j][voisinage[index_item]]/capacity[j];
+double heuristic(int index_item, double **weights, double *capacity, int nb_voisinage, int *voisinage, double *profit) {
+double h = 0;
+double h2 = 0;
+double h3 = 0;
+double promising_factor = 0.5;
+
+for (int j = 0; j < dimension; j++) {
+h += weights[j][voisinage[index_item]] / capacity[j];
+h2 += (capacity[j] - weights[j][voisinage[index_item]]) / capacity[j];
+h3 += (weights[j][voisinage[index_item]] <= capacity[j]) ? 1 : 0;
 }
-return profit[voisinage[index_item]]/h;}
+
+return promising_factor * (profit[voisinage[index_item]] / h) * h2 * h3;
+}

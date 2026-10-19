@@ -1,0 +1,22 @@
+```c
+double heuristic_v2(int index_item, double **weights, double *capacity, int nb_voisinage, int *voisinage, double *profit){
+    double min_weight_ratio = INFINITY;
+    double combined_ratio = 0;
+    
+    for(int j=0; j<dimension; j++){
+        double weight_ratio = weights[j][voisinage[index_item]] / capacity[j];
+        if(weight_ratio < min_weight_ratio){
+            min_weight_ratio = weight_ratio;
+        }
+        combined_ratio += weight_ratio;
+    }
+
+    double normalized_combined_ratio = combined_ratio / dimension;
+
+    if(min_weight_ratio == 0){
+        return 0;
+    } else {
+        return profit[voisinage[index_item]] / (normalized_combined_ratio * min_weight_ratio);
+    }
+}
+```  

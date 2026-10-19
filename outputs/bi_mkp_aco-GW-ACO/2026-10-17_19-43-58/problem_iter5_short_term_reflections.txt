@@ -1,0 +1,6 @@
+Leverage compact calculations using consolidated terms and avoid unnecessary computations or complexities for better heuristics.
+Normalize inputs to improve heuristic performance and reduce sensitivity to scaling inconsistencies.
+Use normalized weights and consider remaining capacity when computing heuristics for improved performance in MO-MKP heuristics.
+Consider overall profit and weighted usage of capacity, penalize unprofitable items in MO-MKP heuristics for better performance.
+Prioritize profit in the heuristic calculation, consider remaining capacity, and balance weight and profit magnitudes efficiently.
+Normalize inputs separately, consider constraints, penalize unprofitable items, tune compatibility factor for MO-MKP heuristics.

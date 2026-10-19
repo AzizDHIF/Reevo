@@ -1,0 +1,11 @@
+```c
+double heuristic_v2(int index_item, double **weights, double *capacity, int nb_voisinage, int *voisinage, double *profit){
+    double factor1 = 0, factor2 = 0;
+    for(int dimension=0; dimension<2; dimension++){
+        factor1 += weights[dimension][voisinage[index_item]] / capacity[dimension];
+    }
+    factor2 = profit[voisinage[index_item]] / (factor1 == 0 ? 1.0 : factor1);
+
+    return factor2 > 0 ? factor2 : 0;
+}
+```

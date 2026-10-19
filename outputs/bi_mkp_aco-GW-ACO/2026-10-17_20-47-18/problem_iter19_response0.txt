@@ -1,0 +1,22 @@
+```c
+double heuristic_v2(int index_item, double **weights, double *capacity, int nb_voisinage, int *voisinage, double *profit) {
+    double alpha = 0.7; // Adjust weight impact strategically
+
+    double h = 1e-6; // Initialize h with a small value to avoid division by zero
+    for (int j = 0; j < dimension; j++) {
+        if (capacity[j] > 0) {
+            h += weights[j][voisinage[index_item]] * (1.0 / capacity[j]); // Combine weight and capacity directly
+        }
+    }
+
+    // Combine various factors to determine how promising it is to select an item
+    double normalized_profit = profit[voisinage[index_item]] / (h + 0.001 * weights[1][voisinage[index_item]]); // Introduce new factor for adjustment
+
+    // Sparse the heuristic by setting unpromising elements to zero
+    if (weights[0][voisinage[index_item]] > 5) {
+        return 0.0;
+    }
+
+    return normalized_profit;
+}
+```

@@ -1,0 +1,1 @@
+Normalize weights, prioritize scarce dimensions, simplify calculations, focus on individual item qualities, emphasize objective-specific normalization, objective proportionality, and relevant dimensions for efficient MO-MKP heuristic design.

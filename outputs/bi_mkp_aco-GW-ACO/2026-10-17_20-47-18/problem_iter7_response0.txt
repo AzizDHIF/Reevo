@@ -1,0 +1,23 @@
+```c
+double heuristic_v2(int index_item, double **weights, double *capacity, int nb_voisinage, int *voisinage, double *profit) {
+    double h = 1e-6; // Initialize h with a small value to avoid division by zero
+    double total_remaining_capacity = 0;
+    
+    for (int j = 0; j < dimension; j++) {
+        if (capacity[j] > 0) {
+            h += weights[j][voisinage[index_item]] * (1.0 / capacity[j]); // Combine weight and capacity directly
+            total_remaining_capacity += capacity[j];
+        }
+    }
+    
+    // Normalize based on remaining total capacity
+    double normalized_h = total_remaining_capacity > 0 ? h / total_remaining_capacity : 0;
+    
+    // Handling cases where all weights are too high relative to the remaining capacity
+    if (normalized_h == 0) {
+        return 0;
+    }
+    
+    return profit[voisinage[index_item]] / normalized_h;
+}
+```

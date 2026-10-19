@@ -1,0 +1,6 @@
+Leverage dimension-based scaling and simplicity; avoid unnecessary terms and sparsification for effective MO-MKP heuristics.
+Focus on key factors, dynamic thresholds, simplify conditions, and standardize variable naming for clarity and efficiency.
+Emphasize simple, effective factors, dynamic thresholds, and avoid unnecessary computations for better heuristic design.
+Emphasize item value-to-weight ratio rather than profit-to-capacity ratio for more effective heuristics.
+Emphasize simplicity, direct relevance to objectives, and efficient utilization of available information.
+Consider incorporating multiple relevant factors and sparsifying unlikely promising elements for improved heuristic performance.

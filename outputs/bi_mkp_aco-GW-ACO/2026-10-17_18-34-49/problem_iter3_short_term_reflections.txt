@@ -1,0 +1,6 @@
+Simplify by focusing on score computation, avoiding unnecessary factors and thresholds for better heuristics.
+Focus on efficient profit/weight ratio calculation, avoid unnecessary computations, and simplify the heuristic formula.
+Consider efficient weight normalization, handling zero weights and profits carefully, and direct profit-weight ratio calculation.
+Prioritize efficient calculations over redundant operations; Focus on relevant factors for robust heuristics.
+Emphasize simplicity, clarify computations, minimize variable assignments, ensure efficiency without unnecessary calculations, adjust weights strategically for problem.
+1. Avoid unnecessary computations and divisions. Focus on key variables directly related to objectives.

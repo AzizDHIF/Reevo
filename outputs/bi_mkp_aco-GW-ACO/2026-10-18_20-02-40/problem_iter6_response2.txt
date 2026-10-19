@@ -1,0 +1,16 @@
+```c
+double heuristic_v2(int index_item, double **weights, double *capacity, int nb_voisinage, int *voisinage, double *profit) {
+    double h = 0;
+    double feasibility_factor = 1;
+    double promising_factor = 0.5;
+
+    for (int j = 0; j < dimension; j++) {
+        h += weights[j][voisinage[index_item]] / capacity[j];
+        feasibility_factor *= (capacity[j] - weights[j][voisinage[index_item]]) / capacity[j];
+    }
+
+    double h2 = (feasibility_factor > 0) ? 1 : 0;
+
+    return promising_factor * (profit[voisinage[index_item]] / h) * feasibility_factor * h2;
+}
+```

@@ -1,0 +1,4 @@
+1. Adapt thresholds dynamically, sparsify unpromising solutions.
+2. Balance objective ratios, leverage context, prioritize simplicity.
+3. Combine factors dynamically, normalize weights, integrate sparsity conditions.
+4. Focus on key factors, trade-offs, aggregated weights, dynamic limits.

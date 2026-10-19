@@ -1,0 +1,6 @@
+Prioritize objective directly, avoid unnecessary computations, simplify and focus on key factors for improvement.
+Balance weight and profit factors, avoid division by zero, prioritize efficiency.
+Avoid unnecessary calculations like division by capacity when computing heuristic values.
+Simplify heuristic calculations by avoiding unnecessary conditional checks and balancing factors for better performance and clarity.
+Balance weight and profit factors, handle zero division elegantly, favor more informative features.
+Simplify heuristics by focusing on key factors like profit ratio over weight ratio for efficiency.

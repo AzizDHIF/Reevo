@@ -1,0 +1,41 @@
+```c
+double heuristic_v2(int index_item, double **weights, double *capacity, int nb_voisinage, int *voisinage, double *profit) {
+    double value = 0;
+
+    // Factor 1: ratio of profit to normalized weight
+    double norm_weight_sum = 0;
+    for (int j = 0; j < dimension; j++) {
+        norm_weight_sum += weights[j][voisinage[index_item]] / capacity[j];
+    }
+    double ratio1 = profit[voisinage[index_item]] / norm_weight_sum;
+
+    // Dynamic balance between factors based on threshold adjustment
+    double w1 = 0.6;
+
+    // Factor 2: sparsity factor based on a combination of weights and profits
+    int sparsity_factor = 0;
+    for (int i = 0; i < nb_voisinage; i++) {
+        double temp_norm_weight_sum = 0;
+        for (int j = 0; j < dimension; j++) {
+            temp_norm_weight_sum += weights[j][voisinage[i]] / capacity[j];
+        }
+
+        if (profit[voisinage[i]] / temp_norm_weight_sum < 0.3) {
+            sparsity_factor++;
+        }
+    }
+    double w2 = 0.4;
+
+    // Dynamic threshold adjustment based sparsity factor
+    double threshold_sparsity = 0.5;
+
+    // Sparsifying: Setting unlikely promising elements to zero
+    if (sparsity_factor > threshold_sparsity) {
+        return 0;
+    }
+
+    value = w1 * ratio1 + w2 * sparsity_factor;
+
+    return value;
+}
+```

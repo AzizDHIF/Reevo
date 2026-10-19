@@ -1,0 +1,32 @@
+```c
+double heuristic_v2(int index_item, double **weights, double *capacity, int nb_voisinage, int *voisinage, double *profit) 
+{
+    double value = 0;
+    
+    // Factor 1: ratio of profit to normalized weight
+    double weight_sum = 0;
+    for (int j = 0; j < dimension; j++) {
+        weight_sum += weights[j][voisinage[index_item]] / capacity[j];
+    }
+    double ratio1 = profit[voisinage[index_item]] / weight_sum;
+    
+    // Dynamic balance between factors based on threshold adjustment
+    double w1 = 0.5 + 0.2 * (1 - (double)nb_voisinage / NBITEMS);
+    
+    // Factor 2: sum of normalized weights ratio to dimension
+    double sum_weight_ratio = 0;
+    for (int j = 0; j < dimension; j++) {
+        sum_weight_ratio += weights[j][voisinage[index_item]] / capacity[j] / dimension;
+    }
+    double w2 = 1 - w1;
+    
+    // Sparsifying: Setting unlikely promising elements to zero
+    if (ratio1 < 0.1 || sum_weight_ratio > 0.8) {
+        return 0;
+    }
+    
+    value = w1 * ratio1 + w2 * sum_weight_ratio;
+    
+    return value;
+}
+```

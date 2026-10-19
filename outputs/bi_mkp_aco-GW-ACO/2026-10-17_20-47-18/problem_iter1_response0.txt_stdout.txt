@@ -1,0 +1,13 @@
+[*] Running ...
+[*] Mood: train
+[*] compiling ... 
+gpt.c: In function 'heuristic':
+gpt.c:25:39: error: type mismatch in conditional expression
+   25 | h = (h + 1 / (w_min >= w_min2 ? w_min : max)) / d;
+      |                                       ^
+Traceback (most recent call last):
+  File "C:\Reevo/problems/bi_mkp_aco/eval.py", line 62, in <module>
+    compile(WORK_DIR,"WeightACO.c",f"WeightACO_train_100items_{id_response}.exe")
+  File "C:\Reevo\utils\utils.py", line 101, in compile
+    raise RuntimeError("Erreur de compilation")
+RuntimeError: Erreur de compilation

@@ -1,0 +1,3 @@
+1. Ensure robustness by addressing edge cases like division by zero and explicit constraint handling.
+2. Simplify decision-making by focusing on key features and using direct ratios to streamline calculations.
+3. Enhance feasibility assessment with total weight and diversification checks for improved heuristic performance in MO-MKP.

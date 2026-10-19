@@ -1,0 +1,6 @@
+Avoid redundant computations, normalize values before comparing, prioritize mathematical operations over accessing array elements.
+Normalize inputs, use separate loops for distinct calculations, prioritize key ratios for better heuristics.
+Normalize input values and consider updating the promising factor calculation to improve the heuristic function.
+Emphasize normalized values, consider only relevant dimensions, and adjust promising factor calculation efficiently for better performance.
+Inline computation for normalization can improve code readability and maintainability.
+Normalize weights and profit sums by dimension, focus on promising factors instead of direct ratios.

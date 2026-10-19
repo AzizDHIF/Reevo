@@ -1,0 +1,15 @@
+```c
+double heuristic_v2(int index_item, double **weights, double *capacity, int nb_voisinage, int *voisinage, double *profit) {
+    double profit_weight_ratio = profit[voisinage[index_item]] / capacity[0];
+    double h = 0;
+    
+    // Calculate the sum of normalized weights for the item
+    for (int j = 0; j < dimension; j++) {
+        if (weights[j][voisinage[index_item]] != 0) {
+            h += 1 / weights[j][voisinage[index_item]]; // Normalize the weight by setting non-zero values to unity
+        }
+    }
+    
+    return profit_weight_ratio * h;
+}
+```

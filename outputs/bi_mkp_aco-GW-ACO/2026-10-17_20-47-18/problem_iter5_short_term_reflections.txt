@@ -1,0 +1,6 @@
+Normalize weights by capacity to prioritize scarce dimensions. Adjust update threshold for efficiency gains.
+Emphasize simplicity, avoid unnecessary calculations, and focus on relevant features to enhance heuristic efficiency.
+Prefer objective-specific normalization over combined weights and profits for better heuristic performance.
+Focus on individual item qualities, not summing weights, for better sampling efficiency in MO-MKP heuristics.
+Emphasize objective proportionality over fixed weights and profits to enhance heuristic effectiveness in MO-MKP.
+Consider focusing on relevant dimensions directly affecting objective functions for better heuristic design.

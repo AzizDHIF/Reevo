@@ -1,0 +1,20 @@
+```c
+double heuristic_v2(int index_item, double **weights, double *capacity, int nb_voisinage, int *voisinage, double *profit){
+    double h=0, avg_weight=0, sum_weight=0, max_weight=0;
+    
+    // LLM constraints: O(dimension) only, no loops over NBITEMS, no sorting, no dynamic allocation, no recursion
+    
+    for(int j=0; j<dimension; j++){
+        h += weights[j][voisinage[index_item]] / capacity[j];
+        avg_weight += weights[j][voisinage[index_item]];
+        sum_weight += weights[j][voisinage[index_item]] * weights[j][voisinage[index_item]];
+        max_weight = max(max_weight, weights[j][voisinage[index_item]]);
+    }
+    
+    if(sum_weight < 0.5 * max_weight * max_weight){
+        return 0.0; // Set unpromising elements to zero
+    }
+    
+    return profit[voisinage[index_item]] / h + avg_weight - max_weight;
+}
+```

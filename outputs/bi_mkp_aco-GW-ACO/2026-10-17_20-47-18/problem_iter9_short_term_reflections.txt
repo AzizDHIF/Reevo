@@ -1,0 +1,6 @@
+1. Adjust normalization and weight impact carefully for improved heuristic performance.
+Avoid unnecessary variable declarations and utilize direct calculations to improve heuristic efficiency and readability.
+Avoid division by zero, directly combine weight and capacity, and initialize with small non-zero values.
+Consider avoiding exponential growth or collapse and using safer initialization for better heuristic designs.
+Leverage a small initial value, balance weight-capacity ratio, and avoid unnecessary early terminations for robust heuristics.
+Combine weight and capacity directly, initialize with small non-zero value, avoid division by zero pitfalls.

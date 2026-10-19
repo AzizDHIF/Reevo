@@ -1,0 +1,6 @@
+Consider using aggregated feature values, normalized metrics, and incorporating promising factors for improved heuristics.
+Avoid unnecessary computations, focus on relevant data, and consider the capacity constraints to design better heuristics.
+Consider simplifying and amplifying the promising factor calculation for better heuristic performance.
+Use more descriptive variable names, improve readability, and keep calculations consistent across dimensions for better performance.
+Normalize variables, avoid redundant computations, simplify expressions by combining terms, focus on relevant features.
+Avoid unnecessary variable declarations outside the loop, use local variables within the loop for efficiency and clarity.

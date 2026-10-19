@@ -1,0 +1,1 @@
+Prioritize simple, direct weight-to-capacity ratios and strategic normalization in MO-MKP heuristics. Emphasize efficient computation, weighted dimensions, and minimizing unnecessary complexity for effective design.

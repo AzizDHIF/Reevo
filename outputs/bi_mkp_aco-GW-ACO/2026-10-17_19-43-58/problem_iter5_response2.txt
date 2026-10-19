@@ -1,0 +1,25 @@
+```c
+double heuristic_v2(int index_item, double **weights, double *capacity, int nb_voisinage, int *voisinage, double *profit) {
+    double weight_sum = 0, profit_sum = 0, profit_max = 0, weight_max = 0;
+
+    for (int j = 0; j < dimension; j++) {
+        weight_sum += weights[j][voisinage[index_item]];
+        profit_sum += profit[voisinage[index_item]];
+
+        if (weights[j][voisinage[index_item]] > weight_max) {
+            weight_max = weights[j][voisinage[index_item]];
+        }
+        if (profit[voisinage[index_item]] > profit_max) {
+            profit_max = profit[voisinage[index_item]];
+        }
+    }
+
+    double weight_norm = weight_sum / dimension;
+    double profit_norm = profit_sum / dimension;
+
+    double normalized_weight = weight_max > 0 ? weight_max / weight_sum : 0;
+    double normalized_profit = profit_max > 0 ? profit_max / profit_sum : 0;
+
+    return normalized_profit - normalized_weight;
+}
+```

@@ -1,0 +1,4 @@
+1. Normalize calculations per item, prioritize relevant ratios.
+2. Focus on impactful factors, penalize heavy solutions effectively.
+3. Emphasize weight-to-capacity ratios, simplify logic for clarity.
+4. Leverage capacity constraints efficiently, optimize promising factors with ratio approach.

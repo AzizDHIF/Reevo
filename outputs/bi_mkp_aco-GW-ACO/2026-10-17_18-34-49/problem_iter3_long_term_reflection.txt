@@ -1,0 +1,3 @@
+- Simplify heuristics by focusing on key factors for item selection.
+- Optimize profit/weight ratio calculation for efficiency.
+- Normalize weights effectively and handle zero values thoughtfully.

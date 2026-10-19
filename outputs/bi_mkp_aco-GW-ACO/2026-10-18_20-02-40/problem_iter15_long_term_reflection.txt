@@ -1,0 +1,1 @@
+Prioritize simplicity, efficiency, and diverse factors in heuristic design for MO-MKP. Focus on streamlined feasibility, normalized weight, profit ratio, and efficient computation, while minimizing complexity and duplications. Optimize balance and accuracy through relevant, essential calculations.

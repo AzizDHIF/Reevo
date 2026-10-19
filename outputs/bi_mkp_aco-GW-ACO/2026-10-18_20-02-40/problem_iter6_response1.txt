@@ -1,0 +1,13 @@
+```c
+double heuristic_v2(int index_item, double **weights, double *capacity, int nb_voisinage, int *voisinage, double *profit) {
+    double weight_sum = weights[0][voisinage[index_item]] + weights[1][voisinage[index_item]];
+    
+    if (weight_sum == 0) {
+        return 0;
+    }
+    
+    double h = profit[voisinage[index_item]] / weight_sum;
+    
+    return h;
+}
+```

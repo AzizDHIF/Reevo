@@ -1,0 +1,1 @@
+1. Prioritize robustness, simplify computations, and incorporate feasibility and scalability for efficient and effective heuristics in MO-MKP.

@@ -1,0 +1,23 @@
+```c
+#include <math.h>
+
+double heuristic_v2(int index_item, double **weights, double *capacity, int nb_voisinage, int *voisinage, double *profit){
+    double h=0;
+    int non_zero_count=0;
+    for(int j=0;j<dimension;j++){
+        h += weights[j][voisinage[index_item]] / capacity[j]; 
+        if (weights[j][voisinage[index_item]] != 0) non_zero_count++;
+		}
+    double density_factor = (double)non_zero_count / dimension;
+    double variability_factor = 1;
+    if (dimension > 1) {
+        double sum_squared_deviation=0;
+        for(int j=0;j<dimension;j++){
+            sum_squared_deviation += pow((weights[j][voisinage[index_item]] - h), 2);
+        }        
+        variability_factor = sqrt(sum_squared_deviation) / dimension;
+    }
+    if (non_zero_count == 0) return 0.0;
+    return profit[voisinage[index_item]] / (density_factor * variability_factor);
+}
+```

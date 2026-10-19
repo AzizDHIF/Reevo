@@ -1,0 +1,6 @@
+Focus on capturing the trade-off between objectives efficiently and accurately for better heuristic performance.
+Consider incorporating the capacity constraint directly into the heuristic calculation for better performance.
+Increase emphasis on balancing objectives and consider how factors relate to promising solutions.
+Normalize loops calculations, simplify computation, prioritize optimization of critical components over minor ones.
+1. Use consistent ratio calculations for better performance in MO-MKP.
+Emphasize weight-to-capacity ratio and minimize redundant computations for more efficient heuristic design.

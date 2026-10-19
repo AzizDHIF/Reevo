@@ -1,0 +1,19 @@
+```c
+double heuristic_v2(int index_item, double **weights, double *capacity, int nb_voisinage, int *voisinage, double *profit) {
+    double h = 1e-6; // Initialize h with a small value to avoid division by zero
+    for (int j = 0; j < dimension; j++) {
+        if (capacity[j] > 0) {
+            h += weights[j][voisinage[index_item]]; // Combine weight directly without division by capacity
+        }
+    }
+
+    double normalized_profit = profit[voisinage[index_item]] / h;
+
+    // Sparsify by setting unpromising elements to zero
+    if (h <= 1e-6) {
+        normalized_profit = 0.0;
+    }
+
+    return normalized_profit;
+}
+```

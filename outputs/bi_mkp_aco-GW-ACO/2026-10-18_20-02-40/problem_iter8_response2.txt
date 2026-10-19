@@ -1,0 +1,28 @@
+```c
+double heuristic_v2(int index_item, double **weights, double *capacity, int nb_voisinage, int *voisinage, double *profit) {
+    double promising_factor = 0.5;
+    double h = 0;
+
+    for (int j = 0; j < dimension; j++) {
+        double w_item = weights[j][voisinage[index_item]];
+        h += w_item / capacity[j];
+        if (w_item > capacity[j]) {
+            return 0; // Early termination if capacity constraint violated
+        }
+    }
+
+    if (dimension == 0 || h == 0) {
+        return 0; // If dimension is 0 or h is 0, return 0
+    }
+
+    double h2 = 1;
+    double h3 = 1;
+
+    for (int j = 0; j < dimension; j++) {
+        h2 *= (capacity[j] - weights[j][voisinage[index_item]]);
+        h3 *= (weights[j][voisinage[index_item]] <= capacity[j]) ? 1 : 0;
+    }
+
+    return promising_factor * (profit[voisinage[index_item]] / h) * h2 * h3;
+}
+```

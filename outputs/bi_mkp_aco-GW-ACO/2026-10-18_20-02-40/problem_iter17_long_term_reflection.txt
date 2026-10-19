@@ -1,0 +1,1 @@
+Focus on relative ratios, feasibility, profit, weight normalization, and efficient calculations. Incorporate diverse factors such as remaining capacity, resource usage ratios, and profit ratio for balanced and accurate solutions in MO-MKP heuristics.

@@ -1,0 +1,39 @@
+```c
+double heuristic_v2(int index_item, double **weights, double *capacity, int nb_voisinage, int *voisinage, double *profit){
+    double heuristics[nb_voisinage];
+    double total_weight = 0;
+    
+    for(int j=0; j<dimension; j++){
+        total_weight += weights[j][voisinage[index_item]]/capacity[j];
+    }
+    if (total_weight == 0){
+        return 0;
+    }
+    
+    double max_profit = 0;
+    for(int i=0; i<nb_voisinage; i++){
+        double weight_sum = 0;
+        for(int j=0; j<dimension; j++){
+            weight_sum += weights[j][voisinage[i]] / capacity[j];
+        }
+        if (weight_sum == 0){
+            heuristics[i] = 0;
+        } else {
+            heuristics[i] = profit[voisinage[i]] / weight_sum;
+            if (profit[voisinage[i]] > max_profit){
+                max_profit = profit[voisinage[i]];
+            }
+        }
+    }
+    
+    double threshold = max_profit * 0.5; 
+    double h_sum = 0;
+    for(int i=0; i<nb_voisinage; i++){
+        if (heuristics[i] >= threshold){
+            h_sum += heuristics[i];
+        }
+    }
+    
+    return h_sum;
+}
+```  

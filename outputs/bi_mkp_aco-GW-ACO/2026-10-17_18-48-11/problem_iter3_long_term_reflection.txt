@@ -1,0 +1,1 @@
+1. Simplify calculations, prioritize constraints handling, leverage sparsifying based on ratios, weights, and profit-to-capacity for better heuristic efficiency and accuracy in MO-MKP.

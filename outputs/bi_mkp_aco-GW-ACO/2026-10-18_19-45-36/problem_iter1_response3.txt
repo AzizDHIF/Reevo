@@ -1,0 +1,24 @@
+```c
+#include <math.h>
+
+double heuristic_v2(int index_item, double **weights, double *capacity, int nb_voisinage, int *voisinage, double *profit){
+    double overlap = 0;
+    for(int j = 0; j < dimension; j++){
+        overlap += weights[j][voisinage[index_item]] / capacity[j];
+    }
+    
+    double balance = 0;
+    for(int i = 0; i < dimension; i++){
+        double min_factor = INFINITY;
+        for(int k=0; k < nb_voisinage; k++){
+            double factor = weights[j][voisinage[k]] / capacity[j];
+            if(factor < min_factor) {
+                min_factor = factor;
+            }
+        }
+        balance += (weights[i][voisinage[index_item]]/capacity[i]) - min_factor;
+    }
+
+    return profit[voisinage[index_item]] / (1 + pow(overlap, 2) + balance);
+}
+```

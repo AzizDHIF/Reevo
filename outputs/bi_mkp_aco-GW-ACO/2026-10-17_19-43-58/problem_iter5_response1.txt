@@ -1,0 +1,25 @@
+```c
+double heuristic_v2(int index_item, double **weights, double *capacity, int nb_voisinage, int *voisinage, double *profit) {
+    double profit_threshold = 0.5; // Adjust this threshold as needed
+    double weight_factor = 0.3; // Adjust this weight factor as needed
+    double profit_factor = 0.7; // Adjust this profit factor as needed
+
+    double weight_sum = 0, profit_sum = 0;
+    for (int j = 0; j < dimension; j++) {
+        weight_sum += weights[j][voisinage[index_item]];
+        profit_sum += profit[voisinage[index_item]];
+    }
+
+    double weight_norm = weight_sum / dimension;
+    double profit_norm = profit_sum / dimension;
+
+    double weight_contribution = weight_factor * weight_norm;
+    double profit_contribution = profit_factor * profit_norm;
+
+    if (profit_contribution < profit_threshold) {
+        return 0;
+    }
+
+    return profit_contribution / (1 + weight_contribution);
+}
+```

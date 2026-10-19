@@ -1,0 +1,6 @@
+Focus on efficient feasibility checks and avoid unnecessary complexity, prioritize simplicity over intricate calculations.
+Focus on simplicity, avoid unnecessary variables, logical simplifications, and consider the underlying problem structure.
+Focus on clarity, reduce redundant computations, combine factors efficiently, and ensure feasibility constraints are properly accounted for.
+Emphasize division instead of multiplication, simplify computation, and focus on relevant factors for better performance.
+Simplify calculations, avoid unnecessary variables, and prioritize directly relevant computations for better heuristic performance.
+Simplify heuristic calculation by focusing on essential factors and early pruning of unpromising candidates.

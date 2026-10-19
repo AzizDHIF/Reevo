@@ -1,0 +1,7 @@
+1. Combine weight and capacity directly for efficiency.
+2. Adjust weight impact to improve performance.
+Emphasize balancing objective and capacity influences in heuristics, adjust weights strategically to improve performance.
+Normalize early, prioritize division precision, and simplify calculations for more effective heuristics (LLM: O(dimension)).
+Prioritize better variable naming, avoid unnecessary initializations, and simplify calculations for efficiency.
+Prioritize direct weight-to-capacity ratio over complex objective normalization in heuristic design.
+Combine weight and capacity directly for efficiency; avoid unnecessary intermediate calculations and checks.

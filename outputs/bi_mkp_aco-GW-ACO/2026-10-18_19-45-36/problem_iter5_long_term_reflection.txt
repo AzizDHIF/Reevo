@@ -1,0 +1,1 @@
+- Combine key factors judiciously, prioritize direct relevance, leverage precomputed data, focus on ratios, avoid redundancies, simplify calculations for efficient and stable MO-MKP heuristics.

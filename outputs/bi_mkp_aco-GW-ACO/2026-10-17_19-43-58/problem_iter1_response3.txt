@@ -1,0 +1,17 @@
+```c
+double heuristic_v2(int index_item, double **weights, double *capacity, int nb_voisinage, int *voisinage, double *profit){
+    double h=0;
+    double compatibility = 0.5;
+    for(int j=0;j<dimension;j++){
+		h += weights[j][voisinage[index_item]] / capacity[j]; 
+	}
+	// Consider both weight constraint and profit
+	double promising_factor = (capacity[0] - weights[0][voisinage[index_item]]) * profit[voisinage[index_item]] / h;
+	// Penalize unprofitable items
+	if(profit[voisinage[index_item]] < 0) {
+		promising_factor = 0;
+	}
+	// Adjust based on pre-defined compatibility
+	return compatibility * promising_factor;
+}
+```

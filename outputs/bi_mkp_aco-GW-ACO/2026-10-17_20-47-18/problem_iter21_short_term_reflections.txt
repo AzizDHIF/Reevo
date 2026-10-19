@@ -1,0 +1,7 @@
+Emphasize direct and efficient computation, consider strategic weight adjustments, and prioritize precise normalization early in heuristics.
+Consider using weighted dimensions uniformly for normalization and emphasize summing weights divided by capacity.
+Emphasize direct weight-capacity relationship with strategic normalization and less complex formulas for better heuristics.
+Emphasize direct weight-to-capacity ratio usage, avoid unnecessary calculations, reduce complexity, normalize early and strategically.
+Minimize unnecessary calculations, prioritize direct dependencies, and selectively adjust weighting factors for heuristic design efficiency.
+Balance weight and capacity influences, normalize early, adjust alpha strategically.
+
